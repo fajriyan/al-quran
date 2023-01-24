@@ -25,11 +25,11 @@ Kalian bisa melakukan pengaksesan website secara online [disini](https://al-qura
 Cara kedua bisa digunakan apabila ingin melakukan run dengan `offline` dengan langsung melakukan download project [disini](https://github.com/fajriyan/al-quran.git).
 
 ## Screenshot
-### 🏠 Homepage 
+- 🏠 Homepage 
 ![image](https://user-images.githubusercontent.com/56616688/211449390-3b0c71ad-6f5e-4c00-941b-5be23a2027b5.png)
-### 📃 Single Page
+- 📃 Single Page
 ![image](https://user-images.githubusercontent.com/56616688/211449489-24447f80-d9fb-4d29-abb3-ee705f5e14b2.png)
-### 📎 About 
+- 📎 About 
 ![image](https://user-images.githubusercontent.com/56616688/211449549-d3d5507e-ff70-4dd5-a745-8ec231326269.png)
 
 ## Support
