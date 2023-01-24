@@ -20,7 +20,7 @@ Untuk menjalankan project ini kalian bisa melakukan dengan 2 cara, sebagai berik
 Kalian bisa melakukan pengaksesan website secara online [disini](https://al-quran.pages.dev/). \
 
 
-### `Download Project`
+### `Download Project (Run Offline)`
 
 Cara kedua bisa digunakan apabila ingin melakukan run dengan `offline` dengan langsung melakukan download project [disini](https://github.com/fajriyan/al-quran.git).
 
