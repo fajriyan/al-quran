@@ -1,6 +1,6 @@
 # #1 Project Qur'an 📖
 
-Project ini merupakan salah satu portofolio saya dibidang Front-End Developer dengan tujuan awal untuk dapat melakukan "copy" ayat Al Quran dengan mudah. Pada project ini saya menggunakan bahasa pemrograman Javascript dengan menggunakan Library ✨React JS dengan bantuan 🌉API Public yang disediakan
+Project ini merupakan salah satu portofolio saya dibidang Front-End Developer dengan tujuan awal untuk dapat melakukan "copy" ayat Al Quran dengan mudah. Pada project ini saya menggunakan bahasa pemrograman Javascript dengan menggunakan Library ✨React JS dengan bantuan 🌉API Public yang milik EQuran.id.
 
 [![Build](https://img.shields.io/github/followers/fajriyan?label=Follow%20Me&style=social)](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Ffajriyan)
 [![Badges](https://img.shields.io/github/stars/fajriyan/al-quran?style=social)]()
