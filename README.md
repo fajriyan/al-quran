@@ -34,3 +34,6 @@ Cara kedua bisa digunakan apabila ingin melakukan run dengan `offline` dengan la
 
 ## Support
 Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh karena itu saya menyampaikan banyak 🙏Terimakasih kepada semua pihak yang sudah mendukung project ini sampai live. Berikut beberapa pihak yang telah membantu dapat dilihat [disini](https://al-quran.pages.dev/about/)
+
+## Issue Report
+📢[Report Issue Here](https://github.com/fajriyan/al-quran/issues/new)
