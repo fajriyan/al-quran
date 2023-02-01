@@ -47,6 +47,7 @@ const About = () => {
                   <a
                     href="http://linkedin.com/in/fajriyan/"
                     target="_blank"
+                    rel="noreferrer"
                     className="btn btn-outline ml-3"
                   >
                     Hubungi saya
@@ -79,6 +80,7 @@ const About = () => {
                     href="https://reactjs.org/"
                     className="btn btn-sm"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     reactjs.org
                   </a>
@@ -102,6 +104,7 @@ const About = () => {
                     href="https://www.cloudflare.com/"
                     className="btn btn-sm"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     cloudflare
                   </a>
@@ -127,6 +130,7 @@ const About = () => {
                     href="https://tailwindcss.com/"
                     className="btn btn-sm"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     tailwindcss
                   </a>
@@ -149,6 +153,7 @@ const About = () => {
                   <a
                     href="https://daisyui.com/"
                     target="_blank"
+                    rel="noreferrer"
                     className="btn btn-sm"
                   >
                     daisyui
@@ -173,6 +178,7 @@ const About = () => {
                     href="https://equran.id/apidev"
                     className="btn btn-sm"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     equran.id
                   </a>
@@ -195,6 +201,7 @@ const About = () => {
                     href="https://lajnah.kemenag.go.id/unduhan/category/1-keputusan-menteri-agama.html"
                     className="btn btn-sm"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     kemenag
                   </a>

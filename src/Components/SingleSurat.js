@@ -48,7 +48,7 @@ const SingleSurat = () => {
               onChange={(f1) => setFont1(f1.target.value)}
             >
               <option value="20">Small</option>
-              <option value="30" selected>
+              <option value="30" defaultValue>
                 Default
               </option>
               <option value="40">Large</option>
@@ -64,7 +64,7 @@ const SingleSurat = () => {
               onChange={(f2) => setFont2(f2.target.value)}
             >
               <option value="16">Small</option>
-              <option value="18" selected>
+              <option value="18" defaultValue>
                 Default
               </option>
               <option value="22">Large</option>
@@ -101,6 +101,7 @@ const SingleSurat = () => {
         {Loading ? (
           dataSingleSurat.map((single) => (
             <div
+              key={single.nomor}
               className="flex flex-wrap justify-end border-b-[1px] border-slate-300 py-14"
               id={single.nomor}
             >
