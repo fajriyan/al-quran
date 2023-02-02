@@ -24,7 +24,8 @@ const SingleSurat = () => {
 
   useEffect(() => {
     getAPIsinglesurat();
-  });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <>
