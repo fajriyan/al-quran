@@ -17,7 +17,7 @@ Untuk menjalankan project ini kalian bisa melakukan dengan 2 cara, sebagai berik
 
 ### `Access Here (Online)`
 
-Kalian bisa melakukan pengaksesan website secara online [disini](https://al-quran.pages.dev/). \
+Kalian bisa melakukan pengaksesan website secara online [disini](https://al-quran.pages.dev/).
 
 
 ### `Download Project (Run Offline)`
