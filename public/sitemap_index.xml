@@ -6,7 +6,24 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
   <loc>https://al-quran.pages.dev/</loc>
-  <lastmod>2023-02-25T15:16:18+00:00</lastmod>
+</url>
+<url>
+  <loc>https://al-quran.pages.dev/surat/1</loc>
+</url>
+<url>
+  <loc>https://al-quran.pages.dev/surat/2</loc>
+</url>
+<url>
+  <loc>https://al-quran.pages.dev/surat/3</loc>
+</url>
+<url>
+  <loc>https://al-quran.pages.dev/surat/4</loc>
+</url>
+<url>
+  <loc>https://al-quran.pages.dev/surat/5</loc>
+</url>
+<url>
+  <loc>https://al-quran.pages.dev/about</loc>
 </url>
 
 
