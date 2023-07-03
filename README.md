@@ -22,7 +22,9 @@ Kalian bisa melakukan pengaksesan website secara online [disini](https://github.
 
 ### `Download Project (Run Offline)`
 
-Cara kedua bisa digunakan apabila ingin melakukan run dengan `offline` dengan langsung melakukan download project [disini](https://github.com/fajriyan/al-quran.git).
+1. Cara kedua bisa digunakan apabila ingin melakukan run dengan `offline` dengan langsung melakukan [download project](https://github.com/fajriyan/al-quran.git).
+2. Jalankan fungsi `npm i` untuk install dependensi yang dibutuhkan.
+3. Kalian buka dengan vscode dan buka jalankan command `npm start`.
 
 ## Screenshot
 - 🏠 Homepage 
