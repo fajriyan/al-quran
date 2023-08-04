@@ -47,7 +47,9 @@ const Quran = () => {
               </div>
               <input
                 type="text"
-                onChange={(e) => setQuerySearch(e.target.value)}
+                onChange={(e) =>
+                  setQuerySearch(e.target.value.replace(" ", "-"))
+                }
                 placeholder="🔎 Cari surat Al Qur'an disini"
                 className="input text-slate-600 capitalize font-serif border-white w-full focus:ring-4 focus:ring-blue-400"
               />
@@ -81,7 +83,7 @@ const Quran = () => {
                       className="card-title mb-0 font-serif"
                       key={s.nama_latin}
                     >
-                      {s.nama_latin}
+                      {s.nama_latin.replace("-", " ")}
                     </h2>
                     <p className="text-left font-serif -mt-[20px]">
                       {s.arti} |{" "}
