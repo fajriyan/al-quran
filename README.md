@@ -37,5 +37,8 @@ Kalian bisa melakukan pengaksesan website secara online [disini](https://github.
 ## Support
 Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh karena itu saya menyampaikan banyak 🙏Terimakasih kepada semua pihak yang sudah mendukung project ini sampai live. Berikut beberapa pihak yang telah membantu dapat dilihat [disini](https://al-quran.pages.dev/about/)
 
+## Latest Issue
+- [x] Fix Search Error with Space 
+
 ## Issue Report
 📢[Report Issue Here](https://github.com/fajriyan/al-quran/issues/new)
