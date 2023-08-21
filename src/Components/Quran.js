@@ -55,7 +55,11 @@ const Quran = () => {
               />
               <span className="label-text-alt text-white px-2 py-1">
                 Hasil pencarian tentang :{" "}
-                <b className="capitalize font-serif">{querySearch}</b>
+                {querySearch ? (
+                  <b className="capitalize font-serif">{querySearch}</b>
+                ) : (
+                  <b>Nama Surat</b>
+                )}
               </span>
             </div>
           </div>
@@ -65,6 +69,7 @@ const Quran = () => {
       <div className=" grid grid-cols-1 gap-4 px-3 lg:grid-cols-3 lg:gap-4 sm:grid-cols-2 sm:gap-4 container mx-auto mb-14">
         {Loading
           ? dataSurat
+              // eslint-disable-next-line array-callback-return
               .filter((QF) => {
                 if (!querySearch) {
                   return QF;

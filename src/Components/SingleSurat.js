@@ -11,6 +11,7 @@ const SingleSurat = () => {
   const [decSurat, setDec] = useState([]);
   const [font1, setFont1] = useState("30");
   const [font2, setFont2] = useState("18");
+  // const [displayAr, setDisplayAr] = useState("");
 
   const getAPIsinglesurat = async () => {
     const ResponAPI2 = await fetch(
@@ -25,6 +26,7 @@ const SingleSurat = () => {
   useEffect(() => {
     getAPIsinglesurat();
     window.scrollTo({ top: 0, behavior: "smooth" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -49,7 +51,7 @@ const SingleSurat = () => {
               onChange={(f1) => setFont1(f1.target.value)}
             >
               <option value="20">Small</option>
-              <option value="30" defaultValue>
+              <option value="30" defaultValue selected>
                 Default
               </option>
               <option value="40">Large</option>
@@ -65,7 +67,7 @@ const SingleSurat = () => {
               onChange={(f2) => setFont2(f2.target.value)}
             >
               <option value="16">Small</option>
-              <option value="18" defaultValue>
+              <option value="18" defaultValue selected>
                 Default
               </option>
               <option value="22">Large</option>
@@ -133,12 +135,12 @@ const SingleSurat = () => {
                   >
                     <li>
                       <CopyToClipboard text={single.ar}>
-                        <a className="p-0 px-1">Copy Arab</a>
+                        <span className="p-0 px-1">Copy Arab</span>
                       </CopyToClipboard>
                     </li>
                     <li>
                       <CopyToClipboard text={single.idn}>
-                        <a className="p-0 px-1">Copy Indo</a>
+                        <span className="p-0 px-1">Copy Indo</span>
                       </CopyToClipboard>
                     </li>
                   </ul>
@@ -185,6 +187,7 @@ const SingleSurat = () => {
                   {decSurat.surat_sebelumnya?.nama_latin}
                 </a>
               );
+              // eslint-disable-next-line eqeqeq
             } else if (decSurat.surat_sebelumnya == false) {
               return <div></div>;
             }
