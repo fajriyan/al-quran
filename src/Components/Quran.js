@@ -32,10 +32,14 @@ const Quran = () => {
           <div className="hero-overlay bg-opacity-60 py-10 px-5 rounded-xl lg:rounded-xl text-white">
             <div className="md:w-[70%] mx-auto">
               <div className="w-full">
-                <h1 className="text-5xl mb-3 lg:text-5xl sm:text-md font-bold">
+                <span className="text-5xl mb-3 lg:text-5xl sm:text-md font-bold">
                   Al Qur'an
+                </span>
+                <h1 className="hidden">
+                  Al quran Online | Baca Quran Praktis Tanpa Install Aplikasi
                 </h1>
-                <p className="mb-5">
+
+                <p className="mb-5 mt-2">
                   Diriwayatkan dari Abu Umamah al-Bahili, Rasulullah SAW
                   bersabda, "Bacalah Alquran, maka sesungguhnya ia akan datang
                   di hari kiamat memberi syafaat kepada pembacanya". 📌More

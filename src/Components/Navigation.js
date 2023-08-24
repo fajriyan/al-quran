@@ -23,7 +23,10 @@ const Navigation = (props) => {
           {props.loadP ? (
             <>
               <div className="ml-2 md:ml-7 nunito text-xl">
-                <h1 className="-mb-2 font-bold">{props.suratP}</h1>
+                <h1 className="hidden">
+                  Al quran Online | Baca Quran Praktis Tanpa Install Aplikasi
+                </h1>
+                <h2 className="-mb-2 font-bold">{props.suratP}</h2>
                 <span className="label-text-alt text-slate-500 capitalize">
                   {props.artiP} | {props.jumlahP} | {props.turunP}
                 </span>

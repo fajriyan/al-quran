@@ -90,10 +90,10 @@ const SingleSurat = () => {
               >
                 ✕
               </label>
-              <h3 className="text-lg font-bold">
+              <h2 className="text-lg font-bold">
                 Deskripsi Surat {decSurat.nama_latin}{" "}
                 <b className="font-serif">{decSurat.nama}</b>
-              </h3>
+              </h2>
               <div
                 className="py-4"
                 dangerouslySetInnerHTML={{ __html: decSurat.deskripsi }}
@@ -152,12 +152,12 @@ const SingleSurat = () => {
               >
                 {single.ar} ۝
               </div>
-              <h6
+              <p
                 className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
                 style={{ fontSize: font2 + "px" }}
               >
                 {single.idn}
-              </h6>
+              </p>
             </div>
           ))
         ) : (

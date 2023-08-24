@@ -7,7 +7,10 @@ const About = () => {
             <div className="mockup-window border bg-base-300">
               <div className="flex justify-center px-4 py-16 bg-base-200">
                 <div>
-                  <h1 className="text-3xl md:text-5xl font-bold">
+                  <h1 className="hidden">
+                    Al quran Online | Baca Quran Praktis Tanpa Install Aplikasi
+                  </h1>
+                  <h2 className="text-3xl md:text-5xl font-bold">
                     Project{" "}
                     <a
                       href="/"
@@ -15,7 +18,7 @@ const About = () => {
                     >
                       Al Qur'an
                     </a>
-                  </h1>
+                  </h2>
                   <span className="label-text-alt ">
                     Built with ✨React by fajriyan
                   </span>
@@ -59,16 +62,16 @@ const About = () => {
         </div>
 
         <section id="thanks">
-          <h1 className="text-center mb-8 mt-3 font-bold text-2xl font-serif">
+          <h2 className="text-center mb-8 mt-3 font-bold text-2xl font-serif">
             Thanks to
-          </h1>
+          </h2>
           <div className="grid grid-cols-1 px-3 lg:grid-cols-3 gap-4 mb-10">
             <div className="card w-full bg-white shadow-xl border-dashed border-[1px] ">
               <div className="card-body">
                 <p className="text-left font-serif">Built using</p>
-                <h2 className="card-title mb-0 font-serif -mt-[7px]">
-                  ✨ React JS
-                </h2>
+                <h3 className="card-title mb-0 font-serif -mt-[7px]">
+                  ✨ React JS (CRA)
+                </h3>
 
                 <div className="flex gap-1">
                   <div className="badge badge-outline">Javascript</div>
@@ -87,12 +90,12 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <div className="card w-full bg-white shadow-xl border-dashed border-[1px] ">
+            {/* <div className="card w-full bg-white shadow-xl border-dashed border-[1px] ">
               <div className="card-body">
                 <p className="text-left font-serif">Hosting at</p>
-                <h2 className="card-title mb-0 font-serif -mt-[7px]">
+                <h3 className="card-title mb-0 font-serif -mt-[7px]">
                   ⛅ Cloudflare
-                </h2>
+                </h3>
 
                 <div className="flex gap-1">
                   <div className="badge badge-outline">Pages</div>
@@ -110,15 +113,15 @@ const About = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="card w-full bg-white shadow-xl border-dashed border-[1px]">
               <div className="card-body">
                 <p className="text-left font-serif">
                   A utility-first CSS framework
                 </p>
-                <h2 className="card-title mb-0 font-serif -mt-[7px]">
+                <h3 className="card-title mb-0 font-serif -mt-[7px]">
                   🔆 Tailwind CSS
-                </h2>
+                </h3>
                 <div className="flex gap-1">
                   <div className="badge badge-outline capitalize">
                     CSS framework
@@ -140,9 +143,9 @@ const About = () => {
             <div className="card w-full bg-white shadow-xl border-dashed border-[1px]">
               <div className="card-body">
                 <p className="text-left font-serif">UI components</p>
-                <h2 className="card-title mb-0 font-serif -mt-[7px]">
+                <h3 className="card-title mb-0 font-serif -mt-[7px]">
                   🎊 daisyUI
-                </h2>
+                </h3>
 
                 <div className="flex gap-1">
                   <div className="badge badge-outline">UI</div>
@@ -164,9 +167,9 @@ const About = () => {
             <div className="card w-full bg-white shadow-xl border-dashed border-[1px]">
               <div className="card-body">
                 <p className="text-left font-serif">Source API from</p>
-                <h2 className="card-title mb-0 font-serif -mt-[7px]">
+                <h3 className="card-title mb-0 font-serif -mt-[7px]">
                   📖 EQuran.id
-                </h2>
+                </h3>
 
                 <div className="flex gap-1">
                   <div className="badge badge-outline">API</div>
@@ -188,9 +191,9 @@ const About = () => {
             <div className="card w-full bg-white shadow-xl border-dashed border-[1px]">
               <div className="card-body">
                 <p className="text-left font-serif">Arabic font used</p>
-                <h2 className="card-title mb-0 font-serif -mt-[7px]">
+                <h3 className="card-title mb-0 font-serif -mt-[7px]">
                   💬 LPMQ
-                </h2>
+                </h3>
 
                 <div className="flex gap-1">
                   <div className="badge badge-outline">FONT</div>
