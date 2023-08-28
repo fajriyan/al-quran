@@ -42,10 +42,13 @@ const Quran = () => {
                 <p className="mb-5 mt-2">
                   Diriwayatkan dari Abu Umamah al-Bahili, Rasulullah SAW
                   bersabda, "Bacalah Alquran, maka sesungguhnya ia akan datang
-                  di hari kiamat memberi syafaat kepada pembacanya". 📌More
-                  about{" "}
-                  <a href="/about" className="underline decoration-slate-100">
-                    site
+                  di hari kiamat memberi syafaat kepada pembacanya". 📌
+                  Informasi mengenai situs dan donasi{" "}
+                  <a
+                    href="/about"
+                    className="btn btn-xs text-slate-800 bg-white hover:bg-slate-700 hover:text-white"
+                  >
+                    disini
                   </a>
                 </p>
               </div>

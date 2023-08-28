@@ -2,8 +2,8 @@ const About = () => {
   return (
     <>
       <div className="container mx-auto selection:bg-red-300">
-        <div className="hero min-h-screen">
-          <div className="hero-content flex-col lg:flex-row">
+        <div className="hero min-h-screen flex flex-wrap gap-1 justify-center content-center">
+          <div className="hero-content w-full">
             <div className="mockup-window border bg-base-300">
               <div className="flex justify-center px-4 py-16 bg-base-200">
                 <div>
@@ -25,43 +25,64 @@ const About = () => {
                   <p className="py-6 w-full lg:w-[90%]">
                     Ini adalah sebuah project yang dimulai dari keinginan untuk
                     bisa melakukan <i>copy</i> ayat{" "}
-                    <a className="underline decoration-wavy decoration-indigo-600">
+                    <span className="underline decoration-wavy decoration-indigo-600">
                       Al-Qur'an
-                    </a>{" "}
+                    </span>{" "}
                     dengan mudah, dari gagasan ide itu kemudian dikembangkan
                     menjadi sebuah website full front end dengan menggunaan
                     Library{" "}
-                    <a className="underline decoration-wavy decoration-pink-600">
+                    <span className="underline decoration-wavy decoration-pink-600">
                       React JS
-                    </a>{" "}
+                    </span>{" "}
                     + TailwindCSS dengan bantuan{" "}
-                    <a className="underline decoration-wavy decoration-sky-600">
+                    <span className="underline decoration-wavy decoration-sky-600">
                       API
-                    </a>
+                    </span>
                     . Project ini tentunya tidak lepas dari banyak pihak yang
                     sudah membantu, sebagai berikut :
                   </p>
-                  <a
-                    href="#thanks"
-                    className="btn hover:bg-slate-900 shadow-lg"
-                  >
-                    Lihat Lebih
-                  </a>
-                  <a
-                    href="http://linkedin.com/in/fajriyan/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn btn-outline ml-3"
-                  >
-                    Hubungi saya
-                  </a>
+                  <div className="button-gr">
+                    <a
+                      href="http://linkedin.com/in/fajriyan/"
+                      className="btn hover:bg-slate-900 shadow-lg"
+                    >
+                      Hubungi saya
+                    </a>
+                    <a
+                      href="https://saweria.co/fajriyan"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn btn-outline ml-3"
+                    >
+                      Donasi
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <div className="w-full flex justify-center">
+            <a
+              href="#thanks"
+              className="border rounded-full p-2 border-slate-500 hover:scroll-auto scale-100 hover:scale-110 ease-in-out duration-100 animate-bounce"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 16 16"
+                stroke="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
 
-        <section id="thanks">
+        <section className="h-[90vh] pt-5" id="thanks">
           <h2 className="text-center mb-8 mt-3 font-bold text-2xl font-serif">
             Thanks to
           </h2>

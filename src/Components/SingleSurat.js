@@ -25,7 +25,7 @@ const SingleSurat = () => {
 
   useEffect(() => {
     getAPIsinglesurat();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0 });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
