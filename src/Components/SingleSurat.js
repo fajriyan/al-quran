@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { useParams } from "react-router-dom";
 import Navigation from "./Navigation";
+import { Toaster, toast } from "react-hot-toast";
 
 const SingleSurat = () => {
   const Params = useParams();
@@ -9,9 +10,8 @@ const SingleSurat = () => {
 
   const [dataSingleSurat, setSingleSurat] = useState([]);
   const [decSurat, setDec] = useState([]);
-  const [font1, setFont1] = useState("30");
-  const [font2, setFont2] = useState("18");
-  // const [displayAr, setDisplayAr] = useState("");
+  const [font1, setFont1] = useState("25");
+  const [font2, setFont2] = useState("16");
 
   const getAPIsinglesurat = async () => {
     const ResponAPI2 = await fetch(
@@ -21,6 +21,10 @@ const SingleSurat = () => {
     setLoading(true);
     setSingleSurat(dataAPI2["ayat"]);
     setDec(dataAPI2);
+  };
+
+  const copySurat = () => {
+    toast.success("Copy Berhasil");
   };
 
   useEffect(() => {
@@ -39,39 +43,41 @@ const SingleSurat = () => {
         loadP={Loading}
         singleSP={dataSingleSurat}
       />
-
-      <div className="container mx-auto">
-        <div className="px-3 lg:px-0 flex flex-wrap gap-4 border-b-[1px] border-slate-300 pb-2 items-end">
+      <Toaster />
+      <div className="container mx-auto selection:bg-blue-200">
+        <div className="px-3 lg:px-0 flex flex-wrap gap-2 border-b-[1px] border-slate-300 pb-2 items-end">
+          {/* Arab Control */}
           <div>
             <label className="label">
-              <span className="label-text">Font Size Arab</span>
+              <span className="label-text">Ukuran Arab</span>
             </label>
             <select
               className="select select-bordered select-sm w-full max-w-xs"
               onChange={(f1) => setFont1(f1.target.value)}
             >
-              <option value="20">Small</option>
-              <option value="30" defaultValue selected>
+              <option value="20">Kecil</option>
+              <option value="25" defaultValue selected>
                 Default
               </option>
-              <option value="40">Large</option>
-              <option value="50">Extra Large</option>
+              <option value="30">Besar</option>
+              <option value="33">Sangat Besar</option>
             </select>
           </div>
+          {/* Terjemah Control */}
           <div>
             <label className="label">
-              <span className="label-text">Font Size Terjemahan</span>
+              <span className="label-text">Ukuran Terjemah</span>
             </label>
             <select
               className="select select-bordered select-sm w-full max-w-xs"
               onChange={(f2) => setFont2(f2.target.value)}
             >
-              <option value="16">Small</option>
-              <option value="18" defaultValue selected>
+              <option value="14">Kecil</option>
+              <option value="16" defaultValue selected>
                 Default
               </option>
-              <option value="22">Large</option>
-              <option value="27">Extra Large</option>
+              <option value="20">Besar</option>
+              <option value="25">Sangat Besar</option>
             </select>
           </div>
 
@@ -105,47 +111,67 @@ const SingleSurat = () => {
           dataSingleSurat.map((single) => (
             <div
               key={single.nomor}
-              className="flex flex-wrap justify-end border-b-[1px] border-slate-300 py-14"
+              className="flex flex-wrap justify-end md:h-full md:items-center border-b-[1px] border-slate-300 pt-14 pb-5 md:py-9 relative"
               id={single.nomor}
             >
-              <div className="text-xl px-3 w-full mb-3 lg:w-fit lg:mb-0 lg:px-0">
-                <div className="border border-slate-200 w-fit rounded-md text-sm px-2 lg:mt-3 nunito font-semibold">
-                  {single.surah} {" : "}
-                  {single.nomor}
-                </div>
-                <div className="dropdown dropdown-bottom mt-1">
-                  <button
-                    tabIndex={0}
-                    className="px-3 border border-slate-200 rounded-md "
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="19"
-                      height="19"
-                      fill="currentColor"
-                      className="bi bi-three-dots"
-                      viewBox="0 0 16 16"
+              {/* Menu Control Start */}
+              <div className="text-xl flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
+                <div className="flex md:block w-full gap-2">
+                  {/* Nomer & Surat */}
+                  <div className="w-auto border md:border-slate-200 rounded-md text-sm px-1 lg:mt-3 nunito font-semibold">
+                    {single.surah} {" : "}
+                    {single.nomor}
+                  </div>
+                  {/* Copy Surat */}
+                  <div className="dropdown w-8 md:w-full dropdown-bottom md:mt-1">
+                    <button
+                      tabIndex={0}
+                      className="border border-slate-200 w-full rounded-md flex justify-center hover:bg-slate-100"
                     >
-                      <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                    </svg>
-                  </button>
-                  <ul
-                    tabIndex={0}
-                    className="dropdown-content menu p-1 text-[15px] shadow bg-base-100 w-[95px] "
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        className="bi bi-three-dots"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                      </svg>
+                    </button>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-content menu p-1 text-[15px] shadow bg-base-100 w-[95px] "
+                    >
+                      <li>
+                        <CopyToClipboard onCopy={copySurat} text={single.ar}>
+                          <span className="p-0 px-1">Copy Arab</span>
+                        </CopyToClipboard>
+                      </li>
+                      <li>
+                        <CopyToClipboard onCopy={copySurat} text={single.idn}>
+                          <span className="p-0 px-1">Copy Indo</span>
+                        </CopyToClipboard>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                {/* Bookmark */}
+                <div className="md:border w-6 md:w-full rounded-md border-slate-200 flex justify-center items-center md:h-9 hover:bg-slate-100">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-bookmark"
+                    viewBox="0 0 16 16"
                   >
-                    <li>
-                      <CopyToClipboard text={single.ar}>
-                        <span className="p-0 px-1">Copy Arab</span>
-                      </CopyToClipboard>
-                    </li>
-                    <li>
-                      <CopyToClipboard text={single.idn}>
-                        <span className="p-0 px-1">Copy Indo</span>
-                      </CopyToClipboard>
-                    </li>
-                  </ul>
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+                  </svg>
                 </div>
               </div>
+              {/* Menu Control End */}
+
               <div
                 className="arab px-3 lg:pl-2 w-full lg:w-[94%]"
                 style={{ fontSize: font1 + "px" }}

@@ -44,12 +44,12 @@ const Quran = () => {
                   bersabda, "Bacalah Alquran, maka sesungguhnya ia akan datang
                   di hari kiamat memberi syafaat kepada pembacanya". 📌
                   Informasi mengenai situs dan donasi{" "}
-                  <a
-                    href="/about"
+                  <Link
+                    to={"/about"}
                     className="btn btn-xs text-slate-800 bg-white hover:bg-slate-700 hover:text-white"
                   >
                     disini
-                  </a>
+                  </Link>
                 </p>
               </div>
               <input

@@ -1,6 +1,6 @@
 const Navigation = (props) => {
   return (
-    <div className="backdrop-blur-sm bg-white/80 border-b-2 sticky top-0 drop-shadow-md z-[100]">
+    <div className="backdrop-blur-sm bg-white/90 border-b sticky top-0 z-[100]">
       <div className="navbar container mx-auto  ">
         <div className="flex-1">
           <a
