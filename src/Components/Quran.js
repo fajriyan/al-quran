@@ -13,6 +13,14 @@ const Quran = () => {
     setSurat(dataAPI1);
   };
 
+  const lanjutBaca = [
+    {
+      surat: localStorage.getItem("namaSurat"),
+      url: localStorage.getItem("url"),
+      ayat: localStorage.getItem("ayat"),
+    },
+  ];
+
   useEffect(() => {
     getAPIsurat();
   });
@@ -72,7 +80,40 @@ const Quran = () => {
           </div>
         </div>
       </div>
-
+      <div className="container mx-auto my-5 px-3">
+        <div className="card flex flex-row w-full bg-base-100 shadow-md hover:border-slate-600 border-dashed border-[1px] overflow-hidden">
+          <div className="card-body gap-0">
+            <h2 className="text-sm">Penanda : </h2>
+            <p className="card-title font-serif">{lanjutBaca[0].surat}</p>
+            <p>
+              Ayat ke : <span>{lanjutBaca[0].ayat}</span>{" "}
+            </p>
+            {/* <div className="card-actions justify-start mt-4">
+              <Link
+                to={`/surat/${lanjutBaca[0].url}#${lanjutBaca[0].ayat}`}
+                className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
+              >
+                Lanjutkan Membaca
+              </Link>
+            </div> */}
+          </div>
+          <div className="flex">
+            <button className="px-5 border bg-slate-100 group">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                className="bi bi-trash group-hover:scale-[120%] duration-300"
+                viewBox="0 0 16 16"
+              >
+                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
       <div className=" grid grid-cols-1 gap-4 px-3 lg:grid-cols-3 lg:gap-4 sm:grid-cols-2 sm:gap-4 container mx-auto mb-14">
         {Loading
           ? dataSurat
@@ -145,7 +186,6 @@ const Quran = () => {
               </div>
             ))}
       </div>
-
       <Footer />
     </>
   );
