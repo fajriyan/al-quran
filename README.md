@@ -43,5 +43,9 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 ## Next Update
 - [ ] Add copy link surat ke berapa  
 
+## Changelog
+- Update [0.1.0] - Fix Error Key and add Donation Button
+- Updtae [1.2.0] - New design Navbar and Control Copy Button
+
 ## Issue Report
 📢[Report Issue Here](https://github.com/fajriyan/al-quran/issues/new)
