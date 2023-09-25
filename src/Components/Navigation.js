@@ -44,9 +44,9 @@ const Navigation = (props) => {
           )}
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal">
+          <ul className="menu menu-horizontal ">
             <li tabIndex={0}>
-              <a>
+              <span>
                 Ayat
                 <svg
                   className="fill-current"
@@ -57,11 +57,11 @@ const Navigation = (props) => {
                 >
                   <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                 </svg>
-              </a>
+              </span>
 
-              <ul className="p-2 backdrop-blur-sm bg-white/90 border-b-2 overflow-y-scroll max-h-[350px] min-w-[100px]">
+              <ul className="p-2 backdrop-blur-sm bg-white/90 border rounded-md overflow-y-scroll max-h-[350px] min-w-[100px]">
                 {props.singleSP.map((sp) => (
-                  <li key={sp.nomor}>
+                  <li className="h-10" key={sp.nomor}>
                     <a href={"/surat/" + sp.surah + "#" + sp.nomor}>
                       {sp.nomor}
                     </a>

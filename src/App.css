@@ -34,6 +34,9 @@ html {
 ::-webkit-scrollbar {
   width: 10px;
 }
+.menu-horizontal ul::-webkit-scrollbar {
+  width: 5px;
+}
 
 /* Track */
 ::-webkit-scrollbar-track {

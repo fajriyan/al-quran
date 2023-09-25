@@ -40,7 +40,7 @@ const SingleSurat = () => {
     getAPIsinglesurat();
     window.scrollTo({ top: 0 });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [window.scrollTo({ top: 0 })]);
 
   return (
     <>
@@ -55,7 +55,7 @@ const SingleSurat = () => {
       />
       <Toaster />
       <div className="container mx-auto selection:bg-blue-200">
-        <div className="px-3 lg:px-0 flex flex-wrap gap-2 border-b-[1px] border-slate-300 pb-2 items-end">
+        <div className="px-3 lg:px-0 flex flex-wrap gap-2 border-b border-slate-300 pb-2 items-end">
           {/* Arab Control */}
           <div>
             <label className="label">
@@ -121,7 +121,7 @@ const SingleSurat = () => {
           dataSingleSurat.map((single) => (
             <div
               key={single.nomor}
-              className="flex flex-wrap justify-end md:h-full md:items-center border-b-[1px] border-slate-300 pt-14 pb-5 md:py-9 relative"
+              className="flex flex-wrap justify-end md:h-full md:items-center border-b border-slate-300 pt-14 pb-5 md:py-9 relative"
               id={single.nomor}
             >
               {/* Menu Control Start */}
