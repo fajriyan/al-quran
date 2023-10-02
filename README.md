@@ -39,13 +39,20 @@ Project ini tentunya tidak lepas dari berbagai pihak yang telah membantu, oleh k
 
 ## Latest Issue
 - [x] Fix Search Error with Space
+- [x] Scroll detail Post Error
+- [ ] Button "Lanjutkan Membaca" Error
 
 ## Next Update
-- [ ] Add copy link surat ke berapa  
+- [x] Add copy link surat ke berapa
+- [x] Add Toast
+- [x] Create Save and delte Bookmark surah
+- [ ] Create Button "Lanjutkan Membaca" in Card Bookmark
 
 ## Changelog
 - Update [0.1.0] - Fix Error Key and add Donation Button
-- Updtae [1.2.0] - New design Navbar and Control Copy Button
+- Update [1.2.0] - New design Navbar and Control Copy Button
+- Update [1.3.2] - Add feature save surah
+- Update [1.4.0] - Add new featured and fix bug scroll
 
 ## Issue Report
 📢[Report Issue Here](https://github.com/fajriyan/al-quran/issues/new)
