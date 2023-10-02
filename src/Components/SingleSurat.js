@@ -19,6 +19,7 @@ const SingleSurat = () => {
     );
     const dataAPI2 = await ResponAPI2.json();
     setLoading(true);
+    window.scrollTo({ top: 0 });
     setSingleSurat(dataAPI2["ayat"]);
     setDec(dataAPI2);
   };
@@ -27,24 +28,70 @@ const SingleSurat = () => {
     toast.success("Copy Berhasil");
   };
 
-  // const [sAyat, setsAyat] = useState(false);
   const saveAyat = (url, ayat, namaSurat) => {
     toast.success("Simpan Berhasil");
     localStorage.setItem("url", url);
     localStorage.setItem("ayat", ayat);
     localStorage.setItem("namaSurat", namaSurat);
-    // setsAyat(true);
   };
 
+  const lanjutBaca = [
+    {
+      surat: localStorage.getItem("namaSurat"),
+      url: localStorage.getItem("url"),
+      ayat: localStorage.getItem("ayat"),
+      fromBookmark: localStorage.getItem("fromBookmark"),
+    },
+  ];
+
+  const handleClickScroll = () => {
+    const element = document.getElementById("surahke" + lanjutBaca[0].ayat);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const clickButtonss = () => {
+    document.getElementById("scrollNoww").click();
+  };
+
+  const [bookStats, setBStats] = useState(false);
+  const checkingStatus = () => {
+    if (
+      lanjutBaca[0].url === Params.idsurat &&
+      lanjutBaca[0].fromBookmark === "true"
+    ) {
+      console.log(lanjutBaca[0].fromBookmark);
+      toast("Lanjutkan Membaca Berhasil", {
+        icon: "📑",
+      });
+      setBStats(true);
+    } else {
+      console.log("Bookmark Anchor Error ");
+      setBStats(false);
+    }
+  };
   useEffect(() => {
+    checkingStatus();
     getAPIsinglesurat();
-    window.scrollTo({ top: 0 });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [window.scrollTo({ top: 0 })]);
+  }, []);
 
   return (
     <>
-      {/* <ScrollRestoration /> */}
+      {bookStats ? (
+        <div>
+          <button
+            className="btn-scroll hidden"
+            id="scrollNoww"
+            ref={clickButtonss}
+            onClick={() => handleClickScroll()}
+          >
+            Lanjutkan Membaca
+          </button>
+        </div>
+      ) : null}
+
       <Navigation
         suratP={decSurat.nama_latin}
         turunP={decSurat.tempat_turun}
@@ -122,7 +169,7 @@ const SingleSurat = () => {
             <div
               key={single.nomor}
               className="flex flex-wrap justify-end md:h-full md:items-center border-b border-slate-300 pt-14 pb-5 md:py-9 relative"
-              id={single.nomor}
+              id={"surahke" + single.nomor}
             >
               {/* Menu Control Start */}
               <div className="text-xl flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -207,6 +254,9 @@ const SingleSurat = () => {
           </div>
         )}
 
+        <div className="asd" id="imagess">
+          Ini Section Imagesss
+        </div>
         <div className="flex justify-between my-5 px-3 md:px-0">
           {(() => {
             if (decSurat.surat_sebelumnya !== false) {

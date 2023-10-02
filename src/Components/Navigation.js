@@ -1,6 +1,6 @@
 const Navigation = (props) => {
   return (
-    <div className="backdrop-blur-sm bg-white/90 border-b sticky top-0 z-[100]">
+    <div className="backdrop-blur-sm bg-white/90 border-b  sticky top-0 z-[100]">
       <div className="navbar container mx-auto  ">
         <div className="flex-1">
           <a
@@ -62,7 +62,7 @@ const Navigation = (props) => {
               <ul className="p-2 backdrop-blur-sm bg-white/90 border rounded-md overflow-y-scroll max-h-[350px] min-w-[100px]">
                 {props.singleSP.map((sp) => (
                   <li className="h-10" key={sp.nomor}>
-                    <a href={"/surat/" + sp.surah + "#" + sp.nomor}>
+                    <a href={"/surat/" + sp.surah + "#surahke" + sp.nomor}>
                       {sp.nomor}
                     </a>
                   </li>

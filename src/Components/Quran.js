@@ -57,6 +57,7 @@ const Quran = () => {
   return (
     <>
       <Toaster />
+      {localStorage.removeItem("fromBookmark", false)}
 
       {/* Scroll To Top Start  */}
       {showBT ? (
@@ -152,14 +153,19 @@ const Quran = () => {
                 <p>
                   Ayat ke : <span>{lanjutBaca[0].ayat}</span>{" "}
                 </p>
-                {/* <div className="card-actions justify-start mt-4">
-              <Link
-                to={`/surat/${lanjutBaca[0].url}#${lanjutBaca[0].ayat}`}
-                className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
-              >
-                Lanjutkan Membaca
-              </Link>
-            </div> */}
+                <div className="card-actions justify-start mt-4">
+                  <button
+                    onClick={() => localStorage.setItem("fromBookmark", true)}
+                  >
+                    <Link
+                      to={`/surat/${lanjutBaca[0].url}`}
+                      // onClick={() => localStorage.setItem("fromBookmark", true)}
+                      className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
+                    >
+                      Lanjutkan Membaca
+                    </Link>
+                  </button>
+                </div>
               </div>
               <div className="flex">
                 <button
