@@ -23,6 +23,12 @@ const Quran = () => {
     });
   };
 
+  const RekomendationSurah = [
+    { surah: "Al Kahf", url: "18" },
+    { surah: "Al Mulk", url: "67" },
+    { surah: "Yasin", url: "36" },
+  ];
+
   const lanjutBaca = [
     {
       surat: localStorage.getItem("namaSurat"),
@@ -120,14 +126,27 @@ const Quran = () => {
               </div>
 
               {/* Start Search */}
-              <input
-                type="text"
-                onChange={(e) =>
-                  setQuerySearch(e.target.value.replace(" ", "-"))
-                }
-                placeholder="🔎 Cari surat Al Qur'an disini"
-                className="input text-slate-600 capitalize font-serif border-white w-full focus:ring-4 focus:ring-blue-400"
-              />
+              <div className="relative">
+                <input
+                  type="text"
+                  onChange={(e) =>
+                    setQuerySearch(e.target.value.replace(" ", "-"))
+                  }
+                  placeholder="Surat Apa yang ingin Anda Baca?"
+                  className="input text-slate-600 border-white w-full focus:ring-4 focus:ring-blue-400"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  fill="#000000"
+                  className="bi bi-search absolute top-4 right-4 md:right-6 hover:cursor-pointer"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+              </div>
+
               {/* End Search  */}
               <span className="label-text-alt text-white px-2 py-1">
                 Hasil pencarian tentang :{" "}
@@ -137,6 +156,17 @@ const Quran = () => {
                   <b>Nama Surat</b>
                 )}
               </span>
+              <div className="mt-2 flex gap-2">
+                {RekomendationSurah.map((rs) => (
+                  <Link
+                    key={rs.surah}
+                    to={"/surat/" + rs.url}
+                    className="px-3 py-1 rounded-xl bg-white hover:bg-slate-100 text-slate-700 font-medium text-sm"
+                  >
+                    Surah {rs.surah}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -146,7 +176,7 @@ const Quran = () => {
         {/* Bookmark Start  */}
         {lanjutBaca[0].surat ? (
           <div className="container mx-auto my-5">
-            <div className="card flex flex-row w-full bg-base-100 shadow-md hover:border-slate-600 border-dashed border border-slate-200 overflow-hidden">
+            <div className="card flex flex-row w-full bg-base-100 shadow-sm hover:border-slate-600 border-dashed border border-slate-300 overflow-hidden">
               <div className="card-body gap-0">
                 <h2 className="text-sm">Penanda : </h2>
                 <p className="card-title font-serif">{lanjutBaca[0].surat}</p>
@@ -224,7 +254,7 @@ const Quran = () => {
               })
               .map((s) => (
                 <div
-                  className="card w-full bg-base-100 shadow-md hover:border-slate-600 border-dashed border-[1px]"
+                  className="card w-full bg-base-100 shadow-sm hover:border-slate-600 border-slate-300 border-dashed border-[1px]"
                   key={s.nama_latin + "-" + s.arti}
                 >
                   <div className="card-body">

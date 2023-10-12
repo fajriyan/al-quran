@@ -24,6 +24,8 @@ const SingleSurat = () => {
     setDec(dataAPI2);
   };
 
+  const SkeletonLoading = [1, 2, 3, 4];
+
   const copySurat = () => {
     toast.success("Copy Berhasil");
   };
@@ -249,14 +251,26 @@ const SingleSurat = () => {
             </div>
           ))
         ) : (
-          <div className="h-screen flex justify-center items-center">
-            <progress className="progress w-56"></progress>
-          </div>
-        )}
+          <>
+            {SkeletonLoading.map((skel) => (
+              <div className="border-b py-5">
+                <div className="animate-pulse flex space-x-4">
+                  <div className="rounded-full bg-slate-200 w-10"></div>
+                  <div className="flex-1 py-1 ">
+                    <div className="flex justify-end mt-2">
+                      <div className="h-12 w-1/2 bg-slate-200 rounded-full"></div>
+                    </div>
 
-        <div className="asd" id="imagess">
-          Ini Section Imagesss
-        </div>
+                    <div className="grid grid-cols-3 gap-4 mt-10">
+                      <div className="h-3 bg-slate-200 rounded col-span-2"></div>
+                      <div className="h-3 bg-slate-200 rounded col-span-3"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </>
+        )}
         <div className="flex justify-between my-5 px-3 md:px-0">
           {(() => {
             if (decSurat.surat_sebelumnya !== false) {
