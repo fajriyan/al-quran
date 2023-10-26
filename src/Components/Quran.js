@@ -156,7 +156,7 @@ const Quran = () => {
                   <b>Nama Surat</b>
                 )}
               </span>
-              <div className="mt-2 flex gap-2">
+              <div className="mt-2 flex flex-nowrap gap-2">
                 {RekomendationSurah.map((rs) => (
                   <Link
                     key={rs.surah}

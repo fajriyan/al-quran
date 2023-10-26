@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const About = () => {
   return (
     <>
@@ -12,12 +14,12 @@ const About = () => {
                   </h1>
                   <h2 className="text-3xl md:text-5xl font-bold">
                     Project{" "}
-                    <a
-                      href="/"
+                    <Link
+                      to="/"
                       className="font-serif underline p-1  decoration-sky-600 hover:decoration-slate-800"
                     >
                       Al Qur'an
-                    </a>
+                    </Link>
                   </h2>
                   <span className="label-text-alt ">
                     Built with ✨React by fajriyan
