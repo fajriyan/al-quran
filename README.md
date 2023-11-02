@@ -58,6 +58,7 @@ dapat dilihat [disini](https://al-quran.pages.dev/about/)
 - [x] Add Toast
 - [x] Create Save and delte Bookmark surah
 - [x] Create Button "Lanjutkan Membaca" in Card Bookmark
+- [ ] Fix Structure folder
 
 ## Changelog
 
