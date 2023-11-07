@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import toast, { Toaster } from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const Quran = () => {
   const [Loading, setLoading] = useState(false);
@@ -65,6 +66,14 @@ const Quran = () => {
       <Toaster />
       {localStorage.removeItem("fromBookmark", false)}
 
+      {/* Helmet Start  */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Al Quran Digital</title>
+        <link rel="canonical" href="https://al-quran.pages.dev/" />
+      </Helmet>
+      {/* Helmet End */}
+
       {/* Scroll To Top Start  */}
       {showBT ? (
         <button
@@ -94,14 +103,14 @@ const Quran = () => {
       )}
 
       {/* Scroll To Top End  */}
-      <div className="container mx-auto my-5 px-3">
+      <div className="container mx-auto my-5 px-0 md:px-3">
         <div
-          className="hero min-h-[200px] rounded-xl lg:rounded-xl flex flex-wrap"
+          className="hero min-h-[200px] rounded-none lg:rounded-xl flex flex-wrap"
           style={{
             backgroundImage: `url("https://images.pexels.com/photos/8164567/pexels-photo-8164567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`,
           }}
         >
-          <div className="hero-overlay bg-opacity-60 py-10 px-5 rounded-xl lg:rounded-xl text-white">
+          <div className="hero-overlay bg-opacity-60 py-10 px-4 lg:rounded-xl text-white">
             <div className="md:w-[70%] mx-auto">
               <div className="w-full">
                 <span className="text-5xl mb-3 lg:text-5xl sm:text-md font-bold">
@@ -113,9 +122,9 @@ const Quran = () => {
 
                 <p className="mb-5 mt-2">
                   Diriwayatkan dari Abu Umamah al-Bahili, Rasulullah SAW
-                  bersabda, "Bacalah Alquran, maka sesungguhnya ia akan datang
-                  di hari kiamat memberi syafaat kepada pembacanya". 📌
-                  Informasi mengenai situs dan donasi{" "}
+                  bersabda, "Bacalah Al Quran, maka sesungguhnya ia akan datang
+                  di hari kiamat memberi syafaat kepada pembacanya". Informasi
+                  mengenai situs dan donasi{" "}
                   <Link
                     to={"/about"}
                     className="btn btn-xs text-slate-800 bg-white hover:bg-slate-700 hover:text-white"
@@ -161,7 +170,7 @@ const Quran = () => {
                   <Link
                     key={rs.surah}
                     to={"/surat/" + rs.url}
-                    className="px-3 py-1 rounded-xl bg-white hover:bg-slate-100 text-slate-700 font-medium text-sm"
+                    className="px-2 md:px-3 py-1 rounded-lg bg-white hover:bg-slate-100 text-slate-700 font-medium text-[13px] md:text-sm"
                   >
                     Surah {rs.surah}
                   </Link>

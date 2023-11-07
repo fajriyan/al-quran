@@ -1,8 +1,18 @@
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const About = () => {
   return (
     <>
+      {/* Helmet Start  */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Tentang Quran Digital</title>
+        <link rel="canonical" href={"https://al-quran.pages.dev/about"} />
+      </Helmet>
+
+      {/* Helmet End  */}
+
       <div className="container mx-auto selection:bg-red-300">
         <div className="hero min-h-screen flex flex-wrap gap-1 justify-center content-center">
           <div className="hero-content w-full">

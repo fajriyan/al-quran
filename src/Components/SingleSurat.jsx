@@ -3,6 +3,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { useParams } from "react-router-dom";
 import Navigation from "./Navigation";
 import { Toaster, toast } from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const SingleSurat = () => {
   const Params = useParams();
@@ -81,6 +82,18 @@ const SingleSurat = () => {
 
   return (
     <>
+      {/* Helmet Start  */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{decSurat.nama_latin}</title>
+        <link
+          rel="canonical"
+          href={"https://al-quran.pages.dev/surat/" + decSurat.nomor}
+        />
+      </Helmet>
+
+      {/* Helmet End  */}
+
       {bookStats ? (
         <div>
           <button
