@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
+import Footer from "../components/Footer";
 import toast, { Toaster } from "react-hot-toast";
 import { Helmet } from "react-helmet";
 
-const Quran = () => {
+const Home = () => {
   const [Loading, setLoading] = useState(false);
 
   const [dataSurat, setSurat] = useState([]);
@@ -93,7 +93,7 @@ const Quran = () => {
             viewBox="0 0 15 14"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"
             />
           </svg>
@@ -169,7 +169,7 @@ const Quran = () => {
                 {RekomendationSurah.map((rs) => (
                   <Link
                     key={rs.surah}
-                    to={"/surat/" + rs.url}
+                    to={"/surah/" + rs.url}
                     className="px-2 md:px-3 py-1 rounded-lg bg-white hover:bg-slate-100 text-slate-700 font-medium text-[13px] md:text-sm"
                   >
                     Surah {rs.surah}
@@ -197,7 +197,7 @@ const Quran = () => {
                     onClick={() => localStorage.setItem("fromBookmark", true)}
                   >
                     <Link
-                      to={`/surat/${lanjutBaca[0].url}`}
+                      to={`/surah/${lanjutBaca[0].url}`}
                       // onClick={() => localStorage.setItem("fromBookmark", true)}
                       className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
                     >
@@ -287,7 +287,7 @@ const Quran = () => {
 
                     <div className="card-actions justify-start">
                       <Link
-                        to={"/surat/" + s.nomor}
+                        to={"/surah/" + s.nomor}
                         className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
                       >
                         baca sekarang!
@@ -328,4 +328,4 @@ const Quran = () => {
     </>
   );
 };
-export default Quran;
+export default Home;

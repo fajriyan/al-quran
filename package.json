@@ -1,7 +1,6 @@
 {
   "name": "al-quran-digital",
-  "version": "1.5.2",
-  "private": true,
+  "version": "1.5.5",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

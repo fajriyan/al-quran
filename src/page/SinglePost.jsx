@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { useParams } from "react-router-dom";
-import Navigation from "./Navigation";
+import Navigation from "../components/Navigation";
 import { Toaster, toast } from "react-hot-toast";
 import { Helmet } from "react-helmet";
 
-const SingleSurat = () => {
+const SinglePost = () => {
   const Params = useParams();
   const [Loading, setLoading] = useState(false);
 
@@ -15,9 +15,7 @@ const SingleSurat = () => {
   const [font2, setFont2] = useState("16");
 
   const getAPIsinglesurat = async () => {
-    const ResponAPI2 = await fetch(
-      "https://equran.id/api/surat/" + Params.idsurat
-    );
+    const ResponAPI2 = await fetch("https://equran.id/api/surat/" + Params.id);
     const dataAPI2 = await ResponAPI2.json();
     setLoading(true);
     window.scrollTo({ top: 0 });
@@ -61,7 +59,7 @@ const SingleSurat = () => {
   const [bookStats, setBStats] = useState(false);
   const checkingStatus = () => {
     if (
-      lanjutBaca[0].url === Params.idsurat &&
+      lanjutBaca[0].url === Params.id &&
       lanjutBaca[0].fromBookmark === "true"
     ) {
       console.log(lanjutBaca[0].fromBookmark);
@@ -128,7 +126,7 @@ const SingleSurat = () => {
               onChange={(f1) => setFont1(f1.target.value)}
             >
               <option value="20">Kecil</option>
-              <option value="25" defaultValue selected>
+              <option value="25" selected>
                 Default
               </option>
               <option value="30">Besar</option>
@@ -145,7 +143,7 @@ const SingleSurat = () => {
               onChange={(f2) => setFont2(f2.target.value)}
             >
               <option value="14">Kecil</option>
-              <option value="16" defaultValue selected>
+              <option value="16" selected>
                 Default
               </option>
               <option value="20">Besar</option>
@@ -265,8 +263,8 @@ const SingleSurat = () => {
           ))
         ) : (
           <>
-            {SkeletonLoading.map((skel) => (
-              <div className="border-b py-5">
+            {SkeletonLoading.map((loadSkeleton) => (
+              <div className="border-b py-5" key={Math.random()}>
                 <div className="animate-pulse flex space-x-4">
                   <div className="rounded-full bg-slate-200 w-10"></div>
                   <div className="flex-1 py-1 ">
@@ -289,7 +287,7 @@ const SingleSurat = () => {
             if (decSurat.surat_sebelumnya !== false) {
               return (
                 <a
-                  href={"/surat/" + decSurat.surat_sebelumnya?.nomor}
+                  href={"/surah/" + decSurat.surat_sebelumnya?.nomor}
                   className="btn gap-2 bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none hover:shadow-xl focus:ring-2 ring-offset-2 ring-slate-900"
                 >
                   <svg
@@ -315,7 +313,7 @@ const SingleSurat = () => {
             if (decSurat.surat_selanjutnya !== false) {
               return (
                 <a
-                  href={"/surat/" + decSurat.surat_selanjutnya?.nomor}
+                  href={"/surah/" + decSurat.surat_selanjutnya?.nomor}
                   className="btn gap-2 bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none hover:shadow-xl focus:ring-2 ring-offset-2 ring-slate-900"
                 >
                   {decSurat.surat_selanjutnya?.nama_latin}
@@ -339,4 +337,4 @@ const SingleSurat = () => {
     </>
   );
 };
-export default SingleSurat;
+export default SinglePost;
