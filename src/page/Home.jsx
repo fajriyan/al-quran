@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Footer from "../components/Footer";
+import Footer from "../component/Footer";
 import toast, { Toaster } from "react-hot-toast";
 import { Helmet } from "react-helmet";
 

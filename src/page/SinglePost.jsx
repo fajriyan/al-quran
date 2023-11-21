@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { useParams } from "react-router-dom";
-import Navigation from "../components/Navigation";
+import Navigation from "../component/Navigation";
 import { Toaster, toast } from "react-hot-toast";
 import { Helmet } from "react-helmet";
 
