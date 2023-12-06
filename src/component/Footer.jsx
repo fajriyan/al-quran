@@ -1,14 +1,16 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <div className="backdrop-blur-sm bg-white/80 border-t-2">
       <footer className="footer items-center p-4 text-slate-700 container mx-auto gap-2">
         <div className="items-center grid-flow-col">
           <p>
-            Copyright ©{new Date().getFullYear()} - About this website
-            <a className="font-bold" href="/about">
-              {" "}
-              🌎here
-            </a>
+            Copyright ©{new Date().getFullYear()} |{" "}
+            <Link className="font-semibold underline" to="/about">
+              Tentang
+            </Link>{" "}
+            situs ini lebih lanjut
           </p>
         </div>
         <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">

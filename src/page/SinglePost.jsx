@@ -17,10 +17,10 @@ const SinglePost = () => {
   const getAPIsinglesurat = async () => {
     const ResponAPI2 = await fetch("https://equran.id/api/surat/" + Params.id);
     const dataAPI2 = await ResponAPI2.json();
-    setLoading(true);
     window.scrollTo({ top: 0 });
     setSingleSurat(dataAPI2["ayat"]);
     setDec(dataAPI2);
+    setLoading(true);
   };
 
   const SkeletonLoading = [1, 2, 3, 4];
@@ -63,12 +63,12 @@ const SinglePost = () => {
       lanjutBaca[0].fromBookmark === "true"
     ) {
       console.log(lanjutBaca[0].fromBookmark);
-      toast("Lanjutkan Membaca Berhasil", {
+      toast(`Melanjutkan membaca Surah`, {
         icon: "📑",
       });
       setBStats(true);
     } else {
-      console.log("Bookmark Anchor Error ");
+      // console.log("Bookmark Anchor Error "); //FOR DEBUG
       setBStats(false);
     }
   };
@@ -122,13 +122,12 @@ const SinglePost = () => {
               <span className="label-text">Ukuran Arab</span>
             </label>
             <select
+              defaultValue={"25"}
               className="select select-bordered select-sm w-full max-w-xs"
               onChange={(f1) => setFont1(f1.target.value)}
             >
               <option value="20">Kecil</option>
-              <option value="25" selected>
-                Default
-              </option>
+              <option value="25">Default</option>
               <option value="30">Besar</option>
               <option value="33">Sangat Besar</option>
             </select>
@@ -139,13 +138,12 @@ const SinglePost = () => {
               <span className="label-text">Ukuran Terjemah</span>
             </label>
             <select
+              defaultValue={"16"}
               className="select select-bordered select-sm w-full max-w-xs"
               onChange={(f2) => setFont2(f2.target.value)}
             >
               <option value="14">Kecil</option>
-              <option value="16" selected>
-                Default
-              </option>
+              <option value="16">Default</option>
               <option value="20">Besar</option>
               <option value="25">Sangat Besar</option>
             </select>
@@ -180,7 +178,7 @@ const SinglePost = () => {
         {Loading ? (
           dataSingleSurat.map((single) => (
             <div
-              key={single.nomor}
+              key={single.nomor + single.surah}
               className="flex flex-wrap justify-end md:h-full md:items-center border-b border-slate-300 pt-14 pb-5 md:py-9 relative"
               id={"surahke" + single.nomor}
             >
@@ -251,7 +249,7 @@ const SinglePost = () => {
                 className="arab px-3 lg:pl-2 w-full lg:w-[94%]"
                 style={{ fontSize: font1 + "px" }}
               >
-                {single.ar} ۝
+                {single.ar} <span className="relative">۝</span>
               </div>
               <p
                 className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"

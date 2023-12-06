@@ -77,7 +77,6 @@ const Home = () => {
       {/* Scroll To Top Start  */}
       {showBT ? (
         <button
-          onclick="topFunction()"
           className="fixed bottom-5 right-4 rounded-full z-10 bg-white border border-slate-500 border-dashed p-2 shadow-2xl hover:bg-slate-100 sca group"
           onClick={() => {
             document.body.scrollTop = 0;
@@ -103,7 +102,7 @@ const Home = () => {
       )}
 
       {/* Scroll To Top End  */}
-      <div className="container mx-auto my-5 px-0 md:px-3">
+      <div className="container mx-auto md:my-5 px-0 md:px-3">
         <div
           className="hero min-h-[200px] rounded-none lg:rounded-xl flex flex-wrap"
           style={{
@@ -187,8 +186,22 @@ const Home = () => {
           <div className="container mx-auto my-5">
             <div className="card flex flex-row w-full bg-base-100 shadow-sm hover:border-slate-600 border-dashed border border-slate-300 overflow-hidden">
               <div className="card-body gap-0">
-                <h2 className="text-sm">Penanda : </h2>
-                <p className="card-title font-serif">{lanjutBaca[0].surat}</p>
+                <div className="text-sm flex gap-1 items-center font-semibold">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="15"
+                    height="15"
+                    fill="currentColor"
+                    className="bi bi-bookmark animate-pulse"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+                  </svg>{" "}
+                  Penanda :{" "}
+                </div>
+                <p className="card-title font-serif mt-1">
+                  {lanjutBaca[0].surat}
+                </p>
                 <p>
                   Ayat ke : <span>{lanjutBaca[0].ayat}</span>{" "}
                 </p>
@@ -290,7 +303,7 @@ const Home = () => {
                         to={"/surah/" + s.nomor}
                         className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
                       >
-                        baca sekarang!
+                        baca surah {s.nama_latin.replace("-", " ")}
                       </Link>
                     </div>
                   </div>

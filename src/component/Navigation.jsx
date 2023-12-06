@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 const Navigation = (props) => {
   return (
     <div className="backdrop-blur-sm bg-white/90 border-b  sticky top-0 z-[100]">
       <div className="navbar container mx-auto  ">
         <div className="flex-1">
-          <a
-            href="/"
+          <Link
+            to="/"
             className="btn gap-2 btn-md border-none bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-sky-400 to-blue-800 hover:bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] hover:from-sky-300 hover:to-blue-700 focus:ring-2 ring-offset-2 ring-blue-700"
           >
             <svg
@@ -18,7 +20,7 @@ const Navigation = (props) => {
               <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
             </svg>
             Kembali
-          </a>
+          </Link>
 
           {props.loadP ? (
             <>
