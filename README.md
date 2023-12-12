@@ -1,9 +1,6 @@
-# #1 Project Qur'an 📖
+# Project Qur'an Digital
 
-Project ini merupakan salah satu portofolio saya dibidang Front-End Developer
-dengan tujuan awal untuk dapat melakukan "copy" ayat Al Quran dengan mudah. Pada
-project ini saya menggunakan bahasa pemrograman Javascript dengan menggunakan
-Library ✨React JS dengan bantuan 🌉API Public yang milik `EQuran.id.`
+Project Al Qur'an Digital merupakan sebuah website yang sederhana untuk membaca Al Qur'an dengan mudah tanpa harus melakukan install aplikasi, project ini bermula dari keresahan saya ketika ingin melakukan copy surah alquran dan saya mengalami kesulitan untuk mencari sumber yang mudah untuk melakukan itu, oleh karena itu saya membuat project ini untuk membantu semua orang dalam membaca dan memanfaatkannya untuk kebaikan, semoga bermanfaat dan terimakasih.
 
 [![Build](https://img.shields.io/github/followers/fajriyan?label=Follow%20Me&style=social)](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Ffajriyan)
 [![Badges](https://img.shields.io/github/stars/fajriyan/al-quran?style=social)]()
@@ -11,6 +8,11 @@ Library ✨React JS dengan bantuan 🌉API Public yang milik `EQuran.id.`
 [![Badges](https://img.shields.io/github/directory-file-count/fajriyan/al-quran?label=All%20Files&style=social)]()
 [![Badges](https://img.shields.io/github/package-json/v/fajriyan/al-quran?label=package.json%20v.&style=social)]()
 [![Badges](https://img.shields.io/npm/l/react?style=social)]()
+
+## Donation 
+if this project helps you, you can give it a cup of coffee. thanks!
+* [buymeacoffee](https://www.buymeacoffee.com/fajriyan)
+* [saweria](https://saweria.co/fajriyan)
 
 ## How to run it
 
@@ -69,6 +71,10 @@ dapat dilihat [disini](https://al-quran.pages.dev/about/)
 - Update [1.4.5] - Add favotite and adjust card
 - Update [1.4.9] - Add page 404 and fix bug
 - Update [1.5.0] - Migrate to Vite and fix 9 vulnerabilities
+- Update [1.5.2] - Improve SEO and update ui mobile
+- Update [1.5.5] - Fixing structure folder
+- Update [1.5.9] - Improve UI and fix some error in console
+
 
 ## Issue Report
 
