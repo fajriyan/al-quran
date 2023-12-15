@@ -31,51 +31,37 @@ const About = () => {
                     className="bi bi-caret-left"
                     viewBox="0 0 16 16"
                   >
-                    <path
-                      fill-rule="evenodd"
-                      d="M9.636 13.5a.5.5 0 0 1-.5.5H2.5A1.5 1.5 0 0 1 1 12.5v-10A1.5 1.5 0 0 1 2.5 1h10A1.5 1.5 0 0 1 14 2.5v6.636a.5.5 0 0 1-1 0V2.5a.5.5 0 0 0-.5-.5h-10a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h6.636a.5.5 0 0 1 .5.5"
-                    />
-                    <path
-                      fill-rule="evenodd"
-                      d="M5 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1H6.707l8.147 8.146a.5.5 0 0 1-.708.708L6 6.707V10.5a.5.5 0 0 1-1 0z"
-                    />
+                    <path d="M9.636 13.5a.5.5 0 0 1-.5.5H2.5A1.5 1.5 0 0 1 1 12.5v-10A1.5 1.5 0 0 1 2.5 1h10A1.5 1.5 0 0 1 14 2.5v6.636a.5.5 0 0 1-1 0V2.5a.5.5 0 0 0-.5-.5h-10a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h6.636a.5.5 0 0 1 .5.5" />
+                    <path d="M5 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1H6.707l8.147 8.146a.5.5 0 0 1-.708.708L6 6.707V10.5a.5.5 0 0 1-1 0z" />
                   </svg>
                   Kembali ke Al Qur'an
                 </Link>
               </div>
               <div className="flex flex-wrap md:flex-nowrap justify-start md:justify-center px-4 py-10 md:py-16 bg-base-200 gap-5">
-                <div className="w-32 md:w-96">
+                <div className="w-32 md:w-[50%]">
                   <img
-                    src="/public/favicon.png"
+                    src="https://raw.githubusercontent.com/fajriyan/al-quran/main/public/favicon.png"
                     alt="Logo Website Al Qur'an"
                     className="hover:shadow-xl rounded-full"
                   />
                 </div>
-                <div>
+                <div className="">
                   <h1 className="hidden">
                     Al quran Online | Baca Quran Praktis Tanpa Install Aplikasi
                   </h1>
                   <h2 className="text-3xl md:text-5xl font-bold">
                     Project Al Qur'an
                   </h2>
-                  <p className="py-6 w-full lg:w-[90%]">
-                    Ini adalah sebuah project yang dimulai dari keinginan untuk
-                    bisa melakukan <i>copy</i> ayat{" "}
-                    <span className="underline decoration-wavy decoration-indigo-600">
-                      Al-Qur'an
-                    </span>{" "}
-                    dengan mudah, dari gagasan ide itu kemudian dikembangkan
-                    menjadi sebuah website full front end dengan menggunaan
-                    Library{" "}
-                    <span className="underline decoration-wavy decoration-pink-600">
-                      React JS
-                    </span>{" "}
-                    + TailwindCSS dengan bantuan{" "}
-                    <span className="underline decoration-wavy decoration-sky-600">
-                      API
-                    </span>
-                    . Project ini tentunya tidak lepas dari banyak pihak yang
-                    sudah membantu, sebagai berikut :
+                  <p className="py-6 w-full lg:w-[95%]">
+                    Project Al Qur'an Digital merupakan sebuah website yang
+                    sederhana untuk membaca Al Qur'an dengan mudah tanpa harus
+                    melakukan install aplikasi, project ini bermula dari
+                    keresahan saya ketika ingin melakukan copy surah alquran dan
+                    saya mengalami kesulitan untuk mencari sumber yang mudah
+                    untuk melakukan itu, oleh karena itu saya membuat project
+                    ini untuk membantu semua orang dalam membaca dan
+                    memanfaatkannya untuk kebaikan, semoga bermanfaat dan
+                    terimakasih.
                   </p>
                   <div className="button-gr">
                     <a
@@ -109,20 +95,17 @@ const About = () => {
                 viewBox="0 0 16 16"
                 stroke="currentColor"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-                />
+                <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
               </svg>
             </a>
           </div>
         </div>
 
-        <section className="h-[90vh] pt-5" id="thanks">
+        <section className="min-h-[90vh] pt-5 pb-5" id="thanks">
           <h2 className="text-center mb-8 mt-3 font-bold text-2xl font-serif">
             Thanks to
           </h2>
-          <div className="grid grid-cols-1 px-3 lg:grid-cols-3 gap-4 mb-10">
+          <div className="grid grid-cols-1 px-3 md:px-0 lg:grid-cols-3 gap-4 mb-10">
             <div className="card w-full bg-white shadow-xl border-dashed border-[1px] ">
               <div className="card-body">
                 <p className="text-left font-serif">Built using</p>
@@ -147,30 +130,6 @@ const About = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="card w-full bg-white shadow-xl border-dashed border-[1px] ">
-              <div className="card-body">
-                <p className="text-left font-serif">Hosting at</p>
-                <h3 className="card-title mb-0 font-serif -mt-[7px]">
-                  ⛅ Cloudflare
-                </h3>
-
-                <div className="flex gap-1">
-                  <div className="badge badge-outline">Pages</div>
-                  <div className="badge badge-outline capitalize">Security</div>
-                </div>
-
-                <div className="card-actions justify-start">
-                  <a
-                    href="https://www.cloudflare.com/"
-                    className="btn btn-sm"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    cloudflare
-                  </a>
-                </div>
-              </div>
-            </div> */}
             <div className="card w-full bg-white shadow-xl border-dashed border-[1px]">
               <div className="card-body">
                 <p className="text-left font-serif">
@@ -269,6 +228,22 @@ const About = () => {
               </div>
             </div>
           </div>
+          <a
+            href="https://github.com/fajriyan/al-quran?tab=readme-ov-file#changelog"
+            className="underline"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Changelog
+          </a>
+          <a
+            href="https://github.com/fajriyan/al-quran/issues/new"
+            className="underline ms-2"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Report
+          </a>
         </section>
       </div>
     </>

@@ -209,16 +209,18 @@ const SinglePost = () => {
                     </button>
                     <ul
                       tabIndex={0}
-                      className="dropdown-content menu p-1 text-[15px] shadow bg-base-100 w-[95px] "
+                      className="dropdown-content menu p-1 text-[15px] shadow-md border rounded-md bg-base-100 w-[150px] "
                     >
                       <li>
                         <CopyToClipboard onCopy={copySurat} text={single.ar}>
-                          <span className="p-0 px-1">Copy Arab</span>
+                          <span className="p-0 px-1">
+                            Copy Ayat Ke : {single.nomor}
+                          </span>
                         </CopyToClipboard>
                       </li>
                       <li>
                         <CopyToClipboard onCopy={copySurat} text={single.idn}>
-                          <span className="p-0 px-1">Copy Indo</span>
+                          <span className="p-0 px-1">Copy Terjemahan</span>
                         </CopyToClipboard>
                       </li>
                     </ul>
@@ -246,7 +248,7 @@ const SinglePost = () => {
               {/* Menu Control End */}
 
               <div
-                className="arab px-3 lg:pl-2 w-full lg:w-[94%]"
+                className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
                 style={{ fontSize: font1 + "px" }}
               >
                 {single.ar} <span className="relative">۝</span>
