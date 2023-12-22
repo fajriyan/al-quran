@@ -5,7 +5,7 @@ import svgrPlugin from "vite-plugin-svgr";
 export default defineConfig({
   build: {
     outDir: "build",
-  },
+  }, 
   plugins: [
     reactRefresh(),
     svgrPlugin({

@@ -14,12 +14,12 @@ const SinglePost = () => {
   const [font1, setFont1] = useState("25");
   const [font2, setFont2] = useState("16");
 
-  const getAPIsinglesurat = async () => {
-    const ResponAPI2 = await fetch("https://equran.id/api/surat/" + Params.id);
-    const dataAPI2 = await ResponAPI2.json();
+  const getAyat = async () => {
+    const Req = await fetch("https://equran.id/api/surat/" + Params.id);
+    const Res = await Req.json();
     window.scrollTo({ top: 0 });
-    setSingleSurat(dataAPI2["ayat"]);
-    setDec(dataAPI2);
+    setSingleSurat(Res["ayat"]);
+    setDec(Res);
     setLoading(true);
   };
 
@@ -74,7 +74,7 @@ const SinglePost = () => {
   };
   useEffect(() => {
     checkingStatus();
-    getAPIsinglesurat();
+    getAyat();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -86,7 +86,7 @@ const SinglePost = () => {
         <title>{decSurat.nama_latin}</title>
         <link
           rel="canonical"
-          href={"https://al-quran.pages.dev/surat/" + decSurat.nomor}
+          href={"https://al-quran.pages.dev/surah/" + decSurat.nomor}
         />
       </Helmet>
 

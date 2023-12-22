@@ -110,7 +110,7 @@ const About = () => {
               <div className="card-body">
                 <p className="text-left font-serif">Built using</p>
                 <h3 className="card-title mb-0 font-serif -mt-[7px]">
-                  ✨ React JS (CRA)
+                  React JS (Vite JS)
                 </h3>
 
                 <div className="flex gap-1">
@@ -136,7 +136,7 @@ const About = () => {
                   A utility-first CSS framework
                 </p>
                 <h3 className="card-title mb-0 font-serif -mt-[7px]">
-                  🔆 Tailwind CSS
+                  Tailwind CSS
                 </h3>
                 <div className="flex gap-1">
                   <div className="badge badge-outline capitalize">
@@ -160,7 +160,7 @@ const About = () => {
               <div className="card-body">
                 <p className="text-left font-serif">UI components</p>
                 <h3 className="card-title mb-0 font-serif -mt-[7px]">
-                  🎊 daisyUI
+                  DaisyUI
                 </h3>
 
                 <div className="flex gap-1">

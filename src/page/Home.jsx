@@ -8,11 +8,11 @@ const Home = () => {
   const [Loading, setLoading] = useState(false);
 
   const [dataSurat, setSurat] = useState([]);
-  const getAPIsurat = async () => {
-    const ResponAPI1 = await fetch("https://equran.id/api/surat");
-    const dataAPI1 = await ResponAPI1.json();
+  const getSurah = async () => {
+    const Req = await fetch("https://equran.id/api/surat");
+    const Res = await Req.json();
     setLoading(true);
-    setSurat(dataAPI1);
+    setSurat(Res);
   };
 
   const removeBookmark = () => {
@@ -39,7 +39,7 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    getAPIsurat();
+    getSurah();
   });
 
   const skeletonLoad = [1, 2, 3, 4, 5];
