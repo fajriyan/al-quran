@@ -74,6 +74,9 @@ dapat dilihat [disini](https://al-quran.pages.dev/about/)
 - Update [1.5.2] - Improve SEO and update ui mobile
 - Update [1.5.5] - Fixing structure folder
 - Update [1.5.9] - Improve UI and fix some error in console
+- Update [1.6.0] - fix error and layout tablet
+- Update [1.6.2] - update some function page home and single surah
+
 
 
 ## Issue Report
