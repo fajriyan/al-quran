@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { useParams } from "react-router-dom";
+import { json, useParams } from "react-router-dom";
 import Navigation from "../component/Navigation";
 import { Toaster, toast } from "react-hot-toast";
 import { Helmet } from "react-helmet";
@@ -22,6 +22,21 @@ const SinglePost = () => {
     setDec(Res);
     setLoading(true);
   };
+
+  const [dTF, setTF] = useState([]);
+  const getTafsir = async () => {
+    const Req = await fetch("https://equran.id/api/tafsir/" + Params.id);
+    const Res = await Req.json();
+    setTF(Res);
+    console.log(Res["tafsir"][0]);
+  };
+
+  useEffect(() => {
+    checkingStatus();
+    getAyat();
+    getTafsir();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const SkeletonLoading = [1, 2, 3, 4];
 
@@ -72,12 +87,9 @@ const SinglePost = () => {
       setBStats(false);
     }
   };
-  useEffect(() => {
-    checkingStatus();
-    getAyat();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
+  const [modalAyat, setModalAyat] = useState(false);
+  console.log(modalAyat);
   return (
     <>
       {/* Helmet Start  */}
@@ -114,6 +126,7 @@ const SinglePost = () => {
         singleSP={dataSingleSurat}
       />
       <Toaster />
+
       <div className="container mx-auto selection:bg-blue-200">
         <div className="px-3 lg:px-0 flex flex-wrap gap-2 border-b border-slate-300 pb-2 items-end">
           {/* Arab Control */}
@@ -223,7 +236,56 @@ const SinglePost = () => {
                           <span className="p-0 px-1">Copy Terjemahan</span>
                         </CopyToClipboard>
                       </li>
+                      <li>
+                        <label
+                          htmlFor={`tafsir-modal-${single.nomor}`}
+                          id="btn-modal-4"
+                          className="p-0 px-1"
+                        >
+                          Tafsir Ayat ke : {single.nomor}
+                        </label>
+                      </li>
                     </ul>
+                  </div>
+
+                  {/* Put this part before </body> tag */}
+                  <input
+                    type="checkbox"
+                    id={`tafsir-modal-${single.nomor}`}
+                    className="modal-toggle"
+                  />
+                  <div className="modal md:items-start md:pt-10 px-3">
+                    <div className="modal-box w-full max-w-7xl">
+                      <label
+                        htmlFor={`tafsir-modal-${single.nomor}`}
+                        className="btn btn-sm btn-circle absolute right-2 top-2"
+                      >
+                        ✕
+                      </label>
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-lg font-bold">
+                          Tafsir {decSurat.nama_latin} Ayat ke : {single.nomor}
+                        </h3>
+                        <input
+                          type="checkbox"
+                          className="toggle toggle-sm"
+                          checked={modalAyat}
+                          onChange={() => setModalAyat(!modalAyat)}
+                        />
+                      </div>
+
+                      {modalAyat ? (
+                        <div
+                          className="arab text-left w-full border-b border-slate-500 border-dashed pb-2 mb-1"
+                          style={{ fontSize: font1 + "px" }}
+                        >
+                          {single.ar} <span className="relative">۝</span>
+                        </div>
+                      ) : null}
+                      <p className="py-1 text-[16px] leading-[25px] text-justify">
+                        {dTF["tafsir"]?.[parseInt(single.nomor)]?.tafsir}
+                      </p>
+                    </div>
                   </div>
                 </div>
                 {/* Bookmark */}

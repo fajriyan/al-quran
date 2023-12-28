@@ -112,6 +112,23 @@ const Home = () => {
           <div className="hero-overlay bg-opacity-60 py-10 px-4 lg:rounded-xl text-white">
             <div className="md:w-[70%] mx-auto">
               <div className="w-full">
+                <div className="mb-2 text-xs w-max flex items-center px-2 py-1 gap-2 rounded-md bg-white/70 text-slate-700">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17"
+                    height="17"
+                    fill="currentColor"
+                    className="bi bi-plus-square-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />
+                  </svg>
+                  <p>
+                    <span className="font-semibold">New in v1.6.5</span> Tafsir
+                    Terjemahan Per Ayat
+                  </p>
+                </div>
+
                 <span className="text-5xl mb-3 lg:text-5xl sm:text-md font-bold">
                   Al Qur'an
                 </span>
