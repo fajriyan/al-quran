@@ -53,6 +53,7 @@ dapat dilihat [disini](https://al-quran.pages.dev/about/)
 - [x] Fix Search Error with Space
 - [x] Scroll detail Post Error
 - [x] Button "Lanjutkan Membaca" Error
+- [ ] scroll in home error
 
 ## Next Update
 
@@ -61,6 +62,8 @@ dapat dilihat [disini](https://al-quran.pages.dev/about/)
 - [x] Create Save and delte Bookmark surah
 - [x] Create Button "Lanjutkan Membaca" in Card Bookmark
 - [ ] Fix Structure folder
+- [ ] create page changelog
+- [ ] create page mini blog
 
 ## Changelog
 
@@ -76,6 +79,7 @@ dapat dilihat [disini](https://al-quran.pages.dev/about/)
 - Update [1.5.9] - Improve UI and fix some error in console
 - Update [1.6.0] - fix error and layout tablet
 - Update [1.6.2] - update some function page home and single surah
+- update [1.6.5] - add tafsir per ayat
 
 
 
