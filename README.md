@@ -67,6 +67,7 @@ dapat dilihat [disini](https://al-quran.pages.dev/about/)
 - [ ] Fix Structure folder
 - [ ] create page changelog
 - [ ] create page mini blog
+- [ ] create al quran with PWA 
 
 ## Changelog
 
