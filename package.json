@@ -1,6 +1,6 @@
 {
   "name": "al-quran-digital",
-  "version": "1.6.9",
+  "version": "1.7.0",
   "dependencies": {
     "@vitejs/plugin-react": "^4.1.0",
     "daisyui": "^2.52.0",
