@@ -35,11 +35,14 @@ Kalian bisa melakukan pengaksesan website secara online
 ## Screenshot
 
 - 🏠 Homepage
-  ![image](https://user-images.githubusercontent.com/56616688/211449390-3b0c71ad-6f5e-4c00-941b-5be23a2027b5.png)
+     ![image](https://github.com/fajriyan/al-quran/assets/56616688/39d527fe-9285-48fe-b6c3-78e774bb8d39)
+
 - 📃 Single Page
-  ![image](https://user-images.githubusercontent.com/56616688/211449489-24447f80-d9fb-4d29-abb3-ee705f5e14b2.png)
+     ![image](https://github.com/fajriyan/al-quran/assets/56616688/a9d41050-80e0-4a40-b75a-58faa35aa2e2)
+
 - 📎 About
-  ![image](https://user-images.githubusercontent.com/56616688/211449549-d3d5507e-ff70-4dd5-a745-8ec231326269.png)
+    ![image](https://github.com/fajriyan/al-quran/assets/56616688/671aae3c-9e8e-4d36-ae2c-81ab589a5803)
+
 
 ## Support
 
@@ -64,6 +67,7 @@ dapat dilihat [disini](https://al-quran.pages.dev/about/)
 - [ ] Fix Structure folder
 - [ ] create page changelog
 - [ ] create page mini blog
+- [ ] create al quran with PWA 
 
 ## Changelog
 

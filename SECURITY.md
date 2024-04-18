@@ -10,6 +10,10 @@ this project uses react js with vite js requires using Node.js 18.17 and above
 | 18++        | :white_check_mark: |
 | 17.9.x      | :x:                |
 
+## Technology
+- React JS (Vite)
+- Tailwind CSS
+
 ## Reporting a Vulnerability
 
 please report if you find any bugs or security holes in this 'toolsz' system,
