@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 const Changelog = () => {
   const dataChangelog = [
     {
+      id: "C192009",
+      author: "fajriyan",
+      date: "19/04/2024",
+      version: "1.7.0",
+      description: "clean up folder structure and code",
+    },
+    {
       id: "C192008",
       author: "fajriyan",
       date: "15/01/2024",

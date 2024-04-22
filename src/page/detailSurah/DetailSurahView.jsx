@@ -5,35 +5,33 @@ import CopyToClipboard from "react-copy-to-clipboard";
 
 const DetailSurahView = ({
   bookStats,
-  decSurat,
   Loading,
-  dataSingleSurat,
+  dataDetails,
   SkeletonLoading,
   copySurat,
   modalAyat,
-  dTF,
-  font1,
-  font2,
+  dataTafsir,
   saveAyat,
   handleClickScroll,
   clickButtonss,
-  setFont1,
-  setFont2,
   setModalAyat,
+  font,
+  setFont,
 }) => {
   return (
     <>
-      {/* Helmet Start  */}
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{decSurat.nama_latin}</title>
+        <title>
+          {dataDetails?.nama_latin
+            ? dataDetails?.nama_latin + " | Al Quran Digital"
+            : "Loading.."}{" "}
+        </title>
         <link
           rel="canonical"
-          href={"https://al-quran.pages.dev/surah/" + decSurat.nomor}
+          href={"https://al-quran.pages.dev/surah/" + dataDetails.nomor}
         />
       </Helmet>
-
-      {/* Helmet End  */}
 
       {bookStats ? (
         <div>
@@ -49,12 +47,12 @@ const DetailSurahView = ({
       ) : null}
 
       <Navigation
-        suratP={decSurat.nama_latin}
-        turunP={decSurat.tempat_turun}
-        jumlahP={decSurat.jumlah_ayat}
-        artiP={decSurat.arti}
+        suratP={dataDetails.nama_latin}
+        turunP={dataDetails.tempat_turun}
+        jumlahP={dataDetails.jumlah_ayat}
+        artiP={dataDetails.arti}
         loadP={Loading}
-        singleSP={dataSingleSurat}
+        singleSP={dataDetails}
       />
       <Toaster />
 
@@ -68,7 +66,7 @@ const DetailSurahView = ({
             <select
               defaultValue={"25"}
               className="select select-bordered select-sm w-full max-w-xs"
-              onChange={(f1) => setFont1(f1.target.value)}
+              onChange={(f1) => setFont({ arab: f1.target.value })}
             >
               <option value="20">Kecil</option>
               <option value="25">Default</option>
@@ -84,7 +82,7 @@ const DetailSurahView = ({
             <select
               defaultValue={"16"}
               className="select select-bordered select-sm w-full max-w-xs"
-              onChange={(f2) => setFont2(f2.target.value)}
+              onChange={(f2) => setFont({ idn: f2.target.value })}
             >
               <option value="14">Kecil</option>
               <option value="16">Default</option>
@@ -109,18 +107,18 @@ const DetailSurahView = ({
                 ✕
               </label>
               <h2 className="text-lg font-bold">
-                Deskripsi Surat {decSurat.nama_latin}{" "}
-                <b className="font-serif">{decSurat.nama}</b>
+                Deskripsi Surat {dataDetails.nama_latin}{" "}
+                <b className="font-serif">{dataDetails.nama}</b>
               </h2>
               <div
                 className="py-4"
-                dangerouslySetInnerHTML={{ __html: decSurat.deskripsi }}
+                dangerouslySetInnerHTML={{ __html: dataDetails.deskripsi }}
               ></div>
             </div>
           </div>
         </div>
         {Loading ? (
-          dataSingleSurat.map((single) => (
+          dataDetails?.ayat?.map((single) => (
             <div
               key={single.nomor + single.surah}
               className="flex flex-wrap justify-end md:h-full md:items-center border-b border-slate-300 pt-14 pb-5 md:py-9 relative"
@@ -195,7 +193,8 @@ const DetailSurahView = ({
                       </label>
                       <div className="flex items-center gap-2">
                         <h3 className="text-lg font-bold">
-                          Tafsir {decSurat.nama_latin} Ayat ke : {single.nomor}
+                          Tafsir {dataDetails.nama_latin} Ayat ke :{" "}
+                          {single.nomor}
                         </h3>
                         <input
                           type="checkbox"
@@ -208,13 +207,13 @@ const DetailSurahView = ({
                       {modalAyat ? (
                         <div
                           className="arab text-left w-full border-b border-slate-500 border-dashed pb-2 mb-1"
-                          style={{ fontSize: font1 + "px" }}
+                          style={{ fontSize: font.arab + "px" }}
                         >
                           {single.ar} <span className="relative">۝</span>
                         </div>
                       ) : null}
                       <p className="py-1 text-[16px] leading-[25px] text-justify">
-                        {dTF["tafsir"]?.[parseInt(single.nomor)]?.tafsir}
+                        {dataTafsir["tafsir"]?.[parseInt(single.nomor)]?.tafsir}
                       </p>
                     </div>
                   </div>
@@ -222,7 +221,7 @@ const DetailSurahView = ({
                 {/* Bookmark */}
                 <button
                   onClick={() =>
-                    saveAyat(single.surah, single.nomor, decSurat.nama_latin)
+                    saveAyat(single.surah, single.nomor, dataDetails.nama_latin)
                   }
                   className="md:border w-6 md:w-full rounded-md border-slate-200 flex justify-center items-center md:h-9 hover:bg-slate-100"
                 >
@@ -242,13 +241,13 @@ const DetailSurahView = ({
 
               <div
                 className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
-                style={{ fontSize: font1 + "px" }}
+                style={{ fontSize: font.arab + "px" }}
               >
                 {single.ar} <span className="relative">۝</span>
               </div>
               <p
                 className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
-                style={{ fontSize: font2 + "px" }}
+                style={{ fontSize: font.idn + "px" }}
               >
                 {single.idn}
               </p>
@@ -277,10 +276,10 @@ const DetailSurahView = ({
         )}
         <div className="flex justify-between my-5 px-3 md:px-0">
           {(() => {
-            if (decSurat.surat_sebelumnya !== false) {
+            if (dataDetails.surat_sebelumnya !== false) {
               return (
                 <a
-                  href={"/surah/" + decSurat.surat_sebelumnya?.nomor}
+                  href={"/surah/" + dataDetails.surat_sebelumnya?.nomor}
                   className="btn gap-2 bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none hover:shadow-xl focus:ring-2 ring-offset-2 ring-slate-900"
                 >
                   <svg
@@ -293,23 +292,23 @@ const DetailSurahView = ({
                   >
                     <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
                   </svg>
-                  {decSurat.surat_sebelumnya?.nama_latin}
+                  {dataDetails.surat_sebelumnya?.nama_latin}
                 </a>
               );
               // eslint-disable-next-line eqeqeq
-            } else if (decSurat.surat_sebelumnya == false) {
+            } else if (dataDetails.surat_sebelumnya == false) {
               return <div></div>;
             }
           })()}
 
           {(() => {
-            if (decSurat.surat_selanjutnya !== false) {
+            if (dataDetails.surat_selanjutnya !== false) {
               return (
                 <a
-                  href={"/surah/" + decSurat.surat_selanjutnya?.nomor}
+                  href={"/surah/" + dataDetails.surat_selanjutnya?.nomor}
                   className="btn gap-2 bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none hover:shadow-xl focus:ring-2 ring-offset-2 ring-slate-900"
                 >
-                  {decSurat.surat_selanjutnya?.nama_latin}
+                  {dataDetails.surat_selanjutnya?.nama_latin}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"

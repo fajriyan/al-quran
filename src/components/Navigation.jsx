@@ -62,7 +62,7 @@ const Navigation = (props) => {
               </span>
 
               <ul className="p-2 backdrop-blur-sm bg-white/90 border rounded-md overflow-y-scroll max-h-[350px] min-w-[100px]">
-                {props.singleSP.map((sp) => (
+                {props.singleSP?.ayat?.map((sp) => (
                   <li className="h-10" key={sp.nomor}>
                     <a href={"/surah/" + sp.surah + "#surahke" + sp.nomor}>
                       {sp.nomor}

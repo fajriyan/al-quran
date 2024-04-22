@@ -4,28 +4,26 @@ import { toast } from "react-hot-toast";
 import DetailSurahView from "./DetailSurahView";
 
 const DetailSurah = () => {
-  const Params = useParams();
+  const { id } = useParams();
+  const SkeletonLoading = [1, 2, 3, 4];
   const [Loading, setLoading] = useState(false);
-
-  const [dataSingleSurat, setSingleSurat] = useState([]);
-  const [decSurat, setDec] = useState([]);
-  const [font1, setFont1] = useState("25");
-  const [font2, setFont2] = useState("16");
+  const [modalAyat, setModalAyat] = useState(false);
+  const [dataDetails, setDataDetails] = useState([]);
+  const [dataTafsir, setDataTafsir] = useState([]);
+  const [font, setFont] = useState({ arab: "25", idn: "16" });
 
   const getAyat = async () => {
-    const Req = await fetch("https://equran.id/api/surat/" + Params.id);
+    const Req = await fetch("https://equran.id/api/surat/" + id);
     const Res = await Req.json();
     window.scrollTo({ top: 0 });
-    setSingleSurat(Res["ayat"]);
-    setDec(Res);
+    setDataDetails(Res);
     setLoading(true);
   };
 
-  const [dTF, setTF] = useState([]);
   const getTafsir = async () => {
-    const Req = await fetch("https://equran.id/api/tafsir/" + Params.id);
+    const Req = await fetch("https://equran.id/api/tafsir/" + id);
     const Res = await Req.json();
-    setTF(Res);
+    setDataTafsir(Res);
   };
 
   useEffect(() => {
@@ -34,8 +32,6 @@ const DetailSurah = () => {
     getTafsir();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const SkeletonLoading = [1, 2, 3, 4];
 
   const copySurat = () => {
     toast.success("Copy Berhasil");
@@ -70,10 +66,7 @@ const DetailSurah = () => {
 
   const [bookStats, setBStats] = useState(false);
   const checkingStatus = () => {
-    if (
-      lanjutBaca[0].url === Params.id &&
-      lanjutBaca[0].fromBookmark === "true"
-    ) {
+    if (lanjutBaca[0].url === id && lanjutBaca[0].fromBookmark === "true") {
       toast(`Melanjutkan membaca Surah`, {
         icon: "📑",
       });
@@ -83,26 +76,21 @@ const DetailSurah = () => {
     }
   };
 
-  const [modalAyat, setModalAyat] = useState(false);
-
   return (
     <DetailSurahView
-      bookStats={bookStats}
-      decSurat={decSurat}
+      dataDetails={dataDetails}
+      dataTafsir={dataTafsir}
       Loading={Loading}
-      dataSingleSurat={dataSingleSurat}
+      bookStats={bookStats}
       SkeletonLoading={SkeletonLoading}
       copySurat={copySurat}
       modalAyat={modalAyat}
-      dTF={dTF}
-      font1={font1}
-      font2={font2}
       saveAyat={saveAyat}
       handleClickScroll={handleClickScroll}
       clickButtonss={clickButtonss}
-      setFont1={setFont1}
-      setFont2={setFont2}
       setModalAyat={setModalAyat}
+      font={font}
+      setFont={setFont}
     />
   );
 };
