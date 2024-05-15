@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
+import LinkProgresBars from "../../lib/LinkProgresBars";
 
 const HomeView = ({
   showBT,
@@ -13,6 +14,7 @@ const HomeView = ({
   removeBookmark,
   dataSurat,
   skeletonLoad,
+  filteredData,
 }) => {
   try {
     return (
@@ -20,15 +22,31 @@ const HomeView = ({
         <Toaster />
         {localStorage.removeItem("fromBookmark", false)}
 
-        {/* Helmet Start  */}
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Al Quran Digital</title>
+          <title>Al Quran Digital | Baca Al Quran Mudah Tanpa Install</title>
           <link rel="canonical" href="https://al-quran.pages.dev/" />
         </Helmet>
-        {/* Helmet End */}
-
-        {/* Scroll To Top Start  */}
+        {/* ++ Sticky Search */}
+        <div className="sticky top-0 z-[99] bg-white border-b">
+          <div
+            className={
+              showBT
+                ? "container mx-auto p-4  opacity-100 transition-opacity duration-500"
+                : "h-0 opacity-0 transition-opacity duration-300"
+            }
+          >
+            <input
+              type="text"
+              onChange={(e) => setQuerySearch(e.target.value.replace(" ", "-"))}
+              value={querySearch.replace("-", " ")}
+              placeholder="Surat Apa yang ingin Anda Baca?"
+              className="input text-slate-600 border-slate-400 w-full focus:ring-4 focus:ring-blue-400"
+            />
+          </div>
+        </div>
+        {/* -- Sticky Search */}
+        {/* ++ Scroll To Top  */}
         {showBT ? (
           <button
             className="fixed bottom-5 right-4 rounded-full z-10 bg-white border border-slate-500 border-dashed p-2 shadow-2xl hover:bg-slate-100 sca group"
@@ -54,13 +72,12 @@ const HomeView = ({
         ) : (
           <div className=""></div>
         )}
-
-        {/* Scroll To Top End  */}
+        {/* -- Scroll To Top  */}
         <div className="container mx-auto md:my-5 px-0 md:px-3">
           <div
             className="hero min-h-[200px] rounded-none lg:rounded-xl flex flex-wrap"
             style={{
-              backgroundImage: `url("https://images.pexels.com/photos/8164567/pexels-photo-8164567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`,
+              backgroundImage: `url("./../public/bgHero.jpeg")`,
             }}
           >
             <div className="hero-overlay bg-opacity-60 py-10 px-4 lg:rounded-xl text-white">
@@ -78,8 +95,8 @@ const HomeView = ({
                       <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />
                     </svg>
                     <Link to={"/changelog"}>
-                      <span className="font-semibold">New in v1.6.9</span>{" "}
-                      create page changelog
+                      <span className="font-semibold">New in v1.7.3</span> Buat
+                      Loading lebih Bagus dan Refactor
                     </Link>
                   </div>
 
@@ -111,6 +128,7 @@ const HomeView = ({
                     onChange={(e) =>
                       setQuerySearch(e.target.value.replace(" ", "-"))
                     }
+                    value={querySearch.replace("-", " ")}
                     placeholder="Surat Apa yang ingin Anda Baca?"
                     className="input text-slate-600 border-white w-full focus:ring-4 focus:ring-blue-400"
                   />
@@ -137,20 +155,19 @@ const HomeView = ({
                 </span>
                 <div className="mt-2 flex flex-nowrap gap-2">
                   {RekomendationSurah.map((rs) => (
-                    <Link
+                    <LinkProgresBars
                       key={rs.surah}
                       to={"/surah/" + rs.url}
                       className="px-2 md:px-3 py-1 rounded-lg bg-white hover:bg-slate-100 text-slate-700 font-medium text-[13px] md:text-sm"
                     >
                       Surah {rs.surah}
-                    </Link>
+                    </LinkProgresBars>
                   ))}
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <div className="container mx-auto px-3">
           {/* Bookmark Start  */}
           {lanjutBaca[0].surat ? (
@@ -182,7 +199,6 @@ const HomeView = ({
                     >
                       <Link
                         to={`/surah/${lanjutBaca[0].url}`}
-                        // onClick={() => localStorage.setItem("fromBookmark", true)}
                         className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
                       >
                         Lanjutkan Membaca
@@ -230,85 +246,294 @@ const HomeView = ({
           )}
           {/* Bookmark End  */}
         </div>
-        <div className=" grid grid-cols-1 gap-4 px-3 lg:grid-cols-3 lg:gap-4 sm:grid-cols-2 sm:gap-4 container mx-auto mb-14">
-          {Loading
-            ? dataSurat
-                // eslint-disable-next-line array-callback-return
-                .filter((QF) => {
-                  if (!querySearch) {
-                    return QF;
-                  } else if (
-                    QF.nama_latin
-                      .toLowerCase()
-                      .includes(querySearch.toLowerCase())
-                  ) {
-                    return QF;
-                  }
-                })
-                .map((s) => (
-                  <div
-                    className="card w-full bg-base-100 shadow-sm hover:border-slate-600 border-slate-300 border-dashed border-[1px]"
-                    key={s.nama_latin + "-" + s.arti}
-                  >
-                    <div className="card-body">
-                      <h2
-                        className="card-title mb-0 font-serif"
-                        key={s.nama_latin}
-                      >
-                        {s.nama_latin.replace("-", " ")}
-                      </h2>
-                      <p className="text-left font-serif -mt-[20px]">
-                        {s.arti} |{" "}
-                        <span className="arab text-[5px]">{s.nama}</span>
-                      </p>
-
-                      <div className="flex gap-1">
-                        <div className="badge badge-outline">
-                          {s.jumlah_ayat}
-                        </div>
-                        <div className="badge badge-outline capitalize">
-                          {s.tempat_turun}
-                        </div>
-                      </div>
-
-                      <div className="card-actions justify-start">
-                        <Link
-                          to={"/surah/" + s.nomor}
-                          className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
-                        >
-                          baca surah {s.nama_latin.replace("-", " ")}
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                ))
-            : // <div className="h-40 flex justify-center items-center">
-              //   <progress className="progress w-56"></progress>
-              // </div>
-              skeletonLoad.map((L) => (
-                <div
-                  className="card w-96 bg-base-100 shadow-md"
-                  key={Math.random()}
+        <div
+          className={`container mx-auto grid grid-cols-1 gap-4 px-3 ${
+            filteredData.length === 0
+              ? ""
+              : "lg:grid-cols-3 lg:gap-4 sm:grid-cols-2 sm:gap-4"
+          }   mb-14`}
+        >
+          {Loading ? (
+            filteredData.length === 0 ? (
+              <div className="p-4 border border-dashed border-slate-400 w-full text-md md:flex gap-1 items-center rounded-md ">
+                Maaf, Surah{" "}
+                <span className="font-semibold underline">{querySearch}</span>{" "}
+                tidak ditemukan, silahkan periksa kembali pencarian anda.{" "}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="13"
+                  fill="currentColor"
+                  className="bi bi-info-circle-fill"
+                  viewBox="0 0 16 16"
                 >
-                  <div className="card-body">
-                    <div className="h-7 bg-gray-200 rounded-md dark:bg-gray-700 w-40 mb-1 animate-pulse"></div>
-                    <div className="h-2.5 bg-gray-200 rounded-md dark:bg-gray-700 w-48 mb-4 animate-pulse"></div>
+                  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+                </svg>
+              </div>
+            ) : (
+              filteredData.map((s) => (
+                <div
+                  className="card w-full bg-base-100 shadow-sm hover:border-slate-600  border-slate-300 border-dashed border-[1px]"
+                  key={s.nama_latin + "-" + s.arti}
+                >
+                  <div className="p-5 md:p-6">
+                    <h2
+                      className="card-title mb-0 font-serif"
+                      key={s.nama_latin}
+                    >
+                      {s.nama_latin.replace("-", " ")}{" "}
+                      <span className="arab-0">({s.nama})</span>
+                    </h2>
+                    <p className="text-left font-serif ">
+                      {s.arti} | {s.jumlah_ayat} Ayat
+                    </p>
 
-                    <div className="flex gap-1">
-                      <div className="badge badge-outline animate-pulse bg-gray-50">
-                        <div className="w-5"></div>
-                      </div>
-                      <div className="badge badge-outline animate-pulse bg-gray-50">
-                        <div className="w-9"></div>
-                      </div>
-                    </div>
+                    <p className="flex items-center gap-2 capitalize">
+                      {" "}
+                      {s.tempat_turun == "mekah" ? (
+                        <>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 36 36"
+                            aria-hidden="true"
+                            role="img"
+                            className="iconify iconify--twemoji"
+                            preserveAspectRatio="xMidYMid meet"
+                          >
+                            <path
+                              d="M18 0L0 5v29l18 2l18-2V5z"
+                              fill="#000000"
+                            />
+                            <path fill="#292F33" d="M18 36l18-2V5L18 0z" />
+                            <path
+                              fill="#FFD983"
+                              d="M22.454 14.507v3.407l4.229.612V15.22zm7 1.181v3.239l3.299.478v-3.161zM18 13.756v3.513l1.683.244V14.04zm18 3.036l-.539-.091v3.096l.539.078z"
+                            />
+                            <path
+                              fill="#FFAC33"
+                              d="M0 16.792v3.083l.539-.078v-3.096zm16.317-2.752v3.473L18 17.269v-3.513zm-13.07 2.204v3.161l3.299-.478v-3.239zm6.07-1.024v3.306l4.229-.612v-3.407z"
+                            />
+                            <path
+                              fill="#FFD983"
+                              d="M21.389 15.131v-.042c0-.421-.143-.763-.32-.763c-.177 0-.32.342-.32.763v.042c-.208.217-.355.621-.355 1.103c0 .513.162.949.393 1.152c.064.195.163.33.282.33s.218-.135.282-.33c.231-.203.393-.639.393-1.152c-.001-.482-.147-.886-.355-1.103zm6.999 1.069v-.042c0-.421-.143-.763-.32-.763c-.177 0-.32.342-.32.763v.042c-.208.217-.355.621-.355 1.103c0 .513.162.949.393 1.152c.064.195.163.33.282.33s.218-.135.282-.33c.231-.203.393-.639.393-1.152c0-.481-.147-.885-.355-1.103zm6.017 1.03v-.039c0-.393-.134-.712-.299-.712c-.165 0-.299.319-.299.712v.039c-.194.203-.331.58-.331 1.03c0 .479.151.886.367 1.076c.059.182.152.308.263.308s.203-.126.263-.308c.215-.189.367-.597.367-1.076c0-.45-.136-.827-.331-1.03z"
+                            />
+                            <path
+                              fill="#FFAC33"
+                              d="M14.611 15.131v-.042c0-.421.143-.763.32-.763s.32.342.32.763v.042c.208.217.355.621.355 1.103c0 .513-.162.949-.393 1.152c-.064.195-.163.33-.282.33s-.218-.135-.282-.33c-.231-.203-.393-.639-.393-1.152c.001-.482.147-.886.355-1.103zM7.612 16.2v-.042c0-.421.143-.763.32-.763s.32.342.32.763v.042c.208.217.355.621.355 1.103c0 .513-.162.949-.393 1.152c-.064.195-.163.33-.282.33s-.218-.135-.282-.33c-.231-.203-.393-.639-.393-1.152c0-.481.147-.885.355-1.103zm-6.017 1.03v-.039c0-.393.134-.712.299-.712s.299.319.299.712v.039c.194.203.331.58.331 1.03c0 .479-.151.886-.367 1.076c-.059.182-.152.308-.263.308s-.204-.127-.264-.308c-.215-.189-.367-.597-.367-1.076c.001-.45.137-.827.332-1.03zM0 11.146v3.5l18-3.268V7.614z"
+                            />
+                            <path
+                              fill="#FFD983"
+                              d="M18 7.614v3.764l18 3.268v-3.5z"
+                            />
+                          </svg>
+                          {s.tempat_turun}
+                        </>
+                      ) : (
+                        <>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 128 128"
+                            aria-hidden="true"
+                            role="img"
+                            className="iconify iconify--noto"
+                            preserveAspectRatio="xMidYMid meet"
+                          >
+                            <path
+                              fill="#eebf72"
+                              d="M10.43 124.25l.15-44.32l1.71-1.34h102.89l2.1.96l-.08 44.7z"
+                            />
+                            <path
+                              d="M10.72 75.91c-.42.14-.16 4.45-.16 4.45l106.75-.21s.73-4.21.17-4.77c-.56-.55-106.76.53-106.76.53z"
+                              fill="#cf701d"
+                            />
+                            <path
+                              d="M94.66 21.59l.06 13.12l-4.95.05s-.07 5.72.1 5.78c.37.12 11.56 2.65 11.56 2.65l14.25-2.52l.17-5.62l-5.03-.05l.11-14.19l-11.3-.79l-4.97 1.57z"
+                              fill="#fbdaa6"
+                            />
+                            <path
+                              fill="#fbdaa6"
+                              d="M93.84 45.2l-.14 78.98h17.03l.86-79.98z"
+                            />
+                            <path
+                              d="M42.52 66.3s-1.63 3.14-1.63 3.37c0 .23.35 54.7.35 54.7h45.39s1.16-54.46.81-54.93c-.35-.46-44.92-3.14-44.92-3.14z"
+                              fill="#fbdaa6"
+                            />
+                            <path
+                              d="M17.23 21.36l-.03 13.46l-4.88-.01s-.23 5.62.12 5.93c.52.46 14.94 2.69 14.94 2.69s10.57-2.14 10.81-2.71c.15-.36.19-5.54.19-5.54l-5.2-.05l.08-14.33l-9.66-.89l-6.37 1.45z"
+                              fill="#fbdaa6"
+                            />
+                            <path
+                              fill="#fbdaa6"
+                              d="M16.67 45.76l.6 78.49h16.98l-.05-79.16z"
+                            />
+                            <path
+                              fill="#eebf72"
+                              d="M12.41 40.71H38.2l-4 5.49l-17.53.11z"
+                            />
+                            <path
+                              fill="#eebf72"
+                              d="M16.82 67.46l17.31-.13l.07 5.62l-17.32.06z"
+                            />
+                            <path
+                              fill="#eebf72"
+                              d="M23.24 118.77h4.91V82.91l-2.19-2.9l-2.39 2.84z"
+                            />
+                            <path
+                              fill="#eebf72"
+                              d="M100.02 119.78l4.59-.06l.25-37.08l-2.39-3.23l-2.32 3.23z"
+                            />
+                            <path
+                              fill="#eebf72"
+                              d="M93.95 66.1l-.07 5.75h17.25l.07-5.81z"
+                            />
+                            <path
+                              fill="#eebf72"
+                              d="M93.82 46.46l17.76-.06l4.1-5.73l-25.87-.15z"
+                            />
+                            <path
+                              fill="#cf701d"
+                              d="M40.97 85.06l-.06-5.45l46.53-.09l-.07 5.58z"
+                            />
+                            <path
+                              fill="#b7885a"
+                              d="M97.79 24.07l3.79.01l-.03 10.02l-3.79.03z"
+                            />
+                            <path
+                              fill="#b7885a"
+                              d="M104.38 24.1H108l-.03 10.03l-3.65.03z"
+                            />
+                            <path
+                              fill="#b7885a"
+                              d="M20.04 24.06h3.68l-.03 10.02l-3.68.04z"
+                            />
+                            <path
+                              fill="#b7885a"
+                              d="M26.62 24.09h3.63l-.03 10.03l-3.66.03z"
+                            />
+                            <path
+                              d="M47.79 70.38c-4.96 0-4.55 5.77-4.55 5.77l8.82-.06c-.01 0 .45-5.71-4.27-5.71z"
+                              fill="#b7885a"
+                            />
+                            <path
+                              d="M54.13 76.15s-.52-5.65 4.55-5.77c4.73-.11 4.27 5.71 4.27 5.71l-8.82.06z"
+                              fill="#b7885a"
+                            />
+                            <path
+                              d="M85.73 75.91s.98-5.59-4.44-5.7c-5.2-.11-4.6 5.76-4.6 5.76l9.04-.06z"
+                              fill="#b7885a"
+                            />
+                            <path
+                              d="M74.37 75.97s.98-5.82-4.44-5.7c-5.14.12-4.6 5.76-4.6 5.76l9.04-.06z"
+                              fill="#b7885a"
+                            />
+                            <path
+                              d="M79.05 124.37l.13-14.7l2.52-3.08s-2.63-1.2-2.64-4.15c-.02-3.98 4.1-6.61 4.1-6.61s4 2.35 3.93 6.75c-.04 2.6-2.65 4.06-2.65 4.06l2.49 3.2s-.22 14.49-.3 14.55c-.09.05-7.58-.02-7.58-.02z"
+                              fill="#b7885a"
+                            />
+                            <path
+                              d="M41.07 124.37c-.1-.03.05-14.93.05-14.93l2.6-2.79s-2.5-1.7-2.58-4.01c-.2-5.4 3.99-6.82 3.99-6.82s4.18 2.3 3.83 6.75c-.21 2.72-2.55 4.05-2.55 4.05l2.52 3l-.13 14.78s-7.63 0-7.73-.03z"
+                              fill="#b7885a"
+                            />
+                            <path
+                              d="M64.32 88.06s-11.29 3.52-10.84 12.74c.2 4.04 3.13 5.81 3.13 5.81l-2.9 3.05l-.11 14.7l20.73.02l.06-14.76l-2.79-2.96s2.79-1.73 2.91-6.15c.21-8.76-10.19-12.45-10.19-12.45z"
+                              fill="#966737"
+                            />
+                            <path
+                              d="M40.89 69.68l46.55-.23s2.48-2.96 2-10.18c-.45-6.73-4.79-10.84-4.79-10.84l-28.64.49l-13-.11s-3.61 3.97-3.93 10.66c-.27 5.96 1.81 10.21 1.81 10.21z"
+                              fill="#ffa828"
+                            />
+                            <path
+                              d="M64.11 34.26s-8.47 3.1-15.1 8.49c-5.04 4.11-6.46 6.67-6.46 6.67s-1.73 17.83 21.61 18.29c20.63.41 20.51-19.28 20.51-19.28s-4.23-5.03-8.71-7.78c-5.95-3.64-11.85-6.39-11.85-6.39z"
+                              fill="#fcc11a"
+                            />
+                            <path
+                              d="M67.26 33.53c0-1.73-1.4-3.13-3.12-3.13c-1.72 0-3.17 1.07-3.28 2.79c-.15 2.18 1.21 3.55 3.21 3.54c1.72.01 3.19-1.47 3.19-3.2z"
+                              fill="#ffa828"
+                            />
+                            <path
+                              d="M54.43 15.99l-2.38 3.36s-.74 12.86 12.25 12.86c11.72 0 12.57-11.27 11.78-11.78c-.39-.26-5.49 5.84-5.72 5.9c-.23.06-9.18-.63-9.41-.92c-.22-.3-6.52-9.42-6.52-9.42z"
+                              fill="#ffa828"
+                            />
+                            <path
+                              d="M64.19 12.65c-.37.32.9 4.12.9 4.12s-1.99 2.97-1.7 3.44s3.23.23 3.23.23s2.37 2.42 3 2.31c.63-.12 1.33-3.17 1.33-3.17s3.41-.92 3.46-1.5c.06-.58-2.99-2.64-2.99-2.64s.22-3.42-.07-3.65c-.29-.24-3.35 1.72-3.35 1.72s-3.35-1.27-3.81-.86z"
+                              fill="#fcc11a"
+                            />
+                            <path
+                              d="M67.19 8.66c.04.46-6.06 1.56-7.16 6.93c-1.12 5.49 1.96 9.18 7.68 9.52c5.71.35 6.75-5.48 8.37-4.73c.54.25-1.67 9.18-11.72 8.95c-8.9-.2-12.2-6.74-12.29-9.35c-.23-6.35 3.58-10.22 7.45-11.66c3.51-1.31 7.55-1.04 7.67.34z"
+                              fill="#fcc11a"
+                            />
+                            <path
+                              d="M94.38 21.82c.41.25 16.54.25 16.78.06c.24-.19.49-2.67.52-3.75c.1-3.39-.74-4.95-.74-4.95s-15.83-.33-16.21.06c-.39.39-.76 2.17-.81 4.45c-.04 2.5.22 3.98.46 4.13z"
+                              fill="#ffa828"
+                            />
+                            <path
+                              d="M17.09 21.47c.32.27 16.16.25 16.31.06c.15-.19.72-2.63.66-4.23c-.08-2.23-.49-3.08-.79-3.66c-.62-1.21-15.36-1.62-15.8-.79s-1.03 2.59-1.05 4.7c-.02 1.62.33 3.63.67 3.92z"
+                              fill="#ffa828"
+                            />
+                            <path
+                              d="M27.95 4.12c0 1.45-1.35 2.81-2.81 2.81s-2.62-1.32-2.62-2.76s1.26-2.81 2.72-2.81c1.46 0 2.71 1.31 2.71 2.76z"
+                              fill="#fcc11a"
+                            />
+                            <path
+                              d="M105.6 4.11c0 1.46-1.19 2.6-2.68 2.6s-2.66-1.18-2.66-2.64s1.18-2.64 2.66-2.64s2.68 1.22 2.68 2.68z"
+                              fill="#fcc11a"
+                            />
+                            <path
+                              d="M94.47 13.69s1.04 4.73 8.06 4.98c7.56.27 8.48-5.39 8.48-5.39s-1.09-2.23-2.73-4.02c-1.74-1.91-4.4-3.67-5.43-3.67c-.95 0-3.69 1.5-5.49 3.48c-1.98 2.17-2.89 4.4-2.89 4.62z"
+                              fill="#fcc11a"
+                            />
+                            <path
+                              d="M25.23 5.36c-.45 0-3.67 2.27-4.99 3.75c-1.92 2.17-2.77 3.73-2.77 3.73s.51 5.63 7.53 5.78c7.55.16 8.28-4.97 8.28-4.97s-1.24-2.39-3.23-4.56c-2.1-2.29-4.82-3.73-4.82-3.73z"
+                              fill="#fcc11a"
+                            />
+                          </svg>
+                          {s.tempat_turun}
+                        </>
+                      )}
+                    </p>
 
-                    <div className="card-actions justify-start animate-pulse">
-                      <button className="btn btn-sm w-32"></button>
+                    <div className="card-actions justify-start mt-5">
+                      <LinkProgresBars
+                        to={"/surah/" + s.nomor}
+                        className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
+                      >
+                        Baca Surah {s.nama_latin.replace("-", " ")}
+                      </LinkProgresBars>
                     </div>
                   </div>
                 </div>
-              ))}
+              ))
+            )
+          ) : (
+            skeletonLoad.map((L) => (
+              <div
+                className="card w-96 bg-base-100 shadow-md"
+                key={Math.random()}
+              >
+                <div className="card-body">
+                  <div className="h-7 bg-gray-200 rounded-md dark:bg-gray-700 w-40 mb-1 animate-pulse"></div>
+                  <div className="h-2.5 bg-gray-200 rounded-md dark:bg-gray-700 w-48 mb-4 animate-pulse"></div>
+
+                  <div className="flex gap-1">
+                    <div className="badge badge-outline animate-pulse bg-gray-50">
+                      <div className="w-5"></div>
+                    </div>
+                    <div className="badge badge-outline animate-pulse bg-gray-50">
+                      <div className="w-9"></div>
+                    </div>
+                  </div>
+
+                  <div className="card-actions justify-start animate-pulse">
+                    <button className="btn btn-sm w-32"></button>
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
         </div>
         <Footer />
       </>

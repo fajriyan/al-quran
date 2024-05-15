@@ -1,11 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import HomeView from "./HomeView";
+import ProgresContext from "../../lib/ProgresContext";
 
 const Home = () => {
   const [Loading, setLoading] = useState(false);
-
+  const [_, setProgressBar] = useContext(ProgresContext);
   const [dataSurat, setSurat] = useState([]);
+  const skeletonLoad = [1, 2, 3, 4, 5];
+  const [querySearch, setQuerySearch] = useState("");
+  const [showBT, setShowBT] = useState("");
+
   const getSurah = async () => {
     const Req = await fetch("https://equran.id/api/surat");
     const Res = await Req.json();
@@ -37,17 +42,15 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    getSurah();
-  });
-
-  const skeletonLoad = [1, 2, 3, 4, 5];
-  const [querySearch, setQuerySearch] = useState("");
+    getSurah()
+      .then(setProgressBar(false))
+      .finally(window.scrollTo({ top: 0 }));
+  }, []);
 
   window.onscroll = function () {
     scrollFunction();
   };
 
-  const [showBT, setShowBT] = useState("");
   function scrollFunction() {
     if (
       document.body.scrollTop > 300 ||
@@ -59,18 +62,32 @@ const Home = () => {
     }
   }
 
+  const filteredData = dataSurat.filter((QF) => {
+    if (!querySearch) {
+      return QF;
+    } else if (
+      QF.nama_latin.toLowerCase().includes(querySearch.toLowerCase())
+    ) {
+      return QF;
+    }
+  });
+
   return (
-    <HomeView
-      Loading={Loading}
-      RekomendationSurah={RekomendationSurah}
-      dataSurat={dataSurat}
-      lanjutBaca={lanjutBaca}
-      querySearch={querySearch}
-      setQuerySearch={setQuerySearch}
-      removeBookmark={removeBookmark}
-      showBT={showBT}
-      skeletonLoad={skeletonLoad}
-    />
+    <>
+      {/* <LinkChange ></LinkChange> */}
+      <HomeView
+        Loading={Loading}
+        RekomendationSurah={RekomendationSurah}
+        dataSurat={dataSurat}
+        lanjutBaca={lanjutBaca}
+        querySearch={querySearch}
+        setQuerySearch={setQuerySearch}
+        removeBookmark={removeBookmark}
+        showBT={showBT}
+        skeletonLoad={skeletonLoad}
+        filteredData={filteredData}
+      />
+    </>
   );
 };
 export default Home;

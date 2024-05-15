@@ -33,7 +33,7 @@ const DetailSurahView = ({
         />
       </Helmet>
 
-      {bookStats ? (
+      {bookStats == true ? (
         <div>
           <button
             className="btn-scroll hidden"
@@ -58,7 +58,7 @@ const DetailSurahView = ({
 
       <div className="container mx-auto selection:bg-blue-200">
         <div className="px-3 lg:px-0 flex flex-wrap gap-2 border-b border-slate-300 pb-2 items-end">
-          {/* Arab Control */}
+          {/* ++ Control Font */}
           <div>
             <label className="label">
               <span className="label-text">Ukuran Arab</span>
@@ -74,7 +74,6 @@ const DetailSurahView = ({
               <option value="33">Sangat Besar</option>
             </select>
           </div>
-          {/* Terjemah Control */}
           <div>
             <label className="label">
               <span className="label-text">Ukuran Terjemah</span>
@@ -90,13 +89,13 @@ const DetailSurahView = ({
               <option value="25">Sangat Besar</option>
             </select>
           </div>
+          {/* -- Control Font  */}
 
-          {/* The button to open modal */}
+          {/* ++ Modal Description Surah */}
           <label htmlFor="my-modal-3" className="btn btn-outline btn-sm">
             Deskripsi
           </label>
 
-          {/* Put this part before </body> tag */}
           <input type="checkbox" id="my-modal-3" className="modal-toggle" />
           <div className="modal md:items-start md:pt-10 px-3">
             <div className="modal-box w-full max-w-4xl">
@@ -116,8 +115,10 @@ const DetailSurahView = ({
               ></div>
             </div>
           </div>
+          {/* -- Modal Description Surah */}
         </div>
-        {Loading ? (
+
+        {Loading == false ? (
           dataDetails?.ayat?.map((single) => (
             <div
               key={single.nomor + single.surah}

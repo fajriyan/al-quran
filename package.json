@@ -1,6 +1,6 @@
 {
   "name": "al-quran-digital",
-  "version": "1.7.0",
+  "version": "1.7.3",
   "dependencies": {
     "@vitejs/plugin-react": "^4.1.0",
     "daisyui": "^2.52.0",
@@ -10,6 +10,7 @@
     "react-helmet": "^6.1.0",
     "react-hot-toast": "^2.4.1",
     "react-router-dom": "^6.6.1",
+    "react-topbar-progress-indicator": "^4.1.1",
     "vite": "^4.4.9",
     "vite-plugin-svgr": "^3.2.0",
     "web-vitals": "^2.1.4"

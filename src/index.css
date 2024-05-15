@@ -24,6 +24,11 @@ html {
   direction: rtl;
 }
 
+.arab-0 {
+  font-family: LPMQ, "Traditional Arabic", Tahoma, sans-serif;
+  font-weight: 500;
+  direction: rtl;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -40,7 +45,7 @@ html {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #3b4451;
-  border-radius: 5px;
+  border-radius: 4px;
   height: 25px;
 }
 
