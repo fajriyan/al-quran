@@ -22,6 +22,7 @@ const DetailSurahView = ({
     <>
       <Helmet>
         <meta charSet="utf-8" />
+        <meta name="robots" content="index,follow"/>
         <title>
           {dataDetails?.nama_latin
             ? dataDetails?.nama_latin + " | Al Quran Digital"

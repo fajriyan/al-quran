@@ -24,6 +24,7 @@ const HomeView = ({
 
         <Helmet>
           <meta charSet="utf-8" />
+          <meta name="robots" content="index,follow"/>
           <title>Al Quran Digital | Baca Al Quran Mudah Tanpa Install</title>
           <link rel="canonical" href="https://al-quran.pages.dev/" />
         </Helmet>
@@ -77,10 +78,10 @@ const HomeView = ({
           <div
             className="hero min-h-[200px] rounded-none lg:rounded-xl flex flex-wrap"
             style={{
-              backgroundImage: `url("./../public/bgHero.jpeg")`,
+              backgroundImage: `url("https://images.unsplash.com/photo-1588194200910-af009d36fc75?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
             }}
           >
-            <div className="hero-overlay bg-opacity-60 py-10 px-4 lg:rounded-xl text-white">
+            <div className="hero-overlay bg-opacity-70 py-10 px-4 lg:rounded-xl text-white">
               <div className="md:w-[70%] mx-auto">
                 <div className="w-full">
                   <div className="mb-2 text-xs w-max flex items-center px-2 py-1 gap-2 rounded-md bg-white/70 text-slate-700">
@@ -101,7 +102,7 @@ const HomeView = ({
                   </div>
 
                   <span className="text-5xl mb-3 lg:text-5xl sm:text-md font-bold">
-                    Al Qur'an
+                    Al Qur'an Digital
                   </span>
                   <h1 className="hidden">
                     Al quran Online | Baca Quran Praktis Tanpa Install Aplikasi
