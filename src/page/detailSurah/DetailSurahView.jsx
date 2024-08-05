@@ -58,7 +58,7 @@ const DetailSurahView = ({
       <Toaster />
 
       <div className="container mx-auto selection:bg-blue-200">
-        <div className="px-3 lg:px-0 flex flex-wrap gap-2 border-b border-slate-300 pb-2 items-end">
+        <div className="px-3 lg:px-0 flex flex-wrap gap-2 border-b border-slate-300 dark:border-slate-400/80 pb-2 items-end">
           {/* ++ Control Font */}
           <div>
             <label className="label">
@@ -66,7 +66,7 @@ const DetailSurahView = ({
             </label>
             <select
               defaultValue={"25"}
-              className="select select-bordered select-sm w-full max-w-xs"
+              className="select select-bordered border-slate-700 dark:border-slate-400 select-sm w-full max-w-xs text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-700"
               onChange={(f1) => setFont({ arab: f1.target.value })}
             >
               <option value="20">Kecil</option>
@@ -81,7 +81,7 @@ const DetailSurahView = ({
             </label>
             <select
               defaultValue={"16"}
-              className="select select-bordered select-sm w-full max-w-xs"
+              className="select select-bordered border-slate-700 dark:border-slate-400 select-sm w-full max-w-xs text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-700"
               onChange={(f2) => setFont({ idn: f2.target.value })}
             >
               <option value="14">Kecil</option>
@@ -93,7 +93,7 @@ const DetailSurahView = ({
           {/* -- Control Font  */}
 
           {/* ++ Modal Description Surah */}
-          <label htmlFor="my-modal-3" className="btn btn-outline btn-sm">
+          <label htmlFor="my-modal-3" className="btn btn-outline border-slate-700 dark:border-slate-400 btn-sm text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-700">
             Deskripsi
           </label>
 
@@ -123,7 +123,7 @@ const DetailSurahView = ({
           dataDetails?.ayat?.map((single) => (
             <div
               key={single.nomor + single.surah}
-              className="flex flex-wrap justify-end md:h-full md:items-center border-b border-slate-300 pt-14 pb-5 md:py-9 relative"
+              className="flex flex-wrap justify-end md:h-full md:items-center border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
               id={"surahke" + single.nomor}
             >
               {/* Menu Control Start */}

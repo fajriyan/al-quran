@@ -7,9 +7,12 @@ import NotFound from "./page/staticPage/NotFound";
 import { useEffect, useState } from "react";
 import TopBarProgress from "react-topbar-progress-indicator";
 import ProgresContext from "./lib/ProgresContext";
+import ThemeContext from "./lib/ThemeContext";
 
 function App() {
   const progresBarState = useState(true);
+  const theme = useState('light');
+
 
   const CustomRoutes = ({ children }) => {
     // const [progress, setProgress] = useState(false);
@@ -34,6 +37,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ThemeContext.Provider value={theme}>
       <ProgresContext.Provider value={progresBarState}>
         <CustomRoutes>
           {/* <Routes> */}
@@ -46,6 +50,7 @@ function App() {
           {/* </Routes> */}
         </CustomRoutes>
       </ProgresContext.Provider>
+    </ThemeContext.Provider>
     </BrowserRouter>
   );
 }

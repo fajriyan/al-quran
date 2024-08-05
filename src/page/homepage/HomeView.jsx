@@ -184,7 +184,8 @@ const HomeView = ({
           {/* Bookmark Start  */}
           {lanjutBaca[0].surat ? (
             <div className="container mx-auto my-5">
-              <div className="card flex flex-row w-full bg-base-100 shadow-sm hover:border-slate-600 border-dashed border border-slate-300 overflow-hidden">
+              <div className="card flex flex-row w-full bg-white dark:bg-slate-900
+               shadow-sm hover:border-slate-600 border-dashed border border-slate-300 overflow-hidden">
                 <div className="card-body gap-0">
                   <div className="text-sm flex gap-1 items-center font-semibold">
                     <svg
@@ -285,7 +286,7 @@ const HomeView = ({
             ) : (
               filteredData.map((s) => (
                 <div
-                  className="card w-full bg-base-100 shadow-sm hover:border-slate-600  border-slate-300 border-dashed border-[1px]"
+                  className="card w-full shadow-sm hover:border-slate-600 bg-white dark:bg-slate-900 border-slate-300 border-dashed border-[1px]"
                   key={s.nama_latin + "-" + s.arti}
                 >
                   <div className="p-5 md:p-6">
