@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import HomeView from "./HomeView";
 import ProgresContext from "../../lib/ProgresContext";
 import datasurah from "../../data/datasurah";
+import ThemeContext from "../../lib/ThemeContext";
 
 const Home = () => {
   const [Loading, setLoading] = useState(false);
@@ -72,17 +73,6 @@ const Home = () => {
       return QF;
     }
   });
-
-
-  // function getSurahName(number) {
-  //   const surahName = datasurah[number];
-  //   if (surahName) {
-  //     return surahName;
-  //   } else {
-  //     throw new Error('Invalid surah number. Must be between 1 and 114.');
-  //   }
-  // }
-  // console.log(getSurahName(1));
 
   return (
     <>

@@ -7,6 +7,7 @@ import ProgresContext from "../../lib/ProgresContext";
 const DetailSurah = () => {
   const { id } = useParams();
   const [progressBar, setProgressBar] = useContext(ProgresContext);
+  let propertyStorage = JSON.parse(localStorage.getItem("property"))|| []
 
   const [state, setState] = useState({
     stateLoading: false,
@@ -18,6 +19,21 @@ const DetailSurah = () => {
     dataTafsir: [],
   });
   const [font, setFont] = useState({ arab: "25", idn: "16" });
+
+  const setProperty = ({ size, id }) => {
+    const fontMapping = {
+      "77239472384723879917": "arab",
+      "77239472384723879920": "idn",
+    };
+    const font = fontMapping[id];
+    const updatedProperties = propertyStorage.map(item =>
+      item.id === id ? { ...item, font, size } : item
+    );
+    if (!updatedProperties.some(item => item.id === id)) {
+      updatedProperties.push({ id, font, size });
+    }
+    localStorage.setItem("property", JSON.stringify(updatedProperties));
+  };
 
   const getAyat = async () => {
     setProgressBar(true);
@@ -34,11 +50,25 @@ const DetailSurah = () => {
     }
   };
 
+  const initProperty = ()=>{
+    localStorage.setItem(
+      "property",
+      JSON.stringify([{
+        id: "77239472384723879917",
+        font:"arab",
+        size: "25",
+      },{
+        id: "77239472384723879920",
+        font:"idn",
+        size: "16",
+      }])
+     )
+  }
+
   useEffect(() => {
+    initProperty();
     checkingStatus();
     getAyat().finally(setProgressBar(false));
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const copySurat = () => {
@@ -105,6 +135,8 @@ const DetailSurah = () => {
         clickButtonss={clickButtonss}
         font={font}
         setFont={setFont}
+        property={propertyStorage}
+        setProperty={setProperty}
       />
     </>
   );
