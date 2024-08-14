@@ -66,7 +66,8 @@ dapat dilihat [disini](https://al-quran.pages.dev/about/)
 - [x] Create Button "Lanjutkan Membaca" in Card Bookmark
 - [x] Fix Structure folder
 - [x] create page changelog
-- [ ] create dark mode 
+- [X] create dark mode
+- [ ] create dzikir al matsurat
 - [ ] create page mini blog
 - [ ] create al quran with PWA 
 
