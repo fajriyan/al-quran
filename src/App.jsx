@@ -8,6 +8,7 @@ import { useEffect, useState, useContext } from "react";
 import TopBarProgress from "react-topbar-progress-indicator";
 import ProgresContext from "./lib/ProgresContext";
 import ThemeContext from "./lib/ThemeContext";
+import Matsurat from "./page/matsurat/Matsurat";
 
 function App() {
   const progresBarState = useState(true);
@@ -60,6 +61,7 @@ function App() {
           <Route path="/surah/:id" element={<DetailSurah />} />
           <Route path="/about" element={<About />} />
           <Route path="/changelog" element={<Changelog />} />
+          <Route path="/matsurat" element={<Matsurat />} />
           <Route path="/*" element={<NotFound />} />
           {/* </Routes> */}
         </CustomRoutes>

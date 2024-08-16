@@ -165,12 +165,12 @@ const HomeView = ({
                     <b>Nama Surat</b>
                   )}
                 </span>
-                <div className="mt-2 flex flex-nowrap gap-2">
+                <div className="mt-2 flex flex-nowrap gap-2 overflow-x-scroll no-scrollbars">
                   {RekomendationSurah.map((rs) => (
                     <LinkProgresBars
                       key={rs.surah}
-                      to={"/surah/" + rs.url}
-                      className="px-2 md:px-3 py-1 rounded-lg bg-white hover:bg-slate-100 text-slate-700 font-medium text-[13px] md:text-sm"
+                      to={(rs.ex == "nosurah" ? "/" :"/surah/") + rs.url}
+                      className="min-w-[130px] md:min-w-0 px-2 md:px-3 py-1 rounded-lg bg-slate-100 hover:bg-slate-100 text-slate-700 font-medium text-[13px] md:text-sm"
                     >
                       Surah {rs.surah}
                     </LinkProgresBars>

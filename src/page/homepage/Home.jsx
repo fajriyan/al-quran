@@ -31,6 +31,7 @@ const Home = () => {
 
   const RekomendationSurah = [
     { surah: "Al Kahf", url: "18" },
+    { surah: "Al Matsurat", url: "matsurat", ex:"nosurah"},
     { surah: "Al Mulk", url: "67" },
     { surah: "Yasin", url: "36" },
   ];

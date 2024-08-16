@@ -255,12 +255,6 @@ const DetailSurahView = ({
               >
                 {single.idn}
               </p>
-              <p
-                className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
-                style={{ fontSize: property[1].size + "px" }}
-              >
-                Local :{single.idn}
-              </p>
             </div>
           ))
         ) : (
