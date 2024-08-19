@@ -24,7 +24,7 @@ const HomeView = ({
 
         <Helmet>
           <meta charSet="utf-8" />
-          <meta name="robots" content="index,follow"/>
+          <meta name="robots" content="index,follow" />
           <title>Al Quran Digital | Baca Al Quran Mudah Tanpa Install</title>
           <link rel="canonical" href="https://al-quran.pages.dev/" />
         </Helmet>
@@ -48,14 +48,25 @@ const HomeView = ({
         </div>
         {/* -- Sticky Search */}
 
-
         <div className="fixed bottom-[10px] right-6 z-10 animate-pulse">
-            <button className="" data-tally-open="nW0jYe" data-tally-width="350" data-tally-emoji-animation="wave">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chat-right-dots" viewBox="0 0 16 16">
-                <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
-                <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
-              </svg>
-            </button>
+          <button
+            className=""
+            data-tally-open="nW0jYe"
+            data-tally-width="350"
+            data-tally-emoji-animation="wave"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-chat-right-dots"
+              viewBox="0 0 16 16"
+            >
+              <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
+              <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+            </svg>
+          </button>
         </div>
 
         {/* ++ Scroll To Top  */}
@@ -169,7 +180,7 @@ const HomeView = ({
                   {RekomendationSurah.map((rs) => (
                     <LinkProgresBars
                       key={rs.surah}
-                      to={(rs.ex == "nosurah" ? "/" :"/surah/") + rs.url}
+                      to={(rs.ex == "nosurah" ? "/" : "/surah/") + rs.url}
                       className="min-w-[130px] md:min-w-0 px-2 md:px-3 py-1 rounded-lg bg-slate-100 hover:bg-slate-100 text-slate-700 font-medium text-[13px] md:text-sm"
                     >
                       Surah {rs.surah}
@@ -184,8 +195,10 @@ const HomeView = ({
           {/* Bookmark Start  */}
           {lanjutBaca[0].surat ? (
             <div className="container mx-auto my-5">
-              <div className="card flex flex-row w-full bg-white dark:bg-slate-900
-               shadow-sm hover:border-slate-600 border-dashed border border-slate-300 overflow-hidden">
+              <div
+                className="card flex flex-row w-full bg-white dark:bg-slate-900
+               shadow-sm hover:border-slate-600 border-dashed border border-slate-300 overflow-hidden"
+              >
                 <div className="card-body gap-0">
                   <div className="text-sm flex gap-1 items-center font-semibold">
                     <svg
@@ -240,7 +253,7 @@ const HomeView = ({
               </div>
             </div>
           ) : (
-            <div className="border border-slate-200 shadow-sm border-dashed rounded-lg mb-5 p-3 flex items-center gap-2">
+            <div className="border border-slate-200 dark:border-slate-400 shadow-sm border-dashed rounded-lg mb-5 p-3 flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -260,15 +273,11 @@ const HomeView = ({
           {/* Bookmark End  */}
         </div>
         <div
-          className={`container mx-auto grid grid-cols-1 gap-4 px-3 ${
-            filteredData.length === 0
-              ? ""
-              : "lg:grid-cols-3 lg:gap-4 sm:grid-cols-2 sm:gap-4"
-          }   mb-14`}
+          className={`container mx-auto grid lg:grid-cols-3 lg:gap-4 sm:grid-cols-2 sm:gap-4 gap-4 px-3 mb-14`}
         >
           {Loading ? (
             filteredData.length === 0 ? (
-              <div className="p-4 border border-dashed border-slate-400 w-full text-md md:flex gap-1 items-center rounded-md ">
+              <div className="p-4 col-span-3 border border-dashed border-slate-400 dark:border-slate-500 w-full text-md md:flex gap-1 items-center rounded-md ">
                 Maaf, Surah{" "}
                 <span className="font-semibold underline">{querySearch}</span>{" "}
                 tidak ditemukan, silahkan periksa kembali pencarian anda.{" "}
@@ -286,7 +295,7 @@ const HomeView = ({
             ) : (
               filteredData.map((s) => (
                 <div
-                  className="card w-full shadow-sm hover:border-slate-600 bg-white dark:bg-slate-900 border-slate-300 border-dashed border-[1px]"
+                  className="card w-full shadow-sm border-dashed border-[1px] border-slate-300 dark:border-slate-500 hover:border-slate-800 dark:hover:border-slate-100 bg-white bg-gradient-to-bl dark:from-slate-800 dark:to-gray-900  "
                   key={s.nama_latin + "-" + s.arti}
                 >
                   <div className="p-5 md:p-6">
@@ -522,26 +531,21 @@ const HomeView = ({
               ))
             )
           ) : (
+            // bg-gradient-to-bl from-gray-200 via-gray-400 to-gray-600
             skeletonLoad.map((L) => (
               <div
-                className="card w-96 bg-base-100 shadow-md"
+                className="card w-full shadow-sm border-dashed border-[1px] border-slate-300 dark:border-slate-500 hover:border-slate-800 dark:hover:border-slate-100 bg-white bg-gradient-to-bl dark:from-slate-800 dark:to-gray-900  "
                 key={Math.random()}
               >
-                <div className="card-body">
-                  <div className="h-7 bg-gray-200 rounded-md dark:bg-gray-700 w-40 mb-1 animate-pulse"></div>
-                  <div className="h-2.5 bg-gray-200 rounded-md dark:bg-gray-700 w-48 mb-4 animate-pulse"></div>
+                <div className="p-5 md:p-6 flex flex-col gap-2 animate-pulse text-black/0">
+                  <p className="mb-0 w-72 bg-slate-400 rounded-md">...</p>
+                  <p className="text-left font-serif w-52 bg-slate-400 rounded-md">
+                    ...
+                  </p>
+                  <p className="w-28 bg-slate-400 rounded-md">...</p>
 
-                  <div className="flex gap-1">
-                    <div className="badge badge-outline animate-pulse bg-gray-50">
-                      <div className="w-5"></div>
-                    </div>
-                    <div className="badge badge-outline animate-pulse bg-gray-50">
-                      <div className="w-9"></div>
-                    </div>
-                  </div>
-
-                  <div className="card-actions justify-start animate-pulse">
-                    <button className="btn btn-sm w-32"></button>
+                  <div className="card-actions justify-start ">
+                    <button className="w-52 btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 text-slate-200"></button>
                   </div>
                 </div>
               </div>

@@ -9,7 +9,7 @@ const Home = () => {
   const [Loading, setLoading] = useState(false);
   const [_, setProgressBar] = useContext(ProgresContext);
   const [dataSurat, setSurat] = useState([]);
-  const skeletonLoad = [1, 2, 3, 4, 5];
+  const skeletonLoad = [1, 2, 3, 4, 5, 6];
   const [querySearch, setQuerySearch] = useState("");
   const [showBT, setShowBT] = useState("");
 
@@ -31,7 +31,7 @@ const Home = () => {
 
   const RekomendationSurah = [
     { surah: "Al Kahf", url: "18" },
-    { surah: "Al Matsurat", url: "matsurat", ex:"nosurah"},
+    { surah: "Al Matsurat", url: "matsurat", ex: "nosurah" },
     { surah: "Al Mulk", url: "67" },
     { surah: "Yasin", url: "36" },
   ];
