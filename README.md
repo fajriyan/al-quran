@@ -67,7 +67,7 @@ dapat dilihat [disini](https://al-quran.pages.dev/about/)
 - [x] Fix Structure folder
 - [x] create page changelog
 - [X] create dark mode
-- [ ] create dzikir al matsurat
+- [x] create dzikir al matsurat
 - [ ] create page mini blog
 - [ ] create al quran with PWA 
 
