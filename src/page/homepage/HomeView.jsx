@@ -118,8 +118,8 @@ const HomeView = ({
                       <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />
                     </svg>
                     <Link to={"/changelog"}>
-                      <span className="font-semibold">New in v1.7.3</span> Buat
-                      Loading lebih Bagus dan Refactor
+                      <span className="font-semibold">New in v1.8.0</span> Buat
+                      Mini Apps (PWA)
                     </Link>
                   </div>
 
@@ -181,9 +181,10 @@ const HomeView = ({
                     <LinkProgresBars
                       key={rs.surah}
                       to={(rs.ex == "nosurah" ? "/" : "/surah/") + rs.url}
-                      className="min-w-[130px] md:min-w-0 px-2 md:px-3 py-1 rounded-lg bg-slate-100 hover:bg-slate-100 text-slate-700 font-medium text-[13px] md:text-sm"
+                      className="min-w-[130px] md:min-w-0 px-2 md:px-3 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 hover:bg-slate-100 text-slate-700 font-medium text-[13px] md:text-sm"
                     >
-                      Surah {rs.surah}
+                      {rs.ex == "nosurah" ? "" : "Surah "}
+                      {rs.surah}
                     </LinkProgresBars>
                   ))}
                 </div>

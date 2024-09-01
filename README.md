@@ -1,6 +1,11 @@
 # Project Qur'an Digital
 
-Project Al Qur'an Digital merupakan sebuah website yang sederhana untuk membaca Al Qur'an dengan mudah tanpa harus melakukan install aplikasi, project ini bermula dari keresahan saya ketika ingin melakukan copy surah alquran dan saya mengalami kesulitan untuk mencari sumber yang mudah untuk melakukan itu, oleh karena itu saya membuat project ini untuk membantu semua orang dalam membaca dan memanfaatkannya untuk kebaikan, semoga bermanfaat dan terimakasih.
+Project Al Qur'an Digital merupakan sebuah website yang sederhana untuk membaca
+Al Qur'an dengan mudah tanpa harus melakukan install aplikasi, project ini
+bermula dari keresahan saya ketika ingin melakukan copy surah alquran dan saya
+mengalami kesulitan untuk mencari sumber yang mudah untuk melakukan itu, oleh
+karena itu saya membuat project ini untuk membantu semua orang dalam membaca dan
+memanfaatkannya untuk kebaikan, semoga bermanfaat dan terimakasih.
 
 [![Build](https://img.shields.io/github/followers/fajriyan?label=Follow%20Me&style=social)](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Ffajriyan)
 [![Badges](https://img.shields.io/github/stars/fajriyan/al-quran?style=social)]()
@@ -9,10 +14,12 @@ Project Al Qur'an Digital merupakan sebuah website yang sederhana untuk membaca 
 [![Badges](https://img.shields.io/github/package-json/v/fajriyan/al-quran?label=package.json%20v.&style=social)]()
 [![Badges](https://img.shields.io/npm/l/react?style=social)]()
 
-## Donation 
+## Donation
+
 if this project helps you, you can give it a cup of coffee. thanks!
-* [buymeacoffee](https://www.buymeacoffee.com/fajriyan)
-* [saweria](https://saweria.co/fajriyan)
+
+- [buymeacoffee](https://www.buymeacoffee.com/fajriyan)
+- [saweria](https://saweria.co/fajriyan)
 
 ## How to run it
 
@@ -35,14 +42,13 @@ Kalian bisa melakukan pengaksesan website secara online
 ## Screenshot
 
 - 🏠 Homepage
-     ![image](https://github.com/fajriyan/al-quran/assets/56616688/39d527fe-9285-48fe-b6c3-78e774bb8d39)
+  ![image](https://github.com/fajriyan/al-quran/assets/56616688/39d527fe-9285-48fe-b6c3-78e774bb8d39)
 
 - 📃 Single Page
-     ![image](https://github.com/fajriyan/al-quran/assets/56616688/a9d41050-80e0-4a40-b75a-58faa35aa2e2)
+  ![image](https://github.com/fajriyan/al-quran/assets/56616688/a9d41050-80e0-4a40-b75a-58faa35aa2e2)
 
 - 📎 About
-    ![image](https://github.com/fajriyan/al-quran/assets/56616688/671aae3c-9e8e-4d36-ae2c-81ab589a5803)
-
+  ![image](https://github.com/fajriyan/al-quran/assets/56616688/671aae3c-9e8e-4d36-ae2c-81ab589a5803)
 
 ## Support
 
@@ -66,10 +72,11 @@ dapat dilihat [disini](https://al-quran.pages.dev/about/)
 - [x] Create Button "Lanjutkan Membaca" in Card Bookmark
 - [x] Fix Structure folder
 - [x] create page changelog
-- [X] create dark mode
+- [x] create dark mode
 - [x] create dzikir al matsurat
+- [x] create al quran with PWA
+- [ ] add option setting font size in al matsurat
 - [ ] create page mini blog
-- [ ] create al quran with PWA 
 
 ## Changelog
 
@@ -88,8 +95,7 @@ dapat dilihat [disini](https://al-quran.pages.dev/about/)
 - update [1.6.5] - add tafsir per ayat
 - update [1.7.0] - clean up folder structure and code
 - update [1.7.3] - create loading bar and fix bug
-
-
+- update [1.8.0] - create PWA
 
 ## Issue Report
 

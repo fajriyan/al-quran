@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 const Changelog = () => {
   const dataChangelog = [
     {
+      id: "C192011",
+      author: "fajriyan",
+      date: "02/09/2024",
+      version: "1.8.0",
+      description: "create PWA",
+    },
+    {
       id: "C192010",
       author: "fajriyan",
       date: "13/04/2024",
