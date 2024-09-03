@@ -76,6 +76,7 @@ dapat dilihat [disini](https://al-quran.pages.dev/about/)
 - [x] create dzikir al matsurat
 - [x] create al quran with PWA
 - [ ] add option setting font size in al matsurat
+- [ ] optimize seo
 - [ ] create page mini blog
 
 ## Changelog
