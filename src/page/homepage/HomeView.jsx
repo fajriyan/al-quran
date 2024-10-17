@@ -12,9 +12,9 @@ const HomeView = ({
   RekomendationSurah,
   lanjutBaca,
   removeBookmark,
-  dataSurat,
   skeletonLoad,
   filteredData,
+  numbertosurah,
 }) => {
   try {
     return (
@@ -225,7 +225,7 @@ const HomeView = ({
                       onClick={() => localStorage.setItem("fromBookmark", true)}
                     >
                       <Link
-                        to={`/surah/${lanjutBaca[0].url}`}
+                        to={`/surah/${numbertosurah[lanjutBaca[0].url]}`}
                         className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
                       >
                         Lanjutkan Membaca
@@ -521,7 +521,7 @@ const HomeView = ({
 
                     <div className="card-actions justify-start mt-5">
                       <LinkProgresBars
-                        to={"/surah/" + s.nomor}
+                        to={"/surah/" + numbertosurah[s.nomor]}
                         className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 text-slate-200"
                       >
                         Baca Surah {s.nama_latin.replace("-", " ")}

@@ -18,13 +18,13 @@ const DetailSurahView = ({
   font,
   setFont,
   property,
-  setProperty
+  setProperty,
 }) => {
   return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <meta name="robots" content="index,follow"/>
+        <meta name="robots" content="index,follow" />
         <title>
           {dataDetails?.nama_latin
             ? dataDetails?.nama_latin + " | Al Quran Digital"
@@ -95,7 +95,10 @@ const DetailSurahView = ({
           {/* -- Control Font  */}
 
           {/* ++ Modal Description Surah */}
-          <label htmlFor="my-modal-3" className="btn btn-outline border-slate-700 dark:border-slate-400 btn-sm text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-700">
+          <label
+            htmlFor="my-modal-3"
+            className="btn btn-outline border-slate-700 dark:border-slate-400 btn-sm text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-700"
+          >
             Deskripsi
           </label>
 

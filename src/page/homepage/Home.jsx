@@ -2,8 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import HomeView from "./HomeView";
 import ProgresContext from "../../lib/ProgresContext";
-import datasurah from "../../data/datasurah";
-import ThemeContext from "../../lib/ThemeContext";
+import numbertosurah from "../../data/numbertosurah.json";
 
 const Home = () => {
   const [Loading, setLoading] = useState(false);
@@ -89,6 +88,7 @@ const Home = () => {
         showBT={showBT}
         skeletonLoad={skeletonLoad}
         filteredData={filteredData}
+        numbertosurah={numbertosurah}
       />
     </>
   );

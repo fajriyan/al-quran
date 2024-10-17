@@ -3,11 +3,14 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import DetailSurahView from "./DetailSurahView";
 import ProgresContext from "../../lib/ProgresContext";
+import surahtonumber from "../../data/surahtonumber.json";
 
 const DetailSurah = () => {
   const { id } = useParams();
+  const surahNumber = surahtonumber[id];
+
   const [progressBar, setProgressBar] = useContext(ProgresContext);
-  let propertyStorage = JSON.parse(localStorage.getItem("property"))|| []
+  let propertyStorage = JSON.parse(localStorage.getItem("property")) || [];
 
   const [state, setState] = useState({
     stateLoading: false,
@@ -26,10 +29,10 @@ const DetailSurah = () => {
       "77239472384723879920": "idn",
     };
     const font = fontMapping[id];
-    const updatedProperties = propertyStorage.map(item =>
+    const updatedProperties = propertyStorage.map((item) =>
       item.id === id ? { ...item, font, size } : item
     );
-    if (!updatedProperties.some(item => item.id === id)) {
+    if (!updatedProperties.some((item) => item.id === id)) {
       updatedProperties.push({ id, font, size });
     }
     localStorage.setItem("property", JSON.stringify(updatedProperties));
@@ -38,11 +41,13 @@ const DetailSurah = () => {
   const getAyat = async () => {
     setProgressBar(true);
     setState({ ...state, stateLoading: true });
-    const Req = await fetch("https://equran.id/api/surat/" + id);
+    const Req = await fetch("https://equran.id/api/surat/" + surahNumber);
     const Res = await Req.json();
     window.scrollTo({ top: 0 });
 
-    const ReqTafsir = await fetch("https://equran.id/api/tafsir/" + id);
+    const ReqTafsir = await fetch(
+      "https://equran.id/api/tafsir/" + surahNumber
+    );
     const ResTafsir = await ReqTafsir.json();
     setData({ ...data, dataDetailAyat: Res, dataTafsir: ResTafsir });
     if (ReqTafsir) {
@@ -50,20 +55,23 @@ const DetailSurah = () => {
     }
   };
 
-  const initProperty = ()=>{
+  const initProperty = () => {
     localStorage.setItem(
       "property",
-      JSON.stringify([{
-        id: "77239472384723879917",
-        font:"arab",
-        size: "25",
-      },{
-        id: "77239472384723879920",
-        font:"idn",
-        size: "16",
-      }])
-     )
-  }
+      JSON.stringify([
+        {
+          id: "77239472384723879917",
+          font: "arab",
+          size: "25",
+        },
+        {
+          id: "77239472384723879920",
+          font: "idn",
+          size: "16",
+        },
+      ])
+    );
+  };
 
   useEffect(() => {
     initProperty();
