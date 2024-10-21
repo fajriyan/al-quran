@@ -92,7 +92,7 @@ const Changelog = () => {
       </Helmet>
 
       {/* Helmet End  */}
-      <div className="container mx-auto py-5 px-3 md:px-0">
+      <div className="container mx-auto py-5 px-3 md:px-0 min-h-screen">
         <div className="flex items-center gap-3">
           <Link to={"/"}>
             <svg

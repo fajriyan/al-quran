@@ -76,7 +76,6 @@ const Home = () => {
 
   return (
     <>
-      {/* <LinkChange ></LinkChange> */}
       <HomeView
         Loading={Loading}
         RekomendationSurah={RekomendationSurah}

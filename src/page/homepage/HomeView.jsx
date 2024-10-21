@@ -18,7 +18,7 @@ const HomeView = ({
 }) => {
   try {
     return (
-      <>
+      <div className="min-h-screen">
         <Toaster />
         {localStorage.removeItem("fromBookmark", false)}
 
@@ -180,8 +180,12 @@ const HomeView = ({
                   {RekomendationSurah.map((rs) => (
                     <LinkProgresBars
                       key={rs.surah}
-                      to={(rs.ex == "nosurah" ? "/" : "/surah/") + rs.url}
-                      className="min-w-[130px] md:min-w-0 px-2 md:px-3 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 hover:bg-slate-100 text-slate-700 font-medium text-[13px] md:text-sm"
+                      to={
+                        rs.ex == "nosurah"
+                          ? "/" + rs.url
+                          : "/surah/" + numbertosurah[rs.url]
+                      }
+                      className="min-w-[130px] md:min-w-0 px-2 md:px-3 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-[13px] md:text-sm"
                     >
                       {rs.ex == "nosurah" ? "" : "Surah "}
                       {rs.surah}
@@ -194,7 +198,7 @@ const HomeView = ({
         </div>
         <div className="container mx-auto px-3">
           {/* Bookmark Start  */}
-          {lanjutBaca[0].surat ? (
+          {lanjutBaca[0].ayat ? (
             <div className="container mx-auto my-5">
               <div
                 className="card flex flex-row w-full bg-white dark:bg-slate-900
@@ -225,8 +229,8 @@ const HomeView = ({
                       onClick={() => localStorage.setItem("fromBookmark", true)}
                     >
                       <Link
-                        to={`/surah/${numbertosurah[lanjutBaca[0].url]}`}
-                        className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
+                        to={`/surah/${lanjutBaca[0].url}`}
+                        className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 text-slate-200"
                       >
                         Lanjutkan Membaca
                       </Link>
@@ -273,12 +277,13 @@ const HomeView = ({
           )}
           {/* Bookmark End  */}
         </div>
+
         <div
           className={`container mx-auto grid lg:grid-cols-3 lg:gap-4 sm:grid-cols-2 sm:gap-4 gap-4 px-3 mb-14`}
         >
           {Loading ? (
             filteredData.length === 0 ? (
-              <div className="p-4 col-span-3 border border-dashed border-slate-400 dark:border-slate-500 w-full text-md md:flex gap-1 items-center rounded-md ">
+              <div className="p-4 col-span-3 border border-dashed border-slate-400 dark:border-slate-500 w-full text-md md:flex gap-1 items-center rounded-md h-min">
                 Maaf, Surah{" "}
                 <span className="font-semibold underline">{querySearch}</span>{" "}
                 tidak ditemukan, silahkan periksa kembali pencarian anda.{" "}
@@ -554,7 +559,7 @@ const HomeView = ({
           )}
         </div>
         <Footer />
-      </>
+      </div>
     );
   } catch (error) {
     console.log("Home View = " + error);

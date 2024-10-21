@@ -9,8 +9,8 @@ html {
   display: none;
 }
 .no-scrollbars {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 @font-face {
@@ -60,4 +60,8 @@ html {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #0085d7;
+}
+
+html {
+  scroll-padding-top: 80px; /* Sesuaikan dengan tinggi navbar */
 }

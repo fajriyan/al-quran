@@ -679,7 +679,7 @@ const Matsurat = () => {
             <p className="absolute bg-white text-xs -mt-5 px-2">Opsi Ukuran</p>
             <div className="mt-1">
             <p className="text-xs">Ukuran Arab</p>
-            <select  defaultValue={option.ar} className="border border-slate-400 px-1 rounded-md" onChange={(ar) => setOption({ ar: ar.target.value })}>
+            <select  defaultValue={option.ar} className="border border-slate-400 px-1 rounded-md bg-white" onChange={(ar) => setOption({ ar: ar.target.value })}>
               <option value="26">Kecil</option>
               <option value="20">Default</option>
               <option value="25">Besar</option>
@@ -688,7 +688,7 @@ const Matsurat = () => {
             </div>
             <div className="mt-1">
             <p className="text-xs">Ukuran Arti</p>
-            <select defaultValue={option.id} className="border border-slate-400 px-1 rounded-md" onChange={(id) => setOption({ id: id.target.value })}>
+            <select defaultValue={option.id} className="border border-slate-400 px-1 rounded-md bg-white" onChange={(id) => setOption({ id: id.target.value })}>
               <option value="14">Kecil</option>
               <option value="16">Default</option>
               <option value="20">Besar</option>

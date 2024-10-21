@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import DetailSurahView from "./DetailSurahView";
 import ProgresContext from "../../lib/ProgresContext";
 import surahtonumber from "../../data/surahtonumber.json";
+import numbertosurah from "../../data/numbertosurah.json";
 
 const DetailSurah = () => {
   const { id } = useParams();
@@ -85,7 +86,7 @@ const DetailSurah = () => {
 
   const saveAyat = (url, ayat, namaSurat) => {
     toast.success("Simpan Berhasil");
-    localStorage.setItem("url", url);
+    localStorage.setItem("url", numbertosurah[url]);
     localStorage.setItem("ayat", ayat);
     localStorage.setItem("namaSurat", namaSurat);
   };
@@ -145,6 +146,7 @@ const DetailSurah = () => {
         setFont={setFont}
         property={propertyStorage}
         setProperty={setProperty}
+        numbertosurah={numbertosurah}
       />
     </>
   );

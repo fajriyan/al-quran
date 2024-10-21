@@ -17,8 +17,7 @@ const DetailSurahView = ({
   setModalAyat,
   font,
   setFont,
-  property,
-  setProperty,
+  numbertosurah,
 }) => {
   return (
     <>
@@ -59,7 +58,7 @@ const DetailSurahView = ({
       />
       <Toaster />
 
-      <div className="container mx-auto selection:bg-blue-200">
+      <div className="container mx-auto selection:bg-blue-200 min-h-[90vh]">
         <div className="px-3 lg:px-0 flex flex-wrap gap-2 border-b border-slate-300 dark:border-slate-400/80 pb-2 items-end">
           {/* ++ Control Font */}
           <div>
@@ -158,7 +157,7 @@ const DetailSurahView = ({
                     </button>
                     <ul
                       tabIndex={0}
-                      className="dropdown-content menu p-1 text-[15px] shadow-md border rounded-md bg-base-100 w-[150px] "
+                      className="dropdown-content menu p-1 text-[15px] shadow-md border rounded-md w-[150px] bg-white dark:bg-slate-800"
                     >
                       <li>
                         <CopyToClipboard onCopy={copySurat} text={single.ar}>
@@ -191,7 +190,7 @@ const DetailSurahView = ({
                     className="modal-toggle"
                   />
                   <div className="modal md:items-start md:pt-10 px-3">
-                    <div className="modal-box w-full max-w-7xl">
+                    <div className="modal-box w-full max-w-7xl bg-white dark:bg-slate-800">
                       <label
                         htmlFor={`tafsir-modal-${single.nomor}`}
                         className="btn btn-sm btn-circle absolute right-2 top-2"
@@ -286,8 +285,11 @@ const DetailSurahView = ({
             if (dataDetails.surat_sebelumnya !== false) {
               return (
                 <a
-                  href={"/surah/" + dataDetails.surat_sebelumnya?.nomor}
-                  className="btn gap-2 bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none hover:shadow-xl focus:ring-2 ring-offset-2 ring-slate-900"
+                  href={
+                    "/surah/" +
+                    numbertosurah[dataDetails.surat_sebelumnya?.nomor]
+                  }
+                  className="btn text-white gap-2 bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none focus:ring-2 ring-offset-2 ring-slate-900"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -297,7 +299,7 @@ const DetailSurahView = ({
                     className="bi bi-arrow-left-square-fill"
                     viewBox="0 0 16 16"
                   >
-                    <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
+                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
                   </svg>
                   {dataDetails.surat_sebelumnya?.nama_latin}
                 </a>
@@ -312,8 +314,11 @@ const DetailSurahView = ({
             if (dataDetails.surat_selanjutnya !== false) {
               return (
                 <a
-                  href={"/surah/" + dataDetails.surat_selanjutnya?.nomor}
-                  className="btn gap-2 bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none hover:shadow-xl focus:ring-2 ring-offset-2 ring-slate-900"
+                  href={
+                    "/surah/" +
+                    numbertosurah[dataDetails.surat_selanjutnya?.nomor]
+                  }
+                  className="btn gap-2 text-white bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none focus:ring-2 ring-offset-2 ring-slate-900"
                 >
                   {dataDetails.surat_selanjutnya?.nama_latin}
                   <svg
@@ -324,7 +329,7 @@ const DetailSurahView = ({
                     className="bi bi-arrow-right-square-fill"
                     viewBox="0 0 16 16"
                   >
-                    <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z" />
+                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
                   </svg>
                 </a>
               );
