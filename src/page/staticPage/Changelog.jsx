@@ -6,6 +6,13 @@ const Changelog = () => {
     {
       id: "C192011",
       author: "fajriyan",
+      date: "23/11/2024",
+      version: "1.8.1",
+      description: "add feature audio play surah",
+    },
+    {
+      id: "C192011",
+      author: "fajriyan",
       date: "02/09/2024",
       version: "1.8.0",
       description: "create PWA",

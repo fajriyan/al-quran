@@ -3,6 +3,7 @@ import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import LinkProgresBars from "../../lib/LinkProgresBars";
+import { useRef, useState } from "react";
 
 const HomeView = ({
   showBT,
@@ -15,6 +16,15 @@ const HomeView = ({
   skeletonLoad,
   filteredData,
   numbertosurah,
+  playingIndex,
+  setPlayingIndex,
+  audioInfo,
+  setAudioInfo,
+  audioRefs,
+  toggleAudio,
+  handleTimeUpdate,
+  handleLoadedMetadata,
+  formatTime,
 }) => {
   try {
     return (
@@ -106,28 +116,30 @@ const HomeView = ({
             <div className="hero-overlay bg-opacity-70 py-10 px-4 lg:rounded-xl text-white">
               <div className="md:w-[70%] mx-auto">
                 <div className="w-full">
-                  <div className="mb-2 text-xs w-max flex items-center px-2 py-1 gap-2 rounded-md bg-white/70 text-slate-700">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="17"
-                      height="17"
-                      fill="currentColor"
-                      className="bi bi-plus-square-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />
-                    </svg>
-                    <Link to={"/changelog"}>
-                      <span className="font-semibold">New in v1.8.0</span> Buat
-                      Mini Apps (PWA)
-                    </Link>
+                  <div className="flex gap-2">
+                    <div className="mb-2 text-xs w-max flex items-center px-2 py-1 gap-2 rounded-md bg-white/70 text-slate-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="17"
+                        height="17"
+                        fill="currentColor"
+                        className="bi bi-plus-square-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />
+                      </svg>
+                      <Link to={"/changelog"}>
+                        <span className="font-semibold">New in v1.8.1</span>{" "}
+                        Update Fitur Audio Surah
+                      </Link>
+                    </div>
                   </div>
-
                   <span className="text-5xl mb-3 lg:text-5xl sm:text-md font-bold">
                     Al Qur'an Digital
                   </span>
                   <h1 className="hidden">
-                    Al quran Online | Baca Quran Praktis Tanpa Install Aplikasi
+                    Al Qur'an Digital | Baca Quran Praktis Tanpa Install
+                    Aplikasi
                   </h1>
 
                   <p className="mb-5 mt-2">
@@ -136,7 +148,7 @@ const HomeView = ({
                     datang di hari kiamat memberi syafaat kepada pembacanya".
                     Informasi mengenai situs dan donasi{" "}
                     <Link
-                      to={"/about"}
+                      to={"/tentang-kami"}
                       className="btn btn-xs text-slate-800 bg-white hover:bg-slate-700 hover:text-white"
                     >
                       disini
@@ -279,7 +291,7 @@ const HomeView = ({
         </div>
 
         <div
-          className={`container mx-auto grid lg:grid-cols-3 lg:gap-4 sm:grid-cols-2 sm:gap-4 gap-4 px-3 mb-14`}
+          className={`container mx-auto grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 lg:gap-4  sm:gap-4 gap-4 px-3 mb-14`}
         >
           {Loading ? (
             filteredData.length === 0 ? (
@@ -299,11 +311,58 @@ const HomeView = ({
                 </svg>
               </div>
             ) : (
-              filteredData.map((s) => (
+              filteredData.map((s, index) => (
                 <div
-                  className="card w-full shadow-sm border-dashed border-[1px] border-slate-300 dark:border-slate-500 hover:border-slate-800 dark:hover:border-slate-100 bg-white bg-gradient-to-bl dark:from-slate-800 dark:to-gray-900  "
+                  className="card relative w-full shadow-sm border-dashed border-[1px] border-slate-300 dark:border-slate-500 hover:border-slate-800 dark:hover:border-slate-100 bg-white bg-gradient-to-bl dark:from-slate-800 dark:to-gray-900  "
                   key={s.nama_latin + "-" + s.arti}
                 >
+                  <div className="absolute right-3 top-3 border border-dashed rounded-lg border-slate-400 px-2 flex gap-2">
+                    <span className="hidden xl:block">Surat ke : </span>{" "}
+                    {s?.nomor}
+                  </div>
+
+                  {/* Component Audio +++ */}
+                  <div
+                    key={index}
+                    className="absolute bottom-6 right-3 flex gap-2 items-center border border-slate-500 pl-2 rounded-lg"
+                  >
+                    <audio
+                      ref={(el) => (audioRefs.current[index] = el)} // Dynamically assigning ref
+                      src={s.audio} // Assuming each item has an audioUrl
+                      onTimeUpdate={() => handleTimeUpdate(index)}
+                      onLoadedMetadata={() => handleLoadedMetadata(index)}
+                      preload="none"
+                      className="hidden"
+                    ></audio>
+
+                    <div className="text-xs">
+                      {audioInfo[index]?.currentTime
+                        ? formatTime(audioInfo[index]?.currentTime) +
+                          " / " +
+                          formatTime(audioInfo[index]?.duration)
+                        : s.nama_latin}
+                    </div>
+                    <button
+                      onClick={() => toggleAudio(index)}
+                      className="px-2 py-2 rounded-lg bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        className="fill-white"
+                        viewBox="0 0 16 16"
+                      >
+                        {playingIndex === index ? (
+                          <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5" />
+                        ) : (
+                          <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+                        )}
+                      </svg>
+                    </button>
+                  </div>
+                  {/* Component Audio --- */}
+
                   <div className="p-5 md:p-6">
                     <h2
                       className="card-title mb-0 font-serif"
@@ -316,7 +375,7 @@ const HomeView = ({
                       {s.arti} | {s.jumlah_ayat} Ayat
                     </p>
 
-                    <p className="flex items-center gap-2 capitalize">
+                    <p className="flex items-center gap-2 capitalize font-serif">
                       {" "}
                       {s.tempat_turun == "mekah" ? (
                         <>
@@ -537,7 +596,6 @@ const HomeView = ({
               ))
             )
           ) : (
-            // bg-gradient-to-bl from-gray-200 via-gray-400 to-gray-600
             skeletonLoad.map((L) => (
               <div
                 className="card w-full shadow-sm border-dashed border-[1px] border-slate-300 dark:border-slate-500 hover:border-slate-800 dark:hover:border-slate-100 bg-white bg-gradient-to-bl dark:from-slate-800 dark:to-gray-900  "
