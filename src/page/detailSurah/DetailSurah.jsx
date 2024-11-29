@@ -11,6 +11,7 @@ const DetailSurah = () => {
   const surahNumber = surahtonumber[id];
 
   const [progressBar, setProgressBar] = useContext(ProgresContext);
+  const [currentBookmark, setCurrentBookmark] = useState(null);
   let propertyStorage = JSON.parse(localStorage.getItem("property")) || [];
 
   const [state, setState] = useState({
@@ -78,6 +79,12 @@ const DetailSurah = () => {
     initProperty();
     checkingStatus();
     getAyat().finally(setProgressBar(false));
+
+    const storedAyah = JSON.parse(localStorage.getItem("ayat"));
+    const storedSurah = localStorage.getItem("url").toLowerCase();
+    if (storedAyah && storedSurah== id) {
+      setCurrentBookmark(storedAyah);
+    }
   }, []);
 
   const copySurat = () => {
@@ -85,10 +92,39 @@ const DetailSurah = () => {
   };
 
   const saveAyat = (url, ayat, namaSurat) => {
-    toast.success("Simpan Berhasil");
     localStorage.setItem("url", numbertosurah[url]);
     localStorage.setItem("ayat", ayat);
     localStorage.setItem("namaSurat", namaSurat);
+
+    const newBookmark = id === currentBookmark ? null : ayat;
+    setCurrentBookmark(newBookmark);
+    toast.custom((t) => (
+      <div
+        className={`${
+          t.visible ? 'animate-enter' : 'animate-leave'
+        } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+      >
+        <div className="flex-1 w-0 p-3">
+          <div className="flex items-start">
+            <div className="flex-shrink-0 pt-0.5">
+              <img
+                className=" w-9 rounded-full"
+                src="/public/favicon.ico"
+                alt=""
+              />
+            </div>
+            <div className="ml-3 flex-1">
+              <p className="text-sm font-medium text-gray-900">
+                Ayat Berhasil di Simpan
+              </p>
+              <p className=" text-xs text-gray-500">
+                {namaSurat} : Ayat {ayat}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))
   };
 
   const lanjutBaca = [
@@ -147,6 +183,7 @@ const DetailSurah = () => {
         property={propertyStorage}
         setProperty={setProperty}
         numbertosurah={numbertosurah}
+        currentBookmark={currentBookmark}
       />
     </>
   );

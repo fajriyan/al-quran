@@ -1,9 +1,7 @@
 import { Helmet } from "react-helmet";
-import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import LinkProgresBars from "../../lib/LinkProgresBars";
-import { useRef, useState } from "react";
 
 const HomeView = ({
   showBT,
@@ -29,7 +27,6 @@ const HomeView = ({
   try {
     return (
       <div className="min-h-screen">
-        <Toaster />
         {localStorage.removeItem("fromBookmark", false)}
 
         <Helmet>
