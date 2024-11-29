@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import HomeView from "./HomeView";
 import ProgresContext from "../../lib/ProgresContext";
@@ -74,6 +74,59 @@ const Home = () => {
     }
   });
 
+  const [playingIndex, setPlayingIndex] = useState(null);
+
+  const [audioInfo, setAudioInfo] = useState(
+    filteredData.map(() => ({ currentTime: 0, duration: 0, isPlaying: false }))
+  );
+
+  const audioRefs = useRef([]);
+
+  const toggleAudio = (index) => {
+    const audio = audioRefs.current[index];
+    if (audio) {
+      if (audio.paused) {
+        audio.play();
+        setPlayingIndex(index);
+      } else {
+        audio.pause();
+        setPlayingIndex(null);
+      }
+    }
+  };
+
+  const handleTimeUpdate = (index) => {
+    const audio = audioRefs.current[index];
+    if (audio) {
+      const updatedAudioInfo = [...audioInfo];
+      updatedAudioInfo[index] = {
+        ...updatedAudioInfo[index],
+        currentTime: audio.currentTime,
+      };
+      setAudioInfo(updatedAudioInfo);
+    }
+  };
+
+  const handleLoadedMetadata = (index) => {
+    const audio = audioRefs.current[index];
+    if (audio) {
+      const updatedAudioInfo = [...audioInfo];
+      updatedAudioInfo[index] = {
+        ...updatedAudioInfo[index],
+        duration: audio.duration,
+      };
+      setAudioInfo(updatedAudioInfo);
+    }
+  };
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60)
+      .toString()
+      .padStart(2, "0");
+    return `${minutes}:${seconds}`;
+  };
+
   return (
     <>
       <HomeView
@@ -88,6 +141,15 @@ const Home = () => {
         skeletonLoad={skeletonLoad}
         filteredData={filteredData}
         numbertosurah={numbertosurah}
+        audioInfo={audioInfo}
+        audioRefs={audioRefs}
+        formatTime={formatTime}
+        handleLoadedMetadata={handleLoadedMetadata}
+        handleTimeUpdate={handleTimeUpdate}
+        playingIndex={playingIndex}
+        setAudioInfo={setAudioInfo}
+        setPlayingIndex={setPlayingIndex}
+        toggleAudio={toggleAudio}
       />
     </>
   );
