@@ -79,6 +79,12 @@ const DetailSurah = () => {
     initProperty();
     checkingStatus();
     getAyat().finally(setProgressBar(false));
+
+    const storedAyah = JSON.parse(localStorage.getItem("ayat"));
+    const storedSurah = localStorage.getItem("url")?.toLowerCase();
+    if (storedAyah && storedSurah== id) {
+      setCurrentBookmark(storedAyah);
+    }
   }, []);
 
   const copySurat = () => {
