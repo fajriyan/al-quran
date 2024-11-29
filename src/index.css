@@ -23,6 +23,7 @@ html {
   font-weight: normal;
   font-display: swap;
 }
+
 .arab {
   font-size: 20px;
   line-height: 65px;
@@ -61,6 +62,10 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #0085d7;
 }
+
+.hidescroll::-webkit-scrollbar {
+  display: none;
+}  
 
 html {
   scroll-padding-top: 80px; /* Sesuaikan dengan tinggi navbar */

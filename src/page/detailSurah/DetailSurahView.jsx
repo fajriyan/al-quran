@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet";
 import Navigation from "../../components/Navigation";
-import { Toaster } from "react-hot-toast";
 import CopyToClipboard from "react-copy-to-clipboard";
 
 const DetailSurahView = ({
@@ -18,6 +17,7 @@ const DetailSurahView = ({
   font,
   setFont,
   numbertosurah,
+  currentBookmark,
 }) => {
   return (
     <>
@@ -56,10 +56,9 @@ const DetailSurahView = ({
         loadP={Loading}
         singleSP={dataDetails}
       />
-      <Toaster />
 
       <div className="container mx-auto selection:bg-blue-200 min-h-[90vh]">
-        <div className="px-3 lg:px-0 flex flex-wrap gap-2 border-b border-slate-300 dark:border-slate-400/80 pb-2 items-end">
+        <div className="px-3 lg:px-0 flex flex-nowrap overflow-x-auto hidescroll gap-2 border-b border-slate-300 dark:border-slate-400/80 pb-2 items-end">
           {/* ++ Control Font */}
           <div>
             <label className="label">
@@ -67,7 +66,7 @@ const DetailSurahView = ({
             </label>
             <select
               defaultValue={"25"}
-              className="select select-bordered border-slate-700 dark:border-slate-400 select-sm w-full max-w-xs text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-700"
+              className="select select-bordered border-slate-700 dark:border-slate-400 select-sm w-full max-w-xs text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-700 min-w-max"
               onChange={(f1) => setFont({ arab: f1.target.value })}
             >
               <option value="20">Kecil</option>
@@ -82,7 +81,7 @@ const DetailSurahView = ({
             </label>
             <select
               defaultValue={"16"}
-              className="select select-bordered border-slate-700 dark:border-slate-400 select-sm w-full max-w-xs text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-700"
+              className="select select-bordered border-slate-700 dark:border-slate-400 select-sm w-full max-w-xs text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-700 min-w-max"
               onChange={(f2) => setFont({ idn: f2.target.value })}
             >
               <option value="14">Kecil</option>
@@ -98,7 +97,7 @@ const DetailSurahView = ({
             htmlFor="my-modal-3"
             className="btn btn-outline border-slate-700 dark:border-slate-400 btn-sm text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-700"
           >
-            Deskripsi
+            Deskripsi Surah
           </label>
 
           <input type="checkbox" id="my-modal-3" className="modal-toggle" />
@@ -239,7 +238,7 @@ const DetailSurahView = ({
                     className="bi bi-bookmark"
                     viewBox="0 0 16 16"
                   >
-                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+                    {currentBookmark === single.nomor ? <path d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5m8.854-9.646a.5.5 0 0 0-.708-.708L7.5 7.793 6.354 6.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/> :  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />}
                   </svg>
                 </button>
               </div>

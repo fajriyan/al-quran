@@ -9,6 +9,7 @@ import TopBarProgress from "react-topbar-progress-indicator";
 import ProgresContext from "./lib/ProgresContext";
 import ThemeContext from "./lib/ThemeContext";
 import Matsurat from "./page/matsurat/Matsurat";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const progresBarState = useState(true);
@@ -57,6 +58,13 @@ function App() {
     <BrowserRouter>
       <ThemeContext.Provider value={theme}>
         <ProgresContext.Provider value={progresBarState}>
+          <Toaster 
+            position="top-right"
+            reverseOrder={false}
+            toastOptions={{
+              duration: 1000,
+            }}
+            />
           <CustomRoutes>
             {/* <Routes> */}
             <Route path="/" element={<Home />} />

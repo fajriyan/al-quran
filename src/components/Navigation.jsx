@@ -36,11 +36,11 @@ const Navigation = (props) => {
 
   return (
     <div className="backdrop-blur-sm bg-white/90 dark:bg-gray-800/90 border-b dark:border-slate-500 sticky top-0 z-[100]">
-      <div className="navbar container mx-auto flex justify-between">
+      <div className="navbar container mx-auto flex justify-between lg:p-0">
         <div className="flex gap-2 md:gap-0">
           <LinkProgresBars
             to="/"
-            className="flex items-center rounded-md md:btn gap-2 btn-md border-none bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-sky-400 to-blue-800 hover:bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] hover:from-sky-300 hover:to-blue-700 focus:ring-2 ring-offset-2 ring-blue-700"
+            className="flex items-center rounded-md md:btn gap-2 btn-md bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 text-slate-200"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
