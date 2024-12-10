@@ -66,7 +66,6 @@ function App() {
             }}
             />
           <CustomRoutes>
-            {/* <Routes> */}
             <Route path="/" element={<Home />} />
             <Route path="/surah" element={<Home />} />
             <Route path="/surah/:id" element={<DetailSurah />} />
@@ -74,7 +73,6 @@ function App() {
             <Route path="/changelog" element={<Changelog />} />
             <Route path="/matsurat" element={<Matsurat />} />
             <Route path="/*" element={<NotFound />} />
-            {/* </Routes> */}
           </CustomRoutes>
         </ProgresContext.Provider>
       </ThemeContext.Provider>

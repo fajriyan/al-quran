@@ -48,10 +48,12 @@ const DetailSurah = () => {
     window.scrollTo({ top: 0 });
 
     const ReqTafsir = await fetch(
-      "https://equran.id/api/tafsir/" + surahNumber
+      "https://equran.id/api/v2/tafsir/" + surahNumber
     );
     const ResTafsir = await ReqTafsir.json();
-    setData({ ...data, dataDetailAyat: Res, dataTafsir: ResTafsir });
+
+    
+    setData({ ...data, dataDetailAyat: Res, dataTafsir:ResTafsir });
     if (ReqTafsir) {
       setState({ ...state, stateLoading: false });
     }

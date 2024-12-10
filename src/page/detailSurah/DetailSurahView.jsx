@@ -218,7 +218,7 @@ const DetailSurahView = ({
                         </div>
                       ) : null}
                       <p className="py-1 text-[16px] leading-[25px] text-justify">
-                        {dataTafsir["tafsir"]?.[parseInt(single.nomor)]?.tafsir}
+                        {dataTafsir?.data?.tafsir[parseInt(single?.nomor)]?.teks}
                       </p>
                     </div>
                   </div>
