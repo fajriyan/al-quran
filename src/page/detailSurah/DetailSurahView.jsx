@@ -261,15 +261,13 @@ const DetailSurahView = ({
         ) : (
           <>
             {SkeletonLoading.map((loadSkeleton) => (
-              <div className="border-b py-5" key={Math.random()}>
+              <div className="border-b py-5 px-3" key={Math.random()}>
                 <div className="animate-pulse flex space-x-4">
-                  <div className="rounded-full bg-slate-200 w-10"></div>
                   <div className="flex-1 py-1 ">
                     <div className="flex justify-end mt-2">
-                      <div className="h-12 w-1/2 bg-slate-200 rounded-full"></div>
+                      <div className="h-12 w-full bg-slate-200 rounded-md"></div>
                     </div>
-
-                    <div className="grid grid-cols-3 gap-4 mt-10">
+                    <div className="grid grid-cols-3 gap-2 mt-9">
                       <div className="h-3 bg-slate-200 rounded col-span-2"></div>
                       <div className="h-3 bg-slate-200 rounded col-span-3"></div>
                     </div>

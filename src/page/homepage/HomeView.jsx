@@ -321,7 +321,7 @@ const HomeView = ({
                   {/* Component Audio +++ */}
                   <div
                     key={index}
-                    className="absolute bottom-6 right-3 flex gap-2 items-center border border-slate-500 pl-2 rounded-lg"
+                    className="absolute bottom-6 right-3 flex gap-2 items-center border border-slate-500 pl-2 rounded-lg overflow-hidden"
                   >
                     <audio
                       ref={(el) => (audioRefs.current[index] = el)} // Dynamically assigning ref
@@ -341,7 +341,7 @@ const HomeView = ({
                     </div>
                     <button
                       onClick={() => toggleAudio(index)}
-                      className="px-2 py-2 rounded-lg bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
+                      className="px-2 py-2 rounded-l-md bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -368,11 +368,11 @@ const HomeView = ({
                       {s.nama_latin.replace("-", " ")}{" "}
                       <span className="arab-0">({s.nama})</span>
                     </h2>
-                    <p className="text-left font-serif ">
+                    <p className="text-left text-[15px] poppins">
                       {s.arti} | {s.jumlah_ayat} Ayat
                     </p>
 
-                    <p className="flex items-center gap-2 capitalize font-serif">
+                    <p className="flex items-center gap-2 capitalize text-[15px] poppins">
                       {" "}
                       {s.tempat_turun == "mekah" ? (
                         <>
@@ -600,7 +600,7 @@ const HomeView = ({
               >
                 <div className="p-5 md:p-6 flex flex-col gap-2 animate-pulse text-black/0">
                   <p className="mb-0 w-72 bg-slate-400 rounded-md">...</p>
-                  <p className="text-left font-serif w-52 bg-slate-400 rounded-md">
+                  <p className="text-left font-serif  w-52 bg-slate-400 rounded-md">
                     ...
                   </p>
                   <p className="w-28 bg-slate-400 rounded-md">...</p>
