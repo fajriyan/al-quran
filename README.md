@@ -76,9 +76,10 @@ dapat dilihat [disini](https://al-quran.pages.dev/about/)
 - [x] create dzikir al matsurat
 - [x] create al quran with PWA
 - [x] add option setting font size in al matsurat
-- [ ] optimize speed, implement cahce
+- [x] optimize speed, implement cahce
 - [ ] optimize seo
 - [ ] create page mini blog
+- [ ] upsate to react 19
 
 ## Changelog
 
