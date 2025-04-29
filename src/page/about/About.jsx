@@ -13,15 +13,14 @@ const About = () => {
       </Helmet>
 
       {/* Helmet End  */}
-
-      <div className="container mx-auto selection:bg-red-300">
+      <div className="container mx-auto selection:bg-red-300 ">
         <div className="hero min-h-screen flex flex-wrap gap-1 justify-center content-center">
           <div className="px-3 md:px-0 w-full">
-            <div className="border bg-base-300 rounded-lg">
-              <div className="py-3 px-2">
+            <div className="border bg-base-300 dark:bg-base-300 rounded-lg">
+              <div className="py-3 px-2 bg-slate-200">
                 <Link
                   to="/"
-                  className="flex gap-2 items-center w-max border border-slate-500 px-2 py-1 rounded-lg hover:bg-slate-200"
+                  className="flex gap-2 items-center w-max border border-slate-500 px-2 py-1 rounded-lg hover:bg-slate-200 "
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +35,7 @@ const About = () => {
                   Buka Al Qur'an
                 </Link>
               </div>
-              <div className="flex flex-wrap md:flex-nowrap justify-start md:justify-center px-4 py-10 md:py-16 bg-base-200 gap-5">
+              <div className="flex flex-wrap md:flex-nowrap justify-start md:justify-center px-4 py-10 md:py-16 gap-5 bg-slate-200">
                 <div className="w-32 md:w-[50%]">
                   <img
                     src="https://raw.githubusercontent.com/fajriyan/al-quran/main/public/favicon.png"

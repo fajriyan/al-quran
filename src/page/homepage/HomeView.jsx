@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import LinkProgresBars from "../../lib/LinkProgresBars";
+import Adzan from "../../lib/Adzan";
 
 const HomeView = ({
   showBT,
@@ -105,7 +106,7 @@ const HomeView = ({
         {/* -- Scroll To Top  */}
         <div className="container mx-auto md:my-5 px-0 md:px-3">
           <div
-            className="hero min-h-[200px] rounded-none lg:rounded-xl flex flex-wrap"
+            className="hero min-h-[200px] rounded-none lg:rounded-xl flex flex-wrap relative"
             style={{
               backgroundImage: `url("https://images.unsplash.com/photo-1588194200910-af009d36fc75?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
             }}
@@ -138,6 +139,10 @@ const HomeView = ({
                     Al Qur'an Digital | Baca Quran Praktis Tanpa Install
                     Aplikasi
                   </h1>
+
+                  <div className="absolute top-2 right-2 sm:top-3 sm:right-3">
+                    <Adzan/>
+                  </div>
 
                   <p className="mb-5 mt-2">
                     Diriwayatkan dari Abu Umamah al-Bahili, Rasulullah SAW
@@ -313,8 +318,7 @@ const HomeView = ({
                   className="card relative w-full shadow-sm border-dashed border-[1px] border-slate-300 dark:border-slate-500 hover:border-slate-800 dark:hover:border-slate-100 bg-white bg-gradient-to-bl dark:from-slate-800 dark:to-gray-900  "
                   key={s.nama_latin + "-" + s.arti}
                 >
-                  <div className="absolute right-3 top-3 border border-dashed rounded-lg border-slate-400 px-2 flex gap-2">
-                    <span className="hidden xl:block">Surat ke : </span>{" "}
+                  <div className="absolute right-3 top-0 border-l border-b border-r border-dashed rounded-b-lg border-slate-400 px-2 pb-1 flex gap-2 font-serif">
                     {s?.nomor}
                   </div>
 
