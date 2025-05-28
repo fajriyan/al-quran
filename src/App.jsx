@@ -42,9 +42,6 @@ function App() {
   }, [storageTheme?.theme]);
 
   const CustomRoutes = ({ children }) => {
-    // const [progress, setProgress] = useState(false);
-    const [prevLoc, setPrevLoc] = useState("");
-    const location = useLocation();
 
     return (
       <>

@@ -6,18 +6,15 @@ function Adzan() {
 
   useEffect(() => {
     const fetchData = () => {
-      // Cek jika data ada di localStorage dan masih berlaku untuk hari ini
       const savedData = localStorage.getItem('prayerTimes');
       const savedDate = localStorage.getItem('prayerDate');
       const today = new Date().toLocaleDateString();
 
       if (savedData && savedDate === today) {
-        // Gunakan data dari localStorage jika hari sama
         const data = JSON.parse(savedData);
         const upcoming = getNextPrayer(data.timings);
         setNextPrayer(upcoming);
       } else {
-        // Jika tidak ada data atau sudah berganti hari, ambil data baru
         if (!navigator.geolocation) {
           setError('Geolocation tidak didukung oleh browser.');
           return;
