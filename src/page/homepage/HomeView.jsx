@@ -56,7 +56,7 @@ const HomeView = ({
         </div>
         {/* -- Sticky Search */}
 
-        <div className="fixed bottom-[10px] right-6 z-10 animate-pulse">
+        {/* <div className="fixed bottom-[10px] right-6 z-10 animate-pulse">
           <button
             className=""
             data-tally-open="nW0jYe"
@@ -75,7 +75,7 @@ const HomeView = ({
               <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
             </svg>
           </button>
-        </div>
+        </div> */}
 
         {/* ++ Scroll To Top  */}
         {showBT ? (
@@ -104,18 +104,18 @@ const HomeView = ({
           <div className=""></div>
         )}
         {/* -- Scroll To Top  */}
-        <div className="container mx-auto md:my-5 px-0 md:px-3">
+        <div className="container mx-auto md:my-5 px-0 md:px-3 ">
           <div
-            className="hero min-h-[200px] rounded-none lg:rounded-xl flex flex-wrap relative"
+            className="hero min-h-[200px] rounded-none md:rounded-xl flex flex-wrap relative  mb-5"
             style={{
               backgroundImage: `url("https://images.unsplash.com/photo-1588194200910-af009d36fc75?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
             }}
           >
-            <div className="hero-overlay bg-opacity-70 py-10 px-4 lg:rounded-xl text-white">
+            <div className="hero-overlay bg-opacity-70 py-10 px-4 sm:rounded-xl overflow-hidden text-white">
               <div className="md:w-[70%] mx-auto">
                 <div className="w-full">
                   <div className="flex gap-2">
-                    <div className="mb-2 text-xs w-max flex items-center px-2 py-1 gap-2 rounded-md bg-white/70 text-slate-700">
+                    <div className="mb-2 text-xs w-[60%] sm:w-max flex items-center px-2 py-1 gap-2 rounded-md bg-white/70 text-slate-700 line-clamp-1">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="17"
@@ -126,7 +126,7 @@ const HomeView = ({
                       >
                         <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />
                       </svg>
-                      <Link to={"/changelog"}>
+                      <Link to={"/changelog"} className="line-clamp-1">
                         <span className="font-semibold">New in v1.8.1</span>{" "}
                         Update Fitur Audio Surah
                       </Link>
@@ -141,20 +141,13 @@ const HomeView = ({
                   </h1>
 
                   <div className="absolute top-2 right-2 sm:top-3 sm:right-3">
-                    <Adzan/>
+                    <Adzan />
                   </div>
 
                   <p className="mb-5 mt-2">
                     Diriwayatkan dari Abu Umamah al-Bahili, Rasulullah SAW
                     bersabda, "Bacalah Al Quran, maka sesungguhnya ia akan
                     datang di hari kiamat memberi syafaat kepada pembacanya".
-                    Informasi mengenai situs dan donasi{" "}
-                    <Link
-                      to={"/tentang-kami"}
-                      className="btn btn-xs text-slate-800 bg-white hover:bg-slate-700 hover:text-white"
-                    >
-                      disini
-                    </Link>
                   </p>
                 </div>
 
@@ -199,7 +192,7 @@ const HomeView = ({
                           ? "/" + rs.url
                           : "/surah/" + numbertosurah[rs.url]
                       }
-                      className="min-w-[130px] md:min-w-0 px-2 md:px-3 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-[13px] md:text-sm"
+                      className="min-w-max md:min-w-0 px-2 md:px-3 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-[13px] md:text-sm"
                     >
                       {rs.ex == "nosurah" ? "" : "Surah "}
                       {rs.surah}
@@ -318,14 +311,14 @@ const HomeView = ({
                   className="card relative w-full shadow-sm border-dashed border-[1px] border-slate-300 dark:border-slate-500 hover:border-slate-800 dark:hover:border-slate-100 bg-white bg-gradient-to-bl dark:from-slate-800 dark:to-gray-900  "
                   key={s.nama_latin + "-" + s.arti}
                 >
-                  <div className="absolute right-3 top-0 border-l border-b border-r border-dashed rounded-b-lg border-slate-400 px-2 pb-1 flex gap-2 font-serif">
+                  <div className="absolute right-3 top-0 border-l border-b border-r border-dashed rounded-b-lg border-slate-400 px-2 pb-1 flex gap-2 font-serif z-[2]">
                     {s?.nomor}
                   </div>
 
                   {/* Component Audio +++ */}
                   <div
                     key={index}
-                    className="absolute bottom-6 right-3 flex gap-2 items-center border border-slate-500 pl-2 rounded-lg overflow-hidden"
+                    className="absolute bottom-6 right-3 flex gap-2 items-center border border-slate-500 pl-2 rounded-lg overflow-hidden z-[2]"
                   >
                     <audio
                       ref={(el) => (audioRefs.current[index] = el)} // Dynamically assigning ref
@@ -364,15 +357,33 @@ const HomeView = ({
                   </div>
                   {/* Component Audio --- */}
 
-                  <div className="p-5 md:p-6">
+                  <div className="p-5 md:p-6 relative overflow-hidden">
+                    <img
+                      src="/kaligrafi.webp"
+                      className="absolute w-[20%] -top-14 sm:-top-16 right-14 z-0 opacity-10"
+                      alt="kaligrafi"
+                      width="auto"
+                      height="auto"
+                      title="kaligrafi"
+                      loading="lazy"
+                    />
+                    <img
+                      src="/kaligrafi.webp"
+                      className="absolute w-[20%] bottom-12 -left-[93px] z-0 opacity-10"
+                      alt="kaligrafi"
+                      width="auto"
+                      height="auto"
+                      title="kaligrafi"
+                      loading="lazy"
+                    />
                     <h2
-                      className="card-title mb-0 font-serif"
+                      className="card-title mb-0 font-serif relative z-[2]"
                       key={s.nama_latin}
                     >
                       {s.nama_latin.replace("-", " ")}{" "}
                       <span className="arab-0">({s.nama})</span>
                     </h2>
-                    <p className="text-left text-[15px] poppins">
+                    <p className="text-left text-[15px] poppins relative z-[2]">
                       {s.arti} | {s.jumlah_ayat} Ayat
                     </p>
 
@@ -584,7 +595,7 @@ const HomeView = ({
                       )}
                     </p>
 
-                    <div className="card-actions justify-start mt-5">
+                    <div className="card-actions justify-start mt-5 relative z-[2]">
                       <LinkProgresBars
                         to={"/surah/" + numbertosurah[s.nomor]}
                         className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 text-slate-200"

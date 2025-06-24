@@ -6,11 +6,14 @@ const Footer = () => {
       <footer className="footer items-center p-4 text-slate-700 container mx-auto gap-2">
         <div className="items-center grid-flow-col">
           <p>
-            Copyright ©{new Date().getFullYear()} |{" "}
-            <Link className="font-semibold underline" to="/about">
-              Tentang
-            </Link>{" "}
-            situs ini lebih lanjut
+            Copyright ©{new Date().getFullYear()} | Informasi mengenai situs dan
+            donasi{" "}
+            <Link
+              to={"/tentang-kami"}
+              className="btn btn-xs text-slate-800 bg-white hover:bg-slate-700 hover:text-white"
+            >
+              disini
+            </Link>
           </p>
         </div>
         <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">

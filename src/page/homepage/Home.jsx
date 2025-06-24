@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import HomeView from "./HomeView";
 import ProgresContext from "../../lib/ProgresContext";
 import numbertosurah from "../../data/numbertosurah.json";
+import Fuse from "fuse.js";
 
 const Home = () => {
   const [Loading, setLoading] = useState(false);
@@ -11,12 +12,14 @@ const Home = () => {
   const skeletonLoad = [1, 2, 3, 4, 5, 6];
   const [querySearch, setQuerySearch] = useState("");
   const [showBT, setShowBT] = useState("");
+  const [filteredDatas, setFilteredData] = useState([]);
 
   const getSurah = async () => {
     const Req = await fetch("https://equran.id/api/surat");
     const Res = await Req.json();
     setLoading(true);
     setSurat(Res);
+    // setFilteredData(data); 
   };
 
   const removeBookmark = () => {
@@ -49,6 +52,19 @@ const Home = () => {
       .finally(window.scrollTo({ top: 0 }));
   }, []);
 
+  useEffect(() => {
+    if (!querySearch) {
+      setFilteredData(dataSurat);
+    } else {
+      const fuse = new Fuse(dataSurat, {
+        keys: ["nama_latin", "arti", "nama"],
+        threshold: 0.3,
+      });
+      const results = fuse.search(querySearch);
+      setFilteredData(results.map((r) => r.item));
+    }
+  }, [querySearch, dataSurat]);
+
   window.onscroll = function () {
     scrollFunction();
   };
@@ -64,20 +80,20 @@ const Home = () => {
     }
   }
 
-  const filteredData = dataSurat.filter((QF) => {
-    if (!querySearch) {
-      return QF;
-    } else if (
-      QF.nama_latin.toLowerCase().includes(querySearch.toLowerCase())
-    ) {
-      return QF;
-    }
-  });
+  // const filteredData = dataSurat.filter((QF) => {
+  //   if (!querySearch) {
+  //     return QF;
+  //   } else if (
+  //     QF.nama_latin.toLowerCase().includes(querySearch.toLowerCase())
+  //   ) {
+  //     return QF;
+  //   }
+  // });
 
   const [playingIndex, setPlayingIndex] = useState(null);
 
   const [audioInfo, setAudioInfo] = useState(
-    filteredData.map(() => ({ currentTime: 0, duration: 0, isPlaying: false }))
+    filteredDatas.map(() => ({ currentTime: 0, duration: 0, isPlaying: false }))
   );
 
   const audioRefs = useRef([]);
@@ -139,7 +155,7 @@ const Home = () => {
         removeBookmark={removeBookmark}
         showBT={showBT}
         skeletonLoad={skeletonLoad}
-        filteredData={filteredData}
+        filteredData={filteredDatas}
         numbertosurah={numbertosurah}
         audioInfo={audioInfo}
         audioRefs={audioRefs}
