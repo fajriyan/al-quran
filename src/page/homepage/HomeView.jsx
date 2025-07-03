@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import LinkProgresBars from "../../lib/LinkProgresBars";
 import Adzan from "../../lib/Adzan";
+import Attendance from "../../components/Attendance";
 
 const HomeView = ({
   showBT,
@@ -203,86 +204,81 @@ const HomeView = ({
             </div>
           </div>
         </div>
-        <div className="container mx-auto px-3">
-          {/* Bookmark Start  */}
-          {lanjutBaca[0].ayat ? (
-            <div className="container mx-auto my-5">
-              <div
-                className="card flex flex-row w-full bg-white dark:bg-slate-900
-               shadow-sm hover:border-slate-600 border-dashed border border-slate-300 overflow-hidden"
-              >
-                <div className="card-body gap-0">
-                  <div className="text-sm flex gap-1 items-center font-semibold">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      fill="currentColor"
-                      className="bi bi-bookmark animate-pulse"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
-                    </svg>{" "}
-                    Penanda :{" "}
-                  </div>
-                  <p className="card-title font-serif mt-1">
-                    {lanjutBaca[0].surat}
-                  </p>
-                  <p>
-                    Ayat ke : <span>{lanjutBaca[0].ayat}</span>{" "}
-                  </p>
-                  <div className="card-actions justify-start mt-4">
-                    <button
-                      onClick={() => localStorage.setItem("fromBookmark", true)}
-                    >
-                      <Link
-                        to={`/surah/${lanjutBaca[0].url}`}
-                        className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 text-slate-200"
+        <div className="container mx-auto px-3 flex flex-col lg:flex-row gap-5 mb-5">
+          <div className="lg:w-[33%]">
+            <Attendance />
+          </div>
+
+          <div className="lg:w-[68%]">
+            {/* Bookmark Start  */}
+            {lanjutBaca[0].ayat ? (
+              <div className="container mx-auto">
+                <div
+                  className="card flex flex-row w-full bg-white dark:bg-slate-900
+               shadow-sm hover:border-slate-600 border border-slate-300 overflow-hidden"
+                >
+                  <div className="card-body gap-0 !p-4">
+                    <p className="card-title font-serif mt-1">
+                      {lanjutBaca[0].surat}
+                    </p>
+                    <p>
+                      Ayat ke : <span>{lanjutBaca[0].ayat}</span>{" "}
+                    </p>
+                    <div className="card-actions justify-start mt-4">
+                      <button
+                        onClick={() =>
+                          localStorage.setItem("fromBookmark", true)
+                        }
                       >
-                        Lanjutkan Membaca
-                      </Link>
+                        <Link
+                          to={`/surah/${lanjutBaca[0].url}`}
+                          className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 text-slate-200"
+                        >
+                          Lanjutkan Membaca
+                        </Link>
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex">
+                    <button
+                      onClick={() => removeBookmark()}
+                      className="px-5 border bg-slate-200 group"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        className="bi bi-trash group-hover:scale-[120%] duration-300"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+                      </svg>
                     </button>
                   </div>
                 </div>
-                <div className="flex">
-                  <button
-                    onClick={() => removeBookmark()}
-                    className="px-5 border border-dashed bg-slate-50 group"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      className="bi bi-trash group-hover:scale-[120%] duration-300"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
-                      <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
-                    </svg>
-                  </button>
-                </div>
               </div>
-            </div>
-          ) : (
-            <div className="border border-slate-200 dark:border-slate-400 shadow-sm border-dashed rounded-lg mb-5 p-3 flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-bookmark"
-                viewBox="0 0 16 16"
-              >
-                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
-              </svg>
-              <span>
-                Tidak ada <span className="font-semibold"> Bookmark</span> yang
-                Tersimpan
-              </span>
-            </div>
-          )}
-          {/* Bookmark End  */}
+            ) : (
+              <div className="border border-slate-200 dark:border-slate-400 shadow-sm border-dashed rounded-lg mb-5 p-3 flex items-center gap-2 h-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-bookmark"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+                </svg>
+                <span>
+                  Tidak ada <span className="font-semibold"> Bookmark</span>{" "}
+                  yang Tersimpan
+                </span>
+              </div>
+            )}
+            {/* Bookmark End  */}
+          </div>
         </div>
 
         <div
