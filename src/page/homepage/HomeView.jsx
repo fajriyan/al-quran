@@ -4,6 +4,7 @@ import Footer from "../../components/Footer";
 import LinkProgresBars from "../../lib/LinkProgresBars";
 import Adzan from "../../lib/Adzan";
 import Attendance from "../../components/Attendance";
+import { useEffect, useRef, useState } from "react";
 
 const HomeView = ({
   showBT,
@@ -27,6 +28,23 @@ const HomeView = ({
   formatTime,
 }) => {
   try {
+    const iframeRef = useRef(null);
+    const [isReady, setIsReady] = useState(false);
+
+    useEffect(() => {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      window.onYouTubeIframeAPIReady = () => {
+        new window.YT.Player(iframeRef.current, {
+          events: {
+            onReady: () => setIsReady(true),
+          },
+        });
+      };
+    }, []);
+
     return (
       <div className="min-h-screen">
         {localStorage.removeItem("fromBookmark", false)}
@@ -107,12 +125,28 @@ const HomeView = ({
         {/* -- Scroll To Top  */}
         <div className="container mx-auto md:my-5 px-0 md:px-3 ">
           <div
-            className="hero min-h-[200px] rounded-none md:rounded-xl flex flex-wrap relative  mb-5"
+            className="hero min-h-[200px] rounded-none md:rounded-xl flex flex-wrap relative overflow-hidden mb-5"
             style={{
               backgroundImage: `url("https://images.unsplash.com/photo-1588194200910-af009d36fc75?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
             }}
           >
-            <div className="hero-overlay bg-opacity-70 py-10 px-4 sm:rounded-xl overflow-hidden text-white">
+            <iframe
+              ref={iframeRef}
+              src="https://www.youtube.com/embed/eV6lTEY95yY?controls=0&autoplay=1&mute=1&loop=1&playlist=eV6lTEY95yY&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&enablejsapi=1"
+              width="100%"
+              height="100%"
+              allow="autoplay; encrypted-media"
+              title="YouTube Video"
+              className={`absolute z-[1] scale-[250%] sm:scale-[180%] lg:scale-[170%] xl:scale-[250%] transition-opacity duration-700 ${
+                isReady ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ pointerEvents: "none" }}
+            ></iframe>
+            <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-[4] text-white">
+              <Adzan />
+            </div>
+            <div className="absolute w-full h-full z-[2] bg-slate-700/50"></div>
+            <div className=" py-10 px-4 sm:rounded-xl overflow-hidden text-white relative z-[3]">
               <div className="md:w-[70%] mx-auto">
                 <div className="w-full">
                   <div className="flex gap-2">
@@ -140,10 +174,6 @@ const HomeView = ({
                     Al Qur'an Digital | Baca Quran Praktis Tanpa Install
                     Aplikasi
                   </h1>
-
-                  <div className="absolute top-2 right-2 sm:top-3 sm:right-3">
-                    <Adzan />
-                  </div>
 
                   <p className="mb-5 mt-2">
                     Diriwayatkan dari Abu Umamah al-Bahili, Rasulullah SAW
@@ -212,35 +242,31 @@ const HomeView = ({
           <div className="lg:w-[68%]">
             {/* Bookmark Start  */}
             {lanjutBaca[0].ayat ? (
-              <div className="container mx-auto">
+              <div className="container mx-auto h-full">
                 <div
-                  className="card flex flex-row w-full bg-white dark:bg-slate-900
+                  type="button"
+                  onClick={() => localStorage.setItem("fromBookmark", true)}
+                  className="card flex flex-row w-full bg-white dark:bg-slate-900 h-full
                shadow-sm hover:border-slate-600 border border-slate-300 overflow-hidden"
                 >
-                  <div className="card-body gap-0 !p-4">
-                    <p className="card-title font-serif mt-1">
-                      {lanjutBaca[0].surat}
-                    </p>
-                    <p>
-                      Ayat ke : <span>{lanjutBaca[0].ayat}</span>{" "}
-                    </p>
-                    <div className="card-actions justify-start mt-4">
-                      <button
-                        onClick={() =>
-                          localStorage.setItem("fromBookmark", true)
-                        }
-                      >
-                        <Link
-                          to={`/surah/${lanjutBaca[0].url}`}
-                          className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 text-slate-200"
-                        >
-                          Lanjutkan Membaca
-                        </Link>
-                      </button>
+                  <Link
+                    to={`/surah/${lanjutBaca[0].url}`}
+                    className="flex justify-between w-full gap-0 !p-4"
+                  >
+                    <div className="flex items-center">
+                      <div className="text-left">
+                        <div className="card-title font-serif mt-1">
+                          {lanjutBaca[0].surat}
+                        </div>
+                        <div>
+                          Ayat ke : <span>{lanjutBaca[0].ayat}</span>{" "}
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                   <div className="flex">
                     <button
+                      type="button"
                       onClick={() => removeBookmark()}
                       className="px-5 border bg-slate-200 group"
                     >

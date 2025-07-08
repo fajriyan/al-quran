@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 // Fungsi untuk ambil nama hari dari date
 const getDayName = (date) => {
-  return date.toLocaleDateString("id-ID", { weekday: "long" }); // contoh: "Senin"
+  return date.toLocaleDateString("id-ID", { weekday: "long" }); 
 };
 
 // Fungsi untuk dapatkan awal minggu (Senin)
@@ -31,7 +31,6 @@ const Attendance = () => {
       history = {};
     }
 
-    // Tandai kehadiran hari ini jika belum dicatat
     if (!history[todayName]) {
       history[todayName] = true;
     }
@@ -41,16 +40,14 @@ const Attendance = () => {
       history,
     };
 
-    // Simpan ke localStorage
     localStorage.setItem("absensi", JSON.stringify(updatedData));
     setAbsensi(updatedData);
   }, []);
 
   return (
     <div className="bg-white border border-slate-200 p-6 rounded-lg">
-      <h2 className="text-lg font-semibold mb-4">Absensi Pekan</h2>
       <ul className="flex justify-between">
-        {["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"].map(
+        {["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Ahad"].map(
           (day) => (
             <li key={day} className="">
               <div
