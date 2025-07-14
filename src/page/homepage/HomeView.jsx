@@ -234,12 +234,12 @@ const HomeView = ({
             </div>
           </div>
         </div>
-        <div className="container mx-auto px-3 flex flex-col lg:flex-row gap-5 mb-5">
-          <div className="lg:w-[33%]">
+        <div className="container mx-auto px-3 flex flex-col md:flex-row gap-5 mb-5">
+          <div className="w-full md:w-[50%] xl:w-[33%]">
             <Attendance />
           </div>
 
-          <div className="lg:w-[68%]">
+          <div className="w-full md:w-[50%] xl:w-[68%]">
             {/* Bookmark Start  */}
             {lanjutBaca[0].ayat ? (
               <div className="container mx-auto h-full">
