@@ -10,6 +10,7 @@ import ProgresContext from "./lib/ProgresContext";
 import ThemeContext from "./lib/ThemeContext";
 import Matsurat from "./page/matsurat/Matsurat";
 import { Toaster } from "react-hot-toast";
+import Quiz from "./page/staticPage/Quiz";
 
 function App() {
   const progresBarState = useState(true);
@@ -42,7 +43,6 @@ function App() {
   }, [storageTheme?.theme]);
 
   const CustomRoutes = ({ children }) => {
-
     return (
       <>
         {progresBarState[0] && <TopBarProgress />}
@@ -55,13 +55,13 @@ function App() {
     <BrowserRouter>
       <ThemeContext.Provider value={theme}>
         <ProgresContext.Provider value={progresBarState}>
-          <Toaster 
+          <Toaster
             position="top-right"
             reverseOrder={false}
             toastOptions={{
               duration: 1000,
             }}
-            />
+          />
           <CustomRoutes>
             <Route path="/" element={<Home />} />
             <Route path="/surah" element={<Home />} />
@@ -69,6 +69,7 @@ function App() {
             <Route path="/tentang-kami" element={<About />} />
             <Route path="/changelog" element={<Changelog />} />
             <Route path="/matsurat" element={<Matsurat />} />
+            <Route path="/quiz" element={<Quiz />} />
             <Route path="/*" element={<NotFound />} />
           </CustomRoutes>
         </ProgresContext.Provider>
