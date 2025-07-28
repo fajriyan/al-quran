@@ -46,7 +46,7 @@ function App() {
     return (
       <>
         {progresBarState[0] && <TopBarProgress />}
-        <Routes>{children}</Routes>;
+        <Routes>{children}</Routes>
       </>
     );
   };
