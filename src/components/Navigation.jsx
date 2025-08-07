@@ -126,7 +126,7 @@ const Navigation = (props) => {
                 </svg>
               </span>
 
-              <ul className="p-2 backdrop-blur-sm bg-white/90 dark:bg-gray-800/90 border rounded-md overflow-y-scroll max-h-[350px] min-w-[100px]">
+              <ul className="p-2 backdrop-blur-sm bg-white/90 dark:bg-gray-800/90 border rounded-md overflow-y-auto max-h-[350px] min-w-[100px]">
                 {props.singleSP?.ayat?.map((sp) => (
                   <li className="h-10" key={sp.nomor}>
                     <a
