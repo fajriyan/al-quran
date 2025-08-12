@@ -5,6 +5,7 @@ import LinkProgresBars from "../../lib/LinkProgresBars";
 import Adzan from "../../lib/Adzan";
 import Attendance from "../../components/Attendance";
 import { useEffect, useRef, useState } from "react";
+import RedHoliday from "../../components/RedHoliday";
 
 const HomeView = ({
   showBT,
@@ -18,14 +19,13 @@ const HomeView = ({
   filteredData,
   numbertosurah,
   playingIndex,
-  setPlayingIndex,
   audioInfo,
-  setAudioInfo,
   audioRefs,
   toggleAudio,
   handleTimeUpdate,
   handleLoadedMetadata,
   formatTime,
+  loadingIndex,
 }) => {
   try {
     const iframeRef = useRef(null);
@@ -55,7 +55,8 @@ const HomeView = ({
           <title>Al Quran Digital | Baca Al Quran Mudah Tanpa Install</title>
           <link rel="canonical" href="https://al-quran.pages.dev/" />
         </Helmet>
-        {/* ++ Sticky Search */}
+
+        {/* Start Sticky Search */}
         <div className="sticky top-0 z-[99] bg-white border-b">
           <div
             className={
@@ -73,30 +74,8 @@ const HomeView = ({
             />
           </div>
         </div>
-        {/* -- Sticky Search */}
+        {/* End Sticky Search */}
 
-        {/* <div className="fixed bottom-[10px] right-6 z-10 animate-pulse">
-          <button
-            className=""
-            data-tally-open="nW0jYe"
-            data-tally-width="350"
-            data-tally-emoji-animation="wave"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-chat-right-dots"
-              viewBox="0 0 16 16"
-            >
-              <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
-              <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
-            </svg>
-          </button>
-        </div> */}
-
-        {/* ++ Scroll To Top  */}
         {showBT ? (
           <button
             className="fixed bottom-11 right-4 rounded-full z-10 bg-white border border-slate-500 border-dashed p-2 shadow-2xl hover:bg-slate-100 sca group"
@@ -119,10 +98,8 @@ const HomeView = ({
               />
             </svg>
           </button>
-        ) : (
-          <div className=""></div>
-        )}
-        {/* -- Scroll To Top  */}
+        ) : null}
+
         <div className="container mx-auto xl:my-5">
           <div
             className="hero min-h-[200px] rounded-none xl:rounded-xl flex flex-wrap relative overflow-hidden mb-5"
@@ -234,7 +211,7 @@ const HomeView = ({
             </div>
           </div>
         </div>
-
+        {/* Start Main Content */}
         <section className="px-5 xl:px-0">
           <div className="container mx-auto flex flex-col md:flex-row gap-5 mb-5">
             <div className="w-full md:w-[50%] xl:w-[33%]">
@@ -360,7 +337,7 @@ const HomeView = ({
                             formatTime(audioInfo[index]?.duration)
                           : s.nama_latin}
                       </div>
-                      <button
+                      {/* <button
                         onClick={() => toggleAudio(index)}
                         className="px-2 py-2 rounded-l-md bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
                       >
@@ -377,6 +354,55 @@ const HomeView = ({
                             <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
                           )}
                         </svg>
+                      </button> */}
+                      <button
+                        onClick={() => toggleAudio(index)}
+                        className="px-2 py-2 rounded-l-md bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
+                      >
+                        {loadingIndex === index ? (
+                          // Icon Loading (spinner)
+                          <svg
+                            className="animate-spin h-4 w-4 text-white"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                              fill="none"
+                            />
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                            />
+                          </svg>
+                        ) : playingIndex === index ? (
+                          // Pause icon
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            className="fill-white"
+                            viewBox="0 0 16 16"
+                          >
+                            <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5" />
+                          </svg>
+                        ) : (
+                          // Play icon
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            className="fill-white"
+                            viewBox="0 0 16 16"
+                          >
+                            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+                          </svg>
+                        )}
                       </button>
                     </div>
                     {/* Component Audio --- */}
@@ -653,11 +679,13 @@ const HomeView = ({
             )}
           </div>
         </section>
+        {/* End Main Content */}
+
         <Footer />
       </div>
     );
   } catch (error) {
-    console.log("Home View = " + error);
+    console.log("Home View Error = " + error);
   }
 };
 

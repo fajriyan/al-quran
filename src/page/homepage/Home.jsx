@@ -81,23 +81,37 @@ const Home = () => {
     }
   }
 
-  // const filteredData = dataSurat.filter((QF) => {
-  //   if (!querySearch) {
-  //     return QF;
-  //   } else if (
-  //     QF.nama_latin.toLowerCase().includes(querySearch.toLowerCase())
-  //   ) {
-  //     return QF;
-  //   }
-  // });
-
   const [playingIndex, setPlayingIndex] = useState(null);
+  const [loadingIndex, setLoadingIndex] = useState(null);
+  const audioRefs = useRef([]);
+
+  useEffect(() => {
+    const audios = audioRefs.current;
+    audios.forEach((audio, i) => {
+      if (audio) {
+        // Saat mulai load
+        audio.addEventListener("loadstart", () => {
+          setLoadingIndex(i);
+        });
+
+        // Saat sudah bisa dimainkan
+        audio.addEventListener("canplaythrough", () => {
+          setLoadingIndex(null);
+        });
+
+        // Pastikan audio lain pause saat satu diputar
+        audio.addEventListener("play", () => {
+          audios.forEach((a) => {
+            if (a !== audio) a.pause();
+          });
+        });
+      }
+    });
+  }, [filteredDatas]);
 
   const [audioInfo, setAudioInfo] = useState(
     filteredDatas.map(() => ({ currentTime: 0, duration: 0, isPlaying: false }))
   );
-
-  const audioRefs = useRef([]);
 
   const toggleAudio = (index) => {
     const audio = audioRefs.current[index];
@@ -167,6 +181,7 @@ const Home = () => {
         setAudioInfo={setAudioInfo}
         setPlayingIndex={setPlayingIndex}
         toggleAudio={toggleAudio}
+        loadingIndex={loadingIndex}
       />
     </>
   );
