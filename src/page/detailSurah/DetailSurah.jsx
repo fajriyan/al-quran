@@ -9,11 +9,9 @@ import numbertosurah from "../../data/numbertosurah.json";
 const DetailSurah = () => {
   const { id } = useParams();
   const surahNumber = surahtonumber[id];
-
   const [progressBar, setProgressBar] = useContext(ProgresContext);
   const [currentBookmark, setCurrentBookmark] = useState(null);
   let propertyStorage = JSON.parse(localStorage.getItem("property")) || [];
-
   const [state, setState] = useState({
     stateLoading: false,
     stateModal: false,
@@ -24,6 +22,7 @@ const DetailSurah = () => {
     dataTafsir: [],
   });
   const [font, setFont] = useState({ arab: "25", idn: "16" });
+  const [bookStats, setBStats] = useState(false);
 
   const setProperty = ({ size, id }) => {
     const fontMapping = {
@@ -42,20 +41,55 @@ const DetailSurah = () => {
 
   const getAyat = async () => {
     setProgressBar(true);
-    setState({ ...state, stateLoading: true });
-    const Req = await fetch("https://equran.id/api/surat/" + surahNumber);
-    const Res = await Req.json();
-    window.scrollTo({ top: 0 });
+    setState((prev) => ({ ...prev, stateLoading: true }));
 
-    const ReqTafsir = await fetch(
-      "https://equran.id/api/v2/tafsir/" + surahNumber
-    );
-    const ResTafsir = await ReqTafsir.json();
+    const cacheKey = `surahData_${surahNumber}`;
+    const cacheTimeKey = `surahDataTime_${surahNumber}`;
+    const cacheDuration = 10 * 24 * 60 * 60 * 1000; // 10 hari
 
-    
-    setData({ ...data, dataDetailAyat: Res, dataTafsir:ResTafsir });
-    if (ReqTafsir) {
-      setState({ ...state, stateLoading: false });
+    const cachedData = localStorage.getItem(cacheKey);
+    const cachedTime = localStorage.getItem(cacheTimeKey);
+
+    if (cachedData && cachedTime && Date.now() - cachedTime < cacheDuration) {
+      const { Res, ResTafsir } = JSON.parse(cachedData);
+
+      setTimeout(() => {
+        setData((prev) => ({
+          ...prev,
+          dataDetailAyat: Res,
+          dataTafsir: ResTafsir,
+        }));
+        setState((prev) => ({ ...prev, stateLoading: false }));
+        setProgressBar(false);
+      }, 100);
+      return;
+    }
+
+    try {
+      const Req = await fetch(`https://equran.id/api/surat/${surahNumber}`);
+      const Res = await Req.json();
+      window.scrollTo({ top: 0 });
+
+      const ReqTafsir = await fetch(
+        `https://equran.id/api/v2/tafsir/${surahNumber}`
+      );
+      const ResTafsir = await ReqTafsir.json();
+
+      setData((prev) => ({
+        ...prev,
+        dataDetailAyat: Res,
+        dataTafsir: ResTafsir,
+      }));
+      setState((prev) => ({ ...prev, stateLoading: false }));
+
+      // simpan ke cache
+      localStorage.setItem(cacheKey, JSON.stringify({ Res, ResTafsir }));
+      localStorage.setItem(cacheTimeKey, Date.now());
+    } catch (err) {
+      console.error("Failed to fetch surah detail:", err);
+      setState((prev) => ({ ...prev, stateLoading: false }));
+    } finally {
+      setProgressBar(false);
     }
   };
 
@@ -77,18 +111,6 @@ const DetailSurah = () => {
     );
   };
 
-  useEffect(() => {
-    initProperty();
-    checkingStatus();
-    getAyat().finally(setProgressBar(false));
-
-    const storedAyah = JSON.parse(localStorage.getItem("ayat"));
-    const storedSurah = localStorage.getItem("url")?.toLowerCase();
-    if (storedAyah && storedSurah== id) {
-      setCurrentBookmark(storedAyah);
-    }
-  }, []);
-
   const copySurat = () => {
     toast.success("Copy Berhasil");
   };
@@ -103,7 +125,7 @@ const DetailSurah = () => {
     toast.custom((t) => (
       <div
         className={`${
-          t.visible ? 'animate-enter' : 'animate-leave'
+          t.visible ? "animate-enter" : "animate-leave"
         } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
       >
         <div className="flex-1 w-0 p-3">
@@ -126,7 +148,7 @@ const DetailSurah = () => {
           </div>
         </div>
       </div>
-    ))
+    ));
   };
 
   const lanjutBaca = [
@@ -138,7 +160,6 @@ const DetailSurah = () => {
     },
   ];
 
-  const [bookStats, setBStats] = useState(false);
   const checkingStatus = () => {
     if (lanjutBaca[0].url === id && lanjutBaca[0].fromBookmark === "true") {
       setState({ ...state, stateBookmarkz: true });
@@ -163,6 +184,18 @@ const DetailSurah = () => {
   const clickButtonss = () => {
     document.getElementById("scrollNoww").click();
   };
+
+  useEffect(() => {
+    initProperty();
+    checkingStatus();
+    getAyat().finally(setProgressBar(false));
+
+    const storedAyah = JSON.parse(localStorage.getItem("ayat"));
+    const storedSurah = localStorage.getItem("url")?.toLowerCase();
+    if (storedAyah && storedSurah == id) {
+      setCurrentBookmark(storedAyah);
+    }
+  }, []);
 
   return (
     <>

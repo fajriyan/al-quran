@@ -632,7 +632,6 @@ const Matsurat = () => {
     window.scrollTo({ top: 0 })
   }, [activeTab, navigate]);
 
-  console.log(option)
   return (
     <div className="bg-white dark:bg-slate-900 min-h-screen">
       <img

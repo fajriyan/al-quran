@@ -1,93 +1,40 @@
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
+const SkeletonRow = () => (
+  <tr>
+    {[0, 1, 2, 3].map((i) => (
+      <td key={i} className="border px-2 py-1">
+        <div className="h-7 bg-gray-200 rounded animate-pulse"></div>
+      </td>
+    ))}
+  </tr>
+);
+
 const Changelog = () => {
-  const dataChangelog = [
-    {
-      id: "C192011",
-      author: "fajriyan",
-      date: "23/11/2024",
-      version: "1.8.1",
-      description: "add feature audio play surah",
-    },
-    {
-      id: "C192011",
-      author: "fajriyan",
-      date: "02/09/2024",
-      version: "1.8.0",
-      description: "create PWA",
-    },
-    {
-      id: "C192010",
-      author: "fajriyan",
-      date: "13/04/2024",
-      version: "1.7.3",
-      description: "create loading better and refactor",
-    },
-    {
-      id: "C192009",
-      author: "fajriyan",
-      date: "19/04/2024",
-      version: "1.7.0",
-      description: "clean up folder structure and code",
-    },
-    {
-      id: "C192008",
-      author: "fajriyan",
-      date: "15/01/2024",
-      version: "1.6.9",
-      description: "create page changelog and fixing error",
-    },
-    {
-      id: "C192007",
-      author: "fajriyan",
-      date: "15/01/2024",
-      version: "1.6.5",
-      description: "add tafsir per ayat",
-    },
-    {
-      id: "C192006",
-      author: "fajriyan",
-      date: "15/01/2024",
-      version: "1.6.2",
-      description: "update some function page home and single surah",
-    },
-    {
-      id: "C192005",
-      author: "fajriyan",
-      date: "15/01/2024",
-      version: "1.6.0",
-      description: " fix error and layout tablet",
-    },
-    {
-      id: "C192004",
-      author: "fajriyan",
-      date: "15/01/2024",
-      version: "1.5.9",
-      description: "Improve UI and fix some error in console",
-    },
-    {
-      id: "C192003",
-      author: "fajriyan",
-      date: "15/01/2024",
-      version: "1.5.5",
-      description: " Fixing structure folder",
-    },
-    {
-      id: "C192002",
-      author: "fajriyan",
-      date: "15/01/2024",
-      version: "1.5.2",
-      description: "Improve SEO and update ui mobile",
-    },
-    {
-      id: "C192001",
-      author: "fajriyan",
-      date: "15/01/2024",
-      version: "1.5.0",
-      description: " Migrate to Vite and fix 9 vulnerabilities",
-    },
-  ];
+  const [commits, setCommits] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch("https://api.github.com/repos/fajriyan/al-quran/commits")
+      .then((res) => {
+        if (!res.ok) throw new Error("Gagal fetch commit dari GitHub");
+        return res.json();
+      })
+      .then((data) => {
+        setCommits(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  if (error) return <p className="text-center py-5 text-red-500">{error}</p>;
 
   return (
     <>
@@ -124,50 +71,59 @@ const Changelog = () => {
         </div>
 
         <div className="mt-3">
-          <div class="overflow-x-auto">
-            <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
-              <thead class="text-left">
-                <tr>
-                  <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    ID
-                  </th>
-                  <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    Author
-                  </th>
-                  <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    Date
-                  </th>
-                  <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    Version
-                  </th>
-                  <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    Description
-                  </th>
+          <div class="">
+            <table className="w-full mt-5 mb-10 border-collapse border border-gray-300">
+              <thead>
+                <tr className="bg-gray-100 text-sm">
+                  <th className="border px-2 py-1 w-[10%]">SHA</th>
+                  <th className="border px-2 py-1 w-[10%]">Tanggal</th>
+                  <th className="border px-2 py-1">Keterangan</th>
+                  <th className="border px-2 py-1 w-[10%]">Aksi</th>
                 </tr>
               </thead>
-
-              <tbody class="divide-y divide-gray-200">
-                {dataChangelog.map((data, i) => (
-                  <tr key={Math.random(19) + data.id}>
-                    <td class="px-4 py-2 font-medium text-gray-900">
-                      {data.id}
-                    </td>
-                    <td class="px-4 py-2 text-gray-700">{data.author}</td>
-                    <td class="px-4 py-2 text-gray-700">{data.date}</td>
-                    <td class="px-4 py-2 text-gray-700">{data.version}</td>
-                    <td class="px-4 py-2 text-gray-700">{data.description}</td>
-                  </tr>
-                ))}
+              <tbody>
+                {loading
+                  ? Array.from({ length: 20 }).map((_, i) => (
+                      <SkeletonRow key={i} />
+                    ))
+                  : commits.map((commit) => (
+                      <tr key={commit.sha} className="text-sm">
+                        <td className="border px-2 py-1 text-center">
+                          {commit.sha.substring(0, 7)}
+                        </td>
+                        <td className="border px-2 py-1 text-center">
+                          {new Date(
+                            commit.commit.author.date
+                          ).toLocaleDateString()}
+                        </td>
+                        <td className="border px-2 py-1">
+                          {commit.commit.message}
+                        </td>
+                        <td className="border px-2 py-1 text-center">
+                          <button
+                            onClick={() =>
+                              window.open(
+                                `https://github.com/fajriyan/toolsz/commit/${commit.sha}`,
+                                "_blank"
+                              )
+                            }
+                            className="bg-black py-1 px-3 rounded-lg text-xs font-semibold text-white hover:bg-cyan-800"
+                          >
+                            View
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
               </tbody>
             </table>
           </div>
 
-          <div className="mt-6">
+          <div className="mt-3 mb-6">
             <a
               href="https://github.com/fajriyan/al-quran/issues/new"
               className="px-5 py-2 rounded-md bg-slate-800 hover:bg-slate-900 font-medium text-white "
             >
-              Tambah Fitur
+              Report Bug
             </a>
           </div>
         </div>
