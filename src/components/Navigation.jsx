@@ -1,5 +1,5 @@
 import LinkProgresBars from "../lib/LinkProgresBars";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import ThemeContext from "../lib/ThemeContext";
 import numbertosurah from "../data/numbertosurah.json";
 
@@ -7,6 +7,7 @@ const Navigation = (props) => {
   const [theme, setTheme] = useContext(ThemeContext);
   const root = window.document.documentElement;
   let storageTheme = JSON.parse(localStorage.getItem("theme"));
+  const [open, setOpen] = useState(false);
 
   const handleTheme = () => {
     if (storageTheme.theme == "light") {
@@ -112,7 +113,7 @@ const Navigation = (props) => {
                 </button>
               )}
             </li>
-            <li tabIndex={0}>
+            {/* <li tabIndex={0}>
               <span>
                 Ayat
                 <svg
@@ -142,7 +143,44 @@ const Navigation = (props) => {
                   </li>
                 ))}
               </ul>
-            </li>
+            </li> */}
+            <div className="relative inline-block text-left">
+              {/* Tombol */}
+              <button
+                onClick={() => setOpen(!open)}
+                className="flex items-center gap-1 px-3 py-2 border rounded-md bg-white dark:bg-gray-800 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                <span>Ayat</span>
+                <svg
+                  className={`w-5 h-5 duration-500 transition-transform ${
+                    open ? "rotate-180" : ""
+                  }`}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                </svg>
+              </button>
+
+              {/* Dropdown */}
+              {open && (
+                <ul className="absolute mt-2 z-20 w-20 p-2 max-h-[300px] overflow-y-auto rounded-md border shadow-lg bg-white dark:bg-gray-800 backdrop-blur-sm">
+                  {props.singleSP?.ayat?.map((sp) => (
+                    <li key={sp.nomor}>
+                      <a
+                        href={`/surah/${numbertosurah[sp.surah]}#surahke${
+                          sp.nomor
+                        }`}
+                        className="block w-full text-center border rounded-md py-1.5 text-sm font-medium mb-2 border-slate-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        onClick={() => setOpen(false)}
+                      >
+                        {sp.nomor}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </ul>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import Navigation from "../../components/Navigation";
 import CopyToClipboard from "react-copy-to-clipboard";
+import { useState } from "react";
 
 const DetailSurahView = ({
   bookStats,
@@ -19,6 +20,21 @@ const DetailSurahView = ({
   numbertosurah,
   currentBookmark,
 }) => {
+  function toArabicNumber(num) {
+    const arabicDigits = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+    return num
+      .toString()
+      .split("")
+      .map((d) => arabicDigits[d])
+      .join("");
+  }
+
+  const [activeMenu, setActiveMenu] = useState(null);
+
+  const handleOpenMenu = (nomor) => {
+    setActiveMenu(activeMenu === nomor ? null : nomor);
+  };
+
   return (
     <>
       <Helmet>
@@ -122,6 +138,79 @@ const DetailSurahView = ({
           {/* -- Modal Description Surah */}
         </div>
 
+        {/* <div
+          className="arab px-3 lg:px-4 w-full leading-loose"
+          style={{
+            fontSize: font.arab + "px",
+            textAlign: "justify",
+            direction: "rtl",
+          }}
+        >
+          {dataDetails?.ayat?.map((single) => (
+            <span key={single.nomor + single.surah}>
+              {single.ar}{" "}
+              <span className="relative inline-flex items-center justify-center min-w-7 px-1 h-7 text-[14px] font-arabic mx-1">
+                <span className="absolute inset-0 border border-slate-700 rounded-full"></span>
+                <span className="absolute inset-1 border border-slate-700 rounded-full"></span>
+                <span className="relative z-10 text-[16px] text-green-800">
+                  {toArabicNumber(single.nomor)}
+                </span>
+              </span>{" "}
+            </span>
+          ))}
+        </div> */}
+
+        <div
+  className="arab px-3 lg:px-4 w-full leading-loose"
+  style={{
+    fontSize: font.arab + "px",
+    textAlign: "justify",
+    direction: "rtl",
+  }}
+>
+  {dataDetails?.ayat?.map((single) => (
+    <span
+      key={single.nomor + single.surah}
+      className="relative cursor-pointer hover:bg-slate-200"
+      onClick={() =>
+        setActiveMenu(activeMenu === single.nomor ? null : single.nomor)
+      }
+    >
+      {/* Teks Ayat + Nomor */}
+      {single.ar}{" "}
+      <span className="relative inline-flex items-center justify-center min-w-7 px-1 h-7 text-[14px] font-arabic mx-1">
+        <span className="absolute inset-0 border border-slate-700 rounded-full"></span>
+        <span className="absolute inset-1 border border-slate-700 rounded-full"></span>
+        <span className="relative z-10 text-[16px] text-green-800">
+          {toArabicNumber(single.nomor)}
+        </span>
+      </span>
+
+      {/* Menu muncul saat ayat diklik */}
+      {activeMenu === single.nomor && (
+        <ul className="absolute right-0 top-[45px] mt-1 bg-white dark:bg-slate-800 border rounded-md shadow-md text-sm w-40 z-50">
+          <li>
+            <CopyToClipboard onCopy={copySurat} text={single.ar}>
+              <span className="px-1">Copy Ayat</span>
+            </CopyToClipboard>
+          </li>
+          <li>
+            <CopyToClipboard onCopy={copySurat} text={single.idn}>
+              <span className="px-1">Copy Terjemahan</span>
+            </CopyToClipboard>
+          </li>
+          <li>
+            <label htmlFor={`tafsir-modal-${single.nomor}`} className="px-1">
+              Tafsir surat ke 
+            </label>
+          </li>
+        </ul>
+      )}
+    </span>
+  ))}
+</div>
+
+
         {Loading == false ? (
           dataDetails?.ayat?.map((single) => (
             <div
@@ -218,7 +307,10 @@ const DetailSurahView = ({
                         </div>
                       ) : null}
                       <p className="py-1 text-[16px] leading-[25px] text-justify">
-                        {dataTafsir?.data?.tafsir[parseInt(single?.nomor)]?.teks}
+                        {
+                          dataTafsir?.data?.tafsir[parseInt(single?.nomor)]
+                            ?.teks
+                        }
                       </p>
                     </div>
                   </div>
@@ -238,7 +330,11 @@ const DetailSurahView = ({
                     className="bi bi-bookmark"
                     viewBox="0 0 16 16"
                   >
-                    {currentBookmark === single.nomor ? <path d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5m8.854-9.646a.5.5 0 0 0-.708-.708L7.5 7.793 6.354 6.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/> :  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />}
+                    {currentBookmark === single.nomor ? (
+                      <path d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5m8.854-9.646a.5.5 0 0 0-.708-.708L7.5 7.793 6.354 6.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z" />
+                    ) : (
+                      <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+                    )}
                   </svg>
                 </button>
               </div>
@@ -248,8 +344,17 @@ const DetailSurahView = ({
                 className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
                 style={{ fontSize: font.arab + "px" }}
               >
-                {single.ar} <span className="relative">۝</span>
+                {single.ar}
+                {"  "}
+                <span className="relative inline-flex items-center justify-center min-w-7 px-1 h-7 text-[14px] font-arabic">
+                  <span className="absolute inset-0 border border-slate-700 rounded-lg"></span>
+                  <span className="absolute inset-1 border border-slate-700 rounded-lg"></span>
+                  <span className="relative z-10 text-[16px] text-green-800">
+                    {toArabicNumber(single.nomor)}
+                  </span>
+                </span>
               </div>
+
               <p
                 className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
                 style={{ fontSize: font.idn + "px" }}
