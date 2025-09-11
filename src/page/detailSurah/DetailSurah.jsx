@@ -111,8 +111,8 @@ const DetailSurah = () => {
     );
   };
 
-  const copySurat = () => {
-    toast.success("Copy Berhasil");
+  const copySurat = (props) => {
+    toast.success("Copy " + props + " Berhasil");
   };
 
   const saveAyat = (url, ayat, namaSurat) => {
