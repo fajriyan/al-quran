@@ -57,7 +57,7 @@ const Home = () => {
     { surah: "Al Matsurat", url: "matsurat", ex: "nosurah" },
     { surah: "Al Mulk", url: "67" },
     { surah: "Yasin", url: "36" },
-    { surah: "Coba Quiz", url: "quiz", ex: "nosurah" },
+    { surah: "Quiz", url: "quiz", ex: "nosurah" },
   ];
 
   const lanjutBaca = [

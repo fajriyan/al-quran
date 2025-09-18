@@ -103,7 +103,7 @@ const Changelog = () => {
                           <button
                             onClick={() =>
                               window.open(
-                                `https://github.com/fajriyan/toolsz/commit/${commit.sha}`,
+                                `https://github.com/fajriyan/al-quran/commit/${commit.sha}`,
                                 "_blank"
                               )
                             }
