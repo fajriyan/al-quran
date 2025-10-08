@@ -36,31 +36,32 @@ const Navigation = (props) => {
   };
 
   return (
-    <div className="backdrop-blur-sm bg-white/90 dark:bg-gray-800/90 border-b dark:border-slate-500 sticky top-0 z-[100]">
+    <div className="backdrop-blur-sm bg-white/85 dark:bg-gray-800/90 border-b dark:border-slate-500 sticky top-0 z-[100]">
       <div className="navbar container mx-auto flex justify-between lg:p-0">
-        <div className="flex gap-2 md:gap-0">
+        <div className="flex gap-4 md:gap-5">
           <LinkProgresBars
             to="/"
-            className="flex items-center rounded-md md:btn gap-2 btn-md bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 text-slate-200"
+            className="flex items-center rounded-md font-semibold py-3 text-sm px-3.5 gap-2  bg-gradient-to-r from-slate-700 to-slate-800 focus:ring-2 ring-offset-2 ring-slate-800 text-slate-200 relative group overflow-hidden"
           >
+            <div className="absolute right-0 w-0 h-full bg-gradient-to-t from-slate-800 to-slate-900 group-hover:w-full duration-500"></div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
               fill="currentColor"
-              className="bi bi-arrow-left-square-fill fill-white dark:fill-slate-200"
+              className="bi bi-arrow-left-square-fill fill-white dark:fill-slate-200 relative"
               viewBox="0 0 16 16"
             >
               <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
             </svg>
-            <span className="hidden md:block text-white dark:text-slate-200">
+            <span className="hidden md:block text-white dark:text-slate-200 relative">
               Kembali
             </span>
           </LinkProgresBars>
 
           {props.loadP == false ? (
             <>
-              <div className="ml-2 md:ml-7 nunito text-xl">
+              <div className="nunito text-xl">
                 <h1 className="hidden">
                   Al quran Online | Baca Quran Praktis Tanpa Install Aplikasi
                 </h1>

@@ -166,14 +166,14 @@ const DetailSurahView = ({
           {/* -- Modal Description Surah */}
         </div>
 
-        <div className="mt-6 min-h-screen">
+        <div className="mt-6 min-h-screen px-3 lg:px-0">
           {activeTab === 0 && (
             <div className="p-4 bg-gray-50/50 border border-slate-200 rounded-xl">
               {Loading == false ? (
                 dataDetails?.ayat?.map((single) => (
                   <div
                     key={single.nomor + single.surah}
-                    className="flex flex-wrap justify-end md:h-full md:items-center border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                    className="flex flex-wrap justify-end md:h-full md:items-center border-b border-slate-300 last:border-gray-50 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                     id={"surahke" + single.nomor}
                   >
                     {/* Menu Control Start */}
@@ -455,7 +455,7 @@ const DetailSurahView = ({
           </div>
         ))}
 
-        <div className="flex justify-between py-5 px-3 md:px-0">
+        <div className="flex justify-between py-5 md:px-0 mt-10 px-3 lg:px-0">
           {(() => {
             if (dataDetails.surat_sebelumnya !== false) {
               return (
@@ -464,12 +464,12 @@ const DetailSurahView = ({
                     "/surah/" +
                     numbertosurah[dataDetails.surat_sebelumnya?.nomor]
                   }
-                  className="btn text-white gap-2 bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none focus:ring-2 ring-offset-2 ring-slate-900"
+                  className="flex gap-2 py-2.5 px-4 items-center font-semibold rounded-xl text-white bg-gradient-to-r text-sm hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none focus:ring-2 ring-offset-2 ring-slate-900"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
+                    width="14"
+                    height="14"
                     fill="currentColor"
                     className="bi bi-arrow-left-square-fill"
                     viewBox="0 0 16 16"
@@ -493,7 +493,7 @@ const DetailSurahView = ({
                     "/surah/" +
                     numbertosurah[dataDetails.surat_selanjutnya?.nomor]
                   }
-                  className="btn gap-2 text-white bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none focus:ring-2 ring-offset-2 ring-slate-900"
+                  className="flex gap-2 py-2.5 px-4 items-center font-semibold rounded-xl text-white bg-gradient-to-r text-sm hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none focus:ring-2 ring-offset-2 ring-slate-900"
                 >
                   {dataDetails.surat_selanjutnya?.nama_latin}
                   <svg

@@ -27,7 +27,6 @@ const HomeView = ({
   loadingIndex,
   dataChangelog,
 }) => {
-
   try {
     const iframeRef = useRef(null);
     const [isReady, setIsReady] = useState(false);
@@ -48,6 +47,21 @@ const HomeView = ({
 
     return (
       <div className="min-h-screen">
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background: "#ffffff",
+            backgroundImage: `
+        radial-gradient(
+          circle at top right,
+          rgba(70, 130, 180, 0.2),
+          transparent 30%
+        )
+      `,
+            filter: "blur(80px)",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
         {localStorage.removeItem("fromBookmark", false)}
 
         <Helmet>
@@ -220,7 +234,7 @@ const HomeView = ({
           </div>
         </div>
         {/* Start Main Content */}
-        <section className="px-5 xl:px-0">
+        <section className="px-5 xl:px-0 relative">
           <div className="container mx-auto flex flex-col md:flex-row gap-5 mb-5">
             <div className="w-full md:w-[50%] xl:w-[33%]">
               <Attendance />
