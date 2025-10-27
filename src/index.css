@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@400..700&display=swap");
 
 html {
   scroll-behavior: smooth;
@@ -17,6 +18,12 @@ html {
 .no-scrollbars {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.reem-kufi-fun {
+  font-family: "Reem Kufi Fun", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
@@ -71,9 +78,8 @@ html {
 
 .hidescroll::-webkit-scrollbar {
   display: none;
-}  
+}
 
 html {
   scroll-padding-top: 80px; /* Sesuaikan dengan tinggi navbar */
 }
-

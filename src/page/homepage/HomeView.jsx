@@ -182,26 +182,40 @@ const HomeView = ({
                 </div>
 
                 {/* Start Search */}
-                <div className="relative">
-                  <input
-                    type="text"
-                    onChange={(e) =>
-                      setQuerySearch(e.target.value.replace(" ", "-"))
-                    }
-                    value={querySearch.replace("-", " ")}
-                    placeholder="Surah Apa yang ingin Anda Baca?"
-                    className="input text-slate-600 border-white w-full focus:ring-4 focus:ring-blue-400 bg-slate-100"
-                  />
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    fill="#000000"
-                    className="bi bi-search absolute top-4 right-4 md:right-6 hover:cursor-pointer"
-                    viewBox="0 0 16 16"
+                <div className="relative flex gap-2 items-center">
+                  <div className="relative w-full">
+                    <input
+                      type="text"
+                      onChange={(e) =>
+                        setQuerySearch(e.target.value.replace(" ", "-"))
+                      }
+                      value={querySearch.replace("-", " ")}
+                      placeholder="Surah Apa yang ingin Anda Baca?"
+                      className="input text-slate-600 border-white w-full focus:ring-4 focus:ring-blue-400 bg-slate-100"
+                    />
+                  </div>
+
+                  <Link
+                    to={"/quote"}
+                    className="bg-gray-100 hover:bg-gray-200 p-[11px] rounded-lg"
                   >
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                  </svg>
+                    <svg
+                      className="w-6 h-6 text-cyan-800"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M17.44 3a1 1 0 0 1 .707.293l2.56 2.56a1 1 0 0 1 0 1.414L18.194 9.78 14.22 5.806l2.513-2.513A1 1 0 0 1 17.44 3Zm-4.634 4.22-9.513 9.513a1 1 0 0 0 0 1.414l2.56 2.56a1 1 0 0 0 1.414 0l9.513-9.513-3.974-3.974ZM6 6a1 1 0 0 1 1 1v1h1a1 1 0 0 1 0 2H7v1a1 1 0 1 1-2 0v-1H4a1 1 0 0 1 0-2h1V7a1 1 0 0 1 1-1Zm9 9a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 1 1 0-2h1v-1a1 1 0 0 1 1-1Z"
+                        clip-rule="evenodd"
+                      />
+                      <path d="M19 13h-2v2h2v-2ZM13 3h-2v2h2V3Zm-2 2H9v2h2V5ZM9 3H7v2h2V3Zm12 8h-2v2h2v-2Zm0 4h-2v2h2v-2Z" />
+                    </svg>
+                  </Link>
                 </div>
 
                 {/* End Search  */}

@@ -11,6 +11,7 @@ import ThemeContext from "./lib/ThemeContext";
 import Matsurat from "./page/matsurat/Matsurat";
 import { Toaster } from "react-hot-toast";
 import Quiz from "./page/staticPage/Quiz";
+import Screensaver from "./page/screensaver/Screensaver";
 
 function App() {
   const progresBarState = useState(true);
@@ -70,6 +71,7 @@ function App() {
             <Route path="/changelog" element={<Changelog />} />
             <Route path="/matsurat" element={<Matsurat />} />
             <Route path="/quiz" element={<Quiz />} />
+            <Route path="/quote" element={<Screensaver />} />
             <Route path="/*" element={<NotFound />} />
           </CustomRoutes>
         </ProgresContext.Provider>
