@@ -4,12 +4,10 @@ import HomeView from "./HomeView";
 import ProgresContext from "../../lib/ProgresContext";
 import numbertosurah from "../../data/numbertosurah.json";
 import Fuse from "fuse.js";
+import { useChangelog, useSurah } from "../../hooks/global";
 
 const Home = () => {
-  const [Loading, setLoading] = useState(false);
   const [_, setProgressBar] = useContext(ProgresContext);
-  const [dataSurat, setSurat] = useState([]);
-  const skeletonLoad = [1, 2, 3, 4, 5, 6];
   const [querySearch, setQuerySearch] = useState("");
   const [showBT, setShowBT] = useState("");
   const [filteredDatas, setFilteredData] = useState([]);
@@ -19,39 +17,6 @@ const Home = () => {
   const [audioInfo, setAudioInfo] = useState(
     filteredDatas.map(() => ({ currentTime: 0, duration: 0, isPlaying: false }))
   );
-  const [dataChangelog, setChangelog] = useState("");
-
-  const getSurah = async () => {
-    const cache = localStorage.getItem("surahData");
-    const cacheTime = localStorage.getItem("surahDataTime");
-
-    // 20 hari
-    const cacheDuration = 20 * 24 * 60 * 60 * 1000;
-
-    if (cache && cacheTime && Date.now() - cacheTime < cacheDuration) {
-      setSurat(JSON.parse(cache));
-      setLoading(true);
-      return;
-    }
-
-    const Req = await fetch("https://equran.id/api/surat");
-    const Res = await Req.json();
-    setSurat(Res);
-    setLoading(true);
-
-    localStorage.setItem("surahData", JSON.stringify(Res));
-    localStorage.setItem("surahDataTime", Date.now());
-  };
-
-  const removeBookmark = () => {
-    localStorage.removeItem("ayat");
-    localStorage.removeItem("url");
-    localStorage.removeItem("namaSurat");
-    toast("Bookmark Berhasil diHapus!", {
-      icon: "🗑",
-    });
-  };
-
   const RekomendationSurah = [
     { surah: "Al Kahf", url: "18" },
     { surah: "Al Matsurat", url: "matsurat", ex: "nosurah" },
@@ -68,6 +33,20 @@ const Home = () => {
     },
   ];
 
+  const { loading: Loading, dataSurah: dataSurat } = useSurah();
+  const { dataChangelog } = useChangelog({
+    first: true,
+  });
+
+  const removeBookmark = () => {
+    localStorage.removeItem("ayat");
+    localStorage.removeItem("url");
+    localStorage.removeItem("namaSurat");
+    toast("Bookmark Berhasil diHapus!", {
+      icon: "🗑",
+    });
+  };
+
   function scrollFunction() {
     if (
       document.body.scrollTop > 300 ||
@@ -78,6 +57,10 @@ const Home = () => {
       setShowBT(false);
     }
   }
+
+  window.onscroll = function () {
+    scrollFunction();
+  };
 
   const toggleAudio = (index) => {
     const audio = audioRefs.current[index];
@@ -124,16 +107,6 @@ const Home = () => {
     return `${minutes}:${seconds}`;
   };
 
-  window.onscroll = function () {
-    scrollFunction();
-  };
-
-  useEffect(() => {
-    getSurah()
-      .then(() => setProgressBar(false))
-      .finally(() => window.scrollTo({ top: 0 }));
-  }, []);
-
   useEffect(() => {
     if (!querySearch) {
       setFilteredData(dataSurat);
@@ -169,24 +142,8 @@ const Home = () => {
         });
       }
     });
+    setProgressBar(false);
   }, [filteredDatas]);
-
-  useEffect(() => {
-    async function fetchLatestCommit() {
-      try {
-        const response = await fetch(
-          "https://api.github.com/repos/fajriyan/al-quran/commits"
-        );
-        const dataChangelog = await response.json();
-        if (dataChangelog && dataChangelog.length > 0) {
-          setChangelog(dataChangelog[0]);
-        }
-      } catch (error) {
-        console.error("Failed to fetch commit message:", error);
-      }
-    }
-    fetchLatestCommit();
-  }, []);
 
   return (
     <>
@@ -199,7 +156,7 @@ const Home = () => {
         setQuerySearch={setQuerySearch}
         removeBookmark={removeBookmark}
         showBT={showBT}
-        skeletonLoad={skeletonLoad}
+        skeletonLoad={[1, 2, 3, 4, 5, 6]}
         filteredData={filteredDatas}
         numbertosurah={numbertosurah}
         audioInfo={audioInfo}

@@ -5,6 +5,7 @@ import DetailSurahView from "./DetailSurahView";
 import ProgresContext from "../../lib/ProgresContext";
 import surahtonumber from "../../data/surahtonumber.json";
 import numbertosurah from "../../data/numbertosurah.json";
+import { apiGetSurah, apiGetTafsir } from "../../lib/api";
 
 const DetailSurah = () => {
   const { id } = useParams();
@@ -51,13 +52,13 @@ const DetailSurah = () => {
     const cachedTime = localStorage.getItem(cacheTimeKey);
 
     if (cachedData && cachedTime && Date.now() - cachedTime < cacheDuration) {
-      const { Res, ResTafsir } = JSON.parse(cachedData);
+      const { dataSurah, dataTafsir } = JSON.parse(cachedData);
 
       setTimeout(() => {
         setData((prev) => ({
           ...prev,
-          dataDetailAyat: Res,
-          dataTafsir: ResTafsir,
+          dataDetailAyat: dataSurah,
+          dataTafsir: dataTafsir,
         }));
         setState((prev) => ({ ...prev, stateLoading: false }));
         setProgressBar(false);
@@ -66,24 +67,19 @@ const DetailSurah = () => {
     }
 
     try {
-      const Req = await fetch(`https://equran.id/api/surat/${surahNumber}`);
-      const Res = await Req.json();
       window.scrollTo({ top: 0 });
-
-      const ReqTafsir = await fetch(
-        `https://equran.id/api/v2/tafsir/${surahNumber}`
-      );
-      const ResTafsir = await ReqTafsir.json();
+      const dataSurah = await apiGetSurah({ id: surahNumber });
+      const dataTafsir = await apiGetTafsir({ number: surahNumber });
 
       setData((prev) => ({
         ...prev,
-        dataDetailAyat: Res,
-        dataTafsir: ResTafsir,
+        dataDetailAyat: dataSurah,
+        dataTafsir: dataTafsir,
       }));
       setState((prev) => ({ ...prev, stateLoading: false }));
 
       // simpan ke cache
-      localStorage.setItem(cacheKey, JSON.stringify({ Res, ResTafsir }));
+      localStorage.setItem(cacheKey, JSON.stringify({ dataSurah, dataTafsir }));
       localStorage.setItem(cacheTimeKey, Date.now());
     } catch (err) {
       console.error("Failed to fetch surah detail:", err);
