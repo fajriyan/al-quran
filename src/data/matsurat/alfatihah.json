@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "surah": 1,
+    "nomor": 1,
+    "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ",
+    "tr": "bismillāhir-raḥmānir-raḥīm(i).",
+    "idn": "Dengan nama Allah Yang Maha Pengasih, Maha Penyayang."
+  },
+  {
+    "id": 2,
+    "surah": 1,
+    "nomor": 2,
+    "ar": "اَلْحَمْدُ لِلّٰهِ رَبِّ الْعٰلَمِيْنَۙ",
+    "tr": "al-ḥamdu lillāhi rabbil-‘ālamīn(a).",
+    "idn": "Segala puji bagi Allah, Tuhan seluruh alam,"
+  },
+  {
+    "id": 3,
+    "surah": 1,
+    "nomor": 3,
+    "ar": "الرَّحْمٰنِ الرَّحِيْمِۙ",
+    "tr": "ar-raḥmānir-raḥīm(i).",
+    "idn": "Yang Maha Pengasih, Maha Penyayang,"
+  },
+  {
+    "id": 4,
+    "surah": 1,
+    "nomor": 4,
+    "ar": "مٰلِكِ يَوْمِ الدِّيْنِۗ",
+    "tr": "māliki yaumid-dīn(i).",
+    "idn": "Pemilik hari pembalasan."
+  },
+  {
+    "id": 5,
+    "surah": 1,
+    "nomor": 5,
+    "ar": "اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعِيْنُۗ",
+    "tr": "iyyāka na‘budu wa iyyāka nasta‘īn(u),",
+    "idn": "Hanya kepada Engkaulah kami menyembah dan hanya kepada Engkaulah kami mohon pertolongan."
+  },
+  {
+    "id": 6,
+    "surah": 1,
+    "nomor": 6,
+    "ar": "اِهْدِنَا الصِّرَاطَ الْمُسْتَقِيْمَۙ",
+    "tr": "ihdinaṣ-ṣirāṭal-mustaqīm(a).",
+    "idn": "Tunjukilah kami jalan yang lurus,"
+  },
+  {
+    "id": 7,
+    "surah": 1,
+    "nomor": 7,
+    "ar": "صِرَاطَ الَّذِيْنَ اَنْعَمْتَ عَلَيْهِمْ ەۙ غَيْرِ الْمَغْضُوْبِ عَلَيْهِمْ وَلَا الضَّاۤلِّيْنَ ࣖ",
+    "tr": "Ṣirāṭal-lażīna an‘amta ‘alaihim, gairil-magḍūbi ‘alaihim wa laḍ-ḍāllīn(a).",
+    "idn": "(yaitu) jalan orang-orang yang telah Engkau beri nikmat kepadanya; bukan (jalan) mereka yang dimurkai, dan bukan (pula jalan) mereka yang sesat."
+  }
+]

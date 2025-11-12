@@ -3,12 +3,9 @@ import { Link } from "react-router-dom";
 import ProgresContext from "./ProgresContext";
 
 const LinkProgresBars = ({ to, children, className }) => {
-  const [progressBar, setProgressBar] = useContext(ProgresContext);
-  const setProgressBefore = () => {
-    setProgressBar(true);
-  };
+  const [_, setProgressBar] = useContext(ProgresContext);
   return (
-    <Link onClick={setProgressBefore} to={to} className={className}>
+    <Link onClick={() => setProgressBar(true)} to={to} className={className}>
       {children}
     </Link>
   );

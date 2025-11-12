@@ -1,20 +1,16 @@
 import { Helmet } from "react-helmet";
 import Navigation from "../../components/Navigation";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 const DetailSurahView = ({
   bookStats,
   Loading,
   dataDetails,
-  SkeletonLoading,
-  copySurat,
-  modalAyat,
   dataTafsir,
   saveAyat,
   handleClickScroll,
-  clickButtonss,
-  setModalAyat,
   font,
   setFont,
   numbertosurah,
@@ -49,7 +45,7 @@ const DetailSurahView = ({
         </title>
         <link
           rel="canonical"
-          href={"https://al-quran.pages.dev/surah/" + dataDetails.nomor}
+          href={"https://al-quran.pages.dev/surah/" + dataDetails?.nomor}
         />
       </Helmet>
 
@@ -58,7 +54,7 @@ const DetailSurahView = ({
           <button
             className="btn-scroll hidden"
             id="scrollNoww"
-            ref={clickButtonss}
+            ref={() => document.getElementById("scrollNoww").click()}
             onClick={() => handleClickScroll()}
           >
             Lanjutkan Membaca
@@ -67,10 +63,10 @@ const DetailSurahView = ({
       ) : null}
 
       <Navigation
-        suratP={dataDetails.nama_latin}
-        turunP={dataDetails.tempat_turun}
-        jumlahP={dataDetails.jumlah_ayat}
-        artiP={dataDetails.arti}
+        suratP={dataDetails?.nama_latin}
+        turunP={dataDetails?.tempat_turun}
+        jumlahP={dataDetails?.jumlah_ayat}
+        artiP={dataDetails?.arti}
         loadP={Loading}
         singleSP={dataDetails}
       />
@@ -154,12 +150,12 @@ const DetailSurahView = ({
                 ✕
               </label>
               <h2 className="text-lg font-bold">
-                Deskripsi Surat {dataDetails.nama_latin}{" "}
-                <b className="font-serif">{dataDetails.nama}</b>
+                Deskripsi Surat {dataDetails?.nama_latin}{" "}
+                <b className="font-serif">{dataDetails?.nama}</b>
               </h2>
               <div
                 className="py-4"
-                dangerouslySetInnerHTML={{ __html: dataDetails.deskripsi }}
+                dangerouslySetInnerHTML={{ __html: dataDetails?.deskripsi }}
               ></div>
             </div>
           </div>
@@ -207,7 +203,9 @@ const DetailSurahView = ({
                           >
                             <li>
                               <CopyToClipboard
-                                onCopy={() => copySurat("Ayat")}
+                                onCopy={() => {
+                                  toast.success("Copy Ayat Berhasil");
+                                }}
                                 text={single.ar}
                               >
                                 <span className="p-0 px-1">
@@ -217,7 +215,9 @@ const DetailSurahView = ({
                             </li>
                             <li>
                               <CopyToClipboard
-                                onCopy={() => copySurat("Terjemahan")}
+                                onCopy={() => {
+                                  toast.success("Copy Terjemahan Berhasil");
+                                }}
                                 text={single.idn}
                               >
                                 <span className="p-0 px-1">
@@ -294,21 +294,27 @@ const DetailSurahView = ({
                 ))
               ) : (
                 <>
-                  {SkeletonLoading.map((loadSkeleton) => (
-                    <div className="border-b py-5 px-3" key={Math.random()}>
-                      <div className="animate-pulse flex space-x-4">
-                        <div className="flex-1 py-1 ">
-                          <div className="flex justify-end mt-2">
-                            <div className="h-12 w-full bg-slate-200 rounded-md"></div>
-                          </div>
-                          <div className="grid grid-cols-3 gap-2 mt-9">
-                            <div className="h-3 bg-slate-200 rounded col-span-2"></div>
-                            <div className="h-3 bg-slate-200 rounded col-span-3"></div>
+                  {(() => {
+                    const items = [];
+                    for (let i = 0; i < 5; i++) {
+                      items.push(
+                        <div className="border-b py-5 px-3" key={i}>
+                          <div className="animate-pulse flex space-x-4">
+                            <div className="flex-1 py-1">
+                              <div className="flex justify-end mt-2">
+                                <div className="h-12 w-full bg-slate-200 rounded-md"></div>
+                              </div>
+                              <div className="grid grid-cols-3 gap-2 mt-9">
+                                <div className="h-3 bg-slate-200 rounded col-span-2"></div>
+                                <div className="h-3 bg-slate-200 rounded col-span-3"></div>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  ))}
+                      );
+                    }
+                    return items;
+                  })()}
                 </>
               )}
             </div>
@@ -457,12 +463,12 @@ const DetailSurahView = ({
 
         <div className="flex justify-between py-5 md:px-0 mt-10 px-3 lg:px-0">
           {(() => {
-            if (dataDetails.surat_sebelumnya !== false) {
+            if (dataDetails?.surat_sebelumnya !== false) {
               return (
                 <a
                   href={
                     "/surah/" +
-                    numbertosurah[dataDetails.surat_sebelumnya?.nomor]
+                    numbertosurah[dataDetails?.surat_sebelumnya?.nomor]
                   }
                   className="flex gap-2 py-2.5 px-4 items-center font-semibold rounded-xl text-white bg-gradient-to-r text-sm hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none focus:ring-2 ring-offset-2 ring-slate-900"
                 >
@@ -476,26 +482,26 @@ const DetailSurahView = ({
                   >
                     <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
                   </svg>
-                  {dataDetails.surat_sebelumnya?.nama_latin}
+                  {dataDetails?.surat_sebelumnya?.nama_latin}
                 </a>
               );
               // eslint-disable-next-line eqeqeq
-            } else if (dataDetails.surat_sebelumnya == false) {
+            } else if (dataDetails?.surat_sebelumnya == false) {
               return <div></div>;
             }
           })()}
 
           {(() => {
-            if (dataDetails.surat_selanjutnya !== false) {
+            if (dataDetails?.surat_selanjutnya !== false) {
               return (
                 <a
                   href={
                     "/surah/" +
-                    numbertosurah[dataDetails.surat_selanjutnya?.nomor]
+                    numbertosurah[dataDetails?.surat_selanjutnya?.nomor]
                   }
                   className="flex gap-2 py-2.5 px-4 items-center font-semibold rounded-xl text-white bg-gradient-to-r text-sm hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none focus:ring-2 ring-offset-2 ring-slate-900"
                 >
-                  {dataDetails.surat_selanjutnya?.nama_latin}
+                  {dataDetails?.surat_selanjutnya?.nama_latin}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
