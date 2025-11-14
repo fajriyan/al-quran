@@ -1,8 +1,9 @@
 import { Helmet } from "react-helmet";
 import Navigation from "../../components/Navigation";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const DetailSurahView = ({
   bookStats,
@@ -26,12 +27,47 @@ const DetailSurahView = ({
   }
 
   const [activeMenu, setActiveMenu] = useState(null);
+  const [activeTab, setActiveTab] = useState(0);
 
-  const handleOpenMenu = (nomor) => {
-    setActiveMenu(activeMenu === nomor ? null : nomor);
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  const togglePlay = () => {
+    if (!audioRef.current) return;
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
   };
 
-  const [activeTab, setActiveTab] = useState(0);
+  const formatTime = (time) => {
+    if (!time || isNaN(time)) return "00:00";
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes.toString().padStart(2, "0")}:${seconds
+      .toString()
+      .padStart(2, "0")}`;
+  };
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const updateTime = () => setCurrentTime(audio.currentTime);
+    const setAudioDuration = () => setDuration(audio.duration || 0);
+
+    audio.addEventListener("timeupdate", updateTime);
+    audio.addEventListener("loadedmetadata", setAudioDuration);
+
+    return () => {
+      audio.removeEventListener("timeupdate", updateTime);
+      audio.removeEventListener("loadedmetadata", setAudioDuration);
+    };
+  }, []);
 
   return (
     <>
@@ -162,7 +198,7 @@ const DetailSurahView = ({
           {/* -- Modal Description Surah */}
         </div>
 
-        <div className="mt-6 min-h-screen px-3 lg:px-0">
+        <div className="mt-6 min-h-screen px-3 lg:px-0 mb-10">
           {activeTab === 0 && (
             <div className="p-4 bg-gray-50/50 border border-slate-200 rounded-xl">
               {Loading == false ? (
@@ -419,7 +455,7 @@ const DetailSurahView = ({
                               stroke-width="2"
                               stroke-linecap="round"
                               stroke-linejoin="round"
-                              class="lucide lucide-messages-square-icon lucide-messages-square"
+                              className="lucide lucide-messages-square-icon lucide-messages-square"
                             >
                               <path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
                               <path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" />
@@ -461,29 +497,38 @@ const DetailSurahView = ({
           </div>
         ))}
 
-        <div className="flex justify-between py-5 md:px-0 mt-10 px-3 lg:px-0">
+        <div className="flex justify-between w-max p-2 gap-2 border border-slate-200 shadow-md rounded-xl mb-3 fixed z-[99] bottom-0 left-1/2 -translate-x-1/2 backdrop-blur-sm bg-white/85">
           {(() => {
             if (dataDetails?.surat_sebelumnya !== false) {
               return (
-                <a
-                  href={
+                <Link
+                  to={
                     "/surah/" +
                     numbertosurah[dataDetails?.surat_sebelumnya?.nomor]
                   }
-                  className="flex gap-2 py-2.5 px-4 items-center font-semibold rounded-xl text-white bg-gradient-to-r text-sm hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none focus:ring-2 ring-offset-2 ring-slate-900"
+                  className="flex gap-2 px-2 sm:py-2.5 sm:px-3 text-xs items-center font-semibold rounded-xl text-white bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none focus:ring-2 ring-offset-2 ring-slate-900"
                 >
+                  <span className="hidden sm:block">
+                    {dataDetails?.surat_sebelumnya?.nama_latin ?? "Memuat Data"}
+                  </span>
                   <svg
+                    className="w-5 h-5 text-white block sm:hidden"
+                    aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    fill="currentColor"
-                    className="bi bi-arrow-left-square-fill"
-                    viewBox="0 0 16 16"
+                    width="24"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 24 24"
                   >
-                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="m15 19-7-7 7-7"
+                    />
                   </svg>
-                  {dataDetails?.surat_sebelumnya?.nama_latin}
-                </a>
+                </Link>
               );
               // eslint-disable-next-line eqeqeq
             } else if (dataDetails?.surat_sebelumnya == false) {
@@ -491,28 +536,88 @@ const DetailSurahView = ({
             }
           })()}
 
+          <div className="border border-slate-200 pl-3 pr-1 rounded-lg bg-white flex gap-2 items-center">
+            <div className="">
+              <p className="text-sm text-center font-medium">
+                {dataDetails?.nama_latin ?? "Memuat Data"}
+              </p>
+              <div className="text-xs text-center">
+                {formatTime(currentTime)} / {formatTime(duration)}
+              </div>
+            </div>
+            <audio ref={audioRef} src={dataDetails?.audio} preload="metadata" />
+
+            <button
+              onClick={togglePlay}
+              className="p-1 rounded-md bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
+            >
+              {isPlaying ? (
+                <svg
+                  className="w-5 h-5 text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M8 5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H8Zm7 0a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="w-5 h-5 text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M8.6 5.2A1 1 0 0 0 7 6v12a1 1 0 0 0 1.6.8l8-6a1 1 0 0 0 0-1.6l-8-6Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
           {(() => {
             if (dataDetails?.surat_selanjutnya !== false) {
               return (
-                <a
-                  href={
+                <Link
+                  to={
                     "/surah/" +
                     numbertosurah[dataDetails?.surat_selanjutnya?.nomor]
                   }
-                  className="flex gap-2 py-2.5 px-4 items-center font-semibold rounded-xl text-white bg-gradient-to-r text-sm hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none focus:ring-2 ring-offset-2 ring-slate-900"
+                  className="flex gap-2 px-2 sm:py-2.5 sm:px-3 text-xs items-center font-semibold rounded-xl text-white bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none focus:ring-2 ring-offset-2 ring-slate-900"
                 >
-                  {dataDetails?.surat_selanjutnya?.nama_latin}
+                  <span className="hidden sm:block">
+                    {dataDetails?.surat_selanjutnya?.nama_latin ??
+                      "Memuat Data"}
+                  </span>
                   <svg
+                    className="w-5 h-5 text-white block sm:hidden"
+                    aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    className="bi bi-arrow-right-square-fill"
-                    viewBox="0 0 16 16"
+                    width="24"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 24 24"
                   >
-                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="m9 5 7 7-7 7"
+                    />
                   </svg>
-                </a>
+                </Link>
               );
             }
           })()}

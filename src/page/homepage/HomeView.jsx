@@ -142,13 +142,13 @@ const HomeView = ({
               <div className="md:w-[70%] mx-auto">
                 <div className="w-full">
                   <div className="flex gap-2">
-                    <div className="mb-2 text-xs w-[60%] sm:w-max flex items-center px-2 py-1 gap-2 xl:rounded-md bg-white/70 text-slate-700 line-clamp-1">
+                    <div className="mb-2 text-xs w-[60%] sm:w-max flex items-center px-2 py-1 gap-2 rounded-md bg-white/70 text-slate-700 line-clamp-1">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="17"
                         height="17"
                         fill="currentColor"
-                        className="bi bi-plus-square-fill"
+                        className="bi bi-plus-square-fill hidden sm:block"
                         viewBox="0 0 16 16"
                       >
                         <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />
@@ -439,7 +439,11 @@ const HomeView = ({
                               : s.nama_latin}
                           </div>
                           <button
-                            onClick={() => toggleAudio(index)}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              toggleAudio(index);
+                            }}
                             className="px-2 py-2 rounded-l-md bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
                           >
                             {loadingIndex === index ? (
