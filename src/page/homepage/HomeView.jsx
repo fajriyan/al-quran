@@ -26,6 +26,8 @@ const HomeView = ({
   formatTime,
   loadingIndex,
   dataChangelog,
+  isFriday,
+  ramadhanInfo,
 }) => {
   try {
     const iframeRef = useRef(null);
@@ -90,6 +92,13 @@ const HomeView = ({
           </div>
         </div>
         {/* End Sticky Search */}
+
+        <div className="fixed bottom-0 right-10 w-[200px] p-2 border text-sm border-slate-200 bg-white/90 backdrop-blur-sm rounded-t-md z-[10]">
+          <div className="w-2 h-2 rounded-full absolute bg-green-600 -top-1.5 -left-1.5 animate-pulse"></div>
+          <b className="text-green-600">{ramadhanInfo.timeLeft}</b> Hari menuju
+          Ramadhan
+          <div className="text-xs">est: {ramadhanInfo.ramadhanGregorian}</div>
+        </div>
 
         {showBT ? (
           <button
@@ -236,7 +245,11 @@ const HomeView = ({
                           ? "/" + rs.url
                           : "/surah/" + numbertosurah[rs.url]
                       }
-                      className="min-w-max md:min-w-0 px-2 md:px-3 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-[13px] md:text-sm"
+                      className={`min-w-max md:min-w-0 px-2 md:px-3 py-1 rounded-lg ${
+                        rs.alertFriday && isFriday()
+                          ? "bg-gradient-to-r from-indigo-200 via-red-100 to-yellow-100"
+                          : "bg-slate-100"
+                      }  hover:bg-slate-200 text-slate-700 font-medium text-[13px] md:text-sm`}
                     >
                       {rs.ex == "nosurah" ? "" : "Surah "}
                       {rs.surah}

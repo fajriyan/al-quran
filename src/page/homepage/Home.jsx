@@ -13,16 +13,29 @@ const Home = () => {
   const [filteredDatas, setFilteredData] = useState([]);
   const [playingIndex, setPlayingIndex] = useState(null);
   const [loadingIndex, setLoadingIndex] = useState(null);
+  const [ramadhanInfo, setRamadhanInfo] = useState({
+    ramadhanGregorian: null,
+    ramadhanHijri: null,
+    hijriYear: null,
+    gregorianYear: null,
+    timeLeft: null,
+    isRamadhan: false,
+  });
   const audioRefs = useRef([]);
   const [audioInfo, setAudioInfo] = useState(
     filteredDatas.map(() => ({ currentTime: 0, duration: 0, isPlaying: false }))
   );
   const RekomendationSurah = [
-    { surah: "Al Kahf", url: "18" },
-    { surah: "Al Matsurat", url: "matsurat", ex: "nosurah" },
-    { surah: "Al Mulk", url: "67" },
-    { surah: "Yasin", url: "36" },
-    { surah: "Quiz", url: "quiz", ex: "nosurah" },
+    { surah: "Al Kahf", url: "18", alertFriday: true },
+    {
+      surah: "Al Matsurat",
+      url: "matsurat",
+      ex: "nosurah",
+      alertFriday: false,
+    },
+    { surah: "Al Mulk", url: "67", alertFriday: false },
+    { surah: "Yasin", url: "36", alertFriday: false },
+    { surah: "Quiz", url: "quiz", ex: "nosurah", alertFriday: false },
   ];
 
   const lanjutBaca = [
@@ -107,9 +120,85 @@ const Home = () => {
     return `${minutes}:${seconds}`;
   };
 
+  const isFriday = () => {
+    const now = new Date();
+    const day = now.getDay(); // 4 = Kamis, 5 = Jumat
+    const hour = now.getHours();
+
+    const thursdayEvening = day === 4 && hour >= 15;
+    const fridayAllDay = day === 5;
+
+    return thursdayEvening || fridayAllDay;
+  };
+
+  // Ambil tanggal Hijriah hari ini
+  const getHijriToday = async () => {
+    const res = await fetch(
+      "https://api.aladhan.com/v1/timingsByCity?city=Jakarta&country=Indonesia"
+    );
+    const data = await res.json();
+    return data.data.date.hijri; // return object hijri { day, month, year }
+  };
+
+  // Konversi 1 Ramadan Hijriah → Gregorian
+  const getRamadanStartGregorian = async (hijriYear) => {
+    const res = await fetch(
+      `https://api.aladhan.com/v1/hToG?date=1-9-${hijriYear}`
+    );
+    // format: DD-MM-YYYY (Hijri)
+    const data = await res.json();
+    return data.data.gregorian.date; // contoh: "28-02-2025"
+  };
+
+  const fetchRamadhanData = async () => {
+    try {
+      // 1. Ambil Hijriah hari ini
+      const resToday = await fetch(
+        "https://api.aladhan.com/v1/timingsByCity?city=Jakarta&country=Indonesia"
+      );
+      const todayData = await resToday.json();
+      const hijriToday = todayData.data.date.hijri;
+
+      const hijriYear = parseInt(hijriToday.year);
+
+      // 2. Convert 1 Ramadan Hijriah -> Gregorian
+      const resRamadan = await fetch(
+        `https://api.aladhan.com/v1/hToG?date=1-9-${hijriYear}`
+      );
+      const ramadanData = await resRamadan.json();
+
+      const greg = ramadanData.data.gregorian.date; // "28-02-2025"
+      const hijr = ramadanData.data.hijri.date; // "1-9-1446"
+
+      // Parsing tanggal Gregorian
+      const [d, m, y] = greg.split("-").map(Number);
+      const ramadanDate = new Date(y, m - 1, d);
+      const today = new Date();
+
+      const diffMs = ramadanDate - today;
+      const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+
+      // Cek apakah hari ini Ramadhan
+      const isRamadhan = hijriToday.month.number === 9; // bulan 9 = Ramadan
+
+      // Simpan semuanya
+      setRamadhanInfo({
+        ramadhanGregorian: greg,
+        ramadhanHijri: hijr,
+        hijriYear: hijriYear,
+        gregorianYear: today.getFullYear(),
+        timeLeft: diffDays,
+        isRamadhan: isRamadhan,
+      });
+    } catch (error) {
+      console.error("Ramadhan fetch error:", error);
+    }
+  };
+
   useEffect(() => {
     if (!querySearch) {
       setFilteredData(dataSurat);
+      fetchRamadhanData();
     } else {
       const fuse = new Fuse(dataSurat, {
         keys: ["nama_latin", "arti", "nama"],
@@ -170,6 +259,8 @@ const Home = () => {
         toggleAudio={toggleAudio}
         loadingIndex={loadingIndex}
         dataChangelog={dataChangelog}
+        isFriday={isFriday}
+        ramadhanInfo={ramadhanInfo}
       />
     </>
   );
