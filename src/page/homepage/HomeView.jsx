@@ -48,9 +48,9 @@ const HomeView = ({
     }, []);
 
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen dark:bg-slate-950">
         <div
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 dark:hidden"
           style={{
             background: "#ffffff",
             backgroundImage: `
@@ -74,7 +74,7 @@ const HomeView = ({
         </Helmet>
 
         {/* Start Sticky Search */}
-        <div className="sticky top-0 z-[99] bg-white/70 backdrop-blur-md border-b">
+        <div className="sticky top-0 z-[99] bg-white/70 backdrop-blur-md dark:bg-gray-800/50">
           <div
             className={
               showBT
@@ -87,13 +87,13 @@ const HomeView = ({
               onChange={(e) => setQuerySearch(e.target.value.replace(" ", "-"))}
               value={querySearch.replace("-", " ")}
               placeholder="Surah Apa yang ingin Anda Baca?"
-              className="input text-slate-600 border-slate-400 w-full focus:ring-4 focus:ring-blue-400 bg-white/70 backdrop-blur-md"
+              className="input text-slate-600 border-slate-400 w-full focus:ring-4 focus:ring-blue-400 bg-white/70 dark:bg-gray-900 dark:border-gray-600 backdrop-blur-md"
             />
           </div>
         </div>
         {/* End Sticky Search */}
 
-        <div className="fixed bottom-0 right-10 w-[200px] p-2 border text-sm border-slate-200 bg-white/90 backdrop-blur-sm rounded-t-md z-[10]">
+        <div className="fixed bottom-2 right-10 w-[200px] p-2 border text-sm border-slate-200 bg-white/90 dark:bg-gray-700/50 dark:border-gray-900 backdrop-blur-md rounded-md z-[10]">
           <div className="w-2 h-2 rounded-full absolute bg-green-600 -top-1.5 -left-1.5 animate-pulse"></div>
           <b className="text-green-600">{ramadhanInfo.timeLeft}</b> Hari menuju
           Ramadhan
@@ -102,7 +102,7 @@ const HomeView = ({
 
         {showBT ? (
           <button
-            className="fixed bottom-11 right-4 rounded-full z-10 bg-white border border-slate-500 border-dashed p-2 shadow-2xl hover:bg-slate-100 sca group"
+            className="fixed bottom-11 right-4 rounded-full z-10 bg-white dark:bg-gray-700/90 dark:border-gray-900 border border-slate-500 border-dashed p-2 shadow-2xl hover:bg-slate-100 dark:hover:bg-gray-800 sca group"
             onClick={() => {
               document.body.scrollTop = 0;
               document.documentElement.scrollTop = 0;
@@ -146,7 +146,7 @@ const HomeView = ({
             <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-[4] text-white">
               <Adzan />
             </div>
-            <div className="absolute w-full h-full z-[2] bg-slate-700/50"></div>
+            <div className="absolute w-full h-full z-[2] bg-slate-700/50 dark:bg-gray-900/60 dark:backdrop-brightness-95"></div>
             <div className=" py-10 px-4 xl:rounded-xl overflow-hidden text-white relative z-[3]">
               <div className="md:w-[70%] mx-auto">
                 <div className="w-full">
@@ -175,7 +175,7 @@ const HomeView = ({
                       </Link>
                     </div>
                   </div>
-                  <span className="text-5xl mb-3 lg:text-5xl sm:text-md font-bold">
+                  <span className={`text-5xl mb-3 lg:text-5xl sm:text-md font-bold ${isFriday ? "text-yellow-50" : ""}`}>
                     Al Qur'an Digital
                   </span>
                   <h1 className="hidden">
@@ -200,13 +200,13 @@ const HomeView = ({
                       }
                       value={querySearch.replace("-", " ")}
                       placeholder="Surah Apa yang ingin Anda Baca?"
-                      className="input text-slate-600 border-white w-full focus:ring-4 focus:ring-blue-400 bg-slate-100"
+                      className="input text-slate-600 border-white w-full focus:ring-4 focus:ring-blue-400 bg-slate-100 dark:bg-gray-200"
                     />
                   </div>
 
                   <Link
                     to={"/quote"}
-                    className="bg-gray-100 hover:bg-gray-200 p-[11px] rounded-lg"
+                    className="bg-gray-100 dark:bg-gray-200 hover:bg-gray-200 p-[11px] rounded-lg"
                   >
                     <svg
                       className="w-6 h-6 text-cyan-800"
@@ -248,7 +248,7 @@ const HomeView = ({
                       className={`min-w-max md:min-w-0 px-2 md:px-3 py-1 rounded-lg ${
                         rs.alertFriday && isFriday()
                           ? "bg-gradient-to-r from-indigo-200 via-red-100 to-yellow-100"
-                          : "bg-slate-100"
+                          : "bg-slate-100 dark:bg-gray-200"
                       }  hover:bg-slate-200 text-slate-700 font-medium text-[13px] md:text-sm`}
                     >
                       {rs.ex == "nosurah" ? "" : "Surah "}
@@ -264,7 +264,7 @@ const HomeView = ({
         <section className="px-5 xl:px-0 relative">
           <div className="container mx-auto flex flex-col md:flex-row gap-5 mb-5">
             <div className="w-full md:w-[50%] xl:w-[33%]">
-              <Attendance />
+              <Attendance isFriday={isFriday} />
             </div>
 
             <div className="w-full md:w-[50%] xl:w-[68%]">
@@ -314,7 +314,7 @@ const HomeView = ({
                   </div>
                 </div>
               ) : (
-                <div className="border border-slate-200 dark:border-slate-400 shadow-sm border-dashed rounded-lg p-3 flex items-center gap-2 h-full">
+                <div className="border border-slate-200 dark:bg-gray-800/50 dark:border-gray-600 shadow-sm border-dashed rounded-lg p-3 flex items-center gap-2 h-full">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -359,7 +359,7 @@ const HomeView = ({
                 filteredData.map((s, index) => (
                   <LinkProgresBars
                     to={"/surah/" + numbertosurah[s.nomor]}
-                    className="relative rounded-lg w-full shadow-sm border-dashed border-[1px] border-slate-300 dark:border-slate-500 hover:border-slate-800 dark:hover:border-slate-100 bg-white bg-gradient-to-bl dark:from-slate-800 dark:to-gray-900  "
+                    className="relative rounded-lg w-full shadow-sm border-dashed border-[1px] border-slate-300 dark:border-slate-600 hover:border-slate-800 dark:hover:border-slate-100 bg-white dark:bg-gray-800/50 "
                     key={s.nama_latin + "-" + s.arti}
                   >
                     <div className="absolute right-3 top-0 border-l border-b border-r border-dashed rounded-b-lg border-slate-400 px-2 pb-1 flex gap-2 font-serif z-[2]">
@@ -377,7 +377,7 @@ const HomeView = ({
                         loading="lazy"
                       />
                       <h2
-                        className="card-title mb-0 font-serif relative z-[2]"
+                        className={`card-title mb-0 font-serif relative z-[2] ${isFriday ? "text-yellow-900 dark:text-yellow-50" : ""}`}
                         key={s.nama_latin}
                       >
                         {s.nama_latin.replace("-", " ")}{" "}
@@ -387,7 +387,7 @@ const HomeView = ({
                         {s.arti}
                       </p>
 
-                      <div className="flex gap-3 items-center justify-between border-t border-r-slate-300 mt-4 pt-2">
+                      <div className="flex gap-3 items-center justify-between border-t border-r-slate-300 dark:border-gray-700 mt-4 pt-2">
                         <div className="flex gap-3 items-center">
                           <p className="flex items-center gap-1 capitalize text-sm poppins">
                             <svg
@@ -457,7 +457,7 @@ const HomeView = ({
                               e.stopPropagation();
                               toggleAudio(index);
                             }}
-                            className="px-2 py-2 rounded-l-md bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
+                            className={`px-2 py-2 rounded-l-md  border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 ${isFriday ? "bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-200 dark:from-indigo-200 dark:via-red-100 dark:to-yellow-100 text-gray-900" :"bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 text-white"}`}
                           >
                             {loadingIndex === index ? (
                               // Icon Loading (spinner)
@@ -497,7 +497,7 @@ const HomeView = ({
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="16"
                                 height="16"
-                                className="fill-white"
+                                className=""
                                 viewBox="0 0 16 16"
                               >
                                 <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />

@@ -10,7 +10,10 @@ const getDateString = (date = new Date()) => {
 
 // Format bulan sebagai key lokal: YYYY-MM
 const getMonthKey = (date = new Date()) => {
-  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(
+    2,
+    "0"
+  )}`;
 };
 
 // Dapatkan jumlah hari dalam bulan
@@ -18,7 +21,7 @@ const getDaysInMonth = (year, month) => {
   return new Date(year, month, 0).getDate(); // Bulan: 1-12
 };
 
-const Attendance = () => {
+const Attendance = ({ isFriday }) => {
   const [absensi, setAbsensi] = useState({});
   const [monthKey, setMonthKey] = useState(getMonthKey());
   const [daysInMonth, setDaysInMonth] = useState([]);
@@ -70,22 +73,26 @@ const Attendance = () => {
   };
 
   return (
-    <div className="bg-white border border-slate-200 p-4 rounded-lg">
+    <div className="bg-white border border-slate-200 border-dashed dark:border-gray-600 p-4 rounded-lg  dark:bg-gray-800/50">
       <div className="flex flex-wrap gap-1 w-full">
         {daysInMonth.map((dateStr, index) => (
           <div
             key={dateStr}
             className={`w-6 h-6 text-[10px] flex items-center justify-center rounded-sm font-medium ${
               absensi?.history?.[dateStr]
-                ? "bg-slate-900 text-white"
-                : "bg-gray-200 text-gray-700"
+                ? ` ${isFriday ? "bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-200 dark:from-indigo-200 dark:via-red-100 dark:to-yellow-100 text-gray-900" : "bg-slate-900 text-white dark:bg-green-900 dark:text-white"}`
+                : "bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-white"
             }`}
             title={dateStr}
           >
             {index + 1}
           </div>
         ))}
-        <div className="text-xs mt-1 text-slate-700 flex gap-1"> <span className="hidden xl:block">Absensi Bulan</span> <span className="xl:font-semibold">{getMonthName()}</span></div>
+        <div className="text-xs mt-1 text-slate-700 dark:text-gray-300 flex gap-1">
+          {" "}
+          <span className="hidden xl:block">Absensi Bulan</span>{" "}
+          <span className="xl:font-semibold">{getMonthName()}</span>
+        </div>
       </div>
     </div>
   );

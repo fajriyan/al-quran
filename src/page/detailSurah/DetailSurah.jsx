@@ -25,6 +25,17 @@ const DetailSurah = () => {
     []
   );
 
+  const isFriday = () => {
+    const now = new Date();
+    const day = now.getDay(); // 4 = Kamis, 5 = Jumat
+    const hour = now.getHours();
+
+    const thursdayEvening = day === 4 && hour >= 15;
+    const fridayAllDay = day === 5;
+
+    return thursdayEvening || fridayAllDay;
+  };
+
   const saveAyat = useCallback(
     (url, ayat, namaSurat) => {
       localStorage.setItem("url", numbertosurah[url]);
@@ -99,6 +110,7 @@ const DetailSurah = () => {
       setFont={setFont}
       numbertosurah={numbertosurah}
       currentBookmark={currentBookmark}
+      isFriday={isFriday}
     />
   );
 };

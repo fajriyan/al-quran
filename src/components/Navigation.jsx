@@ -36,7 +36,7 @@ const Navigation = (props) => {
   };
 
   return (
-    <div className="backdrop-blur-sm bg-white/85 dark:bg-gray-800/90 border-b dark:border-slate-500 sticky top-0 z-[100]">
+    <div className="backdrop-blur-md bg-white/85 dark:bg-gray-800/60 border-b dark:border-gray-900 sticky top-0 z-[100]">
       <div className="navbar container mx-auto flex justify-between lg:p-0">
         <div className="flex gap-4 md:gap-5">
           <LinkProgresBars
@@ -149,7 +149,7 @@ const Navigation = (props) => {
               {/* Tombol */}
               <button
                 onClick={() => setOpen(!open)}
-                className="flex items-center gap-1 px-3 py-2 border rounded-md bg-white dark:bg-gray-800 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="flex items-center gap-1 px-3 py-2 border dark:border-gray-700 rounded-md bg-white dark:bg-gray-800 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <span>Ayat</span>
                 <svg
@@ -165,14 +165,14 @@ const Navigation = (props) => {
 
               {/* Dropdown */}
               {open && (
-                <ul className="absolute mt-2 z-20 w-20 p-2 max-h-[300px] overflow-y-auto rounded-md border shadow-lg bg-white dark:bg-gray-800 backdrop-blur-sm">
+                <ul className="absolute mt-2 z-20 w-20 p-2 max-h-[300px] overflow-y-auto rounded-md border dark:border-gray-700 shadow-lg bg-white dark:bg-gray-800/90">
                   {props.singleSP?.ayat?.map((sp) => (
                     <li key={sp.nomor}>
                       <a
                         href={`/surah/${numbertosurah[sp.surah]}#surahke${
                           sp.nomor
                         }`}
-                        className="block w-full text-center border rounded-md py-1.5 text-sm font-medium mb-2 border-slate-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        className="block w-full text-center border rounded-md py-1.5 text-sm font-medium mb-2 dark:border-gray-700 border-slate-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                         onClick={() => setOpen(false)}
                       >
                         {sp.nomor}

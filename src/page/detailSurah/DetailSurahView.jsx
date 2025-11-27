@@ -16,6 +16,7 @@ const DetailSurahView = ({
   setFont,
   numbertosurah,
   currentBookmark,
+  isFriday
 }) => {
   function toArabicNumber(num) {
     const arabicDigits = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
@@ -107,11 +108,11 @@ const DetailSurahView = ({
         singleSP={dataDetails}
       />
       <div className="container mx-auto selection:bg-blue-200 min-h-[90vh]">
-        <div className="px-3 lg:px-0 flex flex-wrap overflow-x-auto hidescroll gap-2 border-b border-slate-300 dark:border-slate-400/80 py-3 items-end">
+        <div className="px-3 lg:px-0 flex flex-wrap overflow-x-auto hidescroll gap-2 border-b border-slate-300 dark:border-slate-800 py-3 items-end">
           <div className="relative max-w-xs">
             <select
               defaultValue={"25"}
-              className="select select-bordered border-slate-700 dark:border-slate-400 select-sm w-full text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-700 pl-10"
+              className="select select-bordered border-slate-700 select-sm w-full text-slate-800 dark:text-gray-200 dark:border-gray-700 bg-white dark:bg-slate-700 pl-10"
               onChange={(f1) => setFont({ arab: f1.target.value })}
             >
               <option value="20">Kecil</option>
@@ -126,7 +127,7 @@ const DetailSurahView = ({
           <div className="relative max-w-xs">
             <select
               defaultValue={"16"}
-              className="select select-bordered border-slate-700 dark:border-slate-400 select-sm w-full text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-700 pl-10"
+              className="select select-bordered border-slate-700 select-sm w-full text-slate-800dark:bg-slate-900 dark:border-gray-800 bg-white dark:bg-slate-700 pl-10"
               onChange={(f2) => setFont({ idn: f2.target.value })}
             >
               <option value="14">Kecil</option>
@@ -140,12 +141,12 @@ const DetailSurahView = ({
           </div>
           <label
             htmlFor="my-modal-3"
-            className="btn btn-outline border-slate-700 dark:border-slate-400 btn-sm text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-700"
+            className="btn btn-outline border-slate-700 dark:border-slate-700 btn-sm text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-800"
           >
             Deskripsi Surah
           </label>
           <div className="w-[250px]">
-            <div className="relative flex border border-slate-700 dark:border-slate-400 bg-white dark:bg-slate-700 rounded-xl py-1 btn-sm uppercase overflow-hidden">
+            <div className="relative flex border border-slate-700  bg-white dark:bg-slate-900 dark:border-gray-700 rounded-xl py-1 btn-sm uppercase overflow-hidden">
               {/* Indicator yang geser */}
               <span
                 className="absolute inset-0 w-1/2 bg-slate-900 dark:bg-slate-600 rounded-lg shadow transition-transform duration-300"
@@ -200,19 +201,21 @@ const DetailSurahView = ({
 
         <div className="mt-6 min-h-screen px-3 lg:px-0 mb-10">
           {activeTab === 0 && (
-            <div className="p-4 bg-gray-50/50 border border-slate-200 rounded-xl">
+            <div className="p-4 bg-gray-50/50 dark:bg-gray-900 dark:border-gray-800 border border-slate-200 rounded-xl">
               {Loading == false ? (
                 dataDetails?.ayat?.map((single) => (
                   <div
                     key={single.nomor + single.surah}
-                    className="flex flex-wrap justify-end md:h-full md:items-center border-b border-slate-300 last:border-gray-50 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                    className="flex flex-wrap justify-end md:h-full md:items-center border-b dark:border-gray-800 border-slate-300 last:border-gray-50 pt-14 pb-5 md:py-9 relative"
                     id={"surahke" + single.nomor}
                   >
                     {/* Menu Control Start */}
-                    <div className="text-xl flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
+                    <div className="text-xl flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 dark:border-gray-700 pb-2 md:border-0">
                       <div className="flex md:block w-full gap-2">
                         {/* Nomer & Surat */}
-                        <div className="w-auto border md:border-slate-200 rounded-md text-sm px-1 lg:mt-3 nunito font-semibold">
+                        <div className={` w-auto border rounded-md text-sm px-1 lg:mt-3 nunito font-semibold ${
+                              isFriday ? " border-yellow-800 dark:border-yellow-600" : " md:border-slate-200 dark:border-gray-400 "
+                            }`}>
                           {single.surah} {" : "}
                           {single.nomor}
                         </div>
@@ -220,7 +223,7 @@ const DetailSurahView = ({
                         <div className="dropdown w-8 md:w-full dropdown-bottom md:mt-1">
                           <button
                             tabIndex={0}
-                            className="border border-slate-200 w-full rounded-md flex justify-center hover:bg-slate-100"
+                            className={`border border-slate-200 w-full dark:border-gray-400 rounded-md flex justify-center hover:bg-slate-100 dark:hover:bg-gray-700 `}
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -235,7 +238,7 @@ const DetailSurahView = ({
                           </button>
                           <ul
                             tabIndex={0}
-                            className="dropdown-content menu p-1 text-[15px] shadow-md border rounded-md w-[150px] bg-white dark:bg-slate-800"
+                            className="dropdown-content menu p-1 text-[15px] shadow-md border rounded-md w-[150px] bg-white dark:bg-slate-800/60 backdrop-blur-md dark:border-gray-700"
                           >
                             <li>
                               <CopyToClipboard
@@ -285,7 +288,7 @@ const DetailSurahView = ({
                             dataDetails.nama_latin
                           )
                         }
-                        className="md:border w-6 md:w-full rounded-md border-slate-200 flex justify-center items-center md:h-9 hover:bg-slate-100"
+                        className="md:border w-6 md:w-full rounded-md border-slate-200 dark:border-gray-400 flex justify-center items-center md:h-9 hover:bg-slate-100 dark:hover:bg-gray-700"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -312,9 +315,9 @@ const DetailSurahView = ({
                       {single.ar}
                       {"  "}
                       <span className="relative inline-flex items-center justify-center min-w-7 px-1 h-7 text-[14px] font-arabic">
-                        <span className="absolute inset-0 border border-slate-700 rounded-lg"></span>
-                        <span className="absolute inset-1 border border-slate-700 rounded-lg"></span>
-                        <span className="relative z-10 text-[16px] text-green-800">
+                        <span className="absolute inset-0 border border-slate-700 dark:border-gray-400 rounded-lg"></span>
+                        <span className="absolute inset-1 border border-slate-700 dark:border-gray-400 rounded-lg"></span>
+                        <span className={`relative z-10 text-[16px] ${isFriday ? "text-yellow-800 dark:text-yellow-200" :"text-green-800 dark:text-green-200"}`}>
                           {toArabicNumber(single.nomor)}
                         </span>
                       </span>
@@ -356,7 +359,7 @@ const DetailSurahView = ({
             </div>
           )}
           {activeTab === 1 && (
-            <div className="p-4 bg-gray-50/50 border border-slate-200 rounded-xl relative">
+            <div className="p-4 bg-gray-50/50 dark:bg-gray-900 dark:border-gray-800 border border-slate-200 rounded-xl relative">
               <div
                 className="arab px-3 lg:px-4 w-full leading-loose"
                 style={{
@@ -368,7 +371,7 @@ const DetailSurahView = ({
                 {dataDetails?.ayat?.map((single) => (
                   <span
                     key={single.nomor + single.surah}
-                    className="relative cursor-pointer hover:bg-slate-100 border border-gray-50/50 pr-2 hover:border-slate-200 rounded-md"
+                    className="relative cursor-pointer hover:bg-slate-100 dark:hover:bg-gray-800 border border-gray-50/50 dark:border-gray-900 dark:hover:border-slate-800 pr-2 hover:border-slate-200 rounded-md"
                     onClick={() =>
                       setActiveMenu(
                         activeMenu === single.nomor ? null : single.nomor
@@ -378,9 +381,9 @@ const DetailSurahView = ({
                     {/* Teks Ayat + Nomor */}
                     {single.ar}{" "}
                     <span className="relative inline-flex items-center justify-center min-w-7 px-1 h-7 text-[14px] font-arabic mx-1">
-                      <span className="absolute inset-0 border border-slate-700 rounded-full"></span>
-                      <span className="absolute inset-1 border border-slate-700 rounded-full"></span>
-                      <span className="relative z-10 text-[16px] text-green-800">
+                      <span className="absolute inset-0 border border-slate-700 dark:border-slate-400 rounded-full"></span>
+                      <span className="absolute inset-1 border border-slate-700 dark:border-slate-400 rounded-full"></span>
+                      <span className={`relative z-10 text-[16px] ${isFriday ? "text-yellow-800 dark:text-yellow-200" :"text-green-800 dark:text-green-200"}`}>
                         {toArabicNumber(single.nomor)}
                       </span>
                     </span>
@@ -497,7 +500,7 @@ const DetailSurahView = ({
           </div>
         ))}
 
-        <div className="flex justify-between w-max p-2 gap-2 border border-slate-200 shadow-md rounded-xl mb-3 fixed z-[99] bottom-0 left-1/2 -translate-x-1/2 backdrop-blur-sm bg-white/85">
+        <div className="flex justify-between w-max p-2 gap-2 border border-slate-200 shadow-md rounded-xl mb-3 fixed z-[99] bottom-0 left-1/2 -translate-x-1/2 backdrop-blur-md bg-white/85 dark:bg-gray-800/50 dark:border-gray-700">
           {(() => {
             if (dataDetails?.surat_sebelumnya !== false) {
               return (
@@ -506,7 +509,7 @@ const DetailSurahView = ({
                     "/surah/" +
                     numbertosurah[dataDetails?.surat_sebelumnya?.nomor]
                   }
-                  className="flex gap-2 px-2 sm:py-2.5 sm:px-3 text-xs items-center font-semibold rounded-xl text-white bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none focus:ring-2 ring-offset-2 ring-slate-900"
+                  className="flex gap-2 px-2 sm:py-2.5 sm:px-3 text-xs items-center font-semibold rounded-xl text-white bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 dark:from-slate-800 dark:to-slate-600 border-none focus:ring-2 ring-offset-2 ring-slate-900"
                 >
                   <span className="hidden sm:block">
                     {dataDetails?.surat_sebelumnya?.nama_latin ?? "Memuat Data"}
@@ -536,7 +539,7 @@ const DetailSurahView = ({
             }
           })()}
 
-          <div className="border border-slate-200 pl-3 pr-1 rounded-lg bg-white flex gap-2 items-center">
+          <div className="border border-slate-200 pl-3 pr-1 rounded-lg bg-white dark:bg-gray-800/50 dark:border-gray-700 flex gap-2 items-center">
             <div className="">
               <p className="text-sm text-center font-medium">
                 {dataDetails?.nama_latin ?? "Memuat Data"}
@@ -594,7 +597,7 @@ const DetailSurahView = ({
                     "/surah/" +
                     numbertosurah[dataDetails?.surat_selanjutnya?.nomor]
                   }
-                  className="flex gap-2 px-2 sm:py-2.5 sm:px-3 text-xs items-center font-semibold rounded-xl text-white bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 border-none focus:ring-2 ring-offset-2 ring-slate-900"
+                  className="flex gap-2 px-2 sm:py-2.5 sm:px-3 text-xs items-center font-semibold rounded-xl text-white bg-gradient-to-r hover:bg-gradient-to-t from-slate-900 to-slate-700 dark:from-slate-800 dark:to-slate-600 border-none focus:ring-2 ring-offset-2 ring-slate-900"
                 >
                   <span className="hidden sm:block">
                     {dataDetails?.surat_selanjutnya?.nama_latin ??
