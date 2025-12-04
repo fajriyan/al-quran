@@ -131,18 +131,6 @@ const HomeView = ({
               backgroundImage: `url("https://images.unsplash.com/photo-1588194200910-af009d36fc75?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
             }}
           >
-            <iframe
-              ref={iframeRef}
-              src="https://www.youtube.com/embed/BMX8xVs_GfY?controls=0&autoplay=1&mute=1&loop=1&playlist=BMX8xVs_GfY&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&enablejsapi=1"
-              width="100%"
-              height="100%"
-              allow="autoplay; encrypted-media"
-              title="YouTube Video"
-              className={`absolute z-[1] scale-[250%] sm:scale-[180%] lg:scale-[170%] xl:scale-[250%] transition-opacity duration-700 ${
-                isReady ? "opacity-100" : "opacity-0"
-              }`}
-              style={{ pointerEvents: "none" }}
-            ></iframe>
             <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-[4] text-white">
               <Adzan />
             </div>

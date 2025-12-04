@@ -16,7 +16,7 @@ const DetailSurahView = ({
   setFont,
   numbertosurah,
   currentBookmark,
-  isFriday
+  isFriday,
 }) => {
   function toArabicNumber(num) {
     const arabicDigits = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
@@ -145,36 +145,28 @@ const DetailSurahView = ({
           >
             Deskripsi Surah
           </label>
-          <div className="w-[250px]">
-            <div className="relative flex border border-slate-700  bg-white dark:bg-slate-900 dark:border-gray-700 rounded-xl py-1 btn-sm uppercase overflow-hidden">
-              {/* Indicator yang geser */}
-              <span
-                className="absolute inset-0 w-1/2 bg-slate-900 dark:bg-slate-600 rounded-lg shadow transition-transform duration-300"
-                style={{ transform: `translateX(${activeTab * 100}%)` }}
-              />
+          <div className="flex gap-2 w-[250px]">
+            <button
+              onClick={() => setActiveTab(0)}
+              className={`flex-1 py-1 rounded-xl border font-medium transition-colors ${
+                activeTab === 0
+                  ? "bg-slate-900 text-white dark:bg-slate-600 border-slate-900 dark:border-slate-600"
+                  : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-700"
+              }`}
+            >
+              Terjemahan
+            </button>
 
-              {/* Tombol */}
-              <button
-                onClick={() => setActiveTab(0)}
-                className={`flex-1 z-10 py-0.5 font-medium transition-colors ${
-                  activeTab === 0
-                    ? "text-white"
-                    : "text-slate-700 dark:text-slate-300"
-                }`}
-              >
-                Terjemahan
-              </button>
-              <button
-                onClick={() => setActiveTab(1)}
-                className={`flex-1 z-10 px-4 py-0.5 font-medium transition-colors ${
-                  activeTab === 1
-                    ? "text-white"
-                    : "text-slate-700 dark:text-slate-300"
-                }`}
-              >
-                Membaca
-              </button>
-            </div>
+            <button
+              onClick={() => setActiveTab(1)}
+              className={`flex-1 py-1 rounded-xl border font-medium transition-colors ${
+                activeTab === 1
+                  ? "bg-slate-900 text-white dark:bg-slate-600 border-slate-900 dark:border-slate-600"
+                  : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-700"
+              }`}
+            >
+              Membaca
+            </button>
           </div>
 
           <input type="checkbox" id="my-modal-3" className="modal-toggle" />
@@ -213,9 +205,13 @@ const DetailSurahView = ({
                     <div className="text-xl flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 dark:border-gray-700 pb-2 md:border-0">
                       <div className="flex md:block w-full gap-2">
                         {/* Nomer & Surat */}
-                        <div className={` w-auto border rounded-md text-sm px-1 lg:mt-3 nunito font-semibold ${
-                              isFriday ? " border-yellow-800 dark:border-yellow-600" : " md:border-slate-200 dark:border-gray-400 "
-                            }`}>
+                        <div
+                          className={` w-auto border rounded-md text-sm px-1 lg:mt-3 nunito font-semibold ${
+                            isFriday
+                              ? " border-yellow-800 dark:border-yellow-600"
+                              : " md:border-slate-200 dark:border-gray-400 "
+                          }`}
+                        >
                           {single.surah} {" : "}
                           {single.nomor}
                         </div>
@@ -317,7 +313,13 @@ const DetailSurahView = ({
                       <span className="relative inline-flex items-center justify-center min-w-7 px-1 h-7 text-[14px] font-arabic">
                         <span className="absolute inset-0 border border-slate-700 dark:border-gray-400 rounded-lg"></span>
                         <span className="absolute inset-1 border border-slate-700 dark:border-gray-400 rounded-lg"></span>
-                        <span className={`relative z-10 text-[16px] ${isFriday ? "text-yellow-800 dark:text-yellow-200" :"text-green-800 dark:text-green-200"}`}>
+                        <span
+                          className={`relative z-10 text-[16px] ${
+                            isFriday
+                              ? "text-yellow-800 dark:text-yellow-200"
+                              : "text-green-800 dark:text-green-200"
+                          }`}
+                        >
                           {toArabicNumber(single.nomor)}
                         </span>
                       </span>
@@ -383,7 +385,13 @@ const DetailSurahView = ({
                     <span className="relative inline-flex items-center justify-center min-w-7 px-1 h-7 text-[14px] font-arabic mx-1">
                       <span className="absolute inset-0 border border-slate-700 dark:border-slate-400 rounded-full"></span>
                       <span className="absolute inset-1 border border-slate-700 dark:border-slate-400 rounded-full"></span>
-                      <span className={`relative z-10 text-[16px] ${isFriday ? "text-yellow-800 dark:text-yellow-200" :"text-green-800 dark:text-green-200"}`}>
+                      <span
+                        className={`relative z-10 text-[16px] ${
+                          isFriday
+                            ? "text-yellow-800 dark:text-yellow-200"
+                            : "text-green-800 dark:text-green-200"
+                        }`}
+                      >
                         {toArabicNumber(single.nomor)}
                       </span>
                     </span>
