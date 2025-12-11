@@ -114,37 +114,6 @@ const Navigation = (props) => {
                 </button>
               )}
             </li>
-            {/* <li tabIndex={0}>
-              <span>
-                Ayat
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                </svg>
-              </span>
-
-              <ul className="p-2 backdrop-blur-sm bg-white/90 dark:bg-gray-800/90 border rounded-md overflow-y-auto max-h-[350px] min-w-[100px]">
-                {props.singleSP?.ayat?.map((sp) => (
-                  <li className="h-10" key={sp.nomor}>
-                    <a
-                      href={
-                        "/surah/" +
-                        numbertosurah[sp.surah] +
-                        "#surahke" +
-                        sp.nomor
-                      }
-                    >
-                      {sp.nomor}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </li> */}
             <div className="relative inline-block text-left">
               {/* Tombol */}
               <button

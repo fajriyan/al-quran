@@ -1,5 +1,5 @@
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import ProgresContext from "../../lib/ProgresContext";
 import LinkProgresBars from "../../lib/LinkProgresBars";
@@ -985,4 +985,4 @@ const Matsurat = () => {
   );
 };
 
-export default Matsurat;
+export default memo(Matsurat);

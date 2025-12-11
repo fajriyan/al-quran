@@ -115,12 +115,11 @@ export default function Quiz() {
   if (!selectedQuiz) {
     return (
       <div className="">
-        <div className="min-h-screen w-full relative bg-white">
+        <div className="min-h-screen w-full relative bg-white dark:bg-gray-950">
           {/* Cool Blue Glow Right */}
           <div
-            className="absolute inset-0 z-0"
+            className="absolute inset-0 z-0 bg-white dark:bg-gray-900"
             style={{
-              background: "#ffffff",
               backgroundImage: `
         radial-gradient(
           circle at top right,
@@ -143,7 +142,7 @@ export default function Quiz() {
                     key == "quiz1" && "bg-[#2D728F]"
                   } ${key == "quiz2" && "bg-[#a27d4d]"} ${
                     key == "quiz3" && "bg-[#AB3428]"
-                  } cursor-pointer text-left min-h-32 rounded-xl flex flex-col sm:flex-row sm:items-center gap-10 p-4 hover:ring hover:ring-slate-600`}
+                  } cursor-pointer text-left min-h-32 rounded-xl flex flex-col sm:flex-row sm:items-center gap-10 p-4 hover:ring hover:ring-slate-600 dark:hover:ring-slate-400`}
                 >
                   <div className="">
                     {key == "quiz1" && (
@@ -263,7 +262,7 @@ export default function Quiz() {
             </div>
             <LinkProgresBars
               to="/"
-              className="flex gap-2 items-center text-sm w-max mx-auto border border-slate-400 px-3 py-1 rounded-full hover:bg-slate-100"
+              className="flex gap-2 items-center text-sm w-max mx-auto border border-slate-400 px-3 py-1 rounded-full hover:bg-slate-100 dark:hover:bg-gray-700"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -307,14 +306,14 @@ export default function Quiz() {
           <p className="text-sm text-gray-500 italic">Kategori: {grade}</p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 grid">
           {answers.map((ans, idx) => (
             <div
               key={idx}
               className={`border rounded p-3 ${
                 ans.isCorrect
-                  ? "border-green-500 bg-green-50"
-                  : "border-red-500 bg-red-50"
+                  ? "border-green-500 bg-green-50 dark:bg-gray-900"
+                  : "border-red-500 bg-red-50 dark:bg-gray-900"
               }`}
             >
               <div className="text-sm text-gray-500 mb-1">
@@ -358,7 +357,7 @@ export default function Quiz() {
   }
 
   return (
-    <div className="">
+    <div className="min-h-screen">
       <img
         src="https://images.unsplash.com/photo-1664270009142-7c264e0dbe02?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         className="h-2 w-full object-cover"
@@ -368,14 +367,14 @@ export default function Quiz() {
         <div className="flex justify-between mb-2">
           <h2 className="text-xl font-semibold">{current.question}</h2>
         </div>
-        <p className="text-2xl mb-4 arab-0">{current.ayat}</p>
+        <p className="text-2xl mb-4 arab-0 text-3xl">{current.ayat}</p>
         <div className="grid gap-2">
           {current.options.map((opt) => (
             <button
               key={opt}
               onClick={() => handleSelect(opt)}
-              className={`px-4 py-2 border rounded text-left hover:bg-slate-100 arab-0 ${
-                selected === opt ? "border-slate-700 bg-slate-100" : ""
+              className={`px-4 py-2 border dark:border-gray-800 rounded text-left hover:bg-slate-100 dark:hover:bg-yellow-950 arab-0 ${
+                selected === opt ? "border-slate-700 bg-slate-100 dark:bg-yellow-950" : ""
               }`}
             >
               {opt}

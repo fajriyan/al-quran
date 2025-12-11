@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet";
 import Navigation from "../../components/Navigation";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, memo } from "react";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
@@ -634,9 +634,8 @@ const DetailSurahView = ({
           })()}
         </div>
       </div>
-      {/* Container */}
     </>
   );
 };
 
-export default DetailSurahView;
+export default memo(DetailSurahView);

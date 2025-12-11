@@ -4,7 +4,7 @@ import Footer from "../../components/Footer";
 import LinkProgresBars from "../../lib/LinkProgresBars";
 import Adzan from "../../components/Adzan";
 import Attendance from "../../components/Attendance";
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 
 const HomeView = ({
   showBT,
@@ -163,7 +163,11 @@ const HomeView = ({
                       </Link>
                     </div>
                   </div>
-                  <span className={`text-5xl mb-3 lg:text-5xl sm:text-md font-bold ${isFriday ? "text-yellow-50" : ""}`}>
+                  <span
+                    className={`text-5xl mb-3 lg:text-5xl sm:text-md font-bold ${
+                      isFriday ? "text-yellow-50" : ""
+                    }`}
+                  >
                     Al Qur'an Digital
                   </span>
                   <h1 className="hidden">
@@ -365,7 +369,9 @@ const HomeView = ({
                         loading="lazy"
                       />
                       <h2
-                        className={`card-title mb-0 font-serif relative z-[2] ${isFriday ? "text-yellow-900 dark:text-yellow-50" : ""}`}
+                        className={`card-title mb-0 font-serif relative z-[2] ${
+                          isFriday ? "text-yellow-900 dark:text-yellow-50" : ""
+                        }`}
                         key={s.nama_latin}
                       >
                         {s.nama_latin.replace("-", " ")}{" "}
@@ -445,7 +451,11 @@ const HomeView = ({
                               e.stopPropagation();
                               toggleAudio(index);
                             }}
-                            className={`px-2 py-2 rounded-l-md  border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 ${isFriday ? "bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-200 dark:from-indigo-200 dark:via-red-100 dark:to-yellow-100 text-gray-900" :"bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 text-white"}`}
+                            className={`px-2 py-2 rounded-l-md  border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 ${
+                              isFriday
+                                ? "bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-200 dark:from-indigo-200 dark:via-red-100 dark:to-yellow-100 text-gray-900"
+                                : "bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 text-white"
+                            }`}
                           >
                             {loadingIndex === index ? (
                               // Icon Loading (spinner)
@@ -530,4 +540,4 @@ const HomeView = ({
   }
 };
 
-export default HomeView;
+export default memo(HomeView);

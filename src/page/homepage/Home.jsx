@@ -131,28 +131,8 @@ const Home = () => {
     return thursdayEvening || fridayAllDay;
   };
 
-  // Ambil tanggal Hijriah hari ini
-  const getHijriToday = async () => {
-    const res = await fetch(
-      "https://api.aladhan.com/v1/timingsByCity?city=Jakarta&country=Indonesia"
-    );
-    const data = await res.json();
-    return data.data.date.hijri; // return object hijri { day, month, year }
-  };
-
-  // Konversi 1 Ramadan Hijriah → Gregorian
-  const getRamadanStartGregorian = async (hijriYear) => {
-    const res = await fetch(
-      `https://api.aladhan.com/v1/hToG?date=1-9-${hijriYear}`
-    );
-    // format: DD-MM-YYYY (Hijri)
-    const data = await res.json();
-    return data.data.gregorian.date; // contoh: "28-02-2025"
-  };
-
   const fetchRamadhanData = async () => {
     try {
-      // 1. Ambil Hijriah hari ini
       const resToday = await fetch(
         "https://api.aladhan.com/v1/timingsByCity?city=Jakarta&country=Indonesia"
       );
@@ -161,7 +141,6 @@ const Home = () => {
 
       const hijriYear = parseInt(hijriToday.year);
 
-      // 2. Convert 1 Ramadan Hijriah -> Gregorian
       const resRamadan = await fetch(
         `https://api.aladhan.com/v1/hToG?date=1-9-${hijriYear}`
       );
@@ -170,7 +149,6 @@ const Home = () => {
       const greg = ramadanData.data.gregorian.date; // "28-02-2025"
       const hijr = ramadanData.data.hijri.date; // "1-9-1446"
 
-      // Parsing tanggal Gregorian
       const [d, m, y] = greg.split("-").map(Number);
       const ramadanDate = new Date(y, m - 1, d);
       const today = new Date();
@@ -178,10 +156,8 @@ const Home = () => {
       const diffMs = ramadanDate - today;
       const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
 
-      // Cek apakah hari ini Ramadhan
       const isRamadhan = hijriToday.month.number === 9; // bulan 9 = Ramadan
 
-      // Simpan semuanya
       setRamadhanInfo({
         ramadhanGregorian: greg,
         ramadhanHijri: hijr,
