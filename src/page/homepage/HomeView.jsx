@@ -30,23 +30,6 @@ const HomeView = ({
   ramadhanInfo,
 }) => {
   try {
-    const iframeRef = useRef(null);
-    const [isReady, setIsReady] = useState(false);
-
-    useEffect(() => {
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      const firstScriptTag = document.getElementsByTagName("script")[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-      window.onYouTubeIframeAPIReady = () => {
-        new window.YT.Player(iframeRef.current, {
-          events: {
-            onReady: () => setIsReady(true),
-          },
-        });
-      };
-    }, []);
-
     return (
       <div className="min-h-screen dark:bg-slate-950">
         <div

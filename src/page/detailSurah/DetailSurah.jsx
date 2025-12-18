@@ -1,4 +1,11 @@
-import { useContext, useEffect, useState, useMemo, useCallback } from "react";
+import {
+  useContext,
+  useEffect,
+  useState,
+  useMemo,
+  useCallback,
+  useRef,
+} from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import DetailSurahView from "./DetailSurahView";
@@ -14,6 +21,14 @@ const DetailSurah = () => {
   const [currentBookmark, setCurrentBookmark] = useState(null);
   const [font, setFont] = useState({ arab: "25", idn: "16" });
   const [bookStats, setBStats] = useState(false);
+
+  const [activeMenu, setActiveMenu] = useState(null);
+  const [activeTab, setActiveTab] = useState(0);
+
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   const lanjutBaca = useMemo(
     () => ({
@@ -84,6 +99,53 @@ const DetailSurah = () => {
     element?.scrollIntoView({ behavior: "smooth" });
   }, [lanjutBaca]);
 
+  function toArabicNumber(num) {
+    const arabicDigits = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+    return num
+      .toString()
+      .split("")
+      .map((d) => arabicDigits[d])
+      .join("");
+  }
+
+  const togglePlay = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    setIsPlaying((prev) => {
+      if (prev) {
+        audio.pause();
+      } else {
+        audio.play();
+      }
+      return !prev;
+    });
+  }, []);
+  const formatTime = (time) => {
+    if (!time || isNaN(time)) return "00:00";
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes.toString().padStart(2, "0")}:${seconds
+      .toString()
+      .padStart(2, "0")}`;
+  };
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const updateTime = () => setCurrentTime(audio.currentTime);
+    const setAudioDuration = () => setDuration(audio.duration || 0);
+
+    audio.addEventListener("timeupdate", updateTime);
+    audio.addEventListener("loadedmetadata", setAudioDuration);
+
+    return () => {
+      audio.removeEventListener("timeupdate", updateTime);
+      audio.removeEventListener("loadedmetadata", setAudioDuration);
+    };
+  }, []);
+
   useEffect(() => {
     checkingStatus();
     setProgressBar(false);
@@ -111,6 +173,14 @@ const DetailSurah = () => {
       numbertosurah={numbertosurah}
       currentBookmark={currentBookmark}
       isFriday={isFriday}
+      toArabicNumber={toArabicNumber}
+      formatTime={formatTime}
+      togglePlay={togglePlay}
+      audioRef={audioRef}
+      activeTab={activeTab}
+      currentTime={currentTime}
+      duration={duration}
+      isPlaying={isPlaying}
     />
   );
 };
