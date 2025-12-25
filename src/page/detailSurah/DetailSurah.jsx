@@ -181,6 +181,8 @@ const DetailSurah = () => {
       currentTime={currentTime}
       duration={duration}
       isPlaying={isPlaying}
+      setActiveTab={setActiveTab}
+      activeMenu={activeMenu}
     />
   );
 };

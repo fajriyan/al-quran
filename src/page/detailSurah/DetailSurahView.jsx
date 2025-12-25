@@ -25,6 +25,8 @@ const DetailSurahView = ({
   currentTime,
   duration,
   isPlaying,
+  setActiveTab,
+  activeMenu
 }) => {
   return (
     <>

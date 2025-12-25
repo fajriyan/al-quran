@@ -385,7 +385,9 @@ const HomeView = ({
                               />
                             </svg>
 
-                            {s.tempat_turun}
+                            {s.tempat_turun == "mekah"
+                              ? "Makkiyah"
+                              : "Madaniyah"}
                           </p>
                           <p className="flex items-center gap-1 capitalize text-sm poppins">
                             <svg
