@@ -14,6 +14,12 @@ export async function apiGetTafsir({ number = null }) {
   return data;
 }
 
+export async function apiGetDoa({ id = null }) {
+  const url = id ? `${BASE_URL}/doa/${id}` : `${BASE_URL}/doa`;
+  const request = await fetch(url);
+  const data = await request.json();
+  return data;
+}
 export async function apiGetChangelog({ first = false }) {
   const request = await fetch(
     "https://api.github.com/repos/fajriyan/al-quran/commits"

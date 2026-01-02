@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
-import { apiGetChangelog, apiGetSurah, apiGetTafsir } from "../lib/api";
+import {
+  apiGetChangelog,
+  apiGetDoa,
+  apiGetSurah,
+  apiGetTafsir,
+} from "../lib/api";
 
 export function useSurah() {
   const [loading, setLoading] = useState(true);
@@ -29,6 +34,23 @@ export function useSurah() {
   }, []);
 
   return { loading, dataSurah };
+}
+
+export function useDoa() {
+  const [loading, setLoading] = useState(true);
+  const [dataDoa, setDataDoa] = useState([]);
+
+  const getSurah = async () => {
+    const data = await apiGetDoa({ id: null });
+    setDataDoa(data);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getSurah();
+  }, []);
+
+  return { loading, dataDoa };
 }
 
 export function useAyat({ surahNumber }) {

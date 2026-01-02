@@ -12,6 +12,7 @@ import Matsurat from "./page/matsurat/Matsurat";
 import { Toaster } from "react-hot-toast";
 import Quiz from "./page/staticPage/Quiz";
 import Screensaver from "./page/screensaver/Screensaver";
+import DailyPrayer from "./page/daily-prayer/DailyPrayer";
 
 function App() {
   const progresBarState = useState(true);
@@ -72,6 +73,7 @@ function App() {
             <Route path="/matsurat" element={<Matsurat />} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/quote" element={<Screensaver />} />
+            <Route path="/doa-harian" element={<DailyPrayer />} />
             <Route path="/*" element={<NotFound />} />
           </CustomRoutes>
         </ProgresContext.Provider>

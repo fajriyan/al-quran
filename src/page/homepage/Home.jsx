@@ -21,10 +21,12 @@ const Home = () => {
     timeLeft: null,
     isRamadhan: false,
   });
+
   const audioRefs = useRef([]);
   const [audioInfo, setAudioInfo] = useState(
     filteredDatas.map(() => ({ currentTime: 0, duration: 0, isPlaying: false }))
   );
+
   const RekomendationSurah = [
     { surah: "Al Kahf", url: "18", alertFriday: true },
     {
@@ -36,6 +38,7 @@ const Home = () => {
     { surah: "Al Mulk", url: "67", alertFriday: false },
     { surah: "Yasin", url: "36", alertFriday: false },
     { surah: "Quiz", url: "quiz", ex: "nosurah", alertFriday: false },
+    { surah: "Do'a Harian", url: "doa-harian", ex: "nosurah", alertFriday: false },
   ];
 
   const lanjutBaca = [
@@ -122,7 +125,7 @@ const Home = () => {
 
   const isFriday = () => {
     const now = new Date();
-    const day = now.getDay(); // 4 = Kamis, 5 = Jumat
+    const day = now.getDay();
     const hour = now.getHours();
 
     const thursdayEvening = day === 4 && hour >= 15;
@@ -235,7 +238,7 @@ const Home = () => {
         toggleAudio={toggleAudio}
         loadingIndex={loadingIndex}
         dataChangelog={dataChangelog}
-        isFriday={isFriday}
+        isFriday={isFriday()}
         ramadhanInfo={ramadhanInfo}
       />
     </>
