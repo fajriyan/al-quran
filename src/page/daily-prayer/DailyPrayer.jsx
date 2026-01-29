@@ -11,6 +11,12 @@ const DailyPrayer = () => {
     setProgressBar(false);
   }, []);
 
+  function cleaner(text) {
+    if (!text) return "";
+
+    return text.replace(/sumber\s*:.*$/i, "").trim();
+  }
+
   return (
     <>
       <div className="bg-white dark:bg-slate-900 min-h-screen pb-10">
@@ -81,7 +87,7 @@ const DailyPrayer = () => {
                         {doa.nama}
                       </h2>
                       <p className="text-left text-sm poppins relative z-[2] mt-1 line-clamp-3 min-h-[60px]">
-                        {doa.tentang}
+                        {cleaner(doa.tentang)}
                       </p>
 
                       <div className="flex gap-3 items-center justify-between border-t border-r-slate-300 dark:border-gray-700 mt-4 pt-2">
@@ -135,17 +141,50 @@ const DailyPrayer = () => {
                     ✕
                   </label>
 
-                  <div className="px-6 pt-10 ">
-                    <div className="arab-0 text-2xl">{modal.ar}</div>
-                    <div className="mt-7">{modal.idn}</div>
-                    <div className="mt-2">
-                      {modal.tag.map((tag) => (
-                        <span className="border block border-slate-300 text-slate-700 dark:border-slate-700 dark:text-gray-200">
-                          {tag}
-                        </span>
-                      ))}
+                  <div className="px-6 pt-5 ">
+                    <div className="text-lg font-serif font-semibold flex items-center gap-2">
+                      <svg
+                        className="w-6 h-6 text-gray-800"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 19V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v13H7a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M9 3v14m7 0v4"
+                        />
+                      </svg>
+
+                      {modal.nama}
                     </div>
-                    <div className="mt-2">{modal.tentang}</div>
+                    <div className="arab !text-[25px] ">{modal.ar}</div>
+                    <div className="mt-7 border-t border-slate-400 pt-8 relative">
+                      <div className="mt-2 flex gap-2 items-center flex-wrap absolute -top-[23px] bg-white pr-2">
+                        {modal.tag.map((tag) => (
+                          <span className="border block border-slate-300 px-3 text-sm capitalize py-0.5 rounded-lg text-slate-700 dark:border-slate-700 dark:text-gray-200">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <p className="text-lg font-semibold mb-1">
+                        Terjemahan Doa :
+                      </p>
+                      <div className="text-sm">{modal.idn}</div>
+                    </div>
+
+                    <div className="mt-5">
+                      <p className="text-lg font-semibold mb-1">
+                        Tentang Doa :
+                      </p>
+                      <div className="text-sm">{cleaner(modal.tentang)}</div>
+                    </div>
                   </div>
                 </div>
               </div>

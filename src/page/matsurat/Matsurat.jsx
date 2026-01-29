@@ -17,7 +17,7 @@ const Matsurat = () => {
   };
 
   const [activeTab, setActiveTab] = useState(getCurrentTabIndex());
-  const [option, setOption] = useState({ ar: "20", id: "14" });
+  const [option, setOption] = useState({ ar: "25", id: "14" });
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -40,10 +40,11 @@ const Matsurat = () => {
         <title>Dzikir Al Matsurat | Al Quran Digital</title>
         <link rel="canonical" href="https://al-quran.pages.dev/matsurat" />
       </Helmet>
-      <div className="absolute top-10 left-3 md:left-7">
+
+      <div className="fixed bottom-5 left-1/2 -translate-x-1/2  z-10 bg-white dark:bg-gray-700  shadow-md rounded-full">
         <LinkProgresBars
           to="/"
-          className="flex gap-2 items-center text-sm border border-slate-400 px-3 py-1 rounded-full hover:bg-slate-100"
+          className="flex gap-2 items-center text-sm border border-slate-300 dark:border-gray-700 px-3 py-1 rounded-full hover:bg-slate-100 dark:hover:bg-gray-600"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -58,9 +59,10 @@ const Matsurat = () => {
           Buka Al Quran
         </LinkProgresBars>
       </div>
+
       <div className="container mx-auto text-slate-800 dark:text-slate-200 px-5 lg:px-0">
-        <div className="pt-[100px] text-center flex items-center flex-col">
-          <h1 className="text-2xl font-semibold">Dzikir Al Matsurat </h1>
+        <div className="pt-[80px] text-center flex items-center flex-col">
+          <h1 className="text-3xl font-semibold">Dzikir Al Matsurat </h1>
           <p className="text-xs w-[85%] md:w-[40%] mt-1">
             Melansir buku karya Hasan al-Banna yang berjudul Al-Ma'tsurat
             bahwasanya baca dari Al Matsurat yang shahih dan berasal dari Nabi
@@ -68,39 +70,36 @@ const Matsurat = () => {
           </p>
         </div>
 
-        <div className="flex gap-2 justify-center mt-5">
-          <div className="border border-slate-400 rounded-md flex gap-2 p-3 relative">
-            <p className="absolute bg-white text-xs -mt-5 px-2">Opsi Ukuran</p>
-            <div className="mt-1">
-              <p className="text-xs">Ukuran Arab</p>
-              <select
-                defaultValue={option.ar}
-                className="border border-slate-400 px-1 rounded-md bg-white"
-                onChange={(ar) => setOption({ ar: ar.target.value })}
-              >
-                <option value="26">Kecil</option>
-                <option value="20">Default</option>
-                <option value="25">Besar</option>
-                <option value="30">Paling Besar</option>
-              </select>
-            </div>
-            <div className="mt-1">
-              <p className="text-xs">Ukuran Arti</p>
-              <select
-                defaultValue={option.id}
-                className="border border-slate-400 px-1 rounded-md bg-white"
-                onChange={(id) => setOption({ id: id.target.value })}
-              >
-                <option value="14">Kecil</option>
-                <option value="16">Default</option>
-                <option value="20">Besar</option>
-              </select>
-            </div>
+        <div className="flex gap-2 relative justify-center mt-5">
+          <div className="">
+            <p className="text-xs mb-1">Ukuran Arab</p>
+            <select
+              defaultValue={option.ar}
+              className="border border-slate-400 px-1 rounded-md bg-white"
+              onChange={(ar) => setOption({ ar: ar.target.value })}
+            >
+              <option value="20">Kecil</option>
+              <option value="25">Default</option>
+              <option value="30">Besar</option>
+              <option value="35">Paling Besar</option>
+            </select>
+          </div>
+          <div className="">
+            <p className="text-xs mb-1">Ukuran Arti</p>
+            <select
+              defaultValue={option.id}
+              className="border border-slate-400 px-1 rounded-md bg-white"
+              onChange={(id) => setOption({ id: id.target.value })}
+            >
+              <option value="14">Kecil</option>
+              <option value="16">Default</option>
+              <option value="20">Besar</option>
+            </select>
           </div>
         </div>
 
-        <div className="mt-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative">
-          <div className="text-xl flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
+        <div className="mt-5 px-5 flex flex-wrap justify-end md:h-full md:items-center rounded-lg border border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative">
+          <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
             <div className="flex md:block w-full gap-2">
               <div className="w-auto border md:border-slate-200 rounded-md text-sm px-1 lg:mt-3 nunito font-semibold">
                 Taawudz
@@ -109,14 +108,14 @@ const Matsurat = () => {
           </div>
 
           <div
-            className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+            className="arab w-full"
             style={{ fontSize: option.ar + "px" }}
           >
             أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ{" "}
             <span className="relative"> ۝</span>
           </div>
           <p
-            className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+            className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
             style={{ fontSize: option.id + "px" }}
           >
             Aku berlindung kepada Allah yang Maha Mendengar lagi Maha Mengetahui
@@ -175,14 +174,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -220,14 +219,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -259,14 +258,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -298,14 +297,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -343,14 +342,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -388,14 +387,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -433,14 +432,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -469,14 +468,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -508,14 +507,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -546,14 +545,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -588,14 +587,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -633,14 +632,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -672,14 +671,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -711,14 +710,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -756,14 +755,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -801,14 +800,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -846,14 +845,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -863,7 +862,7 @@ const Matsurat = () => {
                   </div>
                 </section>
 
-                {data.data.almatsuratsore.map((surat) => (
+                {data.almatsuratsore.map((surat) => (
                   <section key={Math.random(20)}>
                     <div className="flex flex-col items-center mt-10 mb-2 font-semibold">
                       <span className="border border-slate-400 px-3 py-1 rounded-md">
@@ -882,14 +881,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -921,14 +920,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}
@@ -960,14 +959,14 @@ const Matsurat = () => {
                         </div>
 
                         <div
-                          className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                          className="arab w-full lg:mt-5"
                           style={{ fontSize: option.ar + "px" }}
                         >
                           {surat.ar}
                           <span className="relative"> ۝</span>
                         </div>
                         <p
-                          className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                          className="w-full text-left mt-2 text-[15px] lg:mt-7 nunito"
                           style={{ fontSize: option.id + "px" }}
                         >
                           {surat.idn}

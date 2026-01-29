@@ -115,8 +115,26 @@ export default function Quiz() {
   if (!selectedQuiz) {
     return (
       <div className="">
+        <div className="fixed bottom-5 left-1/2 -translate-x-1/2  z-10 bg-white dark:bg-gray-700  shadow-md rounded-full">
+          <LinkProgresBars
+            to="/"
+            className="flex gap-2 items-center text-sm border border-slate-300 dark:border-gray-700 px-3 py-1 rounded-full hover:bg-slate-100 dark:hover:bg-gray-600"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-book"
+              viewBox="0 0 16 16"
+            >
+              <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
+            </svg>{" "}
+            Buka Al Quran
+          </LinkProgresBars>
+        </div>
+
         <div className="min-h-screen w-full relative bg-white dark:bg-gray-950">
-          {/* Cool Blue Glow Right */}
           <div
             className="absolute inset-0 z-0 bg-white dark:bg-gray-900"
             style={{
@@ -131,9 +149,14 @@ export default function Quiz() {
               backgroundRepeat: "no-repeat",
             }}
           />
-          <div className="max-w-xl mx-auto p-6 text-center space-y-4 relative z-10">
-            <h2 className="text-2xl font-bold">Pilih Latihan Soal</h2>
-            <div className="grid gap-3">
+          <div className="max-w-xl mx-auto p-6 text-center relative z-10">
+            <h1 className="text-3xl font-semibold">Pilih Latihan Soal</h1>
+            <p className="text-xs mt-3">
+              Kumpulan latihan soal seputar Al-Qur'an untuk menguji pemahaman,
+              menambah wawasan, dan memperdalam pengetahuan tentang ayat, makna,
+              serta kandungannya.
+            </p>
+            <div className="grid gap-3 mt-10">
               {Object.keys(allQuizzes).map((key) => (
                 <div
                   key={key}
@@ -251,7 +274,7 @@ export default function Quiz() {
                     <h2 className="font-semibold text-2xl text-white">
                       {key.replace("quiz", "Level ")}
                     </h2>
-                    <div className="text-white text-sm mt-2">
+                    <div className="text-white text-sm mt-1">
                       {quizContents[key] || (
                         <div className="text-slate-400">Belum ada konten</div>
                       )}
@@ -260,22 +283,6 @@ export default function Quiz() {
                 </div>
               ))}
             </div>
-            <LinkProgresBars
-              to="/"
-              className="flex gap-2 items-center text-sm w-max mx-auto border border-slate-400 px-3 py-1 rounded-full hover:bg-slate-100 dark:hover:bg-gray-700"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-book"
-                viewBox="0 0 16 16"
-              >
-                <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
-              </svg>{" "}
-              Buka Al Quran Kembali
-            </LinkProgresBars>
           </div>
         </div>
       </div>
@@ -364,17 +371,19 @@ export default function Quiz() {
         alt=""
       />
       <div className="max-w-2xl mx-auto p-5">
-        <div className="flex justify-between mb-2">
-          <h2 className="text-xl font-semibold">{current.question}</h2>
+        <div className="flex justify-between mb-10">
+          <h2 className="text-2xl font-medium">{current.question}</h2>
         </div>
-        <p className="text-2xl mb-4 arab-0 text-3xl">{current.ayat}</p>
+        <p className="mb-4 arab-0 text-3xl block">{current.ayat}</p>
         <div className="grid gap-2">
           {current.options.map((opt) => (
             <button
               key={opt}
               onClick={() => handleSelect(opt)}
               className={`px-4 py-2 border dark:border-gray-800 rounded text-left hover:bg-slate-100 dark:hover:bg-yellow-950 arab-0 ${
-                selected === opt ? "border-slate-700 bg-slate-100 dark:bg-yellow-950" : ""
+                selected === opt
+                  ? "border-slate-700 bg-slate-100 dark:bg-yellow-950"
+                  : ""
               }`}
             >
               {opt}
@@ -400,12 +409,20 @@ export default function Quiz() {
             </button>
           </div>
         </div>
-        <LinkProgresBars
-          to="/"
-          className="flex gap-2 items-center text-sm text-slate-500 underline py-1 w-max rounded-md"
-        >
-          Buka Al Quran
-        </LinkProgresBars>
+        <div className="flex gap-2">
+          <LinkProgresBars
+            to="/quiz"
+            className="flex gap-2 items-center text-sm text-slate-500 underline py-1 w-max rounded-md"
+          >
+            Pilih Quiz
+          </LinkProgresBars>
+          <LinkProgresBars
+            to="/"
+            className="flex gap-2 items-center text-sm text-slate-500 underline py-1 w-max rounded-md"
+          >
+            Buka Al Quran
+          </LinkProgresBars>
+        </div>
       </div>
     </div>
   );

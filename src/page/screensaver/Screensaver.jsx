@@ -100,7 +100,7 @@ export default function Screensaver() {
       </Helmet>
       <div
         id="screensaver-wrapper"
-        className={`w-full h-screen bg-gradient-to-br ${gradientClass} text-white flex items-center justify-center relative overflow-hidden transition-all duration-1000 px-5 xl:px-0`}
+        className={`w-full h-screen bg-gradient-to-br bg-black ${gradientClass} text-white flex items-center justify-center relative overflow-hidden transition-all duration-1000 px-5 xl:px-0`}
       >
         <div
           ref={verseRef}
