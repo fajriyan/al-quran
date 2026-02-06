@@ -53,7 +53,7 @@ const DailyPrayer = () => {
         <div className="container mx-auto text-slate-800 dark:text-slate-200 px-5 lg:px-0">
           <div className="pt-[80px] text-center flex items-center flex-col">
             <h1 className="text-3xl font-semibold">Kumpulan Doa Harian </h1>
-            <p className="text-xs w-[80%] md:w-[30%] mt-3">
+            <p className="text-xs w-[80%] md:w-[50%] xl:w-[30%] mt-3">
               Kumpulan doa Islam untuk keseharian yang disajikan dengan teks
               Arab, panduan transliterasi, serta terjemahan bahasa Indonesia
             </p>
@@ -63,8 +63,7 @@ const DailyPrayer = () => {
               ? dataDoa.data?.map((doa) => (
                   <label
                     htmlFor={`tafsir-modal-${doa.id}`}
-                    to={"#"}
-                    className="relative rounded-lg w-full shadow-sm border-dashed border-[1px] border-slate-300 dark:border-slate-600 hover:border-slate-800 dark:hover:border-slate-100 bg-white dark:bg-gray-800/50 overflow-hidden"
+                    className="relative rounded-lg w-full shadow-sm border-dashed border-[1px] border-slate-300 dark:border-slate-600 hover:border-slate-800 dark:hover:border-slate-100 bg-white dark:bg-gray-800/50 overflow-hidden cursor-pointer"
                     key={doa.id}
                   >
                     <div className="absolute right-3 top-0 border-l border-b border-r border-dashed rounded-b-lg border-slate-400 px-2 pb-1 flex gap-2 font-serif z-[2]">
@@ -167,7 +166,10 @@ const DailyPrayer = () => {
                     <div className="mt-7 border-t border-slate-400 pt-8 relative">
                       <div className="mt-2 flex gap-2 items-center flex-wrap absolute -top-[23px] bg-white pr-2">
                         {modal.tag.map((tag) => (
-                          <span className="border block border-slate-300 px-3 text-sm capitalize py-0.5 rounded-lg text-slate-700 dark:border-slate-700 dark:text-gray-200">
+                          <span
+                            key={tag}
+                            className="border block border-slate-300 px-3 text-sm capitalize py-0.5 rounded-lg text-slate-700 dark:border-slate-700 dark:text-gray-200"
+                          >
                             {tag}
                           </span>
                         ))}

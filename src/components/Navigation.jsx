@@ -120,7 +120,7 @@ const Navigation = (props) => {
               >
                 <span>Ayat</span>
                 <svg
-                  className={`w-5 h-5 duration-500 transition-transform ${
+                  className={`w-5 h-5 duration-500 transition-transform dark:fill-gray-200 ${
                     open ? "rotate-180" : ""
                   }`}
                   xmlns="http://www.w3.org/2000/svg"

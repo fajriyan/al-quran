@@ -152,14 +152,14 @@ const About = () => {
               </div>
             </div>
           </div>
-          <a
-            href="https://github.com/fajriyan/al-quran?tab=readme-ov-file#changelog"
+          <Link
+           to={'/changelog'}
             className="underline"
             target="_blank"
             rel="noreferrer"
           >
             Changelog
-          </a>
+          </Link>
           <a
             href="https://github.com/fajriyan/al-quran/issues/new"
             className="underline ms-2"
