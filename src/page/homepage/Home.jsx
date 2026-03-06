@@ -24,7 +24,11 @@ const Home = () => {
 
   const audioRefs = useRef([]);
   const [audioInfo, setAudioInfo] = useState(
-    filteredDatas.map(() => ({ currentTime: 0, duration: 0, isPlaying: false }))
+    filteredDatas.map(() => ({
+      currentTime: 0,
+      duration: 0,
+      isPlaying: false,
+    })),
   );
 
   const RekomendationSurah = [
@@ -38,7 +42,12 @@ const Home = () => {
     { surah: "Al Mulk", url: "67", alertFriday: false },
     { surah: "Yasin", url: "36", alertFriday: false },
     { surah: "Quiz", url: "quiz", ex: "nosurah", alertFriday: false },
-    { surah: "Do'a Harian", url: "doa-harian", ex: "nosurah", alertFriday: false },
+    {
+      surah: "Do'a Harian",
+      url: "doa-harian",
+      ex: "nosurah",
+      alertFriday: false,
+    },
   ];
 
   const lanjutBaca = [
@@ -137,7 +146,7 @@ const Home = () => {
   const fetchRamadhanData = async () => {
     try {
       const resToday = await fetch(
-        "https://api.aladhan.com/v1/timingsByCity?city=Jakarta&country=Indonesia"
+        "https://api.aladhan.com/v1/timingsByCity?city=Jakarta&country=Indonesia",
       );
       const todayData = await resToday.json();
       const hijriToday = todayData.data.date.hijri;
@@ -145,12 +154,12 @@ const Home = () => {
       const hijriYear = parseInt(hijriToday.year);
 
       const resRamadan = await fetch(
-        `https://api.aladhan.com/v1/hToG?date=1-9-${hijriYear}`
+        `https://api.aladhan.com/v1/hToG?date=1-9-${hijriYear}`,
       );
       const ramadanData = await resRamadan.json();
 
-      const greg = ramadanData.data.gregorian.date; // "28-02-2025"
-      const hijr = ramadanData.data.hijri.date; // "1-9-1446"
+      const greg = ramadanData.data.gregorian.date;
+      const hijr = ramadanData.data.hijri.date;
 
       const [d, m, y] = greg.split("-").map(Number);
       const ramadanDate = new Date(y, m - 1, d);
@@ -159,14 +168,23 @@ const Home = () => {
       const diffMs = ramadanDate - today;
       const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
 
-      const isRamadhan = hijriToday.month.number === 9; // bulan 9 = Ramadan
+      const isRamadhan = hijriToday.month.number === 9;
+
+      let timeLeft = diffDays;
+      let ramadhanDay = null;
+
+      if (isRamadhan) {
+        ramadhanDay = parseInt(hijriToday.day);
+        timeLeft = null;
+      }
 
       setRamadhanInfo({
         ramadhanGregorian: greg,
         ramadhanHijri: hijr,
         hijriYear: hijriYear,
         gregorianYear: today.getFullYear(),
-        timeLeft: diffDays,
+        timeLeft: timeLeft,
+        ramadhanDay: ramadhanDay,
         isRamadhan: isRamadhan,
       });
     } catch (error) {
@@ -212,6 +230,8 @@ const Home = () => {
     });
     setProgressBar(false);
   }, [filteredDatas]);
+
+  console.log(ramadhanInfo);
 
   return (
     <>

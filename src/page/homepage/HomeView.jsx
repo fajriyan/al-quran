@@ -81,9 +81,21 @@ const HomeView = ({
 
           <div className="fixed bottom-2 right-10 w-[200px] p-2 border text-sm border-slate-200 bg-white/90 dark:bg-gray-700/50 dark:border-gray-900 backdrop-blur-md rounded-md z-[10]">
             <div className="w-2 h-2 rounded-full absolute bg-green-600 -top-1.5 -left-1.5 animate-pulse"></div>
-            <b className="text-green-600">{ramadhanInfo.timeLeft}</b> Hari
-            menuju Ramadhan
-            <div className="text-xs">est: {ramadhanInfo.ramadhanGregorian}</div>
+
+            {ramadhanInfo.isRamadhan ? (
+              <>
+                Hari ke{" "}
+                <b className="text-green-600">{ramadhanInfo.ramadhanDay}</b>{" "}
+                Ramadhan
+              </>
+            ) : (
+              <>
+                <b className="text-green-600">{ramadhanInfo.timeLeft}</b> Hari
+                menuju Ramadhan
+              </>
+            )}
+
+            <div className="text-xs">{ramadhanInfo.ramadhanGregorian}</div>
           </div>
 
           {showBT ? (
