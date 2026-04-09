@@ -16,6 +16,22 @@ export default defineConfig({
     }),
     VitePWA({
       registerType: "autoUpdate",
+      workbox: {
+        runtimeCaching: [
+          {
+            // Cache API responses so already-fetched surah/tafsir can be used offline
+            urlPattern: /^https:\/\/equran\.id\/api\/.*$/,
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "equran-api-cache",
+              expiration: {
+                maxEntries: 300,
+                maxAgeSeconds: 30 * 24 * 60 * 60, // 30 hari
+              },
+            },
+          },
+        ],
+      },
       manifest: {
         name: "Al Quran Digital",
         short_name: "Al Quran Digital",

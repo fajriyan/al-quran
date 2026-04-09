@@ -5,6 +5,7 @@ import ProgresContext from "../../lib/ProgresContext";
 import numbertosurah from "../../data/numbertosurah.json";
 import Fuse from "fuse.js";
 import { useChangelog, useSurah } from "../../hooks/global";
+import { apiGetSurah, apiGetTafsir } from "../../lib/api";
 
 const Home = () => {
   const [_, setProgressBar] = useContext(ProgresContext);
@@ -22,7 +23,64 @@ const Home = () => {
     isRamadhan: false,
   });
 
+  const [downloadingAll, setDownloadingAll] = useState(false);
+  const [downloadProgress, setDownloadProgress] = useState({
+    current: 0,
+    total: 114,
+  });
+
+  const downloadAllSurahForOffline = async () => {
+    if (downloadingAll) return;
+
+    setDownloadingAll(true);
+    setDownloadProgress({ current: 0, total: 114 });
+
+    const toastId = toast.loading("Sedang mengunduh semua surah...", {
+      duration: Infinity,
+    });
+
+    try {
+      const ids = Array.from({ length: 114 }, (_, i) => i + 1);
+      const batchSize = 8;
+
+      for (let i = 0; i < ids.length; i += batchSize) {
+        const batch = ids.slice(i, i + batchSize);
+
+        await Promise.all(
+          batch.map(async (surahId) => {
+            await Promise.all([
+              apiGetSurah({ id: surahId }),
+              apiGetTafsir({ number: surahId }),
+            ]);
+
+            setDownloadProgress((prev) => ({
+              current: prev.current + 1,
+              total: prev.total,
+            }));
+          }),
+        );
+
+        toast.loading(
+          `Mengunduh surah ${Math.min(i + batchSize, 114)}/${114}...`,
+          { id: toastId },
+        );
+      }
+
+      toast.success("Semua surah berhasil diunduh untuk penggunaan offline!", {
+        id: toastId,
+      });
+    } catch (error) {
+      console.error(error);
+      toast.error("Gagal mengunduh semua surah. Coba lagi nanti.", {
+        id: toastId,
+      });
+    } finally {
+      setDownloadingAll(false);
+    }
+  };
+
   const audioRefs = useRef([]);
+  const searchInputRef = useRef(null);
   const [audioInfo, setAudioInfo] = useState(
     filteredDatas.map(() => ({
       currentTime: 0,
@@ -86,6 +144,20 @@ const Home = () => {
   window.onscroll = function () {
     scrollFunction();
   };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        if (searchInputRef.current) {
+          searchInputRef.current.focus();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const toggleAudio = (index) => {
     const audio = audioRefs.current[index];
@@ -255,11 +327,15 @@ const Home = () => {
         playingIndex={playingIndex}
         setAudioInfo={setAudioInfo}
         setPlayingIndex={setPlayingIndex}
+        searchInputRef={searchInputRef}
         toggleAudio={toggleAudio}
         loadingIndex={loadingIndex}
         dataChangelog={dataChangelog}
         isFriday={isFriday()}
         ramadhanInfo={ramadhanInfo}
+        downloadAllSurahForOffline={downloadAllSurahForOffline}
+        downloadingAll={downloadingAll}
+        downloadProgress={downloadProgress}
       />
     </>
   );

@@ -28,6 +28,10 @@ const HomeView = ({
   dataChangelog,
   isFriday,
   ramadhanInfo,
+  downloadAllSurahForOffline,
+  downloadingAll,
+  downloadProgress,
+  searchInputRef,
 }) => {
   try {
     return (
@@ -122,6 +126,68 @@ const HomeView = ({
             </button>
           ) : null}
 
+          <button
+            type="button"
+            onClick={downloadAllSurahForOffline}
+            disabled={downloadingAll}
+            className="fixed bottom-5 left-5 z-10 rounded-full bg-gray-600 hover:bg-gray-700 text-white p-2 pr-3 text-sm font-semibold shadow-2xl  disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {downloadingAll ? (
+              `${downloadProgress.current}/${downloadProgress.total}`
+            ) : (
+              <span className="flex gap-2 items-center text-xs">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                >
+                  <title xmlns="">download-outline-loop</title>
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-dasharray="20"
+                      d="M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5"
+                    >
+                      <animate
+                        attributeName="d"
+                        dur="1.5s"
+                        keyTimes="0;0.5;1"
+                        repeatCount="indefinite"
+                        values="M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5;M12 4h2v3h2.5l-4.5 4.5M12 4h-2v3h-2.5l4.5 4.5;M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5"
+                      />
+                      <animate
+                        fill="freeze"
+                        attributeName="stroke-dashoffset"
+                        dur="0.5s"
+                        values="20;0"
+                      />
+                    </path>
+                    <path
+                      stroke-dasharray="14"
+                      stroke-dashoffset="14"
+                      d="M6 19h12"
+                    >
+                      <animate
+                        fill="freeze"
+                        attributeName="stroke-dashoffset"
+                        begin="0.5s"
+                        dur="0.2s"
+                        to="0"
+                      />
+                    </path>
+                  </g>
+                </svg>
+                Offline
+              </span>
+            )}
+          </button>
+
           <div className="container mx-auto xl:my-5">
             <div
               className="hero min-h-[200px] rounded-none xl:rounded-xl flex flex-wrap relative overflow-hidden mb-5"
@@ -184,7 +250,9 @@ const HomeView = ({
                   <div className="relative flex gap-2 items-center">
                     <div className="relative w-full">
                       <input
+                        ref={searchInputRef}
                         type="text"
+                        id="search"
                         onChange={(e) =>
                           setQuerySearch(e.target.value.replace(" ", "-"))
                         }
@@ -192,6 +260,11 @@ const HomeView = ({
                         placeholder="Surah Apa yang ingin Anda Baca?"
                         className="input text-slate-600 border-white w-full focus:ring-4 focus:ring-blue-400 bg-slate-100 dark:bg-gray-200"
                       />
+
+                      <label htmlFor="search" class="absolute hidden text-xs top-3.5 right-4 sm:flex gap-1 border text-gray-400 border-gray-400 rounded-xl px-2 items-center">
+                        <span class="">⌘</span>
+                        <span class="DocSearch-Button-Key">K</span>
+                      </label>
                     </div>
 
                     <Link
