@@ -106,7 +106,7 @@ export default function Screensaver() {
           ref={verseRef}
           className="text-center p-8 rounded-2xl backdrop-blur-lg bg-white/5 border border-slate-300/50 max-w-2xl transition-all duration-500"
         >
-          <p className="text-5xl md:text-6xl mb-8 reem-kufi-fun">
+          <p className="text-5xl md:text-6xl mb-8 arabkali">
             {verses[index].arabic}
           </p>
           <p className="text-lg md:text-xl text-gray-200 mb-2 italic">

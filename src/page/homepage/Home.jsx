@@ -223,41 +223,50 @@ const Home = () => {
       const todayData = await resToday.json();
       const hijriToday = todayData.data.date.hijri;
 
-      const hijriYear = parseInt(hijriToday.year);
-
-      const resRamadan = await fetch(
-        `https://api.aladhan.com/v1/hToG?date=1-9-${hijriYear}`,
-      );
-      const ramadanData = await resRamadan.json();
-
-      const greg = ramadanData.data.gregorian.date;
-      const hijr = ramadanData.data.hijri.date;
-
-      const [d, m, y] = greg.split("-").map(Number);
-      const ramadanDate = new Date(y, m - 1, d);
+      let hijriYear = parseInt(hijriToday.year);
       const today = new Date();
 
-      const diffMs = ramadanDate - today;
-      const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+      const getRamadanDate = async (year) => {
+        const res = await fetch(
+          `https://api.aladhan.com/v1/hToG?date=1-9-${year}`,
+        );
+        const data = await res.json();
+
+        const greg = data.data.gregorian.date;
+        const hijr = data.data.hijri.date;
+
+        const [d, m, y] = greg.split("-").map(Number);
+        const ramadanDate = new Date(y, m - 1, d);
+
+        return { greg, hijr, ramadanDate };
+      };
+
+      let { greg, hijr, ramadanDate } = await getRamadanDate(hijriYear);
+
+      let diffDays = Math.ceil((ramadanDate - today) / (1000 * 60 * 60 * 24));
+
+      // kalau sudah lewat, ambil Ramadan tahun depan
+      if (diffDays < 0) {
+        hijriYear += 1;
+
+        const nextRamadan = await getRamadanDate(hijriYear);
+        greg = nextRamadan.greg;
+        hijr = nextRamadan.hijr;
+        ramadanDate = nextRamadan.ramadanDate;
+
+        diffDays = Math.ceil((ramadanDate - today) / (1000 * 60 * 60 * 24));
+      }
 
       const isRamadhan = hijriToday.month.number === 9;
-
-      let timeLeft = diffDays;
-      let ramadhanDay = null;
-
-      if (isRamadhan) {
-        ramadhanDay = parseInt(hijriToday.day);
-        timeLeft = null;
-      }
 
       setRamadhanInfo({
         ramadhanGregorian: greg,
         ramadhanHijri: hijr,
-        hijriYear: hijriYear,
+        hijriYear,
         gregorianYear: today.getFullYear(),
-        timeLeft: timeLeft,
-        ramadhanDay: ramadhanDay,
-        isRamadhan: isRamadhan,
+        timeLeft: isRamadhan ? null : diffDays,
+        ramadhanDay: isRamadhan ? parseInt(hijriToday.day) : null,
+        isRamadhan,
       });
     } catch (error) {
       console.error("Ramadhan fetch error:", error);
@@ -282,17 +291,14 @@ const Home = () => {
     const audios = audioRefs.current;
     audios.forEach((audio, i) => {
       if (audio) {
-        // Saat mulai load
         audio.addEventListener("loadstart", () => {
           setLoadingIndex(i);
         });
 
-        // Saat sudah bisa dimainkan
         audio.addEventListener("canplaythrough", () => {
           setLoadingIndex(null);
         });
 
-        // Pastikan audio lain pause saat satu diputar
         audio.addEventListener("play", () => {
           audios.forEach((a) => {
             if (a !== audio) a.pause();
@@ -303,7 +309,6 @@ const Home = () => {
     setProgressBar(false);
   }, [filteredDatas]);
 
-  console.log(ramadhanInfo);
 
   return (
     <>

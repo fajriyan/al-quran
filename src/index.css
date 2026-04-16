@@ -51,6 +51,12 @@ html {
   font-weight: 500;
   direction: rtl;
 }
+.arabkali {
+  font-family: "Noto Naskh Arabic", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
