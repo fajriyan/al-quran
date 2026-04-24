@@ -26,8 +26,10 @@ const DetailSurahView = ({
   duration,
   isPlaying,
   setActiveTab,
-  activeMenu
+  activeMenu,
 }) => {
+  const [sideMenu, setSideMenu] = useState(false);
+
   return (
     <>
       <Helmet>
@@ -66,7 +68,30 @@ const DetailSurahView = ({
         singleSP={dataDetails}
       />
       <div className="container mx-auto selection:bg-blue-200 min-h-[90vh]">
-        <div className="px-3 lg:px-0 flex flex-wrap overflow-x-auto hidescroll gap-2 border-b border-slate-300 dark:border-slate-800 py-3 items-end">
+        <div
+          className={`fixed bg-white border border-slate-400 z-[9999] top-[35%] p-3 rounded-l-xl w-[170px] duration-500 ${sideMenu ? "right-0" : "-right-[170px]"}`}
+        >
+          <button
+            onClick={() => setSideMenu(!sideMenu)}
+            className="absolute -left-[33px] top-[35%] z-10 bg-white border border-slate-400 p-0.5 rounded-l-md hover:bg-gray-100"
+          >
+            <svg
+              className={`w-8 h-8 text-gray-800 dark:text-white duration-500 ${sideMenu ? "rotate-180" : ""}`}
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M13.729 5.575c1.304-1.074 3.27-.146 3.27 1.544v9.762c0 1.69-1.966 2.618-3.27 1.544l-5.927-4.881a2 2 0 0 1 0-3.088l5.927-4.88Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+
           <div className="relative max-w-xs">
             <select
               defaultValue={"25"}
@@ -82,7 +107,7 @@ const DetailSurahView = ({
               🕌
             </span>
           </div>
-          <div className="relative max-w-xs">
+          <div className="relative max-w-xs mt-2">
             <select
               defaultValue={"16"}
               className="select select-bordered border-slate-700 select-sm w-full text-slate-800dark:bg-slate-900 dark:border-gray-800 bg-white dark:bg-slate-700 pl-10"
@@ -99,36 +124,58 @@ const DetailSurahView = ({
           </div>
           <label
             htmlFor="my-modal-3"
-            className="btn btn-outline border-slate-700 dark:border-slate-700 btn-sm text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-800"
+            className="btn btn-outline w-full mt-2 border-slate-700 dark:border-slate-700 btn-sm text-slate-800 dark:text-slate-300 bg-white dark:bg-slate-800"
           >
-            Deskripsi Surah
+            Deskripsi
           </label>
-          <div className="flex gap-2 w-[250px]">
+          <div className="flex gap-2 mt-2">
             <button
               onClick={() => setActiveTab(0)}
-              className={`flex-1 py-1 rounded-xl border font-medium transition-colors ${
+              className={`flex-1 rounded-xl border font-medium transition-colors flex justify-center ${
                 activeTab === 0
                   ? "bg-slate-900 text-white dark:bg-slate-600 border-slate-900 dark:border-slate-600"
                   : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-700"
               }`}
             >
-              Terjemahan
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30px"
+                height="30px"
+                viewBox="0 0 16 16"
+              >
+                <title xmlns="">alphabet</title>
+                <path
+                  fill="currentColor"
+                  d="M2.204 11.078c.767 0 1.201-.356 1.406-.737h.059V11h1.216V7.519c0-1.314-.947-1.783-2.11-1.783C1.355 5.736.75 6.42.69 7.27h1.216c.064-.323.313-.552.84-.552s.864.249.864.771v.464H2.346C1.145 7.953.5 8.568.5 9.496c0 .977.693 1.582 1.704 1.582m.42-.947c-.44 0-.845-.235-.845-.718c0-.395.269-.684.84-.684h.991v.538c0 .503-.444.864-.986.864m5.593.937c1.216 0 1.948-.869 1.948-2.31v-.702c0-1.44-.727-2.305-1.929-2.305c-.742 0-1.328.347-1.499.889h-.063V3.983h-1.29V11h1.27v-.791h.064c.21.532.776.86 1.499.86Zm-.43-1.025c-.66 0-1.113-.518-1.113-1.28V8.12c0-.825.42-1.343 1.098-1.343c.684 0 1.075.518 1.075 1.416v.45c0 .888-.386 1.401-1.06 1.401Zm2.834-1.328c0 1.47.87 2.378 2.305 2.378c1.416 0 2.139-.777 2.158-1.763h-1.186c-.06.425-.313.732-.933.732c-.66 0-1.05-.512-1.05-1.352v-.625c0-.81.371-1.328 1.045-1.328c.635 0 .879.425.918.776h1.187c-.02-.986-.787-1.806-2.14-1.806c-1.41 0-2.304.918-2.304 2.338z"
+                />
+              </svg>
             </button>
 
             <button
               onClick={() => setActiveTab(1)}
-              className={`flex-1 py-1 rounded-xl border font-medium transition-colors ${
+              className={`flex-1 rounded-xl border font-medium transition-colors flex justify-center ${
                 activeTab === 1
                   ? "bg-slate-900 text-white dark:bg-slate-600 border-slate-900 dark:border-slate-600"
                   : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-700"
               }`}
             >
-              Membaca
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30px"
+                height="30px"
+                viewBox="0 0 20 20"
+              >
+                <title xmlns="">italic-arab-teh</title>
+                <path
+                  fill="currentColor"
+                  d="m8.5 16l.37-2.28c1.34 0 2.5-.04 3.5-.12c.99-.07 1.8-.2 2.45-.34a3.54 3.54 0 0 0 1.43-.62c.33-.27.49-.6.49-.99c0-.48-.09-1.04-.25-1.68a18 18 0 0 0-.62-2.01l2.12-.66a19 19 0 0 1 .85 2.9c.1.49.16.95.16 1.37a3.8 3.8 0 0 1-.52 2.03a3.8 3.8 0 0 1-1.74 1.37c-.8.35-1.88.61-3.25.78S10.55 16 8.5 16m0 0c-1.3 0-2.57-.1-3.5-.29a6.9 6.9 0 0 1-2.26-.81c-.6-.36-1.03-.8-1.32-1.32A3.64 3.64 0 0 1 1 11.8a10.8 10.8 0 0 1 .35-2.3l.29-1.06l2.05.5l-.18.74a18 18 0 0 0-.17.77a5 5 0 0 0-.06.72c0 .54.17 1 .5 1.39q.525.585 1.74.87c.82.2 1.92.29 3.33.29l.39 1.66zm3.06-8.58a1.2 1.2 0 0 1-.86-.35a1.2 1.2 0 0 1-.34-.85a1.2 1.2 0 0 1 .34-.85c.24-.25.52-.37.86-.37c.32 0 .6.12.83.37a1.2 1.2 0 0 1 .34.85a1.2 1.2 0 0 1-.34.85a1.13 1.13 0 0 1-.84.35ZM8.47 7.4a1.22 1.22 0 0 1-.87-.35a1.14 1.14 0 0 1-.35-.83a1.2 1.2 0 0 1 .35-.85c.23-.25.52-.37.87-.37c.32 0 .6.12.83.37a1.2 1.2 0 0 1 .35.85c0 .32-.12.6-.35.83s-.5.35-.83.35"
+                />
+              </svg>
             </button>
           </div>
 
           <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-          <div className="modal md:items-start md:pt-10 px-3">
+          <div className="modal md:items-start md:pt-10 px-3 mt-10">
             <div className="modal-box w-full max-w-4xl">
               <label
                 htmlFor="my-modal-3"
@@ -149,7 +196,7 @@ const DetailSurahView = ({
           {/* -- Modal Description Surah */}
         </div>
 
-        <div className="mt-6 min-h-screen px-3 lg:px-0 mb-10">
+        <div className="mt-4 min-h-screen px-3 lg:px-0 mb-10">
           {activeTab === 0 && (
             <div className="p-4 bg-gray-50/50 dark:bg-gray-900 dark:border-gray-800 border border-slate-200 rounded-xl">
               {Loading == false ? (
@@ -239,7 +286,7 @@ const DetailSurahView = ({
                           saveAyat(
                             single.surah,
                             single.nomor,
-                            dataDetails.nama_latin
+                            dataDetails.nama_latin,
                           )
                         }
                         className="md:border w-6 md:w-full rounded-md border-slate-200 dark:border-gray-400 flex justify-center items-center md:h-9 hover:bg-slate-100 dark:hover:bg-gray-700"
@@ -263,7 +310,7 @@ const DetailSurahView = ({
                     {/* Menu Control End */}
 
                     <div
-                      className="arab px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
+                      className="arab sm:px-3 lg:pl-2 w-full md:w-[90%] lg:w-[94%]"
                       style={{ fontSize: font.arab + "px" }}
                     >
                       {single.ar}
@@ -284,7 +331,7 @@ const DetailSurahView = ({
                     </div>
 
                     <p
-                      className="w-full px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
+                      className="w-full sm:px-3 text-left mt-2 text-[15px] lg:w-[94%] lg:mt-7 nunito lg:pr-2"
                       style={{ fontSize: font.idn + "px" }}
                     >
                       {single.idn}
@@ -309,7 +356,7 @@ const DetailSurahView = ({
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </div>,
                       );
                     }
                     return items;
@@ -334,7 +381,7 @@ const DetailSurahView = ({
                     className="relative cursor-pointer hover:bg-slate-100 dark:hover:bg-gray-800 border border-gray-50/50 dark:border-gray-900 dark:hover:border-slate-800 pr-2 hover:border-slate-200 rounded-md"
                     onClick={() =>
                       setActiveMenu(
-                        activeMenu === single.nomor ? null : single.nomor
+                        activeMenu === single.nomor ? null : single.nomor,
                       )
                     }
                   >
