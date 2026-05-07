@@ -1,9 +1,9 @@
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { memo, useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import ProgresContext from "../../lib/ProgresContext";
-import LinkProgresBars from "../../lib/LinkProgresBars";
-import data from "../../data/matsurat/index";
+import ProgresContext from "@/lib/ProgresContext";
+import LinkProgresBars from "@/lib/LinkProgresBars";
+import data from "@/data/matsurat/index";
 
 const Matsurat = () => {
   const [_, setProgressBar] = useContext(ProgresContext);

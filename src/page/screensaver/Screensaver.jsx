@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useContext } from "react";
 import html2canvas from "html2canvas";
-import ProgresContext from "../../lib/ProgresContext";
-import verses from "../../data/screensaver/verses.json";
-import gradients from "../../data/screensaver/gradients.json";
+import ProgresContext from "@/lib/ProgresContext";
+import verses from "@/data/screensaver/verses.json";
+import gradients from "@/data/screensaver/gradients.json";
 import { Helmet } from "react-helmet";
 
 export default function Screensaver() {

@@ -9,10 +9,10 @@ import {
 import { useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import DetailSurahView from "./DetailSurahView";
-import ProgresContext from "../../lib/ProgresContext";
-import surahtonumber from "../../data/surahtonumber.json";
-import numbertosurah from "../../data/numbertosurah.json";
-import { useAyat } from "../../hooks/global";
+import ProgresContext from "@/lib/ProgresContext";
+import surahtonumber from "@/data/surahtonumber.json";
+import numbertosurah from "@/data/numbertosurah.json";
+import { useAyat } from "@/hooks/global";
 
 const DetailSurah = () => {
   const { id } = useParams();
@@ -37,7 +37,7 @@ const DetailSurah = () => {
       ayat: localStorage.getItem("ayat"),
       fromBookmark: localStorage.getItem("fromBookmark"),
     }),
-    []
+    [],
   );
 
   const isFriday = () => {
@@ -80,7 +80,7 @@ const DetailSurah = () => {
         </div>
       ));
     },
-    [id, currentBookmark]
+    [id, currentBookmark],
   );
 
   const checkingStatus = useCallback(() => {

@@ -1,11 +1,11 @@
 import { useEffect, useState, useContext } from "react";
-import ProgresContext from "../../lib/ProgresContext";
+import ProgresContext from "@/lib/ProgresContext";
 
 // Import semua kuis
-import quiz1 from "../../data/quiz/quiz1.json";
-import quiz2 from "../../data/quiz/quiz2.json";
-import quiz3 from "../../data/quiz/quiz3.json";
-import LinkProgresBars from "../../lib/LinkProgresBars";
+import quiz1 from "@/data/quiz/quiz1.json";
+import quiz2 from "@/data/quiz/quiz2.json";
+import quiz3 from "@/data/quiz/quiz3.json";
+import LinkProgresBars from "@/lib/LinkProgresBars";
 
 const allQuizzes = { quiz1, quiz2, quiz3 };
 

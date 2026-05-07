@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import LinkProgresBars from "../../lib/LinkProgresBars";
-import { useDoa } from "../../hooks/global";
-import ProgresContext from "../../lib/ProgresContext";
+import LinkProgresBars from "@/lib/LinkProgresBars";
+import { useDoa } from "@/hooks/global";
+import ProgresContext from "@/lib/ProgresContext";
 
 const DailyPrayer = () => {
   const { loading: Loading, dataDoa: dataDoa } = useDoa();

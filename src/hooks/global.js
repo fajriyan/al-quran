@@ -4,7 +4,7 @@ import {
   apiGetDoa,
   apiGetSurah,
   apiGetTafsir,
-} from "../lib/api";
+} from "@/lib/api";
 
 export function useSurah() {
   const [loading, setLoading] = useState(true);

@@ -1,18 +1,18 @@
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
-import Home from "./page/homepage/Home";
-import About from "./page/about/About";
-import DetailSurah from "./page/detailSurah/DetailSurah";
-import Changelog from "./page/staticPage/Changelog";
-import NotFound from "./page/staticPage/NotFound";
+import Home from "@/page/homepage/Home";
+import About from "@/page/about/About";
+import DetailSurah from "@/page/detailSurah/DetailSurah";
+import Changelog from "@/page/staticPage/Changelog";
+import NotFound from "@/page/staticPage/NotFound";
 import { useEffect, useState, useContext } from "react";
 import TopBarProgress from "react-topbar-progress-indicator";
-import ProgresContext from "./lib/ProgresContext";
-import ThemeContext from "./lib/ThemeContext";
-import Matsurat from "./page/matsurat/Matsurat";
+import ProgresContext from "@/lib/ProgresContext";
+import ThemeContext from "@/lib/ThemeContext";
+import Matsurat from "@/page/matsurat/Matsurat";
 import { Toaster } from "react-hot-toast";
-import Quiz from "./page/staticPage/Quiz";
-import Screensaver from "./page/screensaver/Screensaver";
-import DailyPrayer from "./page/daily-prayer/DailyPrayer";
+import Quiz from "@/page/staticPage/Quiz";
+import Screensaver from "@/page/screensaver/Screensaver";
+import DailyPrayer from "@/page/daily-prayer/DailyPrayer";
 
 function App() {
   const progresBarState = useState(true);

@@ -1,7 +1,7 @@
-import LinkProgresBars from "../lib/LinkProgresBars";
+import LinkProgresBars from "@/lib/LinkProgresBars";
 import { useContext, useEffect, useState } from "react";
-import ThemeContext from "../lib/ThemeContext";
-import numbertosurah from "../data/numbertosurah.json";
+import ThemeContext from "@/lib/ThemeContext";
+import numbertosurah from "@/data/numbertosurah.json";
 
 const Navigation = (props) => {
   const [theme, setTheme] = useContext(ThemeContext);

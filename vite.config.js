@@ -2,8 +2,14 @@ import { defineConfig } from "vite";
 import reactRefresh from "@vitejs/plugin-react";
 import svgrPlugin from "vite-plugin-svgr";
 import { VitePWA } from "vite-plugin-pwa";
+import { fileURLToPath, URL } from "node:url";
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
   build: {
     outDir: "build",
   },

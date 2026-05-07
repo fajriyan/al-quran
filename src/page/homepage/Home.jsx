@@ -1,11 +1,11 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import HomeView from "./HomeView";
-import ProgresContext from "../../lib/ProgresContext";
-import numbertosurah from "../../data/numbertosurah.json";
+import ProgresContext from "@/lib/ProgresContext";
+import numbertosurah from "@/data/numbertosurah.json";
 import Fuse from "fuse.js";
-import { useChangelog, useSurah } from "../../hooks/global";
-import { apiGetSurah, apiGetTafsir } from "../../lib/api";
+import { useChangelog, useSurah } from "@/hooks/global";
+import { apiGetSurah, apiGetTafsir } from "@/lib/api";
 
 const Home = () => {
   const [_, setProgressBar] = useContext(ProgresContext);

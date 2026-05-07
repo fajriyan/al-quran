@@ -1,9 +1,9 @@
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-import Footer from "../../components/Footer";
-import LinkProgresBars from "../../lib/LinkProgresBars";
-import Adzan from "../../components/Adzan";
-import Attendance from "../../components/Attendance";
+import Footer from "@/components/Footer";
+import LinkProgresBars from "@/lib/LinkProgresBars";
+import Adzan from "@/components/Adzan";
+import Attendance from "@/components/Attendance";
 import { memo } from "react";
 
 const HomeView = ({
