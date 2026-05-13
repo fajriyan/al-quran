@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { useEffect, useState, useRef, memo } from "react";
+import { useEffect, useMemo, useState, useRef, memo } from "react";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import html2canvas from "html2canvas";
 
 const DetailSurahView = ({
   bookStats,
@@ -29,6 +30,96 @@ const DetailSurahView = ({
   activeMenu,
 }) => {
   const [sideMenu, setSideMenu] = useState(false);
+  const [shareState, setShareState] = useState({
+    open: false,
+    loading: false,
+    ayat: null,
+    imageUrl: "",
+  });
+  const shareCardRef = useRef(null);
+
+  const shareAyat = useMemo(
+    () => dataDetails?.ayat?.find((item) => item.nomor === shareState.ayat),
+    [dataDetails?.ayat, shareState.ayat],
+  );
+
+  const openShareCard = async (single) => {
+    setShareState((prev) => ({ ...prev, open: true, loading: true, ayat: single.nomor, imageUrl: "" }));
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(async () => {
+        try {
+          const node = shareCardRef.current;
+          if (!node) {
+            throw new Error("Card element not found");
+          }
+
+          const canvas = await html2canvas(node, {
+            backgroundColor: null,
+            scale: 2,
+            useCORS: true,
+          });
+
+          const imageUrl = canvas.toDataURL("image/png");
+          setShareState((prev) => ({ ...prev, loading: false, imageUrl }));
+        } catch (error) {
+          console.error(error);
+          toast.error("Gagal membuat share card");
+          setShareState((prev) => ({ ...prev, loading: false }));
+        }
+      });
+    });
+  };
+
+  const downloadShareCard = async () => {
+    if (!shareState.imageUrl) return;
+
+    const link = document.createElement("a");
+    link.href = shareState.imageUrl;
+    link.download = `${dataDetails?.nama_latin || "ayat"}-${shareState.ayat}.png`;
+    link.click();
+    toast.success("Share card berhasil diunduh");
+  };
+
+  const handleNativeShare = async () => {
+    if (!shareState.imageUrl) return;
+
+    try {
+      const response = await fetch(shareState.imageUrl);
+      const blob = await response.blob();
+      const file = new File(
+        [blob],
+        `${dataDetails?.nama_latin || "ayat"}-${shareState.ayat}.png`,
+        {
+          type: "image/png",
+        },
+      );
+
+      if (navigator.canShare?.({ files: [file] })) {
+        await navigator.share({
+          title: `${dataDetails?.nama_latin || "Al Quran Digital"}`,
+          text: `Ayat ${shareState.ayat} dari ${dataDetails?.nama_latin}`,
+          files: [file],
+        });
+        toast.success("Share card berhasil dibagikan");
+        return;
+      }
+
+      throw new Error("Native share is not supported");
+    } catch (error) {
+      console.error(error);
+      toast.error("Perangkat ini belum mendukung share file langsung");
+    }
+  };
+
+  const closeShareModal = () => {
+    setShareState({
+      open: false,
+      loading: false,
+      ayat: null,
+      imageUrl: "",
+    });
+  };
 
   return (
     <>
@@ -264,6 +355,14 @@ const DetailSurahView = ({
                                   Copy Terjemahan
                                 </span>
                               </CopyToClipboard>
+                            </li>
+                            <li>
+                              <button
+                                className="p-0 px-1 text-left w-full"
+                                onClick={() => openShareCard(single)}
+                              >
+                                Share Card Ayat
+                              </button>
                             </li>
                             <li>
                               <label
@@ -512,6 +611,122 @@ const DetailSurahView = ({
             </div>
           </div>
         ))}
+
+        <div className="fixed -left-[9999px] top-0 pointer-events-none opacity-0">
+          <div
+            ref={shareCardRef}
+            className="w-[1080px] min-h-[1350px] bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 text-white p-16 flex flex-col justify-between"
+          >
+            <div>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-2xl tracking-[0.35em] uppercase text-emerald-200/80">
+                    Al Quran Digital
+                  </p>
+                  <h2 className="mt-4 text-5xl font-bold">
+                    {dataDetails?.nama_latin || "Surah"}
+                  </h2>
+                  <p className="mt-2 text-xl text-slate-200">
+                    Ayat {shareState.ayat || "-"}{" "}
+                    {dataDetails?.arti ? `- ${dataDetails.arti}` : ""}
+                  </p>
+                </div>
+                <div className="text-right">
+                  <p className="text-sm uppercase tracking-[0.4em] text-emerald-200/80">
+                    Share Card
+                  </p>
+                  <p className="mt-3 text-4xl font-arabic">
+                    {shareAyat ? toArabicNumber(shareAyat.nomor) : ""}
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-16 rounded-[2rem] border border-white/10 bg-white/8 backdrop-blur-md p-12 shadow-2xl">
+                <p className="text-right text-[54px] leading-[2.2] font-arabic text-white">
+                  {shareAyat?.ar || " "}
+                </p>
+                <div className="mt-10 border-t border-white/10 pt-8">
+                  <p className="text-2xl leading-[1.8] text-slate-100">
+                    {shareAyat?.idn || "Pilih ayat untuk membuat share card."}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-end justify-between gap-8">
+              <div>
+                <p className="text-sm uppercase tracking-[0.35em] text-emerald-200/70">
+                  Dibagikan dari
+                </p>
+                <p className="mt-3 text-2xl font-semibold">
+                  {window.location.origin}
+                </p>
+              </div>
+              <div className="text-right">
+                <p className="text-sm text-slate-300">Bismillah</p>
+                <p className="text-lg text-emerald-200">
+                  {dataDetails?.tempat_turun || ""}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={`modal ${shareState.open ? "modal-open" : ""}`}>
+          <div className="modal-box w-full max-w-5xl bg-white dark:bg-slate-900">
+            <button
+              type="button"
+              className="btn btn-sm btn-circle absolute right-2 top-2"
+              onClick={closeShareModal}
+            >
+              ✕
+            </button>
+
+            <h3 className="text-lg font-bold">
+              Share Card Ayat {shareState.ayat || "-"}
+            </h3>
+            <p className="text-sm text-slate-500 mt-1">
+              {dataDetails?.nama_latin}
+            </p>
+
+            <div className="mt-4 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-950">
+              {shareState.loading ? (
+                <div className="h-[420px] flex items-center justify-center text-white">
+                  Sedang menyiapkan kartu...
+                </div>
+              ) : shareState.imageUrl ? (
+                <img
+                  src={shareState.imageUrl}
+                  alt="Share card ayat"
+                  className="w-full h-auto"
+                />
+              ) : (
+                <div className="h-[420px] flex items-center justify-center text-white">
+                  Klik share pada menu ayat untuk membuat kartu.
+                </div>
+              )}
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-2 justify-end">
+              <button
+                type="button"
+                className="btn btn-outline"
+                onClick={downloadShareCard}
+                disabled={!shareState.imageUrl}
+              >
+                Download PNG
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={handleNativeShare}
+                disabled={!shareState.imageUrl}
+              >
+                Share
+              </button>
+            </div>
+          </div>
+        </div>
 
         <div className="flex justify-between w-max p-2 gap-2 border border-slate-200 shadow-md rounded-xl mb-3 fixed z-[99] bottom-0 left-1/2 -translate-x-1/2 backdrop-blur-md bg-white/85 dark:bg-gray-800/50 dark:border-gray-700">
           {(() => {
