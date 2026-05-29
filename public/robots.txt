@@ -1,3 +1,4 @@
 User-agent: *
+Allow: /
 
-Sitemap: https://al-quran.pages.dev/sitemap_index.xml
+Sitemap: https://al-quran.pages.dev/sitemap.xml
