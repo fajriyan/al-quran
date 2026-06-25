@@ -1,10 +1,10 @@
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "@/page/homepage/Home";
 import About from "@/page/about/About";
 import DetailSurah from "@/page/detailSurah/DetailSurah";
 import Changelog from "@/page/staticPage/Changelog";
 import NotFound from "@/page/staticPage/NotFound";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import TopBarProgress from "react-topbar-progress-indicator";
 import ProgresContext from "@/lib/ProgresContext";
 import ThemeContext from "@/lib/ThemeContext";
@@ -25,7 +25,7 @@ function App() {
       theme[1]("light");
       localStorage.setItem(
         "theme",
-        JSON.stringify({ theme: "light", key: "231273891793871263123" })
+        JSON.stringify({ theme: "light", key: "231273891793871263123" }),
       );
     }
 

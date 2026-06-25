@@ -28,6 +28,9 @@ const Home = () => {
     current: 0,
     total: 114,
   });
+  const [isOnline, setIsOnline] = useState(
+    typeof navigator !== "undefined" ? navigator.onLine : true,
+  );
 
   const downloadAllSurahForOffline = async () => {
     if (downloadingAll) return;
@@ -120,6 +123,21 @@ const Home = () => {
   const { dataChangelog } = useChangelog({
     first: true,
   });
+
+  useEffect(() => {
+    const updateConnectionStatus = () => {
+      setIsOnline(navigator.onLine);
+    };
+
+    updateConnectionStatus();
+    window.addEventListener("online", updateConnectionStatus);
+    window.addEventListener("offline", updateConnectionStatus);
+
+    return () => {
+      window.removeEventListener("online", updateConnectionStatus);
+      window.removeEventListener("offline", updateConnectionStatus);
+    };
+  }, []);
 
   const removeBookmark = () => {
     localStorage.removeItem("ayat");
@@ -341,6 +359,7 @@ const Home = () => {
         downloadAllSurahForOffline={downloadAllSurahForOffline}
         downloadingAll={downloadingAll}
         downloadProgress={downloadProgress}
+        isOnline={isOnline}
       />
     </>
   );
