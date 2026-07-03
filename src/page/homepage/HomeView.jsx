@@ -37,7 +37,7 @@ const HomeView = ({
   try {
     return (
       <>
-        <div className="min-h-screen dark:bg-slate-950">
+        <div className="min-h-screen dark:bg-slate-950 sm:px-5 2xl:px-0">
           <div
             className="absolute inset-0 z-0 dark:hidden"
             style={{
@@ -63,14 +63,10 @@ const HomeView = ({
           </Helmet>
 
           {/* Start Sticky Search */}
-          <div className="sticky top-0 z-[99] bg-white/70 backdrop-blur-md dark:bg-gray-800/50">
-            <div
-              className={
-                showBT
-                  ? "container mx-auto p-4 opacity-100 transition-opacity duration-500"
-                  : "h-0 opacity-0 transition-opacity duration-300"
-              }
-            >
+          <div
+            className={`fixed top-0 left-0 z-[99] bg-white/70 backdrop-blur-md dark:bg-gray-800/50 duration-500 w-full border-b border-gray-300 border-dashed  ${showBT ? "translate-y-0 shadow-md" : "-translate-y-20"}`}
+          >
+            <div className="container mx-auto p-4">
               <input
                 type="text"
                 onChange={(e) =>
@@ -127,25 +123,7 @@ const HomeView = ({
             </button>
           ) : null}
 
-          <div className="fixed bottom-16 left-5 z-10 flex flex-col items-start gap-2">
-            <div
-              className={`rounded-full px-2 py-1 text-xs font-semibold shadow-2xl border backdrop-blur-md group ${
-                isOnline
-                  ? "bg-emerald-600/95 text-white border-emerald-300"
-                  : "bg-rose-600/95 text-white border-rose-300"
-              }`}
-              aria-live="polite"
-            >
-              <span className="inline-flex items-center group-hover:gap-2 duration-300 gap-0">
-                <span
-                  className={`h-2.5 w-2.5 rounded-full animate-pulse ${
-                    isOnline ? "bg-emerald-200" : "bg-white"
-                  }`}
-                />
-                <span className="w-0 overflow-hidden group-hover:w-10 duration-500 ">{isOnline ? "Online" : "Offline"}</span>
-              </span>
-            </div>
-
+          <div className="fixed bottom-3 left-5 z-10 flex flex-col items-start gap-2">
             <button
               type="button"
               onClick={downloadAllSurahForOffline}
@@ -209,21 +187,39 @@ const HomeView = ({
             </button>
           </div>
 
-          <div className="container mx-auto xl:my-5">
+          <div className="container mx-auto sm:py-5">
             <div
-              className="hero min-h-[200px] rounded-none xl:rounded-xl flex flex-wrap relative overflow-hidden mb-5"
+              className="hero min-h-[200px] rounded-none sm:rounded-xl flex flex-wrap relative overflow-hidden mb-5"
               style={{
                 backgroundImage: `url("https://images.unsplash.com/photo-1588194200910-af009d36fc75?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
               }}
             >
+              <div
+                className={`rounded-full px-2 py-1 text-xs font-semibold shadow-2xl border backdrop-blur-md z-10 absolute top-3 left-3 ${
+                  isOnline
+                    ? "bg-emerald-600/95 text-white border-emerald-300"
+                    : "bg-rose-600/95 text-white border-rose-300"
+                }`}
+              >
+                <span className="inline-flex items-center gap-2 duration-300 ">
+                  <span
+                    className={`h-2.5 w-2.5 rounded-full animate-pulse ${
+                      isOnline ? "bg-emerald-200" : "bg-white"
+                    }`}
+                  />
+                  <span className="overflow-hidden duration-500 hidden sm:block ">
+                    {isOnline ? "Online" : "Offline"}
+                  </span>
+                </span>
+              </div>
               <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-[4] text-white">
                 <Adzan />
               </div>
               <div className="absolute w-full h-full z-[2] bg-slate-700/50 dark:bg-gray-900/60 dark:backdrop-brightness-95"></div>
-              <div className=" py-10 px-4 xl:rounded-xl overflow-hidden text-white relative z-[3]">
+              <div className=" py-10 px-4 overflow-hidden text-white relative z-[3]">
                 <div className="md:w-[70%] mx-auto">
-                  <div className="w-full">
-                    <div className="flex gap-2">
+                  <div className="w-full mt-7 xl:mt-3">
+                    {/* <div className="flex gap-2">
                       <div className="mb-2 text-xs w-[60%] sm:w-max flex items-center px-2 py-1 gap-2 rounded-md bg-white/70 text-slate-700 line-clamp-1">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -236,8 +232,6 @@ const HomeView = ({
                           <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />
                         </svg>
                         <Link to={"/changelog"} className="line-clamp-1">
-                          {/* <span className="font-semibold">New in v1.8.1</span>{" "}
-                        Update Fitur Audio Surah */}
                           <div className="">
                             {(dataChangelog?.commit?.author?.name ||
                               "fajriyan") + " : "}
@@ -247,9 +241,9 @@ const HomeView = ({
                           </div>
                         </Link>
                       </div>
-                    </div>
+                    </div> */}
                     <span
-                      className={`text-5xl mb-3 lg:text-5xl sm:text-md font-bold ${
+                      className={`text-3xl mb-3 lg:text-4xl sm:text-md font-bold  ${
                         isFriday ? "text-yellow-50" : ""
                       }`}
                     >
@@ -260,7 +254,7 @@ const HomeView = ({
                       Aplikasi
                     </h1>
 
-                    <p className="mb-5 mt-2">
+                    <p className="mb-5 mt-2 text-xs md:text-sm">
                       Diriwayatkan dari Abu Umamah al-Bahili, Rasulullah SAW
                       bersabda, "Bacalah Al Quran, maka sesungguhnya ia akan
                       datang di hari kiamat memberi syafaat kepada pembacanya".
