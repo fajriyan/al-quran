@@ -164,7 +164,7 @@ const DetailSurahView = ({
         >
           <button
             onClick={() => setSideMenu(!sideMenu)}
-            className="absolute -left-[33px] top-[35%] z-10 bg-white border border-slate-400 p-0.5 rounded-l-md hover:bg-gray-100"
+            className="absolute -left-[33px] top-[35%] z-10 bg-white border border-slate-400 p-0.5 rounded-l-full hover:bg-gray-100"
           >
             <svg
               className={`w-8 h-8 text-gray-800 dark:text-white duration-500 ${sideMenu ? "rotate-180" : ""}`}
@@ -176,9 +176,9 @@ const DetailSurahView = ({
               viewBox="0 0 24 24"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M13.729 5.575c1.304-1.074 3.27-.146 3.27 1.544v9.762c0 1.69-1.966 2.618-3.27 1.544l-5.927-4.881a2 2 0 0 1 0-3.088l5.927-4.88Z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               />
             </svg>
           </button>

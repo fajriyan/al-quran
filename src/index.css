@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@400..700&display=swap");
 
 html {
   scroll-behavior: smooth;
@@ -87,5 +86,5 @@ html {
 }
 
 html {
-  scroll-padding-top: 80px; /* Sesuaikan dengan tinggi navbar */
+  scroll-padding-top: 80px; 
 }

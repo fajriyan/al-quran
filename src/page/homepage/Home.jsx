@@ -6,10 +6,12 @@ import numbertosurah from "@/data/numbertosurah.json";
 import Fuse from "fuse.js";
 import { useChangelog, useSurah } from "@/hooks/global";
 import { apiGetSurah, apiGetTafsir } from "@/lib/api";
+import { useSearchParams } from "react-router-dom";
 
 const Home = () => {
   const [_, setProgressBar] = useContext(ProgresContext);
-  const [querySearch, setQuerySearch] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [querySearch, setQuerySearch] = useState(searchParams.get("q") || "");
   const [showBT, setShowBT] = useState("");
   const [filteredDatas, setFilteredData] = useState([]);
   const [playingIndex, setPlayingIndex] = useState(null);
@@ -147,6 +149,16 @@ const Home = () => {
       icon: "🗑",
     });
   };
+
+  useEffect(() => {
+    if (querySearch.trim()) {
+      setSearchParams({ q: querySearch });
+    } else {
+      setSearchParams({});
+    }
+  }, [querySearch]);
+  
+
 
   function scrollFunction() {
     if (
@@ -326,7 +338,6 @@ const Home = () => {
     });
     setProgressBar(false);
   }, [filteredDatas]);
-
 
   return (
     <>

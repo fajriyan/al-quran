@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="backdrop-blur-sm bg-white/80 dark:bg-gray-900 dark:border-gray-800 border-t-2 z-[99] relative">
-      <footer className="footer items-center p-4 text-slate-700 container mx-auto gap-2">
+    <div className="backdrop-blur-sm bg-white/80 dark:bg-gray-900 dark:border-gray-800 border-t-2 relative">
+      <footer className="footer items-center p-4 text-slate-700 gap-2 container mx-auto">
         <div className="items-center grid-flow-col dark:text-gray-200">
           <p>
             Copyright ©{new Date().getFullYear()} | Informasi mengenai situs dan

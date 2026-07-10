@@ -80,112 +80,112 @@ const HomeView = ({
           </div>
           {/* End Sticky Search */}
 
-          <div className="fixed bottom-2 right-10 w-[200px] p-2 border text-sm border-slate-200 bg-white/90 dark:bg-gray-700/50 dark:border-gray-900 backdrop-blur-md rounded-md z-[10]">
-            <div className="w-2 h-2 rounded-full absolute bg-green-600 -top-1.5 -left-1.5 animate-pulse"></div>
-
-            {ramadhanInfo.isRamadhan ? (
-              <>
-                Hari ke{" "}
-                <b className="text-green-600">{ramadhanInfo.ramadhanDay}</b>{" "}
-                Ramadhan
-              </>
-            ) : (
-              <>
-                <b className="text-green-600">{ramadhanInfo.timeLeft}</b> Hari
-                menuju Ramadhan
-              </>
-            )}
-
-            <div className="text-xs">{ramadhanInfo.ramadhanGregorian}</div>
-          </div>
-
-          {showBT ? (
-            <button
-              className="fixed bottom-11 right-4 rounded-full z-10 bg-white dark:bg-gray-700/90 dark:border-gray-900 border border-slate-500 border-dashed p-2 shadow-2xl hover:bg-slate-100 dark:hover:bg-gray-800 sca group"
-              onClick={() => {
-                document.body.scrollTop = 0;
-                document.documentElement.scrollTop = 0;
-              }}
+          <button className="fixed bottom-[54px] bg-gray-900 left-0 w-[73px] hover:w-[158px] overflow-hidden duration-500 text-left p-2 border text-sm group flex gap-1.5 items-center border-slate-200 dark:border-gray-900 backdrop-blur-md rounded-r-full z-[10]">
+            <svg
+              className="w-5 h-5 text-green-200 flex-none"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                className="bi bi-arrow-up group-hover:scale-x-125"
-                viewBox="0 0 15 14"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"
-                />
-              </svg>
-            </button>
-          ) : null}
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M12 21a9 9 0 0 1-.5-17.986V3c-.354.966-.5 1.911-.5 3a9 9 0 0 0 9 9c.239 0 .254.018.488 0A9.004 9.004 0 0 1 12 21Z"
+              />
+            </svg>
 
-          <div className="fixed bottom-3 left-5 z-10 flex flex-col items-start gap-2">
+            <div className="text-green-200">
+              {ramadhanInfo.isRamadhan ? (
+                <div>
+                  <div className="overflow-hidden min-w-max h-0 group-hover:h-[20px] opacity-0 group-hover:opacity-100 duration-500">
+                    Ramadhan ke :{" "}
+                  </div>
+                  <b className="text-green-200">{ramadhanInfo.ramadhanDay}</b>
+                </div>
+              ) : (
+                <div>
+                  <b className="text-green-200">
+                    {ramadhanInfo.timeLeft}{" "}
+                    <span className="opacity-0 group-hover:opacity-100 duration-500">
+                      Hari
+                    </span>
+                  </b>
+                  <div className="overflow-hidden min-w-max h-0 group-hover:h-[15px] opacity-0 text-xs group-hover:opacity-100 duration-500">
+                    menuju Ramadhan
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* <div className="text-xs">{ramadhanInfo.ramadhanGregorian}</div> */}
+          </button>
+
+          <div className="fixed bottom-3 left-0 z-10 flex flex-col items-start gap-2">
             <button
               type="button"
               onClick={downloadAllSurahForOffline}
               disabled={downloadingAll}
-              className="rounded-full bg-gray-900 hover:bg-gray-950 text-white p-2 pr-3 text-sm font-semibold shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed"
+              className="rounded-r-full bg-gray-900 hover:bg-emerald-90 group relative w-[40px] hover:w-[140px] duration-500 text-white p-2 pr-3 text-sm font-semibold shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {downloadingAll ? (
                 `${downloadProgress.current}/${downloadProgress.total}`
               ) : (
-                <span className="flex gap-2 items-center text-xs">
+                <span className="flex gap-2 items-center text-xs ">
                   <svg
+                    className="w-5 h-5 text-white flex-none"
+                    aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20px"
-                    height="20px"
+                    width="24"
+                    height="24"
+                    fill="none"
                     viewBox="0 0 24 24"
                   >
-                    <title xmlns="">download-outline-loop</title>
-                    <g
-                      fill="none"
+                    <path
                       stroke="currentColor"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth="2"
-                    >
-                      <path
-                        strokeDasharray="20"
-                        d="M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5"
-                      >
-                        <animate
-                          attributeName="d"
-                          dur="1.5s"
-                          keyTimes="0;0.5;1"
-                          repeatCount="indefinite"
-                          values="M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5;M12 4h2v3h2.5l-4.5 4.5M12 4h-2v3h-2.5l4.5 4.5;M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5"
-                        />
-                        <animate
-                          fill="freeze"
-                          attributeName="stroke-dashoffset"
-                          dur="0.5s"
-                          values="20;0"
-                        />
-                      </path>
-                      <path
-                        strokeDasharray="14"
-                        strokeDashoffset="14"
-                        d="M6 19h12"
-                      >
-                        <animate
-                          fill="freeze"
-                          attributeName="stroke-dashoffset"
-                          begin="0.5s"
-                          dur="0.2s"
-                          to="0"
-                        />
-                      </path>
-                    </g>
+                      d="M12 11H4m15.5 5a.5.5 0 0 0 .5-.5V8a1 1 0 0 0-1-1h-3.75a1 1 0 0 1-.829-.44l-1.436-2.12a1 1 0 0 0-.828-.44H8a1 1 0 0 0-1 1M4 9v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1h-3.75a1 1 0 0 1-.829-.44L9.985 8.44A1 1 0 0 0 9.157 8H5a1 1 0 0 0-1 1Z"
+                    />
                   </svg>
-                  Simpan Offline
+                  <span className="overflow-hidden min-w-max opacity-0 group-hover:opacity-100 duration-500 ">
+                    Simpan Offline
+                  </span>
                 </span>
               )}
             </button>
           </div>
+
+          <button
+            className={`fixed bottom-12 right-0 rounded-l-full z-10 bg-gray-900 hover:bg-emerald-900 p-2 duration-500 group ${showBT ? "translate-x-0" : "translate-x-11"}`}
+            onClick={() => {
+              document.body.scrollTop = 0;
+              document.documentElement.scrollTop = 0;
+            }}
+          >
+            <svg
+              className="w-6 h-6 text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m16 17-4-4-4 4m8-6-4-4-4 4"
+              />
+            </svg>
+          </button>
 
           <div className="container mx-auto sm:py-5">
             <div
@@ -273,15 +273,15 @@ const HomeView = ({
                         }
                         value={querySearch.replace("-", " ")}
                         placeholder="Surah Apa yang ingin Anda Baca?"
-                        className="input text-slate-600 border-white w-full focus:ring-4 focus:ring-blue-400 bg-slate-100 dark:bg-gray-200"
+                        className="input text-slate-600 border-white w-full focus:ring-4 focus:ring-emerald-500 bg-slate-100 dark:bg-gray-200 font-serif font-thin"
                       />
 
                       <label
                         htmlFor="search"
-                        class="absolute hidden text-xs top-3.5 right-4 sm:flex gap-1 border text-gray-400 border-gray-400 rounded-xl px-2 items-center"
+                        className="absolute hidden text-xs top-3.5 right-4 sm:flex gap-1 border text-gray-400 border-gray-400 rounded-xl px-2 items-center"
                       >
-                        <span class="">⌘</span>
-                        <span class="DocSearch-Button-Key">K</span>
+                        <span className="">⌘</span>
+                        <span className="DocSearch-Button-Key">K</span>
                       </label>
                     </div>
 
@@ -341,8 +341,9 @@ const HomeView = ({
               </div>
             </div>
           </div>
+          
           {/* Start Main Content */}
-          <section className="px-5 xl:px-0 relative">
+          <section className="px-5 xl:px-0 relative pb-20 min-h-screen">
             <div className="container mx-auto flex flex-col md:flex-row gap-5 mb-5">
               <div className="w-full md:w-[50%] xl:w-[33%]">
                 <Attendance isFriday={isFriday} />
@@ -417,7 +418,7 @@ const HomeView = ({
             </div>
 
             <div
-              className={`container mx-auto grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 lg:gap-4 sm:gap-4 gap-4 mb-14`}
+              className={`container mx-auto grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 lg:gap-4 sm:gap-4 gap-4`}
             >
               {Loading ? (
                 filteredData.length === 0 ? (
