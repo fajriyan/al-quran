@@ -6,7 +6,7 @@ const SkeletonRow = () => (
   <tr>
     {[0, 1, 2, 3].map((i) => (
       <td key={i} className="border px-2 py-1">
-        <div className="h-7 bg-gray-200 rounded animate-pulse"></div>
+        <div className="h-7 bg-gray-200 rounded-sm animate-pulse"></div>
       </td>
     ))}
   </tr>

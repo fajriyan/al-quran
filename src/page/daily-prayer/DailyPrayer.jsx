@@ -63,10 +63,10 @@ const DailyPrayer = () => {
               ? dataDoa.data?.map((doa) => (
                   <label
                     htmlFor={`tafsir-modal-${doa.id}`}
-                    className="relative rounded-lg w-full shadow-sm border-dashed border-[1px] border-slate-300 dark:border-slate-600 hover:border-slate-800 dark:hover:border-slate-100 bg-white dark:bg-gray-800/50 overflow-hidden cursor-pointer"
+                    className="relative rounded-lg w-full shadow-xs border-dashed border border-slate-300 dark:border-slate-600 hover:border-slate-800 dark:hover:border-slate-100 bg-white dark:bg-gray-800/50 overflow-hidden cursor-pointer"
                     key={doa.id}
                   >
-                    <div className="absolute right-3 top-0 border-l border-b border-r border-dashed rounded-b-lg border-slate-400 px-2 pb-1 flex gap-2 font-serif z-[2]">
+                    <div className="absolute right-3 top-0 border-l border-b border-r border-dashed rounded-b-lg border-slate-400 px-2 pb-1 flex gap-2 font-serif z-2">
                       {doa.id}
                     </div>
 
@@ -81,11 +81,11 @@ const DailyPrayer = () => {
                         loading="lazy"
                       />
                       <h2
-                        className={`card-title mb-0 font-serif relative z-[2] !text-lg line-clamp-1`}
+                        className={`card-title mb-0 font-serif relative z-2 text-lg! line-clamp-1`}
                       >
                         {doa.nama}
                       </h2>
-                      <p className="text-left text-sm poppins relative z-[2] mt-1 line-clamp-3 min-h-[60px]">
+                      <p className="text-left text-sm poppins relative z-2 mt-1 line-clamp-3 min-h-[60px]">
                         {cleaner(doa.tentang)}
                       </p>
 
@@ -106,7 +106,7 @@ const DailyPrayer = () => {
                 ))
               : Array.from({ length: 12 }).map((_, index) => (
                   <div
-                    className="card w-full shadow-sm border-dashed border-[1px] border-slate-300 dark:border-slate-500 hover:border-slate-800 dark:hover:border-slate-100 bg-white bg-gradient-to-bl dark:from-slate-800 dark:to-gray-900"
+                    className="card w-full shadow-xs border-dashed border border-slate-300 dark:border-slate-500 hover:border-slate-800 dark:hover:border-slate-100 bg-white bg-linear-to-bl dark:from-slate-800 dark:to-gray-900"
                     key={index}
                   >
                     <div className="p-5 md:p-6 flex flex-col gap-2 animate-pulse text-black/0">
@@ -117,7 +117,7 @@ const DailyPrayer = () => {
                       <p className="w-28 bg-slate-400 rounded-md">...</p>
 
                       <div className="card-actions justify-start">
-                        <button className="w-52 btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 text-slate-200"></button>
+                        <button className="w-52 btn btn-sm bg-linear-to-r hover:bg-linear-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 text-slate-200"></button>
                       </div>
                     </div>
                   </div>
@@ -162,9 +162,9 @@ const DailyPrayer = () => {
 
                       {modal.nama}
                     </div>
-                    <div className="arab !text-[25px] ">{modal.ar}</div>
+                    <div className="arab text-[25px]! ">{modal.ar}</div>
                     <div className="mt-7 border-t border-slate-400 pt-8 relative">
-                      <div className="mt-2 flex gap-2 items-center flex-wrap absolute -top-[23px] bg-white pr-2">
+                      <div className="mt-2 flex gap-2 items-center flex-wrap absolute top-[-23px] bg-white pr-2">
                         {modal.tag.map((tag) => (
                           <span
                             key={tag}

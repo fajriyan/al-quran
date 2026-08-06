@@ -18,7 +18,7 @@ const NotFound = () => {
             Error 404, Silahkan Kembali ke Beranda atau Hubungi Admin
           </p>
           <Link
-            className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
+            className="btn btn-sm bg-linear-to-r hover:bg-linear-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800"
             to="/"
           >
             Kembali ke Beranda

@@ -130,9 +130,9 @@ const Attendance = ({ isFriday }) => {
         {daysInMonth.map((dateStr, index) => (
           <div
             key={dateStr}
-            className={`w-6 h-6 text-[10px] flex items-center justify-center rounded-sm font-medium ${
+            className={`w-6 h-6 text-[10px] flex items-center justify-center rounded-xs font-medium ${
               selectedMonthData?.history?.[dateStr]
-                ? ` ${isFriday ? "bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-200 dark:from-indigo-200 dark:via-red-100 dark:to-yellow-100 text-gray-900" : "bg-slate-900 text-white dark:bg-green-900 dark:text-white"}`
+                ? ` ${isFriday ? "bg-linear-to-r from-indigo-200 via-red-200 to-yellow-200 dark:from-indigo-200 dark:via-red-100 dark:to-yellow-100 text-gray-900" : "bg-slate-900 text-white dark:bg-green-900 dark:text-white"}`
                 : "bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-white"
             }`}
             title={dateStr}

@@ -104,10 +104,10 @@ const About = () => {
             Thanks to
           </h2>
           <div className="grid grid-cols-1 px-3 md:px-0 lg:grid-cols-3 gap-4 mb-10">
-            <div className="card w-full bg-white shadow-xl border-dashed border-[1px]">
+            <div className="card w-full bg-white shadow-xl border-dashed border">
               <div className="card-body">
                 <p className="text-left font-serif">Source API from</p>
-                <h3 className="card-title mb-0 font-serif -mt-[7px]">
+                <h3 className="card-title mb-0 font-serif mt-[-7px]">
                   📖 EQuran.id
                 </h3>
 
@@ -128,10 +128,10 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <div className="card w-full bg-white shadow-xl border-dashed border-[1px]">
+            <div className="card w-full bg-white shadow-xl border-dashed border">
               <div className="card-body">
                 <p className="text-left font-serif">Arabic font used</p>
-                <h3 className="card-title mb-0 font-serif -mt-[7px]">
+                <h3 className="card-title mb-0 font-serif mt-[-7px]">
                   💬 LPMQ
                 </h3>
 

@@ -165,7 +165,7 @@ export default function Quiz() {
                     key == "quiz1" && "bg-[#2D728F]"
                   } ${key == "quiz2" && "bg-[#a27d4d]"} ${
                     key == "quiz3" && "bg-[#AB3428]"
-                  } cursor-pointer text-left min-h-32 rounded-xl flex flex-col sm:flex-row sm:items-center gap-10 p-4 hover:ring hover:ring-slate-600 dark:hover:ring-slate-400`}
+                  } cursor-pointer text-left min-h-32 rounded-xl flex flex-col sm:flex-row sm:items-center gap-10 p-4 hover:ring-3 hover:ring-slate-600 dark:hover:ring-slate-400`}
                 >
                   <div className="">
                     {key == "quiz1" && (
@@ -353,7 +353,7 @@ export default function Quiz() {
 
         <div className="text-center mt-6">
           <button
-            className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 text-white"
+            className="btn btn-sm bg-linear-to-r hover:bg-linear-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 text-white"
             onClick={resetQuiz}
           >
             Kembali ke Menu
@@ -391,7 +391,7 @@ export default function Quiz() {
           ))}
         </div>
         <div className="mt-4 text-right flex gap-2 items-center justify-between flex-wrap">
-          <span className="text-sm font-mono text-white bg-slate-800 px-2 py-1 rounded">
+          <span className="text-sm font-mono text-white bg-slate-800 px-2 py-1 rounded-sm">
             ⏱ {formatTime(timeLeft)}
           </span>
           <div className="flex items-center gap-2">
@@ -401,7 +401,7 @@ export default function Quiz() {
             <button
               onClick={handleNext}
               disabled={!selected}
-              className="btn btn-sm bg-gradient-to-r hover:bg-gradient-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 text-white disabled:opacity-50"
+              className="btn btn-sm bg-linear-to-r hover:bg-linear-to-t from-slate-800 to-slate-700 border-none hover:shadow-lg focus:ring-2 ring-offset-2 ring-slate-800 text-white disabled:opacity-50"
             >
               {currentIndex + 1 < questions.length
                 ? "Selanjutnya"

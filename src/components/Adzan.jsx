@@ -136,13 +136,13 @@ function Adzan() {
 
       {nextPrayer && timings && (
         <div className="relative group w-max">
-          <div className="border px-3 py-1.5 rounded-xl bg-white/20 group-hover:bg-white/30 backdrop-blur-sm cursor-pointer">
+          <div className="border px-3 py-1.5 rounded-xl bg-white/20 group-hover:bg-white/30 backdrop-blur-xs cursor-pointer">
             <p className="font-semibold text-xs sm:text-sm">
               {nextPrayer.name} : {nextPrayer.time}
             </p>
           </div>
 
-          <div className="absolute left-1/2 -translate-x-1/2 -bottom-[130px] mb-2 opacity-0 group-hover:opacity-100 transition pointer-events-none">
+          <div className="absolute left-1/2 -translate-x-1/2 bottom-[-130px] mb-2 opacity-0 group-hover:opacity-100 transition pointer-events-none">
             <div className="bg-black text-white text-xs rounded-lg p-3 space-y-1 whitespace-nowrap">
               {PRAYERS.map((prayer) => (
                 <div key={prayer} className="flex justify-between gap-4">

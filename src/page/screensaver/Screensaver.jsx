@@ -100,7 +100,7 @@ export default function Screensaver() {
       </Helmet>
       <div
         id="screensaver-wrapper"
-        className={`w-full h-screen bg-gradient-to-br bg-black ${gradientClass} text-white flex items-center justify-center relative overflow-hidden transition-all duration-1000 px-5 xl:px-0`}
+        className={`w-full h-screen bg-linear-to-br bg-black ${gradientClass} text-white flex items-center justify-center relative overflow-hidden transition-all duration-1000 px-5 xl:px-0`}
       >
         <div
           ref={verseRef}
@@ -123,19 +123,19 @@ export default function Screensaver() {
           >
             <button
               onClick={prevVerse}
-              className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-sm backdrop-blur transition"
+              className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-sm backdrop-blur-sm transition"
             >
               Prev
             </button>
             <button
               onClick={nextVerse}
-              className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-sm backdrop-blur transition"
+              className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-sm backdrop-blur-sm transition"
             >
               Next
             </button>
             <button
               onClick={() => setAutoplay(!isAutoplay)}
-              className={`px-4 py-2 rounded-xl text-sm backdrop-blur transition relative overflow-hidden ${
+              className={`px-4 py-2 rounded-xl text-sm backdrop-blur-sm transition relative overflow-hidden ${
                 isAutoplay
                   ? "bg-white/10 hover:bg-white/20"
                   : "bg-white/10 hover:bg-white/20"
@@ -151,7 +151,7 @@ export default function Screensaver() {
             </button>
             <button
               onClick={toggleFullscreen}
-              className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-sm backdrop-blur transition"
+              className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-sm backdrop-blur-sm transition"
             >
               {isFullscreen ? " Exit Fullscreen" : "⛶ Fullscreen"}
             </button>
@@ -174,7 +174,7 @@ export default function Screensaver() {
           <button
             data-html2canvas-ignore="true"
             onClick={() => setShowControls(true)}
-            className="absolute bottom-4 right-4 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-sm backdrop-blur transition overflow-hidden"
+            className="absolute bottom-4 right-4 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-sm backdrop-blur-sm transition overflow-hidden"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

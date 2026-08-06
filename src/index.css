@@ -1,6 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@utility container {
+  width: 100%;
+  max-width: none; /* pastikan tidak ada max-width sebelum breakpoint pertama */
+  margin-inline: auto;
+
+  @media (min-width: 1000px) {
+    max-width: 1000px;
+  }
+  @media (min-width: 1024px) {
+    max-width: 1024px;
+  }
+  @media (min-width: 1280px) {
+    max-width: 1280px;
+  }
+  @media (min-width: 1536px) {
+    max-width: 1536px;
+  }
+}
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 1000px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 html {
   scroll-behavior: smooth;
@@ -28,8 +66,8 @@ html {
 @font-face {
   font-family: "LPMQ";
   src: url("https://uminabdillah.github.io/fonts/lpmq.eot");
-  src: url("https://uminabdillah.github.io/fonts/lpmq.eot?#iefix")
-      format("embedded-opentype"),
+  src:
+    url("https://uminabdillah.github.io/fonts/lpmq.eot?#iefix") format("embedded-opentype"),
     url("https://uminabdillah.github.io/fonts/lpmq.ttf") format("truetype");
   font-weight: 400;
   font-weight: normal;
@@ -86,5 +124,5 @@ html {
 }
 
 html {
-  scroll-padding-top: 80px; 
+  scroll-padding-top: 80px;
 }

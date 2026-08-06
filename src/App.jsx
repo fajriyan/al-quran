@@ -13,73 +13,72 @@ import { Toaster } from "react-hot-toast";
 import Quiz from "@/page/staticPage/Quiz";
 import Screensaver from "@/page/screensaver/Screensaver";
 import DailyPrayer from "@/page/daily-prayer/DailyPrayer";
+import ScrollToTop from "./lib/ScrollToTop";
 
 function App() {
-  const progresBarState = useState(true);
-  const theme = useState("light");
-  const root = window.document.documentElement;
-  let storageTheme = JSON.parse(localStorage.getItem("theme"));
+   const progresBarState = useState(true);
+   const theme = useState("light");
+   const root = window.document.documentElement;
+   let storageTheme = JSON.parse(localStorage.getItem("theme"));
 
-  useEffect(() => {
-    if (storageTheme === null) {
-      theme[1]("light");
-      localStorage.setItem(
-        "theme",
-        JSON.stringify({ theme: "light", key: "231273891793871263123" }),
-      );
-    }
-
-    try {
-      if (storageTheme.theme == "light") {
-        theme[1]("light");
-        root.classList.remove("dark");
-        root.classList.add("light");
-      } else if (storageTheme.theme == "dark") {
-        theme[1]("dark");
-        root.classList.remove("light");
-        root.classList.add("dark");
+   useEffect(() => {
+      if (storageTheme === null) {
+         theme[1]("light");
+         localStorage.setItem("theme", JSON.stringify({ theme: "light", key: "231273891793871263123" }));
       }
-    } catch (error) {
-      console.log(error);
-    }
-  }, [storageTheme?.theme]);
 
-  const CustomRoutes = ({ children }) => {
-    return (
-      <>
-        {progresBarState[0] && <TopBarProgress />}
-        <Routes>{children}</Routes>
-      </>
-    );
-  };
+      try {
+         if (storageTheme.theme == "light") {
+            theme[1]("light");
+            root.classList.remove("dark");
+            root.classList.add("light");
+         } else if (storageTheme.theme == "dark") {
+            theme[1]("dark");
+            root.classList.remove("light");
+            root.classList.add("dark");
+         }
+      } catch (error) {
+         console.log(error);
+      }
+   }, [storageTheme?.theme]);
 
-  return (
-    <BrowserRouter>
-      <ThemeContext.Provider value={theme}>
-        <ProgresContext.Provider value={progresBarState}>
-          <Toaster
-            position="top-right"
-            reverseOrder={false}
-            toastOptions={{
-              duration: 1000,
-            }}
-          />
-          <CustomRoutes>
-            <Route path="/" element={<Home />} />
-            <Route path="/surah" element={<Home />} />
-            <Route path="/surah/:id" element={<DetailSurah />} />
-            <Route path="/tentang-kami" element={<About />} />
-            <Route path="/changelog" element={<Changelog />} />
-            <Route path="/matsurat" element={<Matsurat />} />
-            <Route path="/quiz" element={<Quiz />} />
-            <Route path="/quote" element={<Screensaver />} />
-            <Route path="/doa-harian" element={<DailyPrayer />} />
-            <Route path="/*" element={<NotFound />} />
-          </CustomRoutes>
-        </ProgresContext.Provider>
-      </ThemeContext.Provider>
-    </BrowserRouter>
-  );
+   const CustomRoutes = ({ children }) => {
+      return (
+         <>
+            {progresBarState[0] && <TopBarProgress />}
+            <Routes>{children}</Routes>
+         </>
+      );
+   };
+
+   return (
+      <BrowserRouter>
+         <ScrollToTop />
+         <ThemeContext.Provider value={theme}>
+            <ProgresContext.Provider value={progresBarState}>
+               <Toaster
+                  position="top-right"
+                  reverseOrder={false}
+                  toastOptions={{
+                     duration: 1000,
+                  }}
+               />
+               <CustomRoutes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/surah" element={<Home />} />
+                  <Route path="/surah/:id" element={<DetailSurah />} />
+                  <Route path="/tentang-kami" element={<About />} />
+                  <Route path="/changelog" element={<Changelog />} />
+                  <Route path="/matsurat" element={<Matsurat />} />
+                  <Route path="/quiz" element={<Quiz />} />
+                  <Route path="/quote" element={<Screensaver />} />
+                  <Route path="/doa-harian" element={<DailyPrayer />} />
+                  <Route path="/*" element={<NotFound />} />
+               </CustomRoutes>
+            </ProgresContext.Provider>
+         </ThemeContext.Provider>
+      </BrowserRouter>
+   );
 }
 
 export default App;

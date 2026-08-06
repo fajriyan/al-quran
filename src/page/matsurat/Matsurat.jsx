@@ -128,7 +128,7 @@ const Matsurat = () => {
           <div className="flex border-b border-gray-300 dark:border-slate-500">
             <button
               onClick={() => setActiveTab(0)}
-              className={`py-2 px-4 border-b-2 focus:outline-none ${
+              className={`py-2 px-4 border-b-2 focus:outline-hidden ${
                 activeTab === 0
                   ? "border-gray-700 text-gray-700 dark:border-gray-200 dark:text-gray-200"
                   : "border-transparent text-gray-500"
@@ -138,7 +138,7 @@ const Matsurat = () => {
             </button>
             <button
               onClick={() => setActiveTab(1)}
-              className={`py-2 px-4 border-b-2 focus:outline-none ${
+              className={`py-2 px-4 border-b-2 focus:outline-hidden ${
                 activeTab === 1
                   ? "border-gray-700 text-gray-700 dark:border-gray-200 dark:text-gray-200"
                   : "border-transparent text-gray-500"
@@ -162,7 +162,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.alfatihah.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -207,7 +207,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.albaqarah15.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -246,7 +246,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.albaqarah255_257.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -285,7 +285,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.albaqarah284_286.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -330,7 +330,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.alikhlas.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -375,7 +375,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.alfalaq.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -420,7 +420,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.annas.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -458,7 +458,7 @@ const Matsurat = () => {
                     </div>
 
                     <div className="border border-slate-300 rounded-lg overflow-hidden">
-                      <div className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative">
+                      <div className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative">
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
                           <div className="flex md:block w-full gap-2">
                             <div className="w-auto border md:border-slate-200 rounded-md text-sm px-1 lg:mt-3 nunito font-semibold">
@@ -495,7 +495,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.aliimron.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -533,7 +533,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.robithoh.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -575,7 +575,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.alfatihah.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -620,7 +620,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.albaqarah15.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -659,7 +659,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.albaqarah255_257.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -698,7 +698,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.albaqarah284_286.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -743,7 +743,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.alikhlas.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -788,7 +788,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.alfalaq.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -833,7 +833,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.annas.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -871,7 +871,7 @@ const Matsurat = () => {
                     </div>
 
                     <div className="border border-slate-300 rounded-lg overflow-hidden">
-                      <div className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative">
+                      <div className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative">
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
                           <div className="flex md:block w-full gap-2">
                             <div className="w-auto border md:border-slate-200 rounded-md text-sm px-1 lg:mt-3 nunito font-semibold">
@@ -908,7 +908,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.aliimron.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
@@ -947,7 +947,7 @@ const Matsurat = () => {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     {data.robithohsore.map((surat) => (
                       <div
-                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center [&:not(:last-child)]:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
+                        className="px-5 flex flex-wrap justify-end md:h-full md:items-center not-last:border-b border-slate-300 dark:border-slate-400/80 pt-14 pb-5 md:py-9 relative"
                         key={Math.random(20)}
                       >
                         <div className="text-xl md:ml-5 flex justify-between md:block gap-1 px-3 top-2 w-full mb-3 md:w-fit md:mb-0 md:px-0 absolute left-0 border-b border-dashed border-slate-200 pb-2 md:border-0">
