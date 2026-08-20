@@ -10,24 +10,24 @@ export function useSurah() {
   const [loading, setLoading] = useState(true);
   const [dataSurah, setDataSurah] = useState([]);
 
-  const getSurah = async () => {
-    const cache = localStorage.getItem("surahData");
-    const cacheTime = localStorage.getItem("surahDataTime");
-    const cacheDuration = 20 * 24 * 60 * 60 * 1000; // 20 hari
+const getSurah = async () => {
+     const cache = localStorage.getItem("surahData");
+     const cacheTime = localStorage.getItem("surahDataTime");
+     const cacheDuration = 20 * 24 * 60 * 60 * 1000; // 20 hari
 
-    if (cache && cacheTime && Date.now() - cacheTime < cacheDuration) {
-      setDataSurah(JSON.parse(cache));
-      setLoading(true);
-      return;
-    }
+     if (cache && cacheTime && Date.now() - cacheTime < cacheDuration) {
+       setDataSurah(JSON.parse(cache));
+       setLoading(false);
+       return;
+     }
 
-    const data = await apiGetSurah({ id: null });
-    setDataSurah(data);
-    setLoading(true);
+     const data = await apiGetSurah({ id: null });
+     setDataSurah(data);
+     setLoading(false);
 
-    localStorage.setItem("surahData", JSON.stringify(data));
-    localStorage.setItem("surahDataTime", Date.now());
-  };
+     localStorage.setItem("surahData", JSON.stringify(data));
+     localStorage.setItem("surahDataTime", Date.now());
+   };
 
   useEffect(() => {
     getSurah();

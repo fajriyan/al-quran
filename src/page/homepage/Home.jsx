@@ -25,6 +25,14 @@ const Home = () => {
       isRamadhan: false,
    });
 
+   const [lanjutBaca, setLanjutBaca] = useState([
+      {
+         surat: localStorage.getItem("namaSurat"),
+         url: localStorage.getItem("url"),
+         ayat: localStorage.getItem("ayat"),
+      },
+   ]);
+
    const [downloadingAll, setDownloadingAll] = useState(false);
    const [downloadProgress, setDownloadProgress] = useState({
       current: 0,
@@ -105,14 +113,6 @@ const Home = () => {
       // },
    ];
 
-   const lanjutBaca = [
-      {
-         surat: localStorage.getItem("namaSurat"),
-         url: localStorage.getItem("url"),
-         ayat: localStorage.getItem("ayat"),
-      },
-   ];
-
    const { loading: Loading, dataSurah: dataSurat } = useSurah();
 
    useEffect(() => {
@@ -134,6 +134,7 @@ const Home = () => {
       localStorage.removeItem("ayat");
       localStorage.removeItem("url");
       localStorage.removeItem("namaSurat");
+      setLanjutBaca([{ surat: null, url: null, ayat: null }]);
       toast("Bookmark Berhasil diHapus!", {
          icon: "🗑",
       });
