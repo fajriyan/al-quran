@@ -233,7 +233,7 @@ const HomeView = ({
                                     onChange={(e) => setQuerySearch(e.target.value.replace(" ", "-"))}
                                     value={querySearch.replace("-", " ")}
                                     placeholder="Surah Apa yang ingin Anda Baca?"
-                                    className="py-2.5 px-4 text-slate-600 rounded-md border-white w-full focus:ring-4 focus:ring-emerald-500 bg-slate-100 dark:bg-gray-200 font-serif font-thin"
+                                    className="py-2.5 px-4 text-slate-600 rounded-xl w-full border-2 border-b-4 border-flat-green-700 focus-within:outline-none bg-slate-100 dark:bg-gray-200 font-serif font-thin active:border-b-2 active:mb-0.5 active:translate-y-0.5 focus-within:mb-0.5 focus-within:translate-y-0.5 focus-within:border-b-2"
                                  />
 
                                  <label
@@ -245,7 +245,10 @@ const HomeView = ({
                                  </label>
                               </div>
 
-                              <Link to={"/quote"} className="bg-gray-100 dark:bg-gray-200 hover:bg-gray-200 p-[11px] rounded-lg">
+                              <Link
+                                 to={"/quote"}
+                                 className="bg-gray-100 dark:bg-gray-200 hover:bg-gray-200 p-[11px] border-2 border-b-4 border-flat-green-700 rounded-xl transition-all duration-100 ease-out active:border-b-2 active:mb-0.5 active:translate-y-0.5 active:brightness-95"
+                              >
                                  <svg
                                     className="w-6 h-6 text-cyan-800"
                                     aria-hidden="true"
@@ -274,7 +277,7 @@ const HomeView = ({
                                  <LinkProgresBars
                                     key={rs.surah}
                                     to={rs.ex == "nosurah" ? "/" + rs.url : "/surah/" + numbertosurah[rs.url]}
-                                    className={`min-w-max md:min-w-0 px-2 md:px-3 py-1 rounded-lg ${rs.alertFriday && isFriday ? "bg-linear-to-r from-indigo-200 via-red-100 to-yellow-100" : "bg-slate-100 dark:bg-gray-200"}  hover:bg-slate-200 text-slate-700 font-medium text-[13px] md:text-sm`}
+                                    className={`min-w-max md:min-w-0 px-2 md:px-3 py-1 rounded-lg border border-b-3 border-flat-orange-300 ${rs.alertFriday && isFriday ? "bg-linear-to-r from-indigo-200 via-red-100 to-yellow-100" : "bg-slate-100 dark:bg-gray-200"}  hover:bg-slate-200 text-slate-700 font-medium text-[13px] md:text-sm`}
                                  >
                                     {rs.ex == "nosurah" ? "" : "Surah "}
                                     {rs.surah}
@@ -296,9 +299,9 @@ const HomeView = ({
                               <div
                                  type="button"
                                  onClick={() => localStorage.setItem("fromBookmark", true)}
-                                 className="relative w-full bg-white dark:bg-slate-900 h-full rounded-xl border-dashed dark:border-gray-600 shadow-xs group hover:border-slate-600 border border-slate-300 overflow-hidden"
+                                 className="relative w-full bg-white dark:bg-slate-900 h-full rounded-xl border-b-4 dark:border-gray-600  hover:border-slate-600 border border-slate-300 group  overflow-hidden"
                               >
-                                 <div className="text-left p-3 flex flex-col justify-center">
+                                 <div className="text-left p-3 flex flex-col justify-center ">
                                     <div className="font-semibold text-lg font-serif mt-1">{lanjutBaca[0].surat}</div>
                                     <div className="">
                                        Ayat ke : <span>{lanjutBaca[0].ayat}</span>{" "}
@@ -388,7 +391,7 @@ const HomeView = ({
                         filteredData.map((s, index) => (
                            <LinkProgresBars
                               to={"/surah/" + numbertosurah[s.nomor]}
-                              className="relative rounded-lg w-full shadow-xs border-dashed border border-slate-300 dark:border-slate-600 hover:border-slate-800 dark:hover:border-slate-100 bg-white dark:bg-gray-800/50 "
+                              className="relative rounded-xl w-full bg-white dark:bg-gray-800/50 border-b-4 dark:border-gray-600  hover:border-slate-600 border border-slate-300 active:translate-y-0.5 active:border-b"
 
                               key={s.nama_latin + "-" + s.arti}
                            >

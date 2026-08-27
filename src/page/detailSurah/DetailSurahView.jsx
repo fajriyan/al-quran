@@ -262,7 +262,7 @@ const DetailSurahView = ({
                                  <div className="flex md:block w-full gap-2">
                                     {/* Nomer & Surat */}
                                     <div
-                                       className={` w-auto border rounded-md text-sm px-1 lg:mt-3 nunito font-semibold ${
+                                       className={` w-auto border border-b-3 hover:border-gray-700 rounded-md text-sm px-1 lg:mt-3 nunito font-semibold ${
                                           isFriday ? " border-yellow-800 dark:border-yellow-600" : " md:border-slate-200 dark:border-gray-400 "
                                        }`}
                                     >
@@ -274,7 +274,7 @@ const DetailSurahView = ({
                                        <button
                                           onClick={() => setOpenMenu(openMenu === single.nomor ? null : single.nomor)}
                                           tabIndex={0}
-                                          className={`border border-slate-200 w-full dark:border-gray-400 rounded-md flex justify-center hover:bg-slate-100 dark:hover:bg-gray-700 cursor-pointer `}
+                                          className={`border border-b-3 hover:border-gray-700 border-slate-200 w-full dark:border-gray-400 rounded-md flex justify-center hover:bg-slate-100 dark:hover:bg-gray-700 cursor-pointer `}
                                        >
                                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-three-dots" viewBox="0 0 16 16">
                                              <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
@@ -329,7 +329,7 @@ const DetailSurahView = ({
                                  {/* Bookmark */}
                                  <button
                                     onClick={() => saveAyat(single.surah, single.nomor, dataDetails.nama_latin)}
-                                    className="md:border w-6 md:w-full rounded-md border-slate-200 dark:border-gray-400 flex justify-center items-center md:h-9 hover:bg-slate-100 dark:hover:bg-gray-700"
+                                    className=" mt-1 w-6 md:w-full md:border md:border-b-3 hover:border-gray-700 rounded-md border-slate-200 dark:border-gray-400 flex justify-center items-center md:h-9 hover:bg-slate-100 dark:hover:bg-gray-700 cursor-pointer"
                                  >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bookmark" viewBox="0 0 16 16">
                                        {currentBookmark === single.nomor ? (
