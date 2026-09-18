@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router";
 import Home from "@/page/homepage/Home";
 import About from "@/page/about/About";
 import DetailSurah from "@/page/detailSurah/DetailSurah";
@@ -42,15 +42,6 @@ function App() {
       }
    }, [storageTheme?.theme]);
 
-   const CustomRoutes = ({ children }) => {
-      return (
-         <>
-            {progresBarState[0] && <TopBarProgress />}
-            <Routes>{children}</Routes>
-         </>
-      );
-   };
-
    return (
       <BrowserRouter>
          <ScrollToTop />
@@ -63,7 +54,8 @@ function App() {
                      duration: 1000,
                   }}
                />
-               <CustomRoutes>
+               {progresBarState[0] && <TopBarProgress />}
+               <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/surah" element={<Home />} />
                   <Route path="/surah/:id" element={<DetailSurah />} />
@@ -74,7 +66,7 @@ function App() {
                   <Route path="/quote" element={<Screensaver />} />
                   <Route path="/doa-harian" element={<DailyPrayer />} />
                   <Route path="/*" element={<NotFound />} />
-               </CustomRoutes>
+               </Routes>
             </ProgresContext.Provider>
          </ThemeContext.Provider>
       </BrowserRouter>

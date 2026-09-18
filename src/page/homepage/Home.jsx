@@ -6,7 +6,7 @@ import numbertosurah from "@/data/numbertosurah.json";
 import Fuse from "fuse.js";
 import { useSurah } from "@/hooks/global";
 import { apiGetSurah, apiGetTafsir } from "@/lib/api";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router";
 
 const Home = () => {
    const [_, setProgressBar] = useContext(ProgresContext);

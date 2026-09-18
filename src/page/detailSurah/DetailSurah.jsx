@@ -1,12 +1,5 @@
-import {
-  useContext,
-  useEffect,
-  useState,
-  useMemo,
-  useCallback,
-  useRef,
-} from "react";
-import { useParams } from "react-router-dom";
+import { useContext, useEffect, useState, useMemo, useCallback, useRef } from "react";
+import { useParams } from "react-router";
 import { toast } from "react-hot-toast";
 import DetailSurahView from "./DetailSurahView";
 import ProgresContext from "@/lib/ProgresContext";
@@ -15,176 +8,172 @@ import numbertosurah from "@/data/numbertosurah.json";
 import { useAyat } from "@/hooks/global";
 
 const DetailSurah = () => {
-  const { id } = useParams();
-  const surahNumber = surahtonumber[id];
-  const [, setProgressBar] = useContext(ProgresContext);
-  const [currentBookmark, setCurrentBookmark] = useState(null);
-  const [font, setFont] = useState({ arab: "25", idn: "16" });
-  const [bookStats, setBStats] = useState(false);
+   const { id } = useParams();
+   const surahNumber = surahtonumber[id];
+   const [, setProgressBar] = useContext(ProgresContext);
+   const [currentBookmark, setCurrentBookmark] = useState(null);
+   const [font, setFont] = useState({ arab: "25", idn: "16" });
+   const [bookStats, setBStats] = useState(false);
 
-  const [activeMenu, setActiveMenu] = useState(null);
-  const [activeTab, setActiveTab] = useState(0);
+   const [activeMenu, setActiveMenu] = useState(null);
+   const [activeTab, setActiveTab] = useState(0);
 
-  const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
+   const audioRef = useRef(null);
+   const [isPlaying, setIsPlaying] = useState(false);
+   const [currentTime, setCurrentTime] = useState(0);
+   const [duration, setDuration] = useState(0);
 
-  const lanjutBaca = useMemo(
-    () => ({
-      surat: localStorage.getItem("namaSurat"),
-      url: localStorage.getItem("url"),
-      ayat: localStorage.getItem("ayat"),
-      fromBookmark: localStorage.getItem("fromBookmark"),
-    }),
-    [],
-  );
+   const lanjutBaca = useMemo(
+      () => ({
+         surat: localStorage.getItem("namaSurat"),
+         url: localStorage.getItem("url"),
+         ayat: localStorage.getItem("ayat"),
+         fromBookmark: localStorage.getItem("fromBookmark"),
+      }),
+      [],
+   );
 
-  const isFriday = () => {
-    const now = new Date();
-    const day = now.getDay(); // 4 = Kamis, 5 = Jumat
-    const hour = now.getHours();
+   const isFriday = () => {
+      const now = new Date();
+      const day = now.getDay();
+      const hour = now.getHours();
 
-    const thursdayEvening = day === 4 && hour >= 15;
-    const fridayAllDay = day === 5;
+      const thursdayEvening = day === 4 && hour >= 15;
+      const fridayAllDay = day === 5;
 
-    return thursdayEvening || fridayAllDay;
-  };
+      return thursdayEvening || fridayAllDay;
+   };
 
-  const saveAyat = useCallback(
-    (url, ayat, namaSurat) => {
-      localStorage.setItem("url", numbertosurah[url]);
-      localStorage.setItem("ayat", ayat);
-      localStorage.setItem("namaSurat", namaSurat);
+   const saveAyat = useCallback(
+      (url, ayat, namaSurat) => {
+         localStorage.setItem("url", numbertosurah[url]);
+         localStorage.setItem("ayat", ayat);
+         localStorage.setItem("namaSurat", namaSurat);
 
-      const newBookmark = id === currentBookmark ? null : ayat;
-      setCurrentBookmark(newBookmark);
+         const newBookmark = id === currentBookmark ? null : ayat;
+         setCurrentBookmark(newBookmark);
 
-      toast.custom((t) => (
-        <div
-          className={`${
-            t.visible ? "animate-enter" : "animate-leave"
-          } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-        >
-          <div className="flex-1 w-0 p-3 flex items-start">
-            <img className="w-9 rounded-full" src="/favicon.ico" alt="icon" />
-            <div className="ml-3">
-              <p className="text-sm font-medium text-gray-900">
-                Ayat Berhasil Disimpan
-              </p>
-              <p className="text-xs text-gray-500">
-                {namaSurat} : Ayat {ayat}
-              </p>
+         toast.custom((t) => (
+            <div
+               className={`${
+                  t.visible ? "animate-enter" : "animate-leave"
+               } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+            >
+               <div className="flex-1 w-0 p-3 flex items-start">
+                  <img className="w-9 rounded-full" src="/favicon.ico" alt="icon" />
+                  <div className="ml-3">
+                     <p className="text-sm font-medium text-gray-900">Ayat Berhasil Disimpan</p>
+                     <p className="text-xs text-gray-500">
+                        {namaSurat} : Ayat {ayat}
+                     </p>
+                  </div>
+               </div>
             </div>
-          </div>
-        </div>
-      ));
-    },
-    [id, currentBookmark],
-  );
+         ));
+      },
+      [id, currentBookmark],
+   );
 
-  const checkingStatus = useCallback(() => {
-    const { url, fromBookmark } = lanjutBaca;
-    const isBookmark = url === id && fromBookmark === "true";
+   const checkingStatus = useCallback(() => {
+      const { url, fromBookmark } = lanjutBaca;
+      const isBookmark = url === id && fromBookmark === "true";
 
-    if (isBookmark) {
-      toast("Melanjutkan membaca Surah", { icon: "📑" });
-    }
-
-    setBStats(isBookmark);
-  }, [lanjutBaca, id]);
-
-  const handleClickScroll = useCallback(() => {
-    const element = document.getElementById("surahke" + lanjutBaca.ayat);
-    element?.scrollIntoView({ behavior: "smooth" });
-  }, [lanjutBaca]);
-
-  function toArabicNumber(num) {
-    const arabicDigits = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
-    return num
-      .toString()
-      .split("")
-      .map((d) => arabicDigits[d])
-      .join("");
-  }
-
-  const togglePlay = useCallback(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    setIsPlaying((prev) => {
-      if (prev) {
-        audio.pause();
-      } else {
-        audio.play();
+      if (isBookmark) {
+         toast("Melanjutkan membaca Surah", { icon: "📑" });
       }
-      return !prev;
-    });
-  }, []);
-  const formatTime = (time) => {
-    if (!time || isNaN(time)) return "00:00";
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes.toString().padStart(2, "0")}:${seconds
-      .toString()
-      .padStart(2, "0")}`;
-  };
 
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
+      setBStats(isBookmark);
+   }, [lanjutBaca, id]);
 
-    const updateTime = () => setCurrentTime(audio.currentTime);
-    const setAudioDuration = () => setDuration(audio.duration || 0);
+   const handleClickScroll = useCallback(() => {
+      const element = document.getElementById("surahke" + lanjutBaca.ayat);
+      element?.scrollIntoView({ behavior: "smooth" });
+   }, [lanjutBaca]);
 
-    audio.addEventListener("timeupdate", updateTime);
-    audio.addEventListener("loadedmetadata", setAudioDuration);
+   function toArabicNumber(num) {
+      const arabicDigits = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+      return num
+         .toString()
+         .split("")
+         .map((d) => arabicDigits[d])
+         .join("");
+   }
 
-    return () => {
-      audio.removeEventListener("timeupdate", updateTime);
-      audio.removeEventListener("loadedmetadata", setAudioDuration);
-    };
-  }, []);
+   const togglePlay = useCallback(() => {
+      const audio = audioRef.current;
+      if (!audio) return;
 
-  useEffect(() => {
-    checkingStatus();
-    setProgressBar(false);
+      setIsPlaying((prev) => {
+         if (prev) {
+            audio.pause();
+         } else {
+            audio.play();
+         }
+         return !prev;
+      });
+   }, []);
+   const formatTime = (time) => {
+      if (!time || isNaN(time)) return "00:00";
+      const minutes = Math.floor(time / 60);
+      const seconds = Math.floor(time % 60);
+      return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+   };
 
-    const storedAyah = localStorage.getItem("ayat");
-    const storedSurah = localStorage.getItem("url")?.toLowerCase();
+   useEffect(() => {
+      const audio = audioRef.current;
+      if (!audio) return;
 
-    if (storedAyah && storedSurah === id) {
-      setCurrentBookmark(JSON.parse(storedAyah));
-    }
-  }, [checkingStatus, id, setProgressBar]);
+      const updateTime = () => setCurrentTime(audio.currentTime);
+      const setAudioDuration = () => setDuration(audio.duration || 0);
 
-  const { loading, dataSurah, dataTafsir } = useAyat({ surahNumber });
+      audio.addEventListener("timeupdate", updateTime);
+      audio.addEventListener("loadedmetadata", setAudioDuration);
 
-  return (
-    <DetailSurahView
-      dataDetails={dataSurah}
-      dataTafsir={dataTafsir}
-      Loading={loading}
-      bookStats={bookStats}
-      saveAyat={saveAyat}
-      handleClickScroll={handleClickScroll}
-      font={font}
-      setFont={setFont}
-      numbertosurah={numbertosurah}
-      currentBookmark={currentBookmark}
-      isFriday={isFriday}
-      toArabicNumber={toArabicNumber}
-      formatTime={formatTime}
-      togglePlay={togglePlay}
-      audioRef={audioRef}
-      activeTab={activeTab}
-      currentTime={currentTime}
-      duration={duration}
-      isPlaying={isPlaying}
-      setActiveTab={setActiveTab}
-      activeMenu={activeMenu}
-    />
-  );
+      return () => {
+         audio.removeEventListener("timeupdate", updateTime);
+         audio.removeEventListener("loadedmetadata", setAudioDuration);
+      };
+   }, []);
+
+   useEffect(() => {
+      checkingStatus();
+      setProgressBar(false);
+
+      const storedAyah = localStorage.getItem("ayat");
+      const storedSurah = localStorage.getItem("url")?.toLowerCase();
+
+      if (storedAyah && storedSurah === id) {
+         setCurrentBookmark(JSON.parse(storedAyah));
+      }
+   }, [checkingStatus, id, setProgressBar]);
+
+   const { loading, dataSurah, dataTafsir } = useAyat({ surahNumber });
+
+   return (
+      <DetailSurahView
+         dataDetails={dataSurah}
+         dataTafsir={dataTafsir}
+         Loading={loading}
+         bookStats={bookStats}
+         saveAyat={saveAyat}
+         handleClickScroll={handleClickScroll}
+         font={font}
+         setFont={setFont}
+         numbertosurah={numbertosurah}
+         currentBookmark={currentBookmark}
+         isFriday={isFriday}
+         toArabicNumber={toArabicNumber}
+         formatTime={formatTime}
+         togglePlay={togglePlay}
+         audioRef={audioRef}
+         activeTab={activeTab}
+         currentTime={currentTime}
+         duration={duration}
+         isPlaying={isPlaying}
+         setActiveTab={setActiveTab}
+         activeMenu={activeMenu}
+      />
+   );
 };
 
 export default DetailSurah;

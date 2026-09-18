@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import reactRefresh from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react";
 import svgrPlugin from "vite-plugin-svgr";
 import { VitePWA } from "vite-plugin-pwa";
 import { fileURLToPath, URL } from "node:url";
@@ -14,7 +14,7 @@ export default defineConfig({
     outDir: "build",
   },
   plugins: [
-    reactRefresh(),
+    react(),
     svgrPlugin({
       svgrOptions: {
         icon: true,
@@ -25,14 +25,13 @@ export default defineConfig({
       workbox: {
         runtimeCaching: [
           {
-            // Cache API responses so already-fetched surah/tafsir can be used offline
             urlPattern: /^https:\/\/equran\.id\/api\/.*$/,
             handler: "NetworkFirst",
             options: {
               cacheName: "equran-api-cache",
               expiration: {
                 maxEntries: 300,
-                maxAgeSeconds: 30 * 24 * 60 * 60, // 30 hari
+                maxAgeSeconds: 30 * 24 * 60 * 60,
               },
             },
           },

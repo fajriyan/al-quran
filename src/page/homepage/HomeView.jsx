@@ -1,5 +1,4 @@
-import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import Footer from "@/components/Footer";
 import LinkProgresBars from "@/lib/LinkProgresBars";
 import Adzan from "@/components/Adzan";
@@ -36,6 +35,7 @@ const HomeView = ({
 }) => {
    const [theme, setTheme] = useContext(ThemeContext);
    const root = window.document.documentElement;
+
    let storageTheme = JSON.parse(localStorage.getItem("theme"));
    const handleTheme = () => {
       if (storageTheme.theme == "light") {
@@ -66,15 +66,11 @@ const HomeView = ({
    try {
       return (
          <>
+            <title>Al Quran Digital | Baca Al Quran Mudah Tanpa Install</title>
+            <meta name="robots" content="index,follow" />
+            <link rel="canonical" href="https://al-quran.pages.dev/" />
             <div className="min-h-screen dark:bg-slate-950 sm:px-5 2xl:px-0">
                {localStorage.removeItem("fromBookmark", false)}
-
-               <Helmet>
-                  <meta charSet="utf-8" />
-                  <meta name="robots" content="index,follow" />
-                  <title>Al Quran Digital | Baca Al Quran Mudah Tanpa Install</title>
-                  <link rel="canonical" href="https://al-quran.pages.dev/" />
-               </Helmet>
 
                {/* Start Sticky Search */}
                <div

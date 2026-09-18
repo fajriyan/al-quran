@@ -1,9 +1,7 @@
-import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
-import CopyToClipboard from "react-copy-to-clipboard";
 import { useEffect, useMemo, useState, useRef, memo } from "react";
 import { toast } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import html2canvas from "html2canvas";
 
 const DetailSurahView = ({
@@ -118,12 +116,9 @@ const DetailSurahView = ({
 
    return (
       <>
-         <Helmet>
-            <meta charSet="utf-8" />
-            <meta name="robots" content="index, follow" />
-            <title>{dataDetails?.nama_latin ? dataDetails?.nama_latin + " | Al Quran Digital" : "Loading.."} </title>
-            <link rel="canonical" href={"https://al-quran.pages.dev/surah/" + dataDetails?.nomor} />
-         </Helmet>
+         <title>{`${dataDetails?.nama_latin ?? "Loading.."} | Al Quran Digital`}</title>
+         <meta name="robots" content="index,follow" />
+         <link rel="canonical" href={`https://al-quran.pages.dev/surah/${dataDetails?.nomor}`} />
 
          {bookStats == true ? (
             <div>
@@ -287,24 +282,28 @@ const DetailSurahView = ({
                                             `}
                                        >
                                           <li className="cursor-pointer hover:bg-gray-100 rounded-md">
-                                             <CopyToClipboard
-                                                onCopy={() => {
-                                                   toast.success("Copy Ayat Berhasil");
+                                             <span
+                                                className="p-0 px-1"
+                                                onClick={() => {
+                                                   navigator.clipboard.writeText(single.ar).then(() => {
+                                                      toast.success("Copy Ayat Berhasil");
+                                                   });
                                                 }}
-                                                text={single.ar}
                                              >
-                                                <span className="p-0 px-1">Copy Ayat Ke : {single.nomor}</span>
-                                             </CopyToClipboard>
+                                                Copy Ayat Ke : {single.nomor}
+                                             </span>
                                           </li>
                                           <li className="cursor-pointer hover:bg-gray-100 rounded-md">
-                                             <CopyToClipboard
-                                                onCopy={() => {
-                                                   toast.success("Copy Terjemahan Berhasil");
+                                             <span
+                                                className="p-0 px-1"
+                                                onClick={() => {
+                                                   navigator.clipboard.writeText(single.idn).then(() => {
+                                                      toast.success("Copy Terjemahan Berhasil");
+                                                   });
                                                 }}
-                                                text={single.idn}
                                              >
-                                                <span className="p-0 px-1">Copy Terjemahan</span>
-                                             </CopyToClipboard>
+                                                Copy Terjemahan
+                                             </span>
                                           </li>
 
                                           {/* <li>
@@ -414,51 +413,57 @@ const DetailSurahView = ({
                               {/* Menu muncul saat ayat diklik */}
                               {activeMenu === single.nomor && (
                                  <div className="absolute right-0 flex flex-row-reverse gap-2 top-[45px] bg-white dark:bg-slate-800 border rounded-md shadow-md text-sm w-max h-[40px] px-1 py-0.5 z-50">
-                                    <button className="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 cursor-pointer rounded-md">
-                                       <CopyToClipboard onCopy={() => copySurat("Ayat")} text={single.ar}>
-                                          <svg
-                                             xmlns="http://www.w3.org/2000/svg"
-                                             width="18"
-                                             height="18"
-                                             viewBox="0 0 24 24"
-                                             fill="none"
-                                             stroke="currentColor"
-                                             strokeWidth="2"
-                                             strokeLinecap="round"
-                                             strokeLinejoin="round"
-                                             className="lucide lucide-save-all-icon lucide-save-all"
-                                          >
-                                             <path d="M10 2v3a1 1 0 0 0 1 1h5" />
-                                             <path d="M18 18v-6a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6" />
-                                             <path d="M18 22H4a2 2 0 0 1-2-2V6" />
-                                             <path d="M8 18a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9.172a2 2 0 0 1 1.414.586l2.828 2.828A2 2 0 0 1 22 6.828V16a2 2 0 0 1-2.01 2z" />
-                                          </svg>
-                                       </CopyToClipboard>
-                                    </button>
-                                    <button className="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 cursor-pointer rounded-md">
-                                       <CopyToClipboard onCopy={() => copySurat("Terjemahan")} text={single.idn}>
-                                          <svg
-                                             xmlns="http://www.w3.org/2000/svg"
-                                             width="18"
-                                             height="18"
-                                             viewBox="0 0 24 24"
-                                             fill="none"
-                                             stroke="currentColor"
-                                             strokeWidth="2"
-                                             strokeLinecap="round"
-                                             strokeLinejoin="round"
-                                             className="lucide lucide-scan-text-icon lucide-scan-text"
-                                          >
-                                             <path d="M3 7V5a2 2 0 0 1 2-2h2" />
-                                             <path d="M17 3h2a2 2 0 0 1 2 2v2" />
-                                             <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
-                                             <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
-                                             <path d="M7 8h8" />
-                                             <path d="M7 12h10" />
-                                             <path d="M7 16h6" />
-                                          </svg>
-                                       </CopyToClipboard>
-                                    </button>
+                                     <button className="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 cursor-pointer rounded-md"
+                                        onClick={() => {
+                                           navigator.clipboard.writeText(single.ar).then(() => {
+                                              toast.success("Copy Ayat Berhasil");
+                                           });
+                                        }}>
+                                        <svg
+                                           xmlns="http://www.w3.org/2000/svg"
+                                           width="18"
+                                           height="18"
+                                           viewBox="0 0 24 24"
+                                           fill="none"
+                                           stroke="currentColor"
+                                           strokeWidth="2"
+                                           strokeLinecap="round"
+                                           strokeLinejoin="round"
+                                           className="lucide lucide-save-all-icon lucide-save-all"
+                                        >
+                                           <path d="M10 2v3a1 1 0 0 0 1 1h5" />
+                                           <path d="M18 18v-6a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6" />
+                                           <path d="M18 22H4a2 2 0 0 1-2-2V6" />
+                                           <path d="M8 18a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9.172a2 2 0 0 1 1.414.586l2.828 2.828A2 2 0 0 1 22 6.828V16a2 2 0 0 1-2.01 2z" />
+                                        </svg>
+                                     </button>
+                                     <button className="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 cursor-pointer rounded-md"
+                                        onClick={() => {
+                                           navigator.clipboard.writeText(single.idn).then(() => {
+                                              toast.success("Copy Terjemahan Berhasil");
+                                           });
+                                        }}>
+                                        <svg
+                                           xmlns="http://www.w3.org/2000/svg"
+                                           width="18"
+                                           height="18"
+                                           viewBox="0 0 24 24"
+                                           fill="none"
+                                           stroke="currentColor"
+                                           strokeWidth="2"
+                                           strokeLinecap="round"
+                                           strokeLinejoin="round"
+                                           className="lucide lucide-scan-text-icon lucide-scan-text"
+                                        >
+                                           <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                                           <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                                           <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                                           <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                                           <path d="M7 8h8" />
+                                           <path d="M7 12h10" />
+                                           <path d="M7 16h6" />
+                                        </svg>
+                                     </button>
                                     <button className="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 cursor-pointer rounded-md flex justify-center items-center">
                                        <label
                                           htmlFor={`tafsir-modal-${single.nomor}`}
