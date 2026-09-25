@@ -10,7 +10,6 @@ export default function Screensaver() {
    const [isAutoplay, setAutoplay] = useState(true);
    const [isFullscreen, setFullscreen] = useState(false);
    const [showControls, setShowControls] = useState(true);
-   const verseRef = useRef(null);
    const intervalRef = useRef(null);
    const [progress, setProgress] = useState(0);
    const progressRef = useRef(null);
@@ -62,6 +61,17 @@ export default function Screensaver() {
 
    const gradientClass = gradients[index % gradients.length];
 
+   const [shownBg, setShownBg] = useState(gradientClass);
+   const [fadingBg, setFadingBg] = useState(null);
+
+   useEffect(() => {
+      if (gradientClass === shownBg) return;
+      setFadingBg(shownBg);
+      setShownBg(gradientClass);
+      const t = setTimeout(() => setFadingBg(null), 1000);
+      return () => clearTimeout(t);
+   }, [gradientClass, shownBg]);
+
    useEffect(() => {
       setProgress(0);
 
@@ -93,9 +103,11 @@ export default function Screensaver() {
          <link rel="canonical" href="https://al-quran.pages.dev/quote" />
          <div
             id="screensaver-wrapper"
-            className={`w-full h-screen bg-linear-to-br bg-black ${gradientClass} text-white flex items-center justify-center relative overflow-hidden transition-all duration-1000 px-5 xl:px-0`}
+            className="w-full h-screen bg-black text-white flex items-center justify-center relative overflow-hidden px-5 xl:px-0"
          >
-            <div ref={verseRef} className="text-center p-8 rounded-2xl backdrop-blur-lg bg-white/5 border border-slate-300/50 max-w-2xl transition-all duration-500">
+            {fadingBg && <div className={`absolute inset-0 ${fadingBg} bg-fade-out`} />}
+            <div className={`absolute inset-0 ${shownBg} ${fadingBg ? "bg-fade-in" : ""}`} />
+            <div key={index} className="relative z-10 verse-fade text-center p-8 rounded-2xl backdrop-blur-lg bg-white/5 border border-slate-300/50 max-w-2xl transition-all duration-500">
                <p className="text-5xl md:text-6xl mb-8 arabkali">{verses[index].arabic}</p>
                <p className="text-lg md:text-xl text-gray-200 mb-2 italic">“{verses[index].translation}”</p>
                <p className="text-sm text-gray-400">{verses[index].source}</p>
