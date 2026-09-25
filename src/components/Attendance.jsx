@@ -109,7 +109,7 @@ const Attendance = ({ isFriday }) => {
    };
 
    return (
-      <div className="bg-white dark:bg-gray-900 p-4 rounded-xl border-b-4 dark:border-gray-600  hover:border-slate-600 border border-slate-300">
+      <div className=" p-4  bg-white dark:bg-zinc-800/60 rounded-xl border border-b-4 border-flat-gray-300 dark:border-flat-gray-600 hover:border-flat-gray-700 dark:hover:border-flat-gray-400">
          <div className="flex flex-wrap gap-1 w-full">
             {daysInMonth.map((dateStr, index) => (
                <div

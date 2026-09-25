@@ -185,6 +185,47 @@ html {
   display: none;
 }
 
+@keyframes verse-fade {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.verse-fade {
+  animation: verse-fade 0.7s ease both;
+}
+
+@keyframes bg-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bg-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.bg-fade-in {
+  animation: bg-fade-in 1s ease both;
+}
+
+.bg-fade-out {
+  animation: bg-fade-out 1s ease both;
+}
+
 html {
   scroll-padding-top: 80px;
 }

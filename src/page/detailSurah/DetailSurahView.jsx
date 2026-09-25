@@ -113,6 +113,7 @@ const DetailSurahView = ({
    };
 
    const [openMenu, setOpenMenu] = useState(false);
+   const [openSettings, setOpenSettings] = useState(false);
 
    return (
       <>
@@ -163,7 +164,7 @@ const DetailSurahView = ({
                   <select
                      defaultValue={"25"}
                      className="select select-bordered border-slate-700 select-sm w-full text-slate-800 dark:text-gray-200 dark:border-gray-700 bg-white dark:bg-slate-700 pl-10"
-                     onChange={(f1) => setFont({ arab: f1.target.value })}
+                     onChange={(f1) => setFont((f) => ({ ...f, arab: f1.target.value }))}
                   >
                      <option value="20">Kecil</option>
                      <option value="25">Default</option>
@@ -176,7 +177,7 @@ const DetailSurahView = ({
                   <select
                      defaultValue={"16"}
                      className="select select-bordered border-slate-700 select-sm w-full text-slate-800dark:bg-slate-900 dark:border-gray-800 bg-white dark:bg-slate-700 pl-10"
-                     onChange={(f2) => setFont({ idn: f2.target.value })}
+                     onChange={(f2) => setFont((f) => ({ ...f, idn: f2.target.value }))}
                   >
                      <option value="14">Kecil</option>
                      <option value="16">Default</option>
@@ -413,57 +414,61 @@ const DetailSurahView = ({
                               {/* Menu muncul saat ayat diklik */}
                               {activeMenu === single.nomor && (
                                  <div className="absolute right-0 flex flex-row-reverse gap-2 top-[45px] bg-white dark:bg-slate-800 border rounded-md shadow-md text-sm w-max h-[40px] px-1 py-0.5 z-50">
-                                     <button className="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 cursor-pointer rounded-md"
-                                        onClick={() => {
-                                           navigator.clipboard.writeText(single.ar).then(() => {
-                                              toast.success("Copy Ayat Berhasil");
-                                           });
-                                        }}>
-                                        <svg
-                                           xmlns="http://www.w3.org/2000/svg"
-                                           width="18"
-                                           height="18"
-                                           viewBox="0 0 24 24"
-                                           fill="none"
-                                           stroke="currentColor"
-                                           strokeWidth="2"
-                                           strokeLinecap="round"
-                                           strokeLinejoin="round"
-                                           className="lucide lucide-save-all-icon lucide-save-all"
-                                        >
-                                           <path d="M10 2v3a1 1 0 0 0 1 1h5" />
-                                           <path d="M18 18v-6a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6" />
-                                           <path d="M18 22H4a2 2 0 0 1-2-2V6" />
-                                           <path d="M8 18a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9.172a2 2 0 0 1 1.414.586l2.828 2.828A2 2 0 0 1 22 6.828V16a2 2 0 0 1-2.01 2z" />
-                                        </svg>
-                                     </button>
-                                     <button className="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 cursor-pointer rounded-md"
-                                        onClick={() => {
-                                           navigator.clipboard.writeText(single.idn).then(() => {
-                                              toast.success("Copy Terjemahan Berhasil");
-                                           });
-                                        }}>
-                                        <svg
-                                           xmlns="http://www.w3.org/2000/svg"
-                                           width="18"
-                                           height="18"
-                                           viewBox="0 0 24 24"
-                                           fill="none"
-                                           stroke="currentColor"
-                                           strokeWidth="2"
-                                           strokeLinecap="round"
-                                           strokeLinejoin="round"
-                                           className="lucide lucide-scan-text-icon lucide-scan-text"
-                                        >
-                                           <path d="M3 7V5a2 2 0 0 1 2-2h2" />
-                                           <path d="M17 3h2a2 2 0 0 1 2 2v2" />
-                                           <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
-                                           <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
-                                           <path d="M7 8h8" />
-                                           <path d="M7 12h10" />
-                                           <path d="M7 16h6" />
-                                        </svg>
-                                     </button>
+                                    <button
+                                       className="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 cursor-pointer rounded-md"
+                                       onClick={() => {
+                                          navigator.clipboard.writeText(single.ar).then(() => {
+                                             toast.success("Copy Ayat Berhasil");
+                                          });
+                                       }}
+                                    >
+                                       <svg
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          width="18"
+                                          height="18"
+                                          viewBox="0 0 24 24"
+                                          fill="none"
+                                          stroke="currentColor"
+                                          strokeWidth="2"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                          className="lucide lucide-save-all-icon lucide-save-all"
+                                       >
+                                          <path d="M10 2v3a1 1 0 0 0 1 1h5" />
+                                          <path d="M18 18v-6a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6" />
+                                          <path d="M18 22H4a2 2 0 0 1-2-2V6" />
+                                          <path d="M8 18a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9.172a2 2 0 0 1 1.414.586l2.828 2.828A2 2 0 0 1 22 6.828V16a2 2 0 0 1-2.01 2z" />
+                                       </svg>
+                                    </button>
+                                    <button
+                                       className="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 cursor-pointer rounded-md"
+                                       onClick={() => {
+                                          navigator.clipboard.writeText(single.idn).then(() => {
+                                             toast.success("Copy Terjemahan Berhasil");
+                                          });
+                                       }}
+                                    >
+                                       <svg
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          width="18"
+                                          height="18"
+                                          viewBox="0 0 24 24"
+                                          fill="none"
+                                          stroke="currentColor"
+                                          strokeWidth="2"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                          className="lucide lucide-scan-text-icon lucide-scan-text"
+                                       >
+                                          <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                                          <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                                          <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                                          <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                                          <path d="M7 8h8" />
+                                          <path d="M7 12h10" />
+                                          <path d="M7 16h6" />
+                                       </svg>
+                                    </button>
                                     <button className="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 cursor-pointer rounded-md flex justify-center items-center">
                                        <label
                                           htmlFor={`tafsir-modal-${single.nomor}`}
@@ -644,6 +649,63 @@ const DetailSurahView = ({
                         </svg>
                      )}
                   </button>
+                  <div className="relative">
+                     <button
+                        onClick={() => setOpenSettings(!openSettings)}
+                        className="p-1 border h-full cursor-pointer rounded-md  text-rose-600 hover:text-flat-yellow-600 border-flat-red-300"
+                        aria-label="Pengaturan tampilan"
+                     >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-three-dots" viewBox="0 0 16 16">
+                           <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                        </svg>
+                     </button>
+                     {openSettings && (
+                        <div className="absolute bottom-12 right-0 w-[220px] p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-gray-700 shadow-md">
+                           <select
+                              value={font.arab}
+                              className="select select-bordered border-slate-700 select-sm w-full text-slate-800 dark:text-gray-200 dark:border-gray-700 bg-white dark:bg-slate-700"
+                              onChange={(f1) => setFont((f) => ({ ...f, arab: f1.target.value }))}
+                           >
+                              <option value="20">🕌 Arab: Kecil</option>
+                              <option value="25">🕌 Arab: Default</option>
+                              <option value="30">🕌 Arab: Besar</option>
+                              <option value="33">🕌 Arab: Sangat Besar</option>
+                           </select>
+                           <select
+                              value={font.idn}
+                              className="select select-bordered border-slate-700 select-sm w-full mt-2 text-slate-800 dark:text-gray-200 dark:border-gray-700 bg-white dark:bg-slate-700"
+                              onChange={(f2) => setFont((f) => ({ ...f, idn: f2.target.value }))}
+                           >
+                              <option value="14">📖 Idn: Kecil</option>
+                              <option value="16">📖 Idn: Default</option>
+                              <option value="20">📖 Idn: Besar</option>
+                              <option value="25">📖 Idn: Sangat Besar</option>
+                           </select>
+                           <div className="grid grid-cols-2 gap-2 mt-2">
+                              <button
+                                 onClick={() => setActiveTab(0)}
+                                 className={`rounded-md border cursor-pointer py-1 text-xs font-medium transition-colors ${
+                                    activeTab === 0
+                                       ? "bg-slate-900 text-white dark:bg-slate-600 border-slate-900 dark:border-slate-600"
+                                       : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-700"
+                                 }`}
+                              >
+                                 List
+                              </button>
+                              <button
+                                 onClick={() => setActiveTab(1)}
+                                 className={`rounded-md border cursor-pointer py-1 text-xs font-medium transition-colors ${
+                                    activeTab === 1
+                                       ? "bg-slate-900 text-white dark:bg-slate-600 border-slate-900 dark:border-slate-600"
+                                       : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-700"
+                                 }`}
+                              >
+                                 Baca
+                              </button>
+                           </div>
+                        </div>
+                     )}
+                  </div>
                </div>
                {(() => {
                   if (dataDetails?.surat_selanjutnya !== false) {

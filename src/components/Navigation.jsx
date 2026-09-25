@@ -37,7 +37,7 @@ const Navigation = (props) => {
 
    return (
       <div className="backdrop-blur-md bg-white/85 dark:bg-gray-800/60 border-b dark:border-gray-900 sticky top-0 z-100 h-[60px]">
-         <div className="navbar container mx-auto flex justify-between py-2">
+         <div className="navbar container mx-auto flex justify-between py-2 px-2 md:px-0">
             <div className="flex gap-4 md:gap-5">
                <LinkProgresBars
                   to="/"

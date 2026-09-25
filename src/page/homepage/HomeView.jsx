@@ -295,7 +295,7 @@ const HomeView = ({
                               <div
                                  type="button"
                                  onClick={() => localStorage.setItem("fromBookmark", true)}
-                                 className="relative w-full bg-white dark:bg-slate-900 h-full rounded-xl border-b-4 dark:border-gray-600  hover:border-slate-600 border border-slate-300 group  overflow-hidden"
+                                 className="relative w-full h-full bg-white dark:bg-zinc-800/60 rounded-xl border border-b-4 border-flat-gray-300 dark:border-flat-gray-600 hover:border-flat-gray-700 dark:hover:border-flat-gray-400 group overflow-hidden"
                               >
                                  <div className="text-left p-3 flex flex-col justify-center ">
                                     <div className="font-semibold text-lg font-serif mt-1">{lanjutBaca[0].surat}</div>
@@ -306,10 +306,7 @@ const HomeView = ({
                                        to={`/surah/${lanjutBaca[0].url}`}
                                        className={`mt-2 px-2.5 py-1.5 text-xs rounded-lg border border-gray-400 w-max
                                           transition-all duration-200 ease-out
-                                          shadow-[0_1px_2px_rgba(0,0,0,0.06),0_4px_8px_rgba(0,0,0,0.0.9),inset_0_1px_0_rgba(255,255,255,0.3)]
-                                          hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.15),inset_0_1px_2px_rgba(0,0,0,0.1)]
                                           hover:translate-y-px
-                                          active:shadow-[inset_0_3px_8px_rgba(0,0,0,0.25)]
                                           active:translate-y-[1.5px]
                                           focus:ring-2 ring-offset-2 ring-gray-700
                                           ${
@@ -387,7 +384,7 @@ const HomeView = ({
                         filteredData.map((s, index) => (
                            <LinkProgresBars
                               to={"/surah/" + numbertosurah[s.nomor]}
-                              className="relative rounded-xl w-full bg-white dark:bg-gray-800/50 border-b-4 dark:border-gray-600  hover:border-slate-600 border border-slate-300 active:translate-y-0.5 active:border-b"
+                              className="relative w-full bg-white dark:bg-zinc-800/60 rounded-xl border border-b-4 border-flat-gray-300 dark:border-flat-gray-600 hover:border-flat-gray-700 dark:hover:border-flat-gray-400 active:translate-y-0.5 active:border-b"
 
                               key={s.nama_latin + "-" + s.arti}
                            >
