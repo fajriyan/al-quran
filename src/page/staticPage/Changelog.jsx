@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router";
+import ProgresContext from "@/lib/ProgresContext";
 
 const SkeletonRow = () => (
    <tr>
@@ -15,6 +16,11 @@ const Changelog = () => {
    const [commits, setCommits] = useState([]);
    const [loading, setLoading] = useState(true);
    const [error, setError] = useState(null);
+   const [_, setProgressBar] = useContext(ProgresContext);
+
+   useEffect(() => {
+      setProgressBar(false);
+   }, []);
 
    useEffect(() => {
       fetch("https://api.github.com/repos/fajriyan/al-quran/commits")

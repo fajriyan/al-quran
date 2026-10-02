@@ -1,6 +1,14 @@
+import { useContext, useEffect } from "react";
 import { Link } from "react-router";
+import ProgresContext from "@/lib/ProgresContext";
 
 const NotFound = () => {
+   const [_, setProgressBar] = useContext(ProgresContext);
+
+   useEffect(() => {
+      setProgressBar(false);
+   }, []);
+
    return (
       <>
          <title>Error 404 | Page Not Found</title>

@@ -1,8 +1,5 @@
 @import "tailwindcss";
-
 @custom-variant dark (&:where(.dark, .dark *));
-
-@import "tailwindcss";
 
 @utility container {
   width: 100%;

@@ -1,11 +1,18 @@
+import { useContext, useEffect } from "react";
 import { Link } from "react-router";
+import ProgresContext from "@/lib/ProgresContext";
 
 const About = () => {
+   const [_, setProgressBar] = useContext(ProgresContext);
+
+   useEffect(() => {
+      setProgressBar(false);
+   }, []);
+
    return (
       <>
          <title>Tentang Quran Digital</title>
          <link rel="canonical" href="https://al-quran.pages.dev/about" />
-         {window.scrollTo({ top: 0 })}
          <div className="container mx-auto selection:bg-red-300 ">
             <div className="hero min-h-screen flex flex-wrap gap-1 justify-center content-center">
                <div className="px-3 md:px-0 w-full">
@@ -35,11 +42,22 @@ const About = () => {
                               itu, oleh karena itu saya membuat project ini untuk membantu semua orang dalam membaca dan memanfaatkannya untuk kebaikan, semoga bermanfaat dan
                               terimakasih.
                            </p>
-                           <div className="button-gr">
-                              <a href="http://linkedin.com/in/fajriyan/" className="btn hover:bg-slate-900 shadow-lg">
+                           <div className="flex flex-wrap items-center gap-3">
+                              <a
+                                 href="https://linkedin.com/in/fajriyan/"
+                                 target="_blank"
+                                 rel="noreferrer"
+                                 className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-slate-700"
+                              >
                                  Hubungi saya
                               </a>
-                              <a href="https://saweria.co/fajriyan" target="_blank" rel="noreferrer" className="btn btn-outline ml-3">
+
+                              <a
+                                 href="https://saweria.co/fajriyan"
+                                 target="_blank"
+                                 rel="noreferrer"
+                                 className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition-colors duration-200 hover:border-slate-900 hover:bg-slate-900 hover:text-white"
+                              >
                                  Donasi
                               </a>
                            </div>
