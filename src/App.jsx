@@ -63,6 +63,7 @@ function App() {
                   <Route path="/changelog" element={<Changelog />} />
                   <Route path="/matsurat" element={<Matsurat />} />
                   <Route path="/quiz" element={<Quiz />} />
+                  <Route path="/quiz/:id" element={<Quiz />} />
                   <Route path="/quote" element={<Screensaver />} />
                   <Route path="/doa-harian" element={<DailyPrayer />} />
                   <Route path="/*" element={<NotFound />} />

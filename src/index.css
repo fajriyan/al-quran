@@ -20,6 +20,33 @@
   }
 }
 
+:root,
+.light {
+  --canvas: #f7f6f3;
+  --surface: #ffffff;
+  --ink: #111111;
+  --muted: #787774;
+  --line: #eaeaea;
+}
+
+.dark {
+  --canvas: #111110;
+  --surface: #1a1a18;
+  --ink: #ece9e3;
+  --muted: #8b8880;
+  --line: #292824;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --font-editorial: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-mono-ui: ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+}
+
 @theme {
   --breakpoint-*: initial;
   --breakpoint-sm: 640px;
@@ -195,6 +222,40 @@ html {
 
 .verse-fade {
   animation: verse-fade 0.7s ease both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* staggered reveal for direct children, no JS needed */
+.rise-in > * {
+  animation: rise-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.rise-in > *:nth-child(2) {
+  animation-delay: 80ms;
+}
+.rise-in > *:nth-child(3) {
+  animation-delay: 160ms;
+}
+.rise-in > *:nth-child(4) {
+  animation-delay: 240ms;
+}
+.rise-in > *:nth-child(5) {
+  animation-delay: 320ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise-in > * {
+    animation: none;
+  }
 }
 
 @keyframes bg-fade-in {
