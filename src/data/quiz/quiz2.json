@@ -1,392 +1,337 @@
 [
-  {
-    "id": 1,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat berikut?",
-    "ayat": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
-    "options": [
-      "Hanya kepada-Mu kami menyembah dan hanya kepada-Mu kami mohon pertolongan",
-      "Tuhan Yang Maha Pengasih",
-      "Kami berlindung kepada Tuhan Yang Menguasai subuh",
-      "Segala puji bagi Allah"
-    ],
-    "correct": "Hanya kepada-Mu kami menyembah dan hanya kepada-Mu kami mohon pertolongan",
-    "surah": "Al-Fatihah",
-    "verse": 5
-  },
-  {
-    "id": 2,
-    "type": "pilihan_ganda",
-    "question": "Surah manakah yang dimulai dengan ayat 'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ'?",
-    "ayat": "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ",
-    "options": ["An-Nas", "Al-Falaq", "Al-Ikhlas", "Al-Masad"],
-    "correct": "Al-Falaq",
-    "surah": "Al-Falaq",
-    "verse": 1
-  },
-  {
-    "id": 3,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat 'مَالِكِ يَوْمِ الدِّينِ'?",
-    "ayat": "مَالِكِ يَوْمِ الدِّينِ",
-    "options": [
-      "Pemilik hari pembalasan",
-      "Tuhan Yang Maha Pengasih",
-      "Yang menciptakan langit dan bumi",
-      "Segala puji bagi Allah"
-    ],
-    "correct": "Pemilik hari pembalasan",
-    "surah": "Al-Fatihah",
-    "verse": 4
-  },
-  {
-    "id": 4,
-    "type": "pilihan_ganda",
-    "question": "Ayat 'اللَّهُ الصَّمَدُ' terdapat pada surah mana?",
-    "ayat": "اللَّهُ الصَّمَدُ",
-    "options": ["Al-Ikhlas", "Al-Falaq", "An-Nas", "Al-Ma'un"],
-    "correct": "Al-Ikhlas",
-    "surah": "Al-Ikhlas",
-    "verse": 2
-  },
-  {
-    "id": 5,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat 'وَمَا أَدْرَاكَ مَا الْقَرْآنُ'?",
-    "ayat": "وَمَا أَدْرَاكَ مَا الْقَرْآنُ",
-    "options": [
-      "Dan tahukah kamu apa itu Al-Quran?",
-      "Segala puji bagi Allah",
-      "Kami berlindung kepada Allah",
-      "Hanya kepada-Mu kami menyembah"
-    ],
-    "correct": "Dan tahukah kamu apa itu Al-Quran?",
-    "surah": "Al-Qari'ah",
-    "verse": 2
-  },
-  {
-    "id": 6,
-    "type": "pilihan_ganda",
-    "question": "Surah manakah yang disebut dengan 'Surah Penebus'?",
-    "ayat": "الْمُزَّمِّلُ",
-    "options": ["Al-Muzammil", "Al-Muddaththir", "Al-Qiyamah", "Al-Insan"],
-    "correct": "Al-Muzammil",
-    "surah": "Al-Muzammil",
-    "verse": 1
-  },
-  {
-    "id": 7,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat 'اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ'?",
-    "ayat": "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
-    "options": [
-      "Bacalah dengan (menyebut) nama Tuhanmu yang menciptakan",
-      "Hanya kepada-Mu kami menyembah",
-      "Segala puji bagi Allah",
-      "Tuhan Yang Maha Pengasih"
-    ],
-    "correct": "Bacalah dengan (menyebut) nama Tuhanmu yang menciptakan",
-    "surah": "Al-‘Alaq",
-    "verse": 1
-  },
-  {
-    "id": 8,
-    "type": "pilihan_ganda",
-    "question": "Ayat 'أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ' berarti?",
-    "ayat": "أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ",
-    "options": [
-      "Bukankah Kami telah lapangkan dadamu?",
-      "Segala puji bagi Allah",
-      "Tuhan Yang Maha Penyayang",
-      "Kami berlindung kepada Allah"
-    ],
-    "correct": "Bukankah Kami telah lapangkan dadamu?",
-    "surah": "Ash-Sharh",
-    "verse": 1
-  },
-  {
-    "id": 9,
-    "type": "pilihan_ganda",
-    "question": "Surah manakah yang berisi perintah untuk shalat dan zakat?",
-    "ayat": "أَقِمِ الصَّلَاةَ وَآتِ الزَّكَاةَ",
-    "options": ["Al-Baqarah", "Al-Ma'un", "Al-Muddaththir", "Al-Fajr"],
-    "correct": "Al-Baqarah",
-    "surah": "Al-Baqarah",
-    "verse": 43
-  },
-  {
-    "id": 10,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat 'وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ'?",
-    "ayat": "وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ",
-    "options": [
-      "Dan apabila hamba-hamba-Ku bertanya kepadamu tentang Aku, maka (jawablah), Bahwasanya Aku dekat",
-      "Tuhan Yang Maha Penyayang",
-      "Segala puji bagi Allah",
-      "Kami berlindung kepada Allah"
-    ],
-    "correct": "Dan apabila hamba-hamba-Ku bertanya kepadamu tentang Aku, maka (jawablah), Bahwasanya Aku dekat",
-    "surah": "Al-Baqarah",
-    "verse": 186
-  },
-  {
-    "id": 11,
-    "type": "pilihan_ganda",
-    "question": "Ayat 'فَإِنَّ مَعَ الْعُسْرِ يُسْرًا' mengandung arti?",
-    "ayat": "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",
-    "options": [
-      "Sesungguhnya bersama kesulitan ada kemudahan",
-      "Tuhan Yang Maha Pengasih",
-      "Segala puji bagi Allah",
-      "Kami berlindung kepada Allah"
-    ],
-    "correct": "Sesungguhnya bersama kesulitan ada kemudahan",
-    "surah": "Ash-Sharh",
-    "verse": 6
-  },
-  {
-    "id": 12,
-    "type": "pilihan_ganda",
-    "question": "Surah mana yang berisi perintah untuk beriman kepada hari akhir?",
-    "ayat": "وَآمَنُوا بِالْيَوْمِ الْآخِرِ",
-    "options": ["Al-Baqarah", "Al-Ma'idah", "Al-Anfal", "Al-Hujurat"],
-    "correct": "Al-Baqarah",
-    "surah": "Al-Baqarah",
-    "verse": 4
-  },
-  {
-    "id": 13,
-    "type": "pilihan_ganda",
-    "question": "Apa arti ayat 'وَلَا تَقْرَبُوا الزِّنَىٰ'?",
-    "ayat": "وَلَا تَقْرَبُوا الزِّنَىٰ",
-    "options": [
-      "Dan janganlah kamu mendekati zina",
-      "Segala puji bagi Allah",
-      "Tuhan Yang Maha Pengasih",
-      "Kami berlindung kepada Allah"
-    ],
-    "correct": "Dan janganlah kamu mendekati zina",
-    "surah": "Al-Isra'",
-    "verse": 32
-  },
-  {
-    "id": 14,
-    "type": "pilihan_ganda",
-    "question": "Surah mana yang dimulai dengan 'حم' (Ha Mim)?",
-    "ayat": "حم",
-    "options": ["Al-Baqarah", "Al-Imran", "Al-Furqan", "Ash-Shu'ara"],
-    "correct": "Al-Baqarah",
-    "surah": "Al-Baqarah",
-    "verse": 1
-  },
-  {
-    "id": 15,
-    "type": "pilihan_ganda",
-    "question": "Apa arti ayat 'يَا أَيُّهَا الَّذِينَ آمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا'?",
-    "ayat": "يَا أَيُّهَا الَّذِينَ آمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا",
-    "options": [
-      "Hai orang-orang yang beriman, bersabarlah kamu dan kuatkanlah kesabaranmu dan tetaplah bersiap-siaga",
-      "Segala puji bagi Allah",
-      "Tuhan Yang Maha Pengasih",
-      "Kami berlindung kepada Allah"
-    ],
-    "correct": "Hai orang-orang yang beriman, bersabarlah kamu dan kuatkanlah kesabaranmu dan tetaplah bersiap-siaga",
-    "surah": "Al-Imran",
-    "verse": 200
-  },
-  {
-    "id": 16,
-    "type": "pilihan_ganda",
-    "question": "Ayat 'وَقُل رَّبِّ زِدْنِي عِلْمًا' memiliki arti?",
-    "ayat": "وَقُل رَّبِّ زِدْنِي عِلْمًا",
-    "options": [
-      "Dan katakanlah: \"Ya Tuhanku, tambahkanlah ilmu kepadaku\"",
-      "Segala puji bagi Allah",
-      "Tuhan Yang Maha Penyayang",
-      "Kami berlindung kepada Allah"
-    ],
-    "correct": "Dan katakanlah: \"Ya Tuhanku, tambahkanlah ilmu kepadaku\"",
-    "surah": "Taha",
-    "verse": 114
-  },
-  {
-    "id": 17,
-    "type": "pilihan_ganda",
-    "question": "Surah mana yang berisi larangan memakan harta anak yatim secara bathil?",
-    "ayat": "وَلَا تَقْرَبُوا مَالَ الْيَتِيمِ إِلَّا بِالَّتِي هِيَ أَحْسَنُ",
-    "options": ["An-Nisa'", "Al-Ma'idah", "Al-Baqarah", "Al-Anfal"],
-    "correct": "An-Nisa'",
-    "surah": "An-Nisa'",
-    "verse": 2
-  },
-  {
-    "id": 18,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat 'إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ'?",
-    "ayat": "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ",
-    "options": [
-      "Sesungguhnya orang-orang beriman itu bersaudara",
-      "Segala puji bagi Allah",
-      "Tuhan Yang Maha Pengasih",
-      "Kami berlindung kepada Allah"
-    ],
-    "correct": "Sesungguhnya orang-orang beriman itu bersaudara",
-    "surah": "Al-Hujurat",
-    "verse": 10
-  },
-  {
-    "id": 19,
-    "type": "pilihan_ganda",
-    "question": "Surah mana yang mengandung ayat 'وَاصْبِرْ وَمَا صَبْرُكَ إِلَّا بِاللَّهِ'?",
-    "ayat": "وَاصْبِرْ وَمَا صَبْرُكَ إِلَّا بِاللَّهِ",
-    "options": ["An-Nahl", "Al-Baqarah", "Yusuf", "Al-Anfal"],
-    "correct": "An-Nahl",
-    "surah": "An-Nahl",
-    "verse": 127
-  },
-  {
-    "id": 20,
-    "type": "pilihan_ganda",
-    "question": "Apa arti ayat 'وَلَا تَقْتُلُوا النَّفْسَ الَّتِي حَرَّمَ اللَّهُ إِلَّا بِالْحَقِّ'?",
-    "ayat": "وَلَا تَقْتُلُوا النَّفْسَ الَّتِي حَرَّمَ اللَّهُ إِلَّا بِالْحَقِّ",
-    "options": [
-      "Dan janganlah kamu membunuh jiwa yang diharamkan Allah kecuali dengan alasan yang benar",
-      "Segala puji bagi Allah",
-      "Tuhan Yang Maha Penyayang",
-      "Kami berlindung kepada Allah"
-    ],
-    "correct": "Dan janganlah kamu membunuh jiwa yang diharamkan Allah kecuali dengan alasan yang benar",
-    "surah": "Al-Isra'",
-    "verse": 33
-  },
-  {
-    "id": 21,
-    "type": "pilihan_ganda",
-    "question": "Surah manakah yang mengandung ayat 'قُلْ هُوَ اللَّهُ أَحَدٌ'?",
-    "ayat": "قُلْ هُوَ اللَّهُ أَحَدٌ",
-    "options": ["Al-Ikhlas", "An-Nas", "Al-Falaq", "Al-Kafirun"],
-    "correct": "Al-Ikhlas",
-    "surah": "Al-Ikhlas",
-    "verse": 1
-  },
-  {
-    "id": 22,
-    "type": "pilihan_ganda",
-    "question": "Apa arti ayat 'الرَّحْمَنُ عَلَّمَ الْقُرْآنَ'?",
-    "ayat": "الرَّحْمَنُ عَلَّمَ الْقُرْآنَ",
-    "options": [
-      "Yang Maha Pengasih, Dia mengajarkan Al-Quran",
-      "Segala puji bagi Allah",
-      "Kami berlindung kepada Allah",
-      "Tuhan Yang Maha Pengasih"
-    ],
-    "correct": "Yang Maha Pengasih, Dia mengajarkan Al-Quran",
-    "surah": "Ar-Rahman",
-    "verse": "1-2"
-  },
-  {
-    "id": 23,
-    "type": "pilihan_ganda",
-    "question": "Surah mana yang ayatnya berbunyi 'لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ'?",
-    "ayat": "لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ",
-    "options": ["Al-Baqarah", "Al-Ikhlas", "Al-Falaq", "Al-Mulk"],
-    "correct": "Al-Baqarah",
-    "surah": "Al-Baqarah",
-    "verse": 255
-  },
-  {
-    "id": 24,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat 'فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ'?",
-    "ayat": "فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ",
-    "options": [
-      "Maka nikmat Tuhan kamu yang manakah yang kamu dustakan?",
-      "Segala puji bagi Allah",
-      "Tuhan Yang Maha Pengasih",
-      "Kami berlindung kepada Allah"
-    ],
-    "correct": "Maka nikmat Tuhan kamu yang manakah yang kamu dustakan?",
-    "surah": "Ar-Rahman",
-    "verse": 13
-  },
-  {
-    "id": 25,
-    "type": "pilihan_ganda",
-    "question": "Ayat 'وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ' artinya?",
-    "ayat": "وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ",
-    "options": [
-      "Dan apabila aku sakit, Dialah yang menyembuhkan",
-      "Segala puji bagi Allah",
-      "Tuhan Yang Maha Penyayang",
-      "Kami berlindung kepada Allah"
-    ],
-    "correct": "Dan apabila aku sakit, Dialah yang menyembuhkan",
-    "surah": "Asy-Syu'ara",
-    "verse": 80
-  },
-  {
-    "id": 26,
-    "type": "pilihan_ganda",
-    "question": "Surah apa yang disebut juga 'Surah Penutup'?",
-    "ayat": "قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
-    "options": ["An-Nas", "Al-Falaq", "Al-Ikhlas", "Al-Masad"],
-    "correct": "An-Nas",
-    "surah": "An-Nas",
-    "verse": 1
-  },
-  {
-    "id": 27,
-    "type": "pilihan_ganda",
-    "question": "Apa arti ayat 'إِنَّ اللَّهَ كَانَ عَلَيْكُمْ رَقِيبًا'?",
-    "ayat": "إِنَّ اللَّهَ كَانَ عَلَيْكُمْ رَقِيبًا",
-    "options": [
-      "Sesungguhnya Allah Maha Mengawasi kamu",
-      "Segala puji bagi Allah",
-      "Tuhan Yang Maha Penyayang",
-      "Kami berlindung kepada Allah"
-    ],
-    "correct": "Sesungguhnya Allah Maha Mengawasi kamu",
-    "surah": "An-Nisa'",
-    "verse": 1
-  },
-  {
-    "id": 28,
-    "type": "pilihan_ganda",
-    "question": "Surah manakah yang disebut 'Al-Furqan'?",
-    "ayat": "تَبَارَكَ الَّذِي نَزَّلَ الْفُرْقَانَ",
-    "options": ["Al-Furqan", "Al-Baqarah", "Al-Mulk", "Al-An'am"],
-    "correct": "Al-Furqan",
-    "surah": "Al-Furqan",
-    "verse": 1
-  },
-  {
-    "id": 29,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat 'يَا أَيُّهَا النَّاسُ اعْبُدُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ'?",
-    "ayat": "يَا أَيُّهَا النَّاسُ اعْبُدُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ",
-    "options": [
-      "Wahai manusia, sembahlah Tuhanmu yang telah menciptakanmu",
-      "Segala puji bagi Allah",
-      "Tuhan Yang Maha Penyayang",
-      "Kami berlindung kepada Allah"
-    ],
-    "correct": "Wahai manusia, sembahlah Tuhanmu yang telah menciptakanmu",
-    "surah": "An-Nisa'",
-    "verse": 1
-  },
-  {
-    "id": 30,
-    "type": "pilihan_ganda",
-    "question": "Ayat 'إِنَّ مَعَ الْعُسْرِ يُسْرًا' mengandung pesan apa?",
-    "ayat": "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
-    "options": [
-      "Bahwa setiap kesulitan pasti ada kemudahan",
-      "Segala puji bagi Allah",
-      "Tuhan Yang Maha Penyayang",
-      "Kami berlindung kepada Allah"
-    ],
-    "correct": "Bahwa setiap kesulitan pasti ada kemudahan",
-    "surah": "Ash-Sharh",
-    "verse": 6
-  }
+   {
+      "id": 1,
+      "type": "pilihan_ganda",
+      "question": "Ayat يَٰٓأَيُّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ terdapat dalam surah...",
+      "ayat": "يَٰٓأَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ",
+      "options": ["Al-Fil", "An-Nas", "Al-Fajr", "Ad-Duha"],
+      "correct": "Al-Fajr",
+      "surah": "Al-Fajr",
+      "verse": "27"
+   },
+   {
+      "id": 2,
+      "type": "pilihan_ganda",
+      "question": "Surah An-Nasr diturunkan di...",
+      "ayat": "إِذَا جَآءَ نَصْرُ اللَّهِ وَالْفَتْحُ",
+      "options": ["Makkah", "Mesir", "Madinah", "Syria"],
+      "correct": "Madinah",
+      "surah": "An-Nasr",
+      "verse": "1"
+   },
+   {
+      "id": 3,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah As-Saff?",
+      "ayat": "وَالصَّٰٓفَّٰتِ صَفًّا",
+      "options": ["13", "15", "12", "14"],
+      "correct": "14",
+      "surah": "As-Saffat",
+      "verse": "1"
+   },
+   {
+      "id": 4,
+      "type": "pilihan_ganda",
+      "question": "Pilih terjemahan yang tepat untuk ayat ini.",
+      "ayat": "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
+      "options": [
+         "Sesungguhnya akan datang dua kesulitan berturut-turut.",
+         "Sesungguhnya bersama kemudahan ada kesulitan.",
+         "Sesungguhnya bersama kesulitan ada kemudahan.",
+         "Sesungguhnya kesulitan itu pasti akan hilang seketika."
+      ],
+      "correct": "Sesungguhnya bersama kesulitan ada kemudahan.",
+      "surah": "Ash-Sharh",
+      "verse": "6"
+   },
+   {
+      "id": 5,
+      "type": "pilihan_ganda",
+      "question": "Apa arti kata وَدَّعَكَ (wadda'aka) dalam مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ?",
+      "ayat": "مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ",
+      "options": ["Meninggalkan engkau", "Mencerahkan wajahmu", "Menolongmu", "Mencintaimu"],
+      "correct": "Meninggalkan engkau",
+      "surah": "Ad-Duha",
+      "verse": "3"
+   },
+   {
+      "id": 6,
+      "type": "pilihan_ganda",
+      "question": "Ayat فَجَعَلَهُمْ كَعَصْفٍ مَّأْكُولٍ menggambarkan...",
+      "ayat": "فَجَعَلَهُمْ كَعَصْفٍ مَّأْكُولٍ",
+      "options": [
+         "Allah menjadikan mereka rumput yang layu di musim panas",
+         "Mereka berubah menjadi abu yang berhamburan ke segala arah",
+         "Mereka menjadi begitu kecil sampai tak terlihat lagi",
+         "Pasukan bergajah dijadikan seperti daun yang dimakan ulat"
+      ],
+      "correct": "Pasukan bergajah dijadikan seperti daun yang dimakan ulat",
+      "surah": "Al-Fil",
+      "verse": "5"
+   },
+   {
+      "id": 7,
+      "type": "pilihan_ganda",
+      "question": "Ayat قَدْ أَفْلَحَ مَن زَكَّىٰهَا terdapat dalam surah...",
+      "ayat": "قَدْ أَفْلَحَ مَن زَكَّىٰهَا",
+      "options": ["Ash-Shams", "Al-Qadr", "Al-Asr", "At-Tin"],
+      "correct": "Ash-Shams",
+      "surah": "Ash-Shams",
+      "verse": "9"
+   },
+   {
+      "id": 8,
+      "type": "pilihan_ganda",
+      "question": "Surah Az-Zalzalah diturunkan di...",
+      "ayat": "إِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا",
+      "options": ["Syria", "Mesir", "Madinah", "Makkah"],
+      "correct": "Madinah",
+      "surah": "Az-Zalzalah",
+      "verse": "1"
+   },
+   {
+      "id": 9,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah At-Tin?",
+      "ayat": "وَالتِّينِ وَالزَّيْتُونِ",
+      "options": ["9", "7", "8", "6"],
+      "correct": "8",
+      "surah": "At-Tin",
+      "verse": "1"
+   },
+   {
+      "id": 10,
+      "type": "pilihan_ganda",
+      "question": "Pilih terjemahan yang tepat untuk ayat ini.",
+      "ayat": "لَقَدْ خَلَقْنَا الْإِنسَٰنَ فِى كَبَدٍ",
+      "options": [
+         "Sungguh, Kami telah menciptakan manusia yang paling rendah.",
+         "Sungguh, Kami telah menciptakan manusia berada dalam susah payah.",
+         "Sungguh, Kami telah menciptakan manusia dalam waktu yang singkat.",
+         "Sungguh, Kami telah menciptakan manusia dalam keadaan lemah."
+      ],
+      "correct": "Sungguh, Kami telah menciptakan manusia berada dalam susah payah.",
+      "surah": "Al-Balad",
+      "verse": "4"
+   },
+   {
+      "id": 11,
+      "type": "pilihan_ganda",
+      "question": "Apa arti kata الْأَمِينِ (al-amine) dalam وَهَٰذَا الْبَلَدِ الْأَمِينِ?",
+      "ayat": "وَهَٰذَا الْبَلَدِ الْأَمِينِ",
+      "options": ["Yang tinggi", "Yang aman", "Yang berat", "Yang kuno"],
+      "correct": "Yang aman",
+      "surah": "At-Tin",
+      "verse": "3"
+   },
+   {
+      "id": 12,
+      "type": "pilihan_ganda",
+      "question": "Surah manakah yang ayat pertamanya merupakan wahyu pertama yang turun kepada Nabi Muhammad saw?",
+      "ayat": "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِى خَلَقَ",
+      "options": ["Al-Qadr", "Al-Alaq", "Al-Muzzammil", "At-Tin"],
+      "correct": "Al-Alaq",
+      "surah": "Al-Alaq",
+      "verse": "1"
+   },
+   {
+      "id": 13,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah Al-Fajr?",
+      "ayat": "وَالْفَجْرِ",
+      "options": ["31", "30", "29", "32"],
+      "correct": "30",
+      "surah": "Al-Fajr",
+      "verse": "1"
+   },
+   {
+      "id": 14,
+      "type": "pilihan_ganda",
+      "question": "Pilih terjemahan yang tepat untuk ayat ini.",
+      "ayat": "وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا",
+      "options": [
+         "Dan mereka menunggu tahun baru sebelum memberi makan,",
+         "Dan mereka menolak memberi makanan kepada orang miskin dan anak yatim,",
+         "Dan mereka memberi makan orang miskin hanya agar dipuji orang banyak,",
+         "Dan mereka memberikan makanan yang disukainya kepada orang miskin, anak yatim dan orang yang ditawan,"
+      ],
+      "correct": "Dan mereka memberikan makanan yang disukainya kepada orang miskin, anak yatim dan orang yang ditawan,",
+      "surah": "Al-Insan",
+      "verse": "8"
+   },
+   {
+      "id": 15,
+      "type": "pilihan_ganda",
+      "question": "Ayat وَالصَّٰفَّٰتِ صَفًّا terdapat dalam surah...",
+      "ayat": "وَالصَّٰٓفَّٰتِ صَفًّا",
+      "options": ["As-Saff", "As-Saffat", "Ad-Duha", "Al-A'la"],
+      "correct": "As-Saff",
+      "surah": "As-Saffat",
+      "verse": "1"
+   },
+   {
+      "id": 16,
+      "type": "pilihan_ganda",
+      "question": "Apa arti kata سَبِّحِ (sabbi'h) dalam سَبِّحِ اسْمَ رَبِّكَ الْأَعْلَىٰ?",
+      "ayat": "سَبِّحِ اسْمَ رَبِّكَ الْأَعْلَى",
+      "options": ["Berlari-larilah", "Bersucikanlah", "Bersiap-siaplah", "Bersajaklah"],
+      "correct": "Bersucikanlah",
+      "surah": "Al-A'la",
+      "verse": "1"
+   },
+   {
+      "id": 17,
+      "type": "pilihan_ganda",
+      "question": "Surah Ar-Rahman diturunkan di...",
+      "ayat": "الرَّحْمَٰنُ",
+      "options": ["Madinah", "Makkah", "Syria", "Mesir"],
+      "correct": "Madinah",
+      "surah": "Ar-Rahman",
+      "verse": "1"
+   },
+   {
+      "id": 18,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah Al-Layl?",
+      "ayat": "وَالَّيْلِ إِذَا يَغْشَىٰ",
+      "options": ["20", "19", "21", "22"],
+      "correct": "21",
+      "surah": "Al-Layl",
+      "verse": "1"
+   },
+   {
+      "id": 19,
+      "type": "pilihan_ganda",
+      "question": "Pesan utama ayat فَإِذَا قُضِيَتِ الصَّلَوٰةُ فَانتَشِرُوا فِى الْأَرْضِ وَابْتَغُوا مِن فَضْلِ اللَّهِ وَاذْكُرُوا اللَّهَ كَثِيرًا لَّعَلَّكُمْ تُفْلِحُونَ adalah...",
+      "ayat": "فَإِذَا قُضِيَتِ الصَّلَوٰةُ فَانتَشِرُوا فِى الْأَرْضِ وَابْتَغُوا مِن فَضْلِ اللَّهِ وَاذْكُرُوا اللَّهَ كَثِيرًا لَّعَلَّكُمْ تُفْلِحُونَ",
+      "options": [
+         "Setelah salat selesai, manusia boleh kembali bekerja dan tetap mengingat Allah agar beruntung",
+         "Salat hari Jumat harus diteruskan sampai selesai",
+         "Salat boleh ditunda selama masih ada pekerjaan yang mendesak",
+         "Setelah salat selesai, manusia dilarang melakukan kegiatan"
+      ],
+      "correct": "Setelah salat selesai, manusia boleh kembali bekerja dan tetap mengingat Allah agar beruntung",
+      "surah": "Al-Jumu'ah",
+      "verse": "10"
+   },
+   {
+      "id": 20,
+      "type": "pilihan_ganda",
+      "question": "Ayat وَمَا تَفَرَّقَ الَّذِينَ أُوتُوا الْكِتَٰبَ إِلَّا مِن بَعْدِ مَا جَآءَتْهُمُ الْبَيِّنَةُ terdapat dalam surah...",
+      "ayat": "وَمَا تَفَرَّقَ الَّذِينَ أُوتُوا الْكِتَٰبَ إِلَّا مِن بَعْدِ مَا جَآءَتْهُمُ الْبَيِّنَةُ",
+      "options": ["At-Talaq", "Al-Mumtahanah", "Al-Bayyinah", "Al-Hujurat"],
+      "correct": "Al-Bayyinah",
+      "surah": "Al-Bayyinah",
+      "verse": "4"
+   },
+   {
+      "id": 21,
+      "type": "pilihan_ganda",
+      "question": "Apa arti kata عَلَقٍ ('alqin) dalam خَلَقَ الْإِنسَٰنَ مِنْ عَلَقٍ?",
+      "ayat": "خَلَقَ الْإِنسَٰنَ مِنْ عَلَقٍ",
+      "options": ["Tanah liat", "Segumpal darah", "Air yang murni", "Tulang belulang"],
+      "correct": "Segumpal darah",
+      "surah": "Al-Alaq",
+      "verse": "2"
+   },
+   {
+      "id": 22,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah Al-A'la?",
+      "ayat": "سَبِّحِ اسْمَ رَبِّكَ الْأَعْلَى",
+      "options": ["19", "17", "18", "20"],
+      "correct": "19",
+      "surah": "Al-A'la",
+      "verse": "1"
+   },
+   {
+      "id": 23,
+      "type": "pilihan_ganda",
+      "question": "Pilih terjemahan yang tepat untuk ayat ini.",
+      "ayat": "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِى خَلَقَ",
+      "options": [
+         "Bacalah dengan (menyebut) nama Tuhanmu yang Maha Tinggi.",
+         "Bacalah dengan (menyebut) nama Tuhanmu yang menciptakan.",
+         "Bacalah dengan (menyebut) nama Tuhanmu yang Maha Mendengar.",
+         "Bacalah dengan (menyebut) nama Tuhanmu yang Maha Mengetahui."
+      ],
+      "correct": "Bacalah dengan (menyebut) nama Tuhanmu yang menciptakan.",
+      "surah": "Al-Alaq",
+      "verse": "1"
+   },
+   {
+      "id": 24,
+      "type": "pilihan_ganda",
+      "question": "Surah Al-Hadid diturunkan di...",
+      "ayat": "سَبَّحَ لِلَّهِ مَا فِى السَّمَٰوَٰتِ وَالْأَرْضِ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
+      "options": ["Makkah", "Mesir", "Madinah", "Syria"],
+      "correct": "Madinah",
+      "surah": "Al-Hadid",
+      "verse": "1"
+   },
+   {
+      "id": 25,
+      "type": "pilihan_ganda",
+      "question": "Surah manakah yang memerintahkan membaca Al-Qur'an dengan perlahan-lahan (وَرَتِّلِ الْقُرْءَانَ تَرْتِيلًا)?",
+      "ayat": "أَوْ زِدْ عَلَيْهِ وَرَتِّلِ الْقُرْءَانَ تَرْتِيلًا",
+      "options": ["Al-Muddaththir", "Al-Hijr", "Al-Muzzammil", "Al-Fajr"],
+      "correct": "Al-Muzzammil",
+      "surah": "Al-Muzzammil",
+      "verse": "4"
+   },
+   {
+      "id": 26,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah Al-Qari'ah?",
+      "ayat": "الْقَارِعَةُ",
+      "options": ["12", "10", "11", "9"],
+      "correct": "11",
+      "surah": "Al-Qari'ah",
+      "verse": "1"
+   },
+   {
+      "id": 27,
+      "type": "pilihan_ganda",
+      "question": "Dalam terjemahan, الْقَارِعَةُ (al-qari'ah) berarti...",
+      "ayat": "مَا الْقَارِعَةُ",
+      "options": ["Panas menyengat", "Gempa bumi", "Hari Kiamat", "Hujan deras"],
+      "correct": "Hari Kiamat",
+      "surah": "Al-Qari'ah",
+      "verse": "2"
+   },
+   {
+      "id": 28,
+      "type": "pilihan_ganda",
+      "question": "Ayat وَالسَّمْسِ وَضُحَىٰهَا terdapat dalam surah...",
+      "ayat": "وَالشَّمْسِ وَضُحَىٰهَا",
+      "options": ["Al-Layl", "Ash-Shams", "Al-Balad", "Al-A'la"],
+      "correct": "Ash-Shams",
+      "surah": "Ash-Shams",
+      "verse": "1"
+   },
+   {
+      "id": 29,
+      "type": "pilihan_ganda",
+      "question": "Pesan utama ayat وَاذْكُرِ اسْمَ رَبِّكَ وَتَبَتَّلْ إِلَيْهِ تَبْتِيلًا adalah...",
+      "ayat": "وَاذْكُرِ اسْمَ رَبِّكَ وَتَبَتَّلْ إِلَيْهِ تَبْتِيلًا",
+      "options": [
+         "Beristirahat dari bekerja agar badan tetap sehat",
+         "Menyembah berhala untuk memperoleh keuntungan",
+         "Menyebut nama Tuhan dan beribadah kepada-Nya dengan seluruh hati",
+         "Mengatur waktu dan merencanakan kegiatan"
+      ],
+      "correct": "Menyebut nama Tuhan dan beribadah kepada-Nya dengan seluruh hati",
+      "surah": "Al-Muzzammil",
+      "verse": "8"
+   },
+   {
+      "id": 30,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah Quraysh?",
+      "ayat": "لِإِيلَٰفِ قُرَيْشٍ",
+      "options": ["6", "3", "5", "4"],
+      "correct": "4",
+      "surah": "Quraysh",
+      "verse": "1"
+   }
 ]

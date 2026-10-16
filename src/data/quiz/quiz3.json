@@ -1,432 +1,322 @@
 [
-  {
-    "id": 1,
-    "type": "pilihan_ganda",
-    "question": "Apa makna dari ayat berikut?  \n\"وَسَخَّرَ لَكُمُ اللَّيْلَ وَالنَّهَارَ\"",
-    "ayat": "وَسَخَّرَ لَكُمُ اللَّيْلَ وَالنَّهَارَ",
-    "options": [
-      "Allah menundukkan malam dan siang untukmu",
-      "Allah menciptakan langit dan bumi",
-      "Allah menurunkan hujan",
-      "Allah Maha Pengasih"
-    ],
-    "correct": "Allah menundukkan malam dan siang untukmu",
-    "surah": "Ibrahim",
-    "verse": 33
-  },
-  {
-    "id": 2,
-    "type": "pilihan_ganda",
-    "question": "Dalam surah Al-Mulk ayat 15, apa yang diperintahkan kepada manusia terkait bumi?",
-    "ayat": "هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا",
-    "options": [
-      "Manusia diperintahkan bertani dan berbuat baik di bumi",
-      "Manusia diperintahkan membakar bumi",
-      "Manusia diperintahkan meninggalkan bumi",
-      "Tidak ada perintah khusus"
-    ],
-    "correct": "Manusia diperintahkan bertani dan berbuat baik di bumi",
-    "surah": "Al-Mulk",
-    "verse": 15
-  },
-  {
-    "id": 3,
-    "type": "pilihan_ganda",
-    "question": "Apa arti istilah 'الضَّالِّينَ' dalam ayat Al-Fatihah ayat 7?",
-    "ayat": "غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
-    "options": [
-      "Orang-orang yang sesat",
-      "Orang-orang yang diberi rahmat",
-      "Orang-orang yang kaya",
-      "Orang-orang yang sabar"
-    ],
-    "correct": "Orang-orang yang sesat",
-    "surah": "Al-Fatihah",
-    "verse": 7
-  },
-  {
-    "id": 4,
-    "type": "pilihan_ganda",
-    "question": "Surah manakah yang disebut sebagai 'Al-Mufassal' (surah-surah yang terperinci) dalam Al-Quran?",
-    "ayat": "تِلْكَ آيَاتُ الْكِتَابِ الْمُبِينِ",
-    "options": [
-      "Surah yang panjang di juz 30",
-      "Surah yang dimulai dari juz 29 hingga 30",
-      "Surah-surah yang dimulai dari juz 29 hingga 30, biasanya pendek dan terperinci",
-      "Semua surah di juz 1"
-    ],
-    "correct": "Surah-surah yang dimulai dari juz 29 hingga 30, biasanya pendek dan terperinci",
-    "surah": "Juz 29-30",
-    "verse": 1
-  },
-  {
-    "id": 5,
-    "type": "pilihan_ganda",
-    "question": "Dalam surah Al-Baqarah ayat 255 (Ayat Kursi), apa makna dari 'اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ'?",
-    "ayat": "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ",
-    "options": [
-      "Allah adalah satu-satunya Tuhan, Maha Hidup dan Maha Mengurus",
-      "Allah mempunyai banyak sekutu",
-      "Allah menciptakan langit saja",
-      "Allah beristirahat"
-    ],
-    "correct": "Allah adalah satu-satunya Tuhan, Maha Hidup dan Maha Mengurus",
-    "surah": "Al-Baqarah",
-    "verse": 255
-  },
-  {
-    "id": 6,
-    "type": "pilihan_ganda",
-    "question": "Apa konteks ayat 'فَإِنَّ مَعَ الْعُسْرِ يُسْرًا' yang muncul dua kali berturut-turut di surah Ash-Sharh?",
-    "ayat": "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",
-    "options": [
-      "Memberikan penegasan bahwa setiap kesulitan disertai kemudahan",
-      "Perintah untuk berperang",
-      "Larangan memakan harta orang lain",
-      "Perintah untuk shalat"
-    ],
-    "correct": "Memberikan penegasan bahwa setiap kesulitan disertai kemudahan",
-    "surah": "Ash-Sharh",
-    "verse": "5-6"
-  },
-  {
-    "id": 7,
-    "type": "pilihan_ganda",
-    "question": "Apa makna istilah 'الْحَقُّ مِن رَّبِّكَ فَلَا تَكُونَنَّ مِنَ الْمُمْتَرِينَ' dalam surah Al-Baqarah ayat 147?",
-    "ayat": "الْحَقُّ مِن رَّبِّكَ فَلَا تَكُونَنَّ مِنَ الْمُمْتَرِينَ",
-    "options": [
-      "Kebenaran datang dari Tuhanmu, maka janganlah kamu termasuk orang yang ragu",
-      "Tuhan menciptakan manusia dari tanah",
-      "Hari kiamat pasti datang",
-      "Allah Maha Pengasih"
-    ],
-    "correct": "Kebenaran datang dari Tuhanmu, maka janganlah kamu termasuk orang yang ragu",
-    "surah": "Al-Baqarah",
-    "verse": 147
-  },
-  {
-    "id": 8,
-    "type": "pilihan_ganda",
-    "question": "Apa yang dimaksud dengan 'الرَّجِيمُ' dalam surah Al-Baqarah ayat 98?",
-    "ayat": "مَن كَانَ عَدُوًّا لِلَّهِ وَمَلَائِكَتِهِ وَرُسُلِهِ وَجِبْرِيلَ وَمِيكَالَ فَإِنَّ اللَّهَ عَدُوٌّ لِلْكَافِرِينَ",
-    "options": [
-      "Orang yang terkena laknat dan terbuang",
-      "Orang yang terpilih oleh Allah",
-      "Malaikat penjaga surga",
-      "Nama nabi"
-    ],
-    "correct": "Orang yang terkena laknat dan terbuang",
-    "surah": "Al-Baqarah",
-    "verse": 98
-  },
-  {
-    "id": 9,
-    "type": "pilihan_ganda",
-    "question": "Ayat 'وَالَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ سَنُدْخِلُهُمْ جَنَّاتٍ' memberikan janji apa?",
-    "ayat": "وَالَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ سَنُدْخِلُهُمْ جَنَّاتٍ",
-    "options": [
-      "Janji surga bagi orang beriman dan beramal shaleh",
-      "Janji kebinasaan",
-      "Larangan berbohong",
-      "Perintah puasa"
-    ],
-    "correct": "Janji surga bagi orang beriman dan beramal shaleh",
-    "surah": "Al-Baqarah",
-    "verse": 82
-  },
-  {
-    "id": 10,
-    "type": "pilihan_ganda",
-    "question": "Dalam konteks Al-Quran, apa arti istilah 'الْحَسْرَةُ' dalam surah Ali Imran ayat 191?",
-    "ayat": "الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ وَيَتَفَكَّرُونَ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ رَبَّنَا مَا خَلَقْتَ هَٰذَا بَاطِلًا سُبْحَانَكَ فَقِنَا عَذَابَ النَّارِ",
-    "options": [
-      "Penyesalan dan kesedihan mendalam karena kekafiran",
-      "Kebahagiaan di surga",
-      "Perintah berdzikir",
-      "Larangan berbuat maksiat"
-    ],
-    "correct": "Penyesalan dan kesedihan mendalam karena kekafiran",
-    "surah": "Ali Imran",
-    "verse": 191
-  },
-  {
-    "id": 11,
-    "type": "pilihan_ganda",
-    "question": "Apa makna dari ayat 'لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا'?",
-    "ayat": "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا",
-    "options": [
-      "Allah tidak membebani seseorang kecuali sesuai dengan kemampuannya",
-      "Allah membebani dengan tugas berat",
-      "Manusia harus berbuat sekuat tenaga",
-      "Hari kiamat pasti datang"
-    ],
-    "correct": "Allah tidak membebani seseorang kecuali sesuai dengan kemampuannya",
-    "surah": "Al-Baqarah",
-    "verse": 286
-  },
-  {
-    "id": 12,
-    "type": "pilihan_ganda",
-    "question": "Surah manakah yang memulai dengan lafadz 'حم' dan menegaskan Al-Quran sebagai wahyu dari Allah?",
-    "ayat": "حم\nتَنزِيلُ الْكِتَابِ مِنَ اللَّهِ الْعَزِيزِ الْحَكِيمِ",
-    "options": ["Al-Baqarah", "Al-Imran", "Al-Furqan", "Ash-Shu'ara"],
-    "correct": "Al-Baqarah",
-    "surah": "Al-Baqarah",
-    "verse": "1-2"
-  },
-  {
-    "id": 13,
-    "type": "pilihan_ganda",
-    "question": "Dalam surah Al-Kafirun, apa makna ayat 'لَكُمْ دِينُكُمْ وَلِيَ دِينِ'?",
-    "ayat": "لَكُمْ دِينُكُمْ وَلِيَ دِينِ",
-    "options": [
-      "Untukmu agamamu, dan untukku agamaku",
-      "Kami semua beragama Islam",
-      "Agama itu tidak penting",
-      "Agama harus disatukan"
-    ],
-    "correct": "Untukmu agamamu, dan untukku agamaku",
-    "surah": "Al-Kafirun",
-    "verse": 6
-  },
-  {
-    "id": 14,
-    "type": "pilihan_ganda",
-    "question": "Apa konteks dari ayat 'وَالَّذِينَ كَفَرُوا لَهُمْ نَارُ جَهَنَّمَ'?",
-    "ayat": "وَالَّذِينَ كَفَرُوا لَهُمْ نَارُ جَهَنَّمَ",
-    "options": [
-      "Ancaman siksa neraka bagi orang kafir",
-      "Janji surga",
-      "Perintah shalat",
-      "Larangan minum alkohol"
-    ],
-    "correct": "Ancaman siksa neraka bagi orang kafir",
-    "surah": "Al-Baqarah",
-    "verse": 39
-  },
-  {
-    "id": 15,
-    "type": "pilihan_ganda",
-    "question": "Apa makna istilah 'الصَّابِرِينَ' yang sering disebut dalam Al-Quran?",
-    "ayat": "وَالصَّابِرِينَ فِي الْبَأْسَاءِ وَالضَّرَّاءِ",
-    "options": [
-      "Orang-orang yang sabar dalam kesulitan dan penderitaan",
-      "Orang-orang yang kaya",
-      "Orang-orang yang sombong",
-      "Orang-orang yang bodoh"
-    ],
-    "correct": "Orang-orang yang sabar dalam kesulitan dan penderitaan",
-    "surah": "Al-Baqarah",
-    "verse": 177
-  },
-  {
-    "id": 16,
-    "type": "pilihan_ganda",
-    "question": "Surah mana yang berisi peringatan tentang azab bagi orang yang mendustakan hari kiamat?",
-    "ayat": "يَسْأَلُ أَيَّانَ يَوْمُ الْقِيَامَةِ",
-    "options": ["Al-Qari'ah", "Al-Humazah", "Al-Masad", "Al-Fil"],
-    "correct": "Al-Qari'ah",
-    "surah": "Al-Qari'ah",
-    "verse": 1
-  },
-  {
-    "id": 17,
-    "type": "pilihan_ganda",
-    "question": "Apa pesan utama ayat 'إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ'?",
-    "ayat": "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ",
-    "options": [
-      "Orang-orang beriman adalah bersaudara",
-      "Orang beriman harus berjihad",
-      "Orang beriman kaya raya",
-      "Orang beriman hanya untuk diri sendiri"
-    ],
-    "correct": "Orang-orang beriman adalah bersaudara",
-    "surah": "Al-Hujurat",
-    "verse": 10
-  },
-  {
-    "id": 18,
-    "type": "pilihan_ganda",
-    "question": "Dalam surah An-Nahl ayat 18, siapa yang disebut sebagai orang yang paling zalim?",
-    "ayat": "وَمَن أَظْلَمُ مِمَّن ذُكِّرَ بِآيَاتِ رَبِّهِ",
-    "options": [
-      "Orang yang mendustakan ayat-ayat Allah",
-      "Orang yang beriman",
-      "Orang yang bersyukur",
-      "Orang yang dermawan"
-    ],
-    "correct": "Orang yang mendustakan ayat-ayat Allah",
-    "surah": "An-Nahl",
-    "verse": 18
-  },
-  {
-    "id": 19,
-    "type": "pilihan_ganda",
-    "question": "Apa makna ayat 'وَالَّذِينَ هُمْ لِفُرُوجِهِمْ حَافِظُونَ'?",
-    "ayat": "وَالَّذِينَ هُمْ لِفُرُوجِهِمْ حَافِظُونَ",
-    "options": [
-      "Orang yang menjaga kemaluannya",
-      "Orang yang kaya",
-      "Orang yang sombong",
-      "Orang yang lemah"
-    ],
-    "correct": "Orang yang menjaga kemaluannya",
-    "surah": "Al-Mu’minun",
-    "verse": 5
-  },
-  {
-    "id": 20,
-    "type": "pilihan_ganda",
-    "question": "Surah manakah yang berisi tentang kisah Nabi Yusuf dan ujian kesabarannya?",
-    "ayat": "فَصْبْرٌ جَمِيلٌ",
-    "options": ["Yusuf", "Hud", "Nuh", "Ibrahim"],
-    "correct": "Yusuf",
-    "surah": "Yusuf",
-    "verse": 18
-  },
-  {
-    "id": 21,
-    "type": "pilihan_ganda",
-    "question": "Apa arti ayat 'يَا أَيُّهَا النَّبِيُّ إِنَّا أَرْسَلْنَاكَ شَاهِدًا وَمُبَشِّرًا وَنَذِيرًا'?",
-    "ayat": "يَا أَيُّهَا النَّبِيُّ إِنَّا أَرْسَلْنَاكَ شَاهِدًا وَمُبَشِّرًا وَنَذِيرًا",
-    "options": [
-      "Hai Nabi, Kami telah mengutusmu sebagai saksi, pemberi kabar gembira dan pemberi peringatan",
-      "Hai Nabi, kamu tidak penting",
-      "Hai manusia, sembahlah Allah",
-      "Hai Nabi, beristirahatlah"
-    ],
-    "correct": "Hai Nabi, Kami telah mengutusmu sebagai saksi, pemberi kabar gembira dan pemberi peringatan",
-    "surah": "Al-Ahzab",
-    "verse": 45
-  },
-  {
-    "id": 22,
-    "type": "pilihan_ganda",
-    "question": "Apa arti ayat 'كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ'?",
-    "ayat": "كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ",
-    "options": [
-      "Setiap jiwa akan merasakan mati",
-      "Setiap manusia harus berdoa",
-      "Setiap manusia akan kaya",
-      "Setiap manusia akan menang"
-    ],
-    "correct": "Setiap jiwa akan merasakan mati",
-    "surah": "Ali Imran",
-    "verse": 185
-  },
-  {
-    "id": 23,
-    "type": "pilihan_ganda",
-    "question": "Apa yang dimaksud dengan 'الرِّجْزَ' dalam surah Al-Muddaththir ayat 4?",
-    "ayat": "وَالرِّجْزَ فَاهْجُرْ",
-    "options": ["Kotoran atau dosa", "Malaikat", "Surga", "Malaikat Jibril"],
-    "correct": "Kotoran atau dosa",
-    "surah": "Al-Muddaththir",
-    "verse": 4
-  },
-  {
-    "id": 24,
-    "type": "pilihan_ganda",
-    "question": "Apa makna 'الذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ اللَّهِ'?",
-    "ayat": "الذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ اللَّهِ",
-    "options": [
-      "Orang yang beriman dan hatinya tenang dengan mengingat Allah",
-      "Orang yang beriman tapi sombong",
-      "Orang yang kafir",
-      "Orang yang lemah"
-    ],
-    "correct": "Orang yang beriman dan hatinya tenang dengan mengingat Allah",
-    "surah": "Ar-Ra’d",
-    "verse": 28
-  },
-  {
-    "id": 25,
-    "type": "pilihan_ganda",
-    "question": "Dalam surah Al-Ikhlas, apa makna kalimat 'لَمْ يَلِدْ وَلَمْ يُولَدْ'?",
-    "ayat": "لَمْ يَلِدْ وَلَمْ يُولَدْ",
-    "options": [
-      "Allah tidak beranak dan tidak pula diperanakkan",
-      "Allah beranak",
-      "Allah diperanakkan",
-      "Allah menciptakan manusia"
-    ],
-    "correct": "Allah tidak beranak dan tidak pula diperanakkan",
-    "surah": "Al-Ikhlas",
-    "verse": 3
-  },
-  {
-    "id": 26,
-    "type": "pilihan_ganda",
-    "question": "Apa maksud ayat 'فَإِنَّ مَعَ الْعُسْرِ يُسْرًا' dalam konteks psikologis?",
-    "ayat": "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",
-    "options": [
-      "Setiap kesulitan pasti ada kemudahan yang mengikuti",
-      "Kesulitan tanpa akhir",
-      "Orang harus berputus asa",
-      "Orang harus menyerah"
-    ],
-    "correct": "Setiap kesulitan pasti ada kemudahan yang mengikuti",
-    "surah": "Ash-Sharh",
-    "verse": 6
-  },
-  {
-    "id": 27,
-    "type": "pilihan_ganda",
-    "question": "Apa arti kata 'الرَّحْمَنِ' dalam 'بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ'?",
-    "ayat": "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
-    "options": [
-      "Yang Maha Pengasih",
-      "Yang Maha Kaya",
-      "Yang Maha Besar",
-      "Yang Maha Kuasa"
-    ],
-    "correct": "Yang Maha Pengasih",
-    "surah": "Al-Fatihah",
-    "verse": 1
-  },
-  {
-    "id": 28,
-    "type": "pilihan_ganda",
-    "question": "Dalam surah Al-A'raf ayat 31, apa yang diperintahkan kepada manusia terkait pakaian?",
-    "ayat": "يَا بَنِي آدَمَ خُذُوا زِينَتَكُمْ عِندَ كُلِّ مَسْجِدٍ",
-    "options": [
-      "Berpakaian rapi dan sopan saat beribadah",
-      "Berpakaian seenaknya",
-      "Tidak perlu berpakaian saat beribadah",
-      "Berpakaian mewah untuk pamer"
-    ],
-    "correct": "Berpakaian rapi dan sopan saat beribadah",
-    "surah": "Al-A'raf",
-    "verse": 31
-  },
-  {
-    "id": 29,
-    "type": "pilihan_ganda",
-    "question": "Apa makna ayat 'وَقُل رَّبِّ زِدْنِي عِلْمًا'?",
-    "ayat": "وَقُل رَّبِّ زِدْنِي عِلْمًا",
-    "options": [
-      "Dan katakanlah: 'Ya Tuhanku, tambahkanlah ilmu kepadaku'",
-      "Dan katakanlah: 'Ya Tuhanku, ampunilah aku'",
-      "Dan katakanlah: 'Ya Tuhanku, beri aku harta'",
-      "Dan katakanlah: 'Ya Tuhanku, beri aku kesehatan'"
-    ],
-    "correct": "Dan katakanlah: 'Ya Tuhanku, tambahkanlah ilmu kepadaku'",
-    "surah": "Taha",
-    "verse": 114
-  },
-  {
-    "id": 30,
-    "type": "pilihan_ganda",
-    "question": "Apa pesan ayat 'فَصْبْرٌ جَمِيلٌ' dalam surah Yusuf ayat 18?",
-    "ayat": "فَصْبْرٌ جَمِيلٌ",
-    "options": [
-      "Sabar yang indah dan mulia",
-      "Sabar yang sia-sia",
-      "Sabar itu tidak perlu",
-      "Sabar hanya untuk orang kaya"
-    ],
-    "correct": "Sabar yang indah dan mulia",
-    "surah": "Yusuf",
-    "verse": 18
-  }
+   {
+      "id": 1,
+      "type": "pilihan_ganda",
+      "question": "Ayat لَا إِلَٰهَ إِلَّا هُوَ الْحَىُّ الْقَيُّومُ yang dikenal sebagai Ayat Kursi terdapat pada...",
+      "ayat": "اللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ الْحَىُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَّهُ مَا فِى السَّمَٰوَٰتِ وَمَا فِى الْأَرْضِ مَن ذَا الَّذِى يَشْفَعُ عِندَهُٓ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِٓ إِلَّا بِمَا شَآءَ وَسِعَ كُرْسِيُّهُ السَّمَٰوَٰتِ وَالْأَرْضَ وَلَا ئَُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِىُّ الْعَظِيمُ",
+      "options": ["Al-Ma'idah ayat 255", "Al-Baqarah ayat 255", "An-Nisa ayat 1", "Ali Imran ayat 2"],
+      "correct": "Al-Baqarah ayat 255",
+      "surah": "Al-Baqarah",
+      "verse": "255"
+   },
+   {
+      "id": 2,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah Al-Baqarah?",
+      "ayat": "الٓمٓ",
+      "options": ["200", "255", "283", "286"],
+      "correct": "286",
+      "surah": "Al-Baqarah",
+      "verse": "1"
+   },
+   {
+      "id": 3,
+      "type": "pilihan_ganda",
+      "question": "Surah manakah yang satu-satunya tidak diawali Basmalah?",
+      "ayat": "بَرَآءَةٌ مِّنَ اللَّهِ وَرَسُولِهِٓ إِلَى الَّذِينَ عَٰهَدتُّم مِّنَ الْمُشْرِكِينَ",
+      "options": ["At-Tawbah", "Al-Fatihah", "An-Nas", "Ali Imran"],
+      "correct": "At-Tawbah",
+      "surah": "At-Tawbah",
+      "verse": "1"
+   },
+   {
+      "id": 4,
+      "type": "pilihan_ganda",
+      "question": "Enam surah diawali huruf حٓمٓ (Ha Mim). Berikut yang BUKAN termasuk...",
+      "ayat": "الٓمٓ",
+      "options": ["Luqman", "Ar-Ra'd", "Al-Ankabut", "As-Sajdah"],
+      "correct": "Ar-Ra'd",
+      "surah": "Al-Baqarah",
+      "verse": "1"
+   },
+   {
+      "id": 5,
+      "type": "pilihan_ganda",
+      "question": "Makna ayat لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا adalah...",
+      "ayat": "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ رَبَّنَا لَا تُؤَاخِذْنَآ إِن نَّسِينَآ أَوْ أَخْطَأْنَا رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَآ إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَآ أَنتَ مَوْلَىٰنَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَٰفِرِينَ",
+      "options": [
+         "Allah tidak membebani seseorang melainkan sesuai dengan kemampuan.",
+         "Allah akan menghitung menurut kemampuan manusia pada hari kiamat.",
+         "Allah membebani setiap orang sesuai kemampuan masing-masing.",
+         "Setiap orang wajib menjalankan seluruh perintah Allah semaksimal mungkin."
+      ],
+      "correct": "Allah tidak membebani seseorang melainkan sesuai dengan kemampuan.",
+      "surah": "Al-Baqarah",
+      "verse": "286"
+   },
+   {
+      "id": 6,
+      "type": "pilihan_ganda",
+      "question": "Surah Ya-Sin (36) diawali huruf...",
+      "ayat": "يسٓ",
+      "options": ["ص", "طه", "يس", "ق"],
+      "correct": "يس",
+      "surah": "Ya-Sin",
+      "verse": "1"
+   },
+   {
+      "id": 7,
+      "type": "pilihan_ganda",
+      "question": "Dalam ayat وَأُولُوا الْأَمْرِ مِنكُمْ, istilah أُولُوا الْأَمْرِ berarti...",
+      "ayat": "يَٰٓأَيُّهَا الَّذِينَ ءَامَنُوٓا أَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ وَأُولِى الْأَمْرِ مِنكُمْ فَإِن تَنَٰزَعْتُمْ فِى شَىْءٍ فَرُدُّوهُ إِلَى اللَّهِ وَالرَّسُولِ إِن كُنتُمْ تُؤْمِنُونَ بِاللَّهِ وَالْيَوْمِ الَْٔاخِرِ ذَٰلِكَ خَيْرٌ وَأَحْسَنُ تَأْوِيلًا",
+      "options": ["Ahli waris", "Pemegang kekuasaan", "Orang-orang yang beribadah", "Pemuda-pemuda"],
+      "correct": "Pemegang kekuasaan",
+      "surah": "An-Nisa",
+      "verse": "59"
+   },
+   {
+      "id": 8,
+      "type": "pilihan_ganda",
+      "question": "Surah Taha (20) diawali huruf...",
+      "ayat": "طه",
+      "options": ["ص", "يس", "ق", "طه"],
+      "correct": "طه",
+      "surah": "Taha",
+      "verse": "1"
+   },
+   {
+      "id": 9,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah Ali Imran?",
+      "ayat": "الٓمٓ",
+      "options": ["200", "176", "199", "203"],
+      "correct": "200",
+      "surah": "Ali Imran",
+      "verse": "1"
+   },
+   {
+      "id": 10,
+      "type": "pilihan_ganda",
+      "question": "Apa arti kalimat وَقُل رَّبِّ زِدْنِى عِلْمًا dalam ayat ini?",
+      "ayat": "فَتَعَٰلَى اللَّهُ الْمَلِكُ الْحَقُّ وَلَا تَعْجَلْ بِالْقُرْءَانِ مِن قَبْلِ أَن يُقْضَىٰٓ إِلَيْكَ وَحْيُهُ وَقُل رَّبِّ زِدْنِى عِلْمًا",
+      "options": [
+         "Ya Tuhanku, muliakanlah kedudukanku.",
+         "Ya Tuhanku, tambahkanlah kebaikan kepadaku.",
+         "Ya Tuhanku, tambahkanlah ilmu kepadaku.",
+         "Ya Tuhanku, panjangkanlah umurku."
+      ],
+      "correct": "Ya Tuhanku, tambahkanlah ilmu kepadaku.",
+      "surah": "Taha",
+      "verse": "114"
+   },
+   {
+      "id": 11,
+      "type": "pilihan_ganda",
+      "question": "Menurut Al-Baqarah ayat 98, nama malaikat yang disebut adalah...",
+      "ayat": "مَن كَانَ عَدُوًّا لِّلَّهِ وَمَلَٰٓئِكَتِهِ وَرُسُلِهِ وَجِبْرِيلَ وَمِيكَىٰلَ فَإِنَّ اللَّهَ عَدُوٌّ لِّلْكَٰفِرِينَ",
+      "options": ["Jibril dan Mikail", "Malik dan Raqib", "Mikail dan Malik", "Jibril dan Israfil"],
+      "correct": "Jibril dan Mikail",
+      "surah": "Al-Baqarah",
+      "verse": "98"
+   },
+   {
+      "id": 12,
+      "type": "pilihan_ganda",
+      "question": "Istilah الْمُتَّقُونَ (al-muttaqun) dalam Al-Baqarah ayat 2 adalah...",
+      "ayat": "ذَٰلِكَ الْكِتَٰبُ لَا رَيْبَ فِيهِ هُدًى لِّلْمُتَّقِينَ",
+      "options": ["Orang-orang yang berakhlak", "Orang-orang yang beriman", "Orang-orang yang bertakwa", "Orang-orang yang beribadah"],
+      "correct": "Orang-orang yang bertakwa",
+      "surah": "Al-Baqarah",
+      "verse": "2"
+   },
+   {
+      "id": 13,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah An-Nisa?",
+      "ayat": "يَٰٓأَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِى خَلَقَكُم مِّن نَّفْسٍ وَٰحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًا كَثِيرًا وَنِسَآءً وَاتَّقُوا اللَّهَ الَّذِى تَسَآءَلُونَ بِهِ وَالْأَرْحَامَ إِنَّ اللَّهَ كَانَ عَلَيْكُمْ رَقِيبًا",
+      "options": ["175", "176", "200", "177"],
+      "correct": "176",
+      "surah": "An-Nisa",
+      "verse": "1"
+   },
+   {
+      "id": 14,
+      "type": "pilihan_ganda",
+      "question": "Menurut Al-Kahf ayat 46, harta dan anak-anak disebut sebagai apa?",
+      "ayat": "الْمَالُ وَالْبَنُونَ زِينَةُ الْحَيَوٰةِ الدُّنْيَا وَالْبَٰقِيَٰتُ الصَّٰلِحَٰتُ خَيْرٌ عِندَ رَبِّكَ ثَوَابًا وَخَيْرٌ أَمَلًا",
+      "options": ["Hadiah utama bagi orang mukmin", "Pengukur kemuliaan seorang mukmin", "Perhiasan kehidupan dunia", "Kekayaan yang paling berharga"],
+      "correct": "Perhiasan kehidupan dunia",
+      "surah": "Al-Kahf",
+      "verse": "46"
+   },
+   {
+      "id": 15,
+      "type": "pilihan_ganda",
+      "question": "Istilah الْحَسْرَةُ (al-hasrah) dalam Ali Imran ayat 191 berarti...",
+      "ayat": "الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَٰمًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ وَيَتَفَكَّرُونَ فِى خَلْقِ السَّمَٰوَٰتِ وَالْأَرْضِ رَبَّنَا مَا خَلَقْتَ هَٰذَا بَٰطِلًا سُبْحَٰنَكَ فَقِنَا عَذَابَ النَّارِ",
+      "options": ["Kesenangan dunia", "Rahmat yang besar", "Kemuliaan di dunia", "Kerugian besar di akhirat"],
+      "correct": "Kerugian besar di akhirat",
+      "surah": "Ali Imran",
+      "verse": "191"
+   },
+   {
+      "id": 16,
+      "type": "pilihan_ganda",
+      "question": "Ayat فَصَبْرٌ جَمِيلٌ وَاللَّهُ الْمُسْتَعَانُ diucapkan Nabi Yakub kepada anak-anaknya, terdapat dalam surah...",
+      "ayat": "وَجَآءُو عَلَىٰ قَمِيصِهِ بِدَمٍ كَذِبٍ قَالَ بَلْ سَوَّلَتْ لَكُمْ أَنفُسُكُمْ أَمْرًا فَصَبْرٌ جَمِيلٌ وَاللَّهُ الْمُسْتَعَانُ عَلَىٰ مَا تَصِفُونَ",
+      "options": ["Yunus", "Hud", "Al-Qasas", "Yusuf"],
+      "correct": "Yusuf",
+      "surah": "Yusuf",
+      "verse": "18"
+   },
+   {
+      "id": 17,
+      "type": "pilihan_ganda",
+      "question": "Sifat الْكَاظِمِينَ الْغَيْظَ (al-kazimin al-ghayz) menggambarkan orang yang...",
+      "ayat": "الَّذِينَ يُنفِقُونَ فِى السَّرَّآءِ وَالضَّرَّآءِ وَالْكَٰظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ",
+      "options": ["Berinfak dengan ikhlas", "Berperang dengan sabar", "Menyampaikan kebenaran dengan tegas", "Menahan amarah dan memaafkan"],
+      "correct": "Menahan amarah dan memaafkan",
+      "surah": "Ali Imran",
+      "verse": "134"
+   },
+   {
+      "id": 18,
+      "type": "pilihan_ganda",
+      "question": "Makna وَلَقَدْ كَرَّمْنَا بَنِىٓ ءَادَمَ وَحَمَلْنَٰهُمْ فِى الْبَرِّ وَالْبَحْرِ adalah...",
+      "ayat": "وَلَقَدْ كَرَّمْنَا بَنِىٓ ءَادَمَ وَحَمَلْنَٰهُمْ فِى الْبَرِّ وَالْبَحْرِ وَرَزَقْنَٰهُم مِّنَ الطَّيِّبَٰتِ وَفَضَّلْنَٰهُمْ عَلَىٰ كَثِيرٍ مِّمَّنْ خَلَقْنَا تَفْضِيلًا",
+      "options": [
+         "Allah menurunkan kitab kepada Adam",
+         "Allah mengampuni seluruh kesalahan Adam",
+         "Allah menciptakan Adam langsung di surga",
+         "Allah memuliakan keturunan Adam dan memberi mereka tempat hidup di bumi dan laut"
+      ],
+      "correct": "Allah memuliakan keturunan Adam dan memberi mereka tempat hidup di bumi dan laut",
+      "surah": "Al-Isra",
+      "verse": "70"
+   },
+   {
+      "id": 19,
+      "type": "pilihan_ganda",
+      "question": "Ayat يَٰٓأَيُّهَا الَّذِينَ ءَامَنُوا اذْكُرُوا اللَّهَ ذِكْرًا كَثِيرًا terdapat dalam surah...",
+      "ayat": "يَٰٓأَيُّهَا الَّذِينَ ءَامَنُوا اذْكُرُوا اللَّهَ ذِكْرًا كَثِيرًا",
+      "options": ["An-Nur", "Al-Mumtahanah", "Al-Ahzab", "At-Taghabun"],
+      "correct": "Al-Ahzab",
+      "surah": "Al-Ahzab",
+      "verse": "41"
+   },
+   {
+      "id": 20,
+      "type": "pilihan_ganda",
+      "question": "Ayat اللَّهُ نُورُ السَّمَٰوَٰتِ وَالْأَرْضِ membangun perumpamaan tentang...",
+      "ayat": "اللَّهُ نُورُ السَّمَٰوَٰتِ وَالْأَرْضِ مَثَلُ نُورِهِ كَمِشْكَوٰةٍ فِيهَا مِصْبَاحٌ الْمِصْبَاحُ فِى زُجَاجَةٍ الزُّجَاجَةُ كَأَنَّهَا كَوْكَبٌ دُرِّىٌّ يُوقَدُ مِن شَجَرَةٍ مُّبَٰرَكَةٍ زَيْتُونَةٍ لَّا شَرْقِيَّةٍ وَلَا غَرْبِيَّةٍ يَكَادُ زَيْتُهَا يُضِىٓءُ وَلَوْ لَمْ تَمْسَسْهُ نَارٌ نُّورٌ عَلَىٰ نُورٍ يَهْدِى اللَّهُ لِنُورِهِ مَن يَشَآءُ وَيَضْرِبُ اللَّهُ الْأَمْثَٰلَ لِلنَّاسِ وَاللَّهُ بِكُلِّ شَىْءٍ عَلِيمٌ",
+      "options": ["Cahaya", "Kaca", "Pohon zaitun", "Minyak"],
+      "correct": "Cahaya",
+      "surah": "An-Nur",
+      "verse": "35"
+   },
+   {
+      "id": 21,
+      "type": "pilihan_ganda",
+      "question": "Menurut Al-Hadid ayat 4, Allah menciptakan langit dan bumi dalam tempo...",
+      "ayat": "هُوَ الَّذِى خَلَقَ السَّمَٰوَٰتِ وَالْأَرْضَ فِى سِتَّةِ أَيَّامٍ ثُمَّ اسْتَوَىٰ عَلَى الْعَرْشِ يَعْلَمُ مَا يَلِجُ فِى الْأَرْضِ وَمَا يَخْرُجُ مِنْهَا وَمَا يَنزِلُ مِنَ السَّمَآءِ وَمَا يَعْرُجُ فِيهَا وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ وَاللَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ",
+      "options": ["enam hari", "tujuh hari", "sepuluh hari", "lima hari"],
+      "correct": "enam hari",
+      "surah": "Al-Hadid",
+      "verse": "4"
+   },
+   {
+      "id": 22,
+      "type": "pilihan_ganda",
+      "question": "Makna وَلَقَدْ خَلَقْنَا الْإِنسَٰنَ فِىٓ أَحْسَنِ تَقْوِيمٍ adalah...",
+      "ayat": "لَقَدْ خَلَقْنَا الْإِنسَٰنَ فِىٓ أَحْسَنِ تَقْوِيمٍ",
+      "options": [
+         "Kami menciptakan manusia tanpa batas waktu",
+         "Kami menciptakan manusia dalam bentuk yang sebaik-baiknya",
+         "Kami menciptakan manusia dari tanah liat",
+         "Kami menciptakan manusia dalam waktu yang sangat singkat"
+      ],
+      "correct": "Kami menciptakan manusia dalam bentuk yang sebaik-baiknya",
+      "surah": "At-Tin",
+      "verse": "4"
+   },
+   {
+      "id": 23,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah Al-Isra?",
+      "ayat": "سُبْحَٰنَ الَّذِىٓ أَسْرَىٰ بِعَبْدِهِ لَيْلًا مِّنَ الْمَسْجِدِ الْحَرَامِ إِلَى الْمَسْجِدِ الْأَقْصَا الَّذِى بَٰرَكْنَا حَوْلَهُ لِنُرِيَهُ مِنْ ءَايَٰتِنَآ إِنَّهُ هُوَ السَّمِيعُ الْبَصِيرُ",
+      "options": ["108", "111", "110", "109"],
+      "correct": "111",
+      "surah": "Al-Isra",
+      "verse": "1"
+   },
+   {
+      "id": 24,
+      "type": "pilihan_ganda",
+      "question": "Surah manakah yang menyebut jumlah sembilan belas malaikat penjaga neraka?",
+      "ayat": "عَلَيْهَا تِسْعَةَ عَشَرَ",
+      "options": ["An-Naba", "Al-Muddaththir", "Al-Muzzammil", "Al-Qiyamah"],
+      "correct": "Al-Muddaththir",
+      "surah": "Al-Muddaththir",
+      "verse": "30"
+   },
+   {
+      "id": 25,
+      "type": "pilihan_ganda",
+      "question": "Kata الصَّبْرِ (as-sabr) dalam Ali Imran ayat 200 menekankan pada...",
+      "ayat": "يَٰٓأَيُّهَا الَّذِينَ ءَامَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللَّهَ لَعَلَّكُمْ تُفْلِحُونَ",
+      "options": ["Berlomba dalam amal kebajikan", "Bersaing dalam harta dunia", "Jaga dalam kebenaran dan kesabaran", "Beribadah pada malam hari"],
+      "correct": "Jaga dalam kebenaran dan kesabaran",
+      "surah": "Ali Imran",
+      "verse": "200"
+   },
+   {
+      "id": 26,
+      "type": "pilihan_ganda",
+      "question": "Ayat وَإِذَا حَكَمْتُم بَيْنَ النَّاسِ أَن تَحْكُمُوا بِالْعَدْلِ mengajarkan...",
+      "ayat": "إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَٰنَٰتِ إِلَىٰٓ أَهْلِهَا وَإِذَا حَكَمْتُم بَيْنَ النَّاسِ أَن تَحْكُمُوا بِالْعَدْلِ إِنَّ اللَّهَ نِعِمَّا يَعِظُكُم بِهِٓ إِنَّ اللَّهَ كَانَ سَمِيعًا بَصِيرًا",
+      "options": ["Menyembah Allah dengan taat", "Menyampaikan amanat dan menetapkan hukum dengan adil", "Bersiap untuk hari kiamat", "Berperang melawan orang-orang kafir"],
+      "correct": "Menyampaikan amanat dan menetapkan hukum dengan adil",
+      "surah": "An-Nisa",
+      "verse": "58"
+   },
+   {
+      "id": 27,
+      "type": "pilihan_ganda",
+      "question": "Menurut Al-Hujurat ayat 13, orang yang paling mulia di sisi Allah adalah...",
+      "ayat": "يَٰٓأَيُّهَا النَّاسُ إِنَّا خَلَقْنَٰكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَٰكُمْ شُعُوبًا وَقَبَآئِلَ لِتَعَارَفُوٓا إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَىٰكُمْ إِنَّ اللَّهَ عَلِيمٌ خَبِيرٌ",
+      "options": ["Orang yang paling bertakwa", "Orang yang paling kaya", "Orang yang paling tinggi", "Orang yang paling berkuasa"],
+      "correct": "Orang yang paling bertakwa",
+      "surah": "Al-Hujurat",
+      "verse": "13"
+   },
+   {
+      "id": 28,
+      "type": "pilihan_ganda",
+      "question": "Menurut Az-Zariyat ayat 56, tujuan Allah menciptakan jin dan manusia adalah...",
+      "ayat": "وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ",
+      "options": ["Agar mereka diuji di dunia", "Agar mereka bertambah banyak", "Agar mereka saling menolong", "Agar mereka beribadah kepada-Nya"],
+      "correct": "Agar mereka beribadah kepada-Nya",
+      "surah": "Adh-Dhariyat",
+      "verse": "56"
+   },
+   {
+      "id": 29,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah Luqman?",
+      "ayat": "الٓمٓ",
+      "options": ["33", "36", "34", "35"],
+      "correct": "34",
+      "surah": "Luqman",
+      "verse": "1"
+   },
+   {
+      "id": 30,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah Al-Kahf?",
+      "ayat": "الْحَمْدُ لِلَّهِ الَّذِىٓ أَنزَلَ عَلَىٰ عَبْدِهِ الْكِتَٰبَ وَلَمْ يَجْعَل لَّهُ عِوَجَا",
+      "options": ["108", "109", "110", "111"],
+      "correct": "110",
+      "surah": "Al-Kahf",
+      "verse": "1"
+   }
 ]

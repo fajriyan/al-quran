@@ -1,407 +1,327 @@
 [
-  {
-    "id": 1,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat berikut?",
-    "ayat": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
-    "options": [
-      "Segala puji bagi Allah",
-      "Aku berlindung kepada Allah",
-      "Dengan nama Allah Yang Maha Pengasih, Maha Penyayang",
-      "Tiada Tuhan selain Allah"
-    ],
-    "correct": "Dengan nama Allah Yang Maha Pengasih, Maha Penyayang",
-    "surah": "Al-Fatihah",
-    "verse": 1
-  },
-  {
-    "id": 2,
-    "type": "pilihan_ganda",
-    "question": "Dari surah manakah ayat ini?",
-    "ayat": "قُلْ هُوَ ٱللَّهُ أَحَدٌ",
-    "options": ["Al-Falaq", "An-Naas", "Al-Ikhlas", "Al-Kafirun"],
-    "correct": "Al-Ikhlas",
-    "surah": "Al-Ikhlas",
-    "verse": 1
-  },
-  {
-    "id": 3,
-    "type": "pilihan_ganda",
-    "question": "Ayat apa yang sesuai dengan terjemahan ini: \"Maka sesungguhnya bersama kesulitan ada kemudahan\"",
-    "ayat": "",
-    "options": [
-      "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",
-      "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
-      "وَالضُّحَىٰ",
-      "إِيَّاكَ نَعْبُدُ"
-    ],
-    "correct": "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",
-    "surah": "Al-Insyirah",
-    "verse": 6
-  },
-  {
-    "id": 4,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat berikut?",
-    "ayat": "مَالِكِ يَوْمِ الدِّينِ",
-    "options": [
-      "Segala puji bagi Allah, Tuhan semesta alam",
-      "Yang Menguasai hari pembalasan",
-      "Demi waktu dhuha",
-      "Sesungguhnya bersama kesulitan ada kemudahan"
-    ],
-    "correct": "Yang Menguasai hari pembalasan",
-    "surah": "Al-Fatihah",
-    "verse": 4
-  },
-  {
-    "id": 5,
-    "type": "pilihan_ganda",
-    "question": "Dari surah manakah ayat ini?",
-    "ayat": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
-    "options": ["Al-Fatihah", "An-Naas", "Al-Insyirah", "Al-Ikhlas"],
-    "correct": "Al-Fatihah",
-    "surah": "Al-Fatihah",
-    "verse": 2
-  },
-  {
-    "id": 6,
-    "type": "pilihan_ganda",
-    "question": "Ayat apa yang sesuai dengan terjemahan ini: \"Katakanlah, aku berlindung kepada Tuhan manusia\"",
-    "ayat": "",
-    "options": [
-      "مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ",
-      "قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
-      "إِيَّاكَ نَعْبُدُ",
-      "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ"
-    ],
-    "correct": "قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
-    "surah": "An-Naas",
-    "verse": 1
-  },
-  {
-    "id": 7,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat berikut?",
-    "ayat": "وَالضُّحَىٰ",
-    "options": [
-      "Sesungguhnya bersama kesulitan ada kemudahan",
-      "Segala puji bagi Allah, Tuhan semesta alam",
-      "Demi waktu dhuha",
-      "Hanya kepada-Mu kami menyembah"
-    ],
-    "correct": "Demi waktu dhuha",
-    "surah": "Ad-Dhuha",
-    "verse": 1
-  },
-  {
-    "id": 8,
-    "type": "pilihan_ganda",
-    "question": "Dari surah manakah ayat ini?",
-    "ayat": "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
-    "options": ["Al-Insyirah", "Al-Fatihah", "An-Naas", "Al-Ikhlas"],
-    "correct": "Al-Fatihah",
-    "surah": "Al-Fatihah",
-    "verse": 6
-  },
-  {
-    "id": 9,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat berikut?",
-    "ayat": "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ",
-    "options": [
-      "Demi waktu dhuha",
-      "Yang Menguasai hari pembalasan",
-      "Segala puji bagi Allah, Tuhan semesta alam",
-      "Katakanlah, aku berlindung kepada Tuhan subuh"
-    ],
-    "correct": "Katakanlah, aku berlindung kepada Tuhan subuh",
-    "surah": "Al-Falaq",
-    "verse": 1
-  },
-  {
-    "id": 10,
-    "type": "pilihan_ganda",
-    "question": "Dari surah manakah ayat ini?",
-    "ayat": "مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ",
-    "options": ["An-Naas", "Ad-Dhuha", "Al-Fatihah", "Al-Kafirun"],
-    "correct": "An-Naas",
-    "surah": "An-Naas",
-    "verse": 4
-  },
-  {
-    "id": 11,
-    "type": "pilihan_ganda",
-    "question": "Ayat apa yang sesuai dengan terjemahan ini: \"Sesungguhnya bersama kesulitan ada kemudahan\"",
-    "ayat": "",
-    "options": [
-      "إِيَّاكَ نَعْبُدُ",
-      "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
-      "وَالضُّحَىٰ",
-      "إِنَّ مَعَ الْعُسْرِ يُسْرًا"
-    ],
-    "correct": "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
-    "surah": "Al-Insyirah",
-    "verse": 5
-  },
-  {
-    "id": 12,
-    "type": "pilihan_ganda",
-    "question": "Dari surah manakah ayat ini?",
-    "ayat": "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
-    "options": ["Al-Fatihah", "An-Naas", "Al-Insyirah", "Al-Falaq"],
-    "correct": "Al-Fatihah",
-    "surah": "Al-Fatihah",
-    "verse": 6
-  },
-  {
-    "id": 13,
-    "type": "pilihan_ganda",
-    "question": "Ayat apa yang sesuai dengan terjemahan ini: \"Allah tempat bergantung\"",
-    "ayat": "",
-    "options": [
-      "اللَّهُ الصَّمَدُ",
-      "مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ",
-      "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
-      "وَالضُّحَىٰ"
-    ],
-    "correct": "اللَّهُ الصَّمَدُ",
-    "surah": "Al-Ikhlas",
-    "verse": 2
-  },
-  {
-    "id": 14,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat berikut?",
-    "ayat": "وَالضُّحَىٰ",
-    "options": [
-      "Demi waktu dhuha",
-      "Segala puji bagi Allah, Tuhan semesta alam",
-      "Yang Menguasai hari pembalasan",
-      "Katakanlah, aku berlindung kepada Tuhan manusia"
-    ],
-    "correct": "Demi waktu dhuha",
-    "surah": "Ad-Dhuha",
-    "verse": 1
-  },
-  {
-    "id": 15,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat berikut?",
-    "ayat": "إِيَّاكَ نَعْبُدُ",
-    "options": [
-      "Tunjukilah kami jalan yang lurus",
-      "Dari kejahatan bisikan yang tersembunyi",
-      "Yang Menguasai hari pembalasan",
-      "Hanya kepada-Mu kami menyembah"
-    ],
-    "correct": "Hanya kepada-Mu kami menyembah",
-    "surah": "Al-Fatihah",
-    "verse": 5
-  },
-  {
-    "id": 16,
-    "type": "pilihan_ganda",
-    "question": "Dari surah manakah ayat ini?",
-    "ayat": "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ",
-    "options": ["An-Naas", "Al-Falaq", "Al-Fatihah", "Al-Ikhlas"],
-    "correct": "Al-Falaq",
-    "surah": "Al-Falaq",
-    "verse": 1
-  },
-  {
-    "id": 17,
-    "type": "pilihan_ganda",
-    "question": "Ayat apa yang sesuai dengan terjemahan ini: \"Hanya kepada-Mu kami menyembah\"",
-    "ayat": "",
-    "options": [
-      "اللَّهُ الصَّمَدُ",
-      "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ",
-      "إِيَّاكَ نَعْبُدُ",
-      "مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ"
-    ],
-    "correct": "إِيَّاكَ نَعْبُدُ",
-    "surah": "Al-Fatihah",
-    "verse": 5
-  },
-  {
-    "id": 18,
-    "type": "pilihan_ganda",
-    "question": "Ayat apa yang sesuai dengan terjemahan ini: \"Sesungguhnya bersama kesulitan ada kemudahan\"",
-    "ayat": "",
-    "options": [
-      "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
-      "مَالِكِ يَوْمِ الدِّينِ",
-      "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
-      "إِيَّاكَ نَعْبُدُ"
-    ],
-    "correct": "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
-    "surah": "Al-Insyirah",
-    "verse": 5
-  },
-  {
-    "id": 19,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat berikut?",
-    "ayat": "مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ",
-    "options": [
-      "Dari kejahatan bisikan yang tersembunyi",
-      "Sesungguhnya bersama kesulitan ada kemudahan",
-      "Yang Menguasai hari pembalasan",
-      "Allah tempat bergantung"
-    ],
-    "correct": "Dari kejahatan bisikan yang tersembunyi",
-    "surah": "An-Naas",
-    "verse": 4
-  },
-  {
-    "id": 20,
-    "type": "pilihan_ganda",
-    "question": "Ayat apa yang sesuai dengan terjemahan ini: \"Tunjukilah kami jalan yang lurus\"",
-    "ayat": "",
-    "options": [
-      "مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ",
-      "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
-      "قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
-      "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ"
-    ],
-    "correct": "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
-    "surah": "Al-Fatihah",
-    "verse": 6
-  },
-  {
-    "id": 21,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat berikut?",
-    "ayat": "وَالضُّحَىٰ",
-    "options": [
-      "Allah tempat bergantung",
-      "Katakanlah, aku berlindung kepada Tuhan subuh",
-      "Hanya kepada-Mu kami menyembah",
-      "Demi waktu dhuha"
-    ],
-    "correct": "Demi waktu dhuha",
-    "surah": "Ad-Dhuha",
-    "verse": 1
-  },
-  {
-    "id": 22,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat berikut?",
-    "ayat": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
-    "options": [
-      "Allah tempat bergantung",
-      "Segala puji bagi Allah, Tuhan semesta alam",
-      "Katakanlah, aku berlindung kepada Tuhan manusia",
-      "Hanya kepada-Mu kami menyembah"
-    ],
-    "correct": "Segala puji bagi Allah, Tuhan semesta alam",
-    "surah": "Al-Fatihah",
-    "verse": 2
-  },
-  {
-    "id": 23,
-    "type": "pilihan_ganda",
-    "question": "Dari surah manakah ayat ini?",
-    "ayat": "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
-    "options": ["Al-Insyirah", "Al-Falaq", "Al-Fatihah", "An-Naas"],
-    "correct": "Al-Fatihah",
-    "surah": "Al-Fatihah",
-    "verse": 6
-  },
-  {
-    "id": 24,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat berikut?",
-    "ayat": "مَالِكِ يَوْمِ الدِّينِ",
-    "options": [
-      "Segala puji bagi Allah, Tuhan semesta alam",
-      "Yang Menguasai hari pembalasan",
-      "Hanya kepada-Mu kami menyembah",
-      "Katakanlah, aku berlindung kepada Tuhan manusia"
-    ],
-    "correct": "Yang Menguasai hari pembalasan",
-    "surah": "Al-Fatihah",
-    "verse": 4
-  },
-  {
-    "id": 25,
-    "type": "pilihan_ganda",
-    "question": "Ayat apa yang sesuai dengan terjemahan ini: \"Allah tempat bergantung\"",
-    "ayat": "",
-    "options": [
-      "قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
-      "اللَّهُ الصَّمَدُ",
-      "مَالِكِ يَوْمِ الدِّينِ",
-      "إِيَّاكَ نَعْبُدُ"
-    ],
-    "correct": "اللَّهُ الصَّمَدُ",
-    "surah": "Al-Ikhlas",
-    "verse": 2
-  },
-  {
-    "id": 26,
-    "type": "pilihan_ganda",
-    "question": "Dari surah manakah ayat ini?",
-    "ayat": "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ",
-    "options": ["Al-Falaq", "Al-Ikhlas", "An-Naas", "Al-Fatihah"],
-    "correct": "Al-Falaq",
-    "surah": "Al-Falaq",
-    "verse": 1
-  },
-  {
-    "id": 27,
-    "type": "pilihan_ganda",
-    "question": "Dari surah manakah ayat ini?",
-    "ayat": "مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ",
-    "options": ["Al-Fatihah", "An-Naas", "Ad-Dhuha", "Al-Ikhlas"],
-    "correct": "An-Naas",
-    "surah": "An-Naas",
-    "verse": 4
-  },
-  {
-    "id": 28,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat berikut?",
-    "ayat": "اللَّهُ الصَّمَدُ",
-    "options": [
-      "Katakanlah, aku berlindung kepada Tuhan manusia",
-      "Demi waktu dhuha",
-      "Allah tempat bergantung",
-      "Segala puji bagi Allah, Tuhan semesta alam"
-    ],
-    "correct": "Allah tempat bergantung",
-    "surah": "Al-Ikhlas",
-    "verse": 2
-  },
-  {
-    "id": 29,
-    "type": "pilihan_ganda",
-    "question": "Ayat apa yang sesuai dengan terjemahan ini: \"Demi waktu dhuha\"",
-    "ayat": "",
-    "options": [
-      "وَالضُّحَىٰ",
-      "قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
-      "اللَّهُ الصَّمَدُ",
-      "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ"
-    ],
-    "correct": "وَالضُّحَىٰ",
-    "surah": "Ad-Dhuha",
-    "verse": 1
-  },
-  {
-    "id": 30,
-    "type": "pilihan_ganda",
-    "question": "Apa arti dari ayat berikut?",
-    "ayat": "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
-    "options": [
-      "Sesungguhnya bersama kesulitan ada kemudahan",
-      "Segala puji bagi Allah, Tuhan semesta alam",
-      "Hanya kepada-Mu kami menyembah",
-      "Tunjukilah kami jalan yang lurus"
-    ],
-    "correct": "Sesungguhnya bersama kesulitan ada kemudahan",
-    "surah": "Al-Insyirah",
-    "verse": 5
-  }
+   {
+      "id": 1,
+      "type": "pilihan_ganda",
+      "question": "Ayat ini berasal dari surah mana?",
+      "ayat": "اللَّهُ الصَّمَدُ",
+      "options": ["Al-Kafirun", "Al-Ikhlas", "Al-Falaq", "An-Nas"],
+      "correct": "Al-Ikhlas",
+      "surah": "Al-Ikhlas",
+      "verse": "2"
+   },
+   {
+      "id": 2,
+      "type": "pilihan_ganda",
+      "question": "Apa arti nama Surah Al-Kawthar?",
+      "ayat": "إِنَّآ أَعْطَيْنَٰكَ الْكَوْثَرَ",
+      "options": ["Orang yang terpuji", "Nikmat yang berlimpah", "Saksi yang jujur", "Perjalanan malam"],
+      "correct": "Nikmat yang berlimpah",
+      "surah": "Al-Kawthar",
+      "verse": "1"
+   },
+   {
+      "id": 3,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah Al-Falaq?",
+      "ayat": "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ",
+      "options": ["4", "7", "6", "5"],
+      "correct": "5",
+      "surah": "Al-Falaq",
+      "verse": "1"
+   },
+   {
+      "id": 4,
+      "type": "pilihan_ganda",
+      "question": "Pilih terjemahan yang tepat untuk ayat ini.",
+      "ayat": "إِنَّآ أَنزَلْنَٰهُ فِى لَيْلَةِ الْقَدْرِ",
+      "options": [
+         "Sesungguhnya Kami telah menurunkannya ke bumi pada malam kemuliaan.",
+         "Sesungguhnya ayat-ayat Kami turun satu per satu pada malam yang panjang.",
+         "Sesungguhnya Kami telah menurunkannya (Alquran) pada malam qadar.",
+         "Sesungguhnya Kami akan menurunkan seluruh ayat pada malam yang tenang."
+      ],
+      "correct": "Sesungguhnya Kami telah menurunkannya (Alquran) pada malam qadar.",
+      "surah": "Al-Qadr",
+      "verse": "1"
+   },
+   {
+      "id": 5,
+      "type": "pilihan_ganda",
+      "question": "Apa arti kata فَوَيْلٌ (fawailun) dalam ayat ini?",
+      "ayat": "فَوَيْلٌ لِّلْمُصَلِّينَ",
+      "options": ["Bertakwalah", "Bersiap-siaplah", "Celakalah", "Bersyukurlah"],
+      "correct": "Celakalah",
+      "surah": "Al-Ma'un",
+      "verse": "4"
+   },
+   {
+      "id": 6,
+      "type": "pilihan_ganda",
+      "question": "Setelah ayat وَالْعَصْرِ, ayat berikutnya berbunyi...",
+      "ayat": "وَالْعَصْرِ",
+      "options": ["إِنَّآ أَعْطَيْنَٰكَ الْكَوْثَرَ", "وَالضُّحَىٰ وَالَّيْلِ إِذَا سَجَىٰ", "وَالْفَجْرِ وَلَيَالٍ عَشْرٍ", "إِنَّ الْإِنسَٰنَ لَفِى خُسْرٍ"],
+      "correct": "إِنَّ الْإِنسَٰنَ لَفِى خُسْرٍ",
+      "surah": "Al-Asr",
+      "verse": "1"
+   },
+   {
+      "id": 7,
+      "type": "pilihan_ganda",
+      "question": "Ayat ini berasal dari surah mana?",
+      "ayat": "وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ",
+      "options": ["Quraysh", "Al-Fil", "Al-Qadr", "At-Takathur"],
+      "correct": "Al-Fil",
+      "surah": "Al-Fil",
+      "verse": "3"
+   },
+   {
+      "id": 8,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah Al-Ikhlas?",
+      "ayat": "قُلْ هُوَ اللَّهُ أَحَدٌ",
+      "options": ["4", "6", "5", "3"],
+      "correct": "4",
+      "surah": "Al-Ikhlas",
+      "verse": "1"
+   },
+   {
+      "id": 9,
+      "type": "pilihan_ganda",
+      "question": "Apa arti kata نَصْرُ (nasrun) dalam ayat ini?",
+      "ayat": "إِذَا جَآءَ نَصْرُ اللَّهِ وَالْفَتْحُ",
+      "options": ["Perjalanan", "Pertolongan", "Kemenangan", "Kesuburan"],
+      "correct": "Pertolongan",
+      "surah": "An-Nasr",
+      "verse": "1"
+   },
+   {
+      "id": 10,
+      "type": "pilihan_ganda",
+      "question": "Apa arti nama Surah Al-Ma'un?",
+      "ayat": "أَرَءَيْتَ الَّذِى يُكَذِّبُ بِالدِّينِ",
+      "options": ["Amalan yang sempurna", "Barang yang berguna", "Perjalanan yang panjang", "Barang yang rusak"],
+      "correct": "Barang yang berguna",
+      "surah": "Al-Ma'un",
+      "verse": "1"
+   },
+   {
+      "id": 11,
+      "type": "pilihan_ganda",
+      "question": "Pilih terjemahan yang tepat untuk ayat ini.",
+      "ayat": "لَمْ يَلِدْ وَلَمْ يُولَدْ",
+      "options": [
+         "(Allah) tidak beranak dan tidak pula diperanakkan.",
+         "(Allah) tidak meminta dan tidak pernah memberi.",
+         "(Allah) tidak pernah tidur dan tidak pernah terbangun.",
+         "(Allah) tidak terlihat dan tidak pernah terasa"
+      ],
+      "correct": "(Allah) tidak beranak dan tidak pula diperanakkan.",
+      "surah": "Al-Ikhlas",
+      "verse": "3"
+   },
+   {
+      "id": 12,
+      "type": "pilihan_ganda",
+      "question": "Ayat فَلْيَعْبُدُوا رَبَّ هَٰذَا الْبَيْتِ terdapat dalam surah...",
+      "ayat": "فَلْيَعْبُدُوا رَبَّ هَٰذَا الْبَيْتِ",
+      "options": ["Al-Ma'un", "Quraysh", "At-Tin", "Al-Fil"],
+      "correct": "Quraysh",
+      "surah": "Quraysh",
+      "verse": "3"
+   },
+   {
+      "id": 13,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah An-Nas?",
+      "ayat": "قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
+      "options": ["8", "5", "6", "7"],
+      "correct": "6",
+      "surah": "An-Nas",
+      "verse": "1"
+   },
+   {
+      "id": 14,
+      "type": "pilihan_ganda",
+      "question": "Apa arti kata الْوَسْوَٰسِ (al-wawwas) dalam ayat ini?",
+      "ayat": "مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ",
+      "options": ["Makhluk yang menggigit", "Orang yang berhalangan", "Orang yang tertidur", "Setan yang membisikkan"],
+      "correct": "Setan yang membisikkan",
+      "surah": "An-Nas",
+      "verse": "4"
+   },
+   {
+      "id": 15,
+      "type": "pilihan_ganda",
+      "question": "Di Surah Al-Kawthar, ayat setelah إِنَّآ أَعْطَيْنَٰكَ الْكَوْثَرَ berbunyi...",
+      "ayat": "إِنَّآ أَعْطَيْنَٰكَ الْكَوْثَرَ",
+      "options": ["وَمَآ أَدْرَىٰكَ مَا لَيْلَةُ الْقَدْرِ", "فَصَلِّ لِرَبِّكَ وَانْحَرْ", "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا", "وَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ"],
+      "correct": "فَصَلِّ لِرَبِّكَ وَانْحَرْ",
+      "surah": "Al-Kawthar",
+      "verse": "1"
+   },
+   {
+      "id": 16,
+      "type": "pilihan_ganda",
+      "question": "Surah manakah yang dibuka dengan sumpah 'Demi masa' (وَالْعَصْرِ)?",
+      "ayat": "وَالْعَصْرِ",
+      "options": ["Al-Fajr", "Al-Asr", "Al-Adiyat", "Ash-Shams"],
+      "correct": "Al-Asr",
+      "surah": "Al-Asr",
+      "verse": "1"
+   },
+   {
+      "id": 17,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah Ad-Duha?",
+      "ayat": "وَالضُّحَىٰ",
+      "options": ["10", "12", "9", "11"],
+      "correct": "11",
+      "surah": "Ad-Duha",
+      "verse": "1"
+   },
+   {
+      "id": 18,
+      "type": "pilihan_ganda",
+      "question": "Pilih terjemahan yang tepat untuk ayat ini.",
+      "ayat": "إِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا",
+      "options": [
+         "Apabila bintang-bintang bersinar dengan terang terang.",
+         "Apabila langit berubah menjadi gelap dan mendung.",
+         "Apabila bumi runtuh dan terbelah pada hari kiamat.",
+         "Apabila bumi diguncangkan dengan guncangan yang dahsyat."
+      ],
+      "correct": "Apabila bumi diguncangkan dengan guncangan yang dahsyat.",
+      "surah": "Az-Zalzalah",
+      "verse": "1"
+   },
+   {
+      "id": 19,
+      "type": "pilihan_ganda",
+      "question": "Ayat فَالْمُورِيَٰتِ قَدْحًا terdapat dalam surah...",
+      "ayat": "فَالْمُورِيَٰتِ قَدْحًا",
+      "options": ["An-Nasr", "Al-Adiyat", "At-Takathur", "Al-Humazah"],
+      "correct": "Al-Adiyat",
+      "surah": "Al-Adiyat",
+      "verse": "2"
+   },
+   {
+      "id": 20,
+      "type": "pilihan_ganda",
+      "question": "Apa arti kata لَهَبٍ (lahaban) dalam سَيَصْلَىٰ نَارًا ذَاتَ لَهَبٍ?",
+      "ayat": "سَيَصْلَىٰ نَارًا ذَاتَ لَهَبٍ",
+      "options": ["Yang berkedip", "Yang bergemuruh", "Yang bergetar", "Yang bergejolak"],
+      "correct": "Yang bergejolak",
+      "surah": "Al-Masad",
+      "verse": "3"
+   },
+   {
+      "id": 21,
+      "type": "pilihan_ganda",
+      "question": "Apa arti nama Surah An-Nas?",
+      "ayat": "قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
+      "options": ["Nikmat berlimpah", "Waktu sore", "Umat manusia", "Tuhan fajar"],
+      "correct": "Umat manusia",
+      "surah": "An-Nas",
+      "verse": "1"
+   },
+   {
+      "id": 22,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah Al-Humazah?",
+      "ayat": "وَيْلٌ لِّكُلِّ هُمَزَةٍ لُّمَزَةٍ",
+      "options": ["8", "10", "9", "11"],
+      "correct": "9",
+      "surah": "Al-Humazah",
+      "verse": "1"
+   },
+   {
+      "id": 23,
+      "type": "pilihan_ganda",
+      "question": "Ayat terakhir Surah An-Nas berbunyi...",
+      "ayat": "الَّذِى يُوَسْوِسُ فِى صُدُورِ النَّاسِ",
+      "options": ["وَمِن شَرِّ حَٰسِدٍ إِذَا حَسَدَ", "وَمِن شَرِّ النَّفَّٰثَٰتِ فِى الْعُقَدِ", "مِنَ الْجِنَّةِ وَالنَّاسِ", "إِنَّآ أَنزَلْنَٰهُ فِى لَيْلَةِ الْقَدْرِ"],
+      "correct": "مِنَ الْجِنَّةِ وَالنَّاسِ",
+      "surah": "An-Nas",
+      "verse": "5"
+   },
+   {
+      "id": 24,
+      "type": "pilihan_ganda",
+      "question": "Pilih terjemahan yang tepat untuk ayat ini.",
+      "ayat": "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",
+      "options": [
+         "Maka sesungguhnya bersama kemudahan ada kesulitan.",
+         "Maka sesungguhnya bersama kesulitan ada kemudahan.",
+         "Maka sesungguhnya kesulitan akan bertambah dengan yang lain.",
+         "Maka sesungguhnya camelan yang akan berakhir dengan cepat."
+      ],
+      "correct": "Maka sesungguhnya bersama kesulitan ada kemudahan.",
+      "surah": "Ash-Sharh",
+      "verse": "5"
+   },
+   {
+      "id": 25,
+      "type": "pilihan_ganda",
+      "question": "Ayat وَيْلٌ لِّكُلِّ هُمَزَةٍ لُّمَزَةٍ terdapat dalam surah...",
+      "ayat": "وَيْلٌ لِّكُلِّ هُمَزَةٍ لُّمَزَةٍ",
+      "options": ["Al-Adiyat", "Al-Humazah", "At-Takathur", "Al-Fil"],
+      "correct": "Al-Humazah",
+      "surah": "Al-Humazah",
+      "verse": "1"
+   },
+   {
+      "id": 26,
+      "type": "pilihan_ganda",
+      "question": "Dalam terjemahan, لَيْلَةُ الْقَدْرِ (laylatul qadr) berarti malam...",
+      "ayat": "إِنَّآ أَنزَلْنَٰهُ فِى لَيْلَةِ الْقَدْرِ",
+      "options": ["Kesulitan", "Ketenangan", "Kemuliaan", "Kemakmuran"],
+      "correct": "Kemuliaan",
+      "surah": "Al-Qadr",
+      "verse": "1"
+   },
+   {
+      "id": 27,
+      "type": "pilihan_ganda",
+      "question": "Surah manakah yang dijuluki 'Ummul Kitab' (Ibu Al-Qur'an)?",
+      "ayat": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+      "options": ["An-Nas", "Al-Fatihah", "Ali Imran", "Al-Baqarah"],
+      "correct": "Al-Fatihah",
+      "surah": "Al-Fatihah",
+      "verse": "1"
+   },
+   {
+      "id": 28,
+      "type": "pilihan_ganda",
+      "question": "Berapa jumlah ayat Surah At-Takathur?",
+      "ayat": "أَلْهَىٰكُمُ التَّكَاثُرُ",
+      "options": ["9", "8", "10", "7"],
+      "correct": "8",
+      "surah": "At-Takathur",
+      "verse": "1"
+   },
+   {
+      "id": 29,
+      "type": "pilihan_ganda",
+      "question": "Pilih terjemahan yang tepat untuk ayat ini.",
+      "ayat": "إِنَّ شَانِئَكَ هُوَ الْأَبْتَرُ",
+      "options": [
+         "Sungguh, orang-orang yang menyukaimu dialah yang paling beruntung.",
+         "Sungguh, musuhmu akan disiksa dengan azab yang keras.",
+         "Sungguh, orang-orang yang membencimu dialah yang terputus (dari rahmat Allah).",
+         "Sungguh, efforts-mu akan sia-sia tanpa sisa."
+      ],
+      "correct": "Sungguh, orang-orang yang membencimu dialah yang terputus (dari rahmat Allah).",
+      "surah": "Al-Kawthar",
+      "verse": "3"
+   },
+   {
+      "id": 30,
+      "type": "pilihan_ganda",
+      "question": "Ayat terakhir Surah Al-Ikhlas berbunyi...",
+      "ayat": "قُلْ هُوَ اللَّهُ أَحَدٌ",
+      "options": ["اللَّهُ الصَّمَدُ", "وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ", "قُلْ هُوَ اللَّهُ أَحَدٌ", "سَبِّحِ اسْمَ رَبِّكَ الْأَعْلَىٰ"],
+      "correct": "وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ",
+      "surah": "Al-Ikhlas",
+      "verse": "1"
+   }
 ]
