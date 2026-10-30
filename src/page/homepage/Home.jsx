@@ -178,8 +178,19 @@ const Home = () => {
       const audio = audioRefs.current[index];
       if (audio) {
          if (audio.paused) {
-            audio.play();
-            setPlayingIndex(index);
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+               playPromise
+                  .then(() => {
+                     setPlayingIndex(index);
+                  })
+                  .catch((err) => {
+                     // ponytail: ignore play interruptions/rejections on rapid switches; upgrade if need playback error UI
+                     console.debug("Audio play interrupted", err);
+                  });
+            } else {
+               setPlayingIndex(index);
+            }
          } else {
             audio.pause();
             setPlayingIndex(null);
@@ -312,7 +323,13 @@ const Home = () => {
 
             audio.addEventListener("play", () => {
                audios.forEach((a) => {
-                  if (a !== audio) a.pause();
+                  if (a && a !== audio && !a.paused) {
+                     try {
+                        a.pause();
+                     } catch (e) {
+                        // ponytail: ignore cross-audio pause errors on rapid switches
+                     }
+                  }
                });
             });
          }
