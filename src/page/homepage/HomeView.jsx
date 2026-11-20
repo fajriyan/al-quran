@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import LinkProgresBars from "@/lib/LinkProgresBars";
 import Adzan from "@/components/Adzan";
 import Attendance from "@/components/Attendance";
+import InstallPWA from "@/components/InstallPWA";
 import { memo, useContext } from "react";
 import ThemeContext from "@/lib/ThemeContext";
 
@@ -353,6 +354,8 @@ const HomeView = ({
                         <Attendance isFriday={isFriday} />
                      </div>
                   </div>
+
+                  <InstallPWA />
 
                   <div className={`container mx-auto grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 lg:gap-4 sm:gap-4 gap-4`}>
                      {Loading ? (
