@@ -16,7 +16,11 @@ const DetailSurah = () => {
    const [bookStats, setBStats] = useState(false);
 
    const [activeMenu, setActiveMenu] = useState(null);
-   const [activeTab, setActiveTab] = useState(0);
+   const [activeTab, setActiveTab] = useState(() => Number(localStorage.getItem("detailTab")) || 0);
+
+   useEffect(() => {
+      localStorage.setItem("detailTab", activeTab);
+   }, [activeTab]);
 
    const audioRef = useRef(null);
    const [isPlaying, setIsPlaying] = useState(false);
